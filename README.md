@@ -6,7 +6,7 @@
 
 **網址：https://upsky0210.github.io/Xikou-Studio/**
 
-> 這個 repo 只放網站要用的檔案。題目的作者端原始檔（`questions.json`、`drafts/`）、工具（`tools/`）、規劃文件和教師用書留在作者的電腦，不上傳；下面檔案表裡提到它們，是給作者自己看的。
+> 這個 repo 放了全部的檔案（方便在不同電腦修改），只有教師用書 `source/` 不上傳：repo 是公開的，教師用書有版權。在別台電腦要用教師用書，請另外複製 `source/` 資料夾。
 
 ## 檔案
 
@@ -165,7 +165,8 @@ git commit -m "說明改了什麼"
 git push
 ```
 
-大約 1 分鐘後網站就是新版。`.gitignore` 是「放行清單」：只有網站要用的檔案會被傳上去，新增的文件、草稿預設都不會上傳。
+大約 1 分鐘後網站就是新版。`.gitignore` 只擋 `source/`（教師用書）。
+在別台電腦：`git clone https://github.com/upsky0210/Xikou-Studio.git`，改完一樣 add、commit、push；開始改之前先 `git pull` 拿最新版。
 iPad 的描述檔（Web Clip）網址填 `https://upsky0210.github.io/Xikou-Studio/`，勾「全螢幕」。
 
 ## 改了程式之後
