@@ -21,6 +21,7 @@ const attach = (a) => {
   if (!a) return '';
   if (a.t) return '\n' + a.t.map((r, i) => `| ${r.map(md).join(' | ')} |` + (i === 0 ? `\n|${r.map(() => '---').join('|')}|` : '')).join('\n') + '\n';
   if (a.list) return '\n' + a.list.map((x) => `> ${md(x)}`).join('\n>\n') + '\n';
+  if (typeof a.passage === 'string') return '\n> 【短文】' + md(a.passage).split('\n').join('\n> ') + '\n';
   if (a.fig) return `\n\n![${a.alt}](../${a.fig})\n`;   // 清單放在 drafts/，圖在 data/fig/
   return `\n> ${md(a.text || a)}\n`;
 };
