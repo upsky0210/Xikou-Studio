@@ -8,6 +8,7 @@
      mountain 疾風山脈：雪山、風向袋、繞著山跑的風（速率）
      maze 規律迷宮：樹籬迷宮，中間是照規律疊起來的方塊塔
      castle 溪口王城：城堡；還沒開放時有鷹架和吊車（建造中）
+   社會（sk6）：civic 民主議事城、lane 聚落文化巷、industry 產業轉型園、eco 永續城鄉谷
    每個地標的原點在地面中心，正面朝 +z（鏡頭那一邊）。
    回傳 { group, top（標籤放多高）, flag（徽章旗插在哪）, update(t, dt), setState? } */
 import { THREE, Kit, MAT, toonMat, waterMaterial, rng, matrixOf } from './kit.js';
@@ -667,7 +668,166 @@ function magnet() {
   };
 }
 
-const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet };
+/* ---------- 民主議事城（民主政治）：白色議事廳（柱廊＋圓頂）、飄動的旗子、紀念碑、投票箱（選票一張張投進去） ---------- */
+function civic() {
+  const k = new Kit();
+  k.box(7.4, 0.3, 6.4, C.stone2, {});
+  for (let i = 0; i < 3; i++) k.box(5.6 - i * 0.4, 0.22, 1.0, C.stone, { p: [0, 0.3 + i * 0.22, 0.9 - i * 0.25] });
+  k.box(5.0, 2.8, 2.8, C.marble, { p: [0, 0.96, -1.4] });
+  k.box(5.4, 0.35, 3.2, C.stone2, { p: [0, 3.76, -1.4] });
+  for (let i = 0; i < 6; i++) k.cyl(0.2, 0.22, 2.8, 8, C.white, { p: [-2.25 + i * 0.9, 0.96, 0.15] });
+  k.box(5.3, 0.3, 0.5, C.stone2, { p: [0, 3.76, 0.15] });
+  k.cyl(1.4, 1.5, 0.7, 14, C.stone, { p: [0, 4.1, -1.4] });
+  k.dome(1.35, 14, 7, '#7fb1e8', { p: [0, 4.8, -1.4] });
+  k.cyl(0.08, 0.08, 0.7, 6, C.gold2, { p: [0, 6.1, -1.4] });
+  k.box(1.0, 1.5, 0.1, C.wood2, { p: [0, 0.96, -0.02] });
+  // 紀念碑
+  k.box(0.9, 0.4, 0.9, C.stone2, { p: [-3.0, 0.3, 2.2] });
+  k.box(0.5, 2.6, 0.5, C.white, { p: [-3.0, 0.7, 2.2] });
+  k.cone(0.36, 0.5, 4, C.white, { p: [-3.0, 3.3, 2.2], r: [0, Math.PI / 4, 0] });
+  // 旗桿
+  k.cyl(0.07, 0.07, 4.6, 6, C.metal, { p: [3.2, 0.3, 2.0] });
+  // 投票箱
+  k.box(1.1, 0.9, 0.8, '#f4f1ea', { p: [2.0, 0.3, 2.4] });
+  k.box(1.14, 0.18, 0.84, '#5b7bff', { p: [2.0, 0.75, 2.4] });
+  k.box(0.6, 0.06, 0.12, C.dark, { p: [2.0, 1.2, 2.4] });
+  const group = k.build();
+  const flag = new THREE.Mesh(new THREE.PlaneGeometry(1.3, 0.85, 6, 1), new THREE.MeshLambertMaterial({ color: '#e5493d', side: THREE.DoubleSide }));
+  flag.position.set(3.88, 4.35, 2.0); flag.raycast = () => {}; group.add(flag);
+  const fp = flag.geometry.attributes.position, fx = Array.from({ length: fp.count }, (_, i) => fp.getX(i));
+  const ballot = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 0.04), new THREE.MeshLambertMaterial({ color: '#ffffff' }));
+  ballot.raycast = () => {}; group.add(ballot);
+  return {
+    group, top: 7.0, flag: [-3.4, 0.3, -1.8],
+    update(t) {
+      for (let i = 0; i < fp.count; i++) fp.setZ(i, Math.sin(t * 3 + fx[i] * 3) * 0.12 * (fx[i] + 0.65));
+      fp.needsUpdate = true;
+      const u = (t * 0.5) % 1; ballot.position.set(2.0, 2.3 - u * 1.1, 2.4); ballot.visible = u < 0.9;
+    },
+  };
+}
+
+/* ---------- 聚落文化巷（族群文化）：紅磚三合院、廟宇燕尾屋脊、教堂尖塔、眷村矮房，巷口掛著會晃的紅燈籠 ---------- */
+function lane() {
+  const k = new Kit();
+  k.box(8.0, 0.3, 6.6, '#d9cbb0', {});
+  // 三合院：正身＋左右護龍，紅瓦
+  k.box(3.6, 1.6, 1.3, '#c4553b', { p: [-1.4, 0.3, -2.2] });
+  k.cone(2.6, 0.9, 4, '#a8432e', { p: [-1.4, 1.9, -2.2], r: [0, Math.PI / 4, 0], s: [1, 1, 0.36] });
+  for (const x of [-3.6, 0.8]) {
+    k.box(1.1, 1.4, 2.6, '#c9634a', { p: [x, 0.3, -0.6] });
+    k.cone(1.9, 0.8, 4, '#a8432e', { p: [x, 1.7, -0.6], r: [0, Math.PI / 4, 0], s: [0.42, 1, 1] });
+  }
+  k.box(3.2, 0.06, 2.0, '#e8d9bd', { p: [-1.4, 0.3, -0.5] });
+  k.box(0.6, 1.0, 0.08, C.wood2, { p: [-1.4, 0.3, -1.52] });
+  // 廟宇：燕尾屋脊
+  k.box(2.0, 1.8, 1.6, '#e0a23a', { p: [2.9, 0.3, -1.9] });
+  k.box(2.6, 0.25, 2.1, '#c0392b', { p: [2.9, 2.1, -1.9] });
+  k.box(2.4, 0.18, 0.18, '#2f8a43', { p: [2.9, 2.6, -1.9] });
+  for (const s of [-1, 1]) k.cone(0.14, 0.7, 4, '#2f8a43', { p: [2.9 + s * 1.25, 2.55, -1.9], r: [0, 0, s * 1.1] });
+  k.box(0.7, 1.1, 0.08, '#b0291f', { p: [2.9, 0.3, -1.07] });
+  // 教堂：白牆尖塔
+  k.box(1.3, 2.0, 1.3, C.white, { p: [3.2, 0.3, 1.6] });
+  k.cone(0.95, 1.8, 4, '#5b7bff', { p: [3.2, 2.3, 1.6], r: [0, Math.PI / 4, 0] });
+  k.box(0.08, 0.6, 0.08, C.gold2, { p: [3.2, 4.1, 1.6] });
+  k.box(0.36, 0.08, 0.08, C.gold2, { p: [3.2, 4.45, 1.6] });
+  // 眷村矮房：灰牆藍門
+  k.box(2.0, 1.2, 1.3, '#b9b7b0', { p: [-2.4, 0.3, 2.0] });
+  k.box(2.2, 0.15, 1.5, '#6f6d68', { p: [-2.4, 1.5, 2.0] });
+  k.box(0.5, 0.85, 0.06, '#3f6fd8', { p: [-2.4, 0.3, 2.66] });
+  // 巷道和燈籠架
+  k.box(1.2, 0.04, 6.4, '#bfb39a', { p: [0.9, 0.3, 0.6] });
+  k.cyl(0.06, 0.06, 2.4, 5, C.wood2, { p: [0.0, 0.3, 2.9] });
+  k.cyl(0.06, 0.06, 2.4, 5, C.wood2, { p: [1.8, 0.3, 2.9] });
+  k.box(1.9, 0.06, 0.06, C.wood2, { p: [0.9, 2.66, 2.9] });
+  const group = k.build();
+  const lanterns = [0.4, 1.4].map((x) => {
+    const g = new THREE.Group(); g.position.set(x, 2.66, 2.9);
+    const lk = new Kit(); lk.ball(0.26, 1, '#e5493d', { p: [0, -0.5, 0], s: [1, 1.2, 1] }); lk.box(0.02, 0.24, 0.02, C.dark, { p: [0, -0.24, 0] });
+    g.add(lk.build({ cast: false })); group.add(g); return g;
+  });
+  return {
+    group, top: 5.6, flag: [-3.8, 0.3, 0.8],
+    update(t) { lanterns.forEach((g, i) => { g.rotation.z = Math.sin(t * 1.6 + i) * 0.18; }); },
+  };
+}
+
+/* ---------- 產業轉型園（戰後經濟、科技島）：左邊磚造工廠和冒煙的煙囪，右邊藍玻璃晶圓廠，中間的路上有貨車來回跑 ---------- */
+function industry() {
+  const k = new Kit();
+  k.box(8.4, 0.3, 6.6, '#cfd2cc', {});
+  // 舊工廠：鋸齒屋頂
+  k.box(3.2, 1.8, 2.6, '#b5654a', { p: [-2.4, 0.3, -1.4] });
+  for (let i = 0; i < 3; i++) k.box(1.0, 0.6, 2.6, '#6b4a3a', { p: [-3.45 + i * 1.05, 2.1, -1.4], r: [0, 0, 0.5] });
+  k.cyl(0.35, 0.45, 4.6, 8, '#9e3a28', { p: [-3.6, 0.3, -2.4] });
+  for (let y = 1.2; y < 4.8; y += 1.1) k.cyl(0.47, 0.47, 0.14, 8, C.white, { p: [-3.6, 0.3 + y, -2.4] });
+  k.box(0.9, 1.2, 0.08, C.metal, { p: [-2.0, 0.3, -0.06] });
+  // 晶圓廠：藍玻璃
+  k.box(3.4, 2.6, 2.6, '#dfe8f3', { p: [2.3, 0.3, -1.4] });
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 4; c++) k.box(0.6, 0.6, 0.06, '#7fd0ff', { p: [0.95 + c * 0.9, 0.9 + r * 0.95, -0.07], glow: true });
+  k.box(3.6, 0.2, 2.8, '#4f7fd8', { p: [2.3, 2.9, -1.4] });
+  k.box(1.2, 0.5, 1.0, C.metal, { p: [2.9, 3.1, -1.8] });
+  // 晶圓（大圓盤）
+  k.cyl(0.9, 0.9, 0.12, 24, '#c9d6e8', { p: [3.3, 0.3, 2.3] });
+  for (let i = 0; i < 4; i++) k.box(1.4, 0.02, 0.04, '#8fa4c4', { p: [3.3, 0.43, 2.0 + i * 0.2] });
+  // 路
+  k.box(8.0, 0.04, 1.3, '#5d6270', { p: [0, 0.3, 1.0] });
+  for (let i = 0; i < 6; i++) k.box(0.6, 0.02, 0.1, C.white, { p: [-3.3 + i * 1.3, 0.35, 1.0] });
+  const gm = new THREE.MeshBasicMaterial({ vertexColors: true });
+  const group = k.build({ glowMat: gm });
+  const smokeMat = new THREE.MeshLambertMaterial({ color: '#e6e3df', transparent: true, opacity: 0.85 });
+  const puffs = [0, 1, 2].map(() => { const m = new THREE.Mesh(new THREE.IcosahedronGeometry(0.4, 0), smokeMat); m.raycast = () => {}; group.add(m); return m; });
+  const truck = new THREE.Group();
+  const tk = new Kit();
+  tk.box(1.1, 0.7, 0.6, '#ffc533', { p: [-0.2, 0.12, 0] });
+  tk.box(0.45, 0.55, 0.6, '#e5493d', { p: [0.6, 0.12, 0] });
+  for (const x of [-0.5, 0.5]) for (const z of [-0.3, 0.3]) tk.cyl(0.14, 0.14, 0.08, 8, C.dark, { c: true, r: [Math.PI / 2, 0, 0], p: [x, 0.14, z] });
+  truck.add(tk.build({ cast: false })); group.add(truck);
+  return {
+    group, top: 6.4, flag: [-3.8, 0.3, 2.6],
+    update(t) {
+      puffs.forEach((m, i) => { const u = (t * 0.35 + i / 3) % 1; m.position.set(-3.6 + Math.sin(u * 5 + i) * 0.3, 5.0 + u * 2.6, -2.4); m.scale.setScalar(0.6 + u * 1.1); });
+      const v = 0.85 + 0.15 * Math.sin(t * 2); gm.color.setRGB(v, v, v);
+      const u = (t * 0.12) % 1; truck.position.set(-3.6 + u * 7.2, 0.3, 1.0);
+    },
+  };
+}
+
+/* ---------- 永續城鄉谷（城鄉與永續）：左邊高樓、右邊稻田和農舍，中間的滯洪池公園，後面有轉動的風力發電機 ---------- */
+function eco() {
+  const k = new Kit();
+  k.cyl(5.0, 5.4, 0.3, 14, '#9bc46a', {});
+  // 都市高樓
+  for (const [x, z, h, c] of [[-3.0, -1.6, 4.2, '#c9d3e6'], [-1.8, -2.4, 3.2, '#e8e1d4'], [-3.4, 0.2, 2.4, '#d8c8e8'], [-2.0, -0.8, 2.0, '#cfe0ef']]) {
+    k.box(1.1, h, 1.1, c, { p: [x, 0.3, z] });
+    for (let y = 0.7; y < h - 0.2; y += 0.6) k.box(1.12, 0.14, 1.12, C.window, { p: [x, 0.3 + y, z] });
+  }
+  // 稻田（一格一格）
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 2; c++) {
+    k.box(1.3, 0.12, 1.1, '#5fbf5d', { p: [1.8 + c * 1.45, 0.3, -2.0 + r * 1.25] });
+    for (let i = 0; i < 4; i++) k.box(1.2, 0.18, 0.08, '#2f8a43', { p: [1.8 + c * 1.45, 0.36, -2.4 + r * 1.25 + i * 0.25] });
+  }
+  // 農舍
+  k.box(1.0, 0.9, 0.9, '#f2e6cc', { p: [3.9, 0.3, 1.8] });
+  k.cone(0.85, 0.6, 4, C.roof, { p: [3.9, 1.2, 1.8], r: [0, Math.PI / 4, 0] });
+  // 滯洪池：外圈步道
+  k.cyl(1.8, 1.9, 0.12, 20, C.stone2, { p: [-0.3, 0.3, 1.9] });
+  // 樹
+  for (const [x, z] of [[1.4, 3.4], [-2.4, 3.4], [1.0, 1.0]]) { k.cyl(0.1, 0.12, 0.6, 5, C.wood2, { p: [x, 0.3, z] }); k.ball(0.45, 0, C.leaf2, { p: [x, 1.15, z] }); }
+  // 風力發電機塔
+  k.cyl(0.1, 0.16, 4.6, 6, C.white, { p: [0.4, 0.3, -3.2] });
+  const group = k.build();
+  const water = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.5, 0.1, 20), waterMaterial());
+  water.position.set(-0.3, 0.42, 1.9); water.receiveShadow = true; group.add(water);
+  const rotor = new THREE.Group(); rotor.position.set(0.4, 4.9, -3.0);
+  const rk = new Kit();
+  rk.ball(0.18, 0, C.white, {});
+  for (let i = 0; i < 3; i++) { const a = (i * Math.PI * 2) / 3; rk.box(0.16, 1.7, 0.05, C.white, { c: true, p: [Math.sin(a) * 0.85, Math.cos(a) * 0.85, 0], r: [0, 0, -a] }); }
+  rotor.add(rk.build({ cast: false })); group.add(rotor);
+  return { group, top: 6.6, flag: [-4.0, 0.3, 2.4], update(t) { rotor.rotation.z = t * 1.4; } };
+}
+
+const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco };
 export function buildLandmark(terrain) { return (BUILDERS[terrain] || generic)(); }
 export const LANDMARK_KEYS = Object.keys(BUILDERS);
 

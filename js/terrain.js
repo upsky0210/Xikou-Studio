@@ -17,6 +17,10 @@
     forge: { label: '鍛造坊', color: '#e8622c' },
     volcano: { label: '火山谷', color: '#a8643a' },
     magnet: { label: '磁石塔', color: '#7c4ddb' },
+    civic: { label: '議事城', color: '#3d6fd8' },
+    lane: { label: '文化巷', color: '#c4553b' },
+    industry: { label: '轉型園', color: '#e0912a' },
+    eco: { label: '城鄉谷', color: '#2f9e5b' },
     generic: { label: '城鎮', color: '#6d7a99' },
   };
   function get(key) {
