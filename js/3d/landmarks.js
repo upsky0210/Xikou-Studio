@@ -482,7 +482,192 @@ function generic() {
   return { group: k.build(), top: 5, flag: [-2.8, 0, 1.8], update() {} };
 }
 
-const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle };
+
+/* ---------- 風雲氣象台（天氣）：山丘上的氣象台、會轉的風向標和風速杯、飄著下雨的雲、彩虹 ---------- */
+function weather() {
+  const k = new Kit(), R = rng(31);
+  k.cyl(4.4, 5.2, 1.2, 10, '#9bc46a', {});
+  for (let i = 0; i < 6; i++) { const a = R() * Math.PI * 2; k.ball(0.6 + R() * 0.4, 0, C.rock3, { p: [Math.cos(a) * 4.2, 1.0, Math.sin(a) * 4.0], r: [R(), R(), R()] }); }
+  k.box(3.6, 2.4, 3.0, C.marble, { p: [0, 1.2, -0.6] });
+  k.box(3.9, 0.3, 3.3, '#4f7fd8', { p: [0, 3.6, -0.6] });
+  k.dome(1.35, 12, 6, '#e8eef8', { p: [0, 3.9, -0.6] });
+  k.box(0.5, 1.4, 0.4, '#3d4b6e', { p: [0, 4.4, 0.55], r: [-0.4, 0, 0] });
+  k.box(0.9, 1.4, 0.12, C.wood2, { p: [0, 1.2, 0.92] });
+  for (const x of [-1.2, 1.2]) k.box(0.55, 0.6, 0.1, C.window, { p: [x, 2.2, 0.92] });
+  // 百葉箱
+  k.box(0.1, 1.2, 0.1, C.white, { p: [2.9, 1.2, 1.6] });
+  k.box(0.9, 0.8, 0.8, C.white, { p: [2.9, 2.4, 1.6] });
+  k.box(0.98, 0.12, 0.9, '#dfe6ee', { p: [2.9, 3.2, 1.6] });
+  // 雨量筒
+  k.cyl(0.25, 0.25, 0.8, 10, '#cfd6e0', { p: [-2.6, 1.2, 1.7] });
+  // 彩虹（四道半圓）
+  ['#ff6b6b', '#ffd23f', '#5fd36b', '#5b9bff'].forEach((c, i) => k.torus(3.4 - i * 0.28, 0.14, 5, 24, Math.PI, c, { p: [-0.5, 1.2, -3.6] }));
+  k.cyl(0.06, 0.06, 2.0, 5, C.metal2, { p: [1.6, 3.6, -1.6] });
+  k.cyl(0.05, 0.05, 0.5, 5, C.metal2, { p: [-1.6, 3.6, -1.4] });
+  const group = k.build();
+  // 風向標
+  const vane = new THREE.Group();
+  vane.position.set(1.6, 5.6, -1.6);
+  const vk = new Kit();
+  vk.box(1.6, 0.08, 0.08, C.metal2, { c: true });
+  vk.cone(0.18, 0.4, 4, '#e5493d', { c: true, p: [0.95, 0, 0], r: [0, 0, -Math.PI / 2] });
+  vk.box(0.06, 0.5, 0.4, '#e5493d', { c: true, p: [-0.75, 0, 0] });
+  vane.add(vk.build({ cast: false }));
+  group.add(vane);
+  // 風速杯
+  const cups = new THREE.Group();
+  cups.position.set(-1.6, 4.1, -1.4);
+  const ck = new Kit();
+  for (let i = 0; i < 3; i++) {
+    const a = (i * Math.PI * 2) / 3;
+    ck.box(0.7, 0.05, 0.05, C.metal2, { c: true, p: [Math.cos(a) * 0.35, 0, Math.sin(a) * 0.35], r: [0, -a, 0] });
+    ck.ball(0.16, 1, '#ffffff', { p: [Math.cos(a) * 0.7, 0, Math.sin(a) * 0.7] });
+  }
+  cups.add(ck.build({ cast: false }));
+  group.add(cups);
+  // 下雨的雲
+  const cloud = new THREE.Group();
+  cloud.position.set(-2.2, 7.2, 0.6);
+  const cl = new Kit();
+  for (const [x, y, r] of [[-0.8, 0, 0.8], [0, 0.3, 1.0], [0.9, 0, 0.75], [0.2, -0.2, 0.8]]) cl.ball(r, 1, '#c9d3e6', { p: [x, y, 0], s: [1, 0.8, 0.9] });
+  cloud.add(cl.build({ cast: false }));
+  const drops = [];
+  const dropMat = new THREE.MeshBasicMaterial({ color: '#5fb4ff' });
+  for (let i = 0; i < 6; i++) {
+    const d = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.3, 5), dropMat);
+    d.rotation.x = Math.PI; d.position.set(-0.9 + i * 0.36, -0.8, (i % 2) * 0.3 - 0.15); d.raycast = () => {};
+    cloud.add(d); drops.push(d);
+  }
+  group.add(cloud);
+  return {
+    group, top: 8.4, flag: [3.8, 1.2, -1.6],
+    update(t) {
+      vane.rotation.y = Math.sin(t * 0.7) * 1.2; cups.rotation.y = t * 4; cloud.position.x = -2.2 + Math.sin(t * 0.4) * 0.8;
+      drops.forEach((d, i) => { d.position.y = -0.8 - ((t * 2.2 + i * 0.37) % 1) * 3.5; });
+    },
+  };
+}
+
+/* ---------- 熱脹熔爐坊（熱）：紅磚鍛造坊、發光的熔爐、冒煙的煙囪、鐵砧、慢慢升起的天燈 ---------- */
+function forge() {
+  const k = new Kit();
+  k.box(7.2, 0.3, 6.0, '#cfc3ad', {});
+  k.box(5.0, 3.0, 3.6, '#c4553b', { p: [0, 0.3, -1.0] });
+  for (let y = 0.8; y < 3.2; y += 0.6) k.box(5.04, 0.06, 3.64, '#a8432e', { p: [0, 0.3 + y, -1.0] });
+  k.cone(3.9, 1.8, 4, '#5b3b2a', { p: [0, 3.3, -1.0], r: [0, Math.PI / 4, 0], s: [1, 1, 0.75] });
+  k.box(1.1, 4.2, 1.1, '#9e3a28', { p: [1.6, 3.0, -1.8] });
+  k.box(1.3, 0.3, 1.3, '#6b2a1d', { p: [1.6, 7.2, -1.8] });
+  k.box(1.9, 1.5, 0.5, '#5e2a1d', { p: [-1.0, 0.3, 0.75] });
+  k.box(1.3, 0.9, 0.2, '#ffb02e', { p: [-1.0, 0.5, 1.0], glow: true });
+  k.box(0.9, 0.5, 0.22, '#fff2a8', { p: [-1.0, 0.6, 1.05], glow: true });
+  k.box(0.9, 1.3, 0.12, C.wood2, { p: [1.3, 0.3, 0.82] });
+  k.box(0.6, 0.6, 0.6, C.wood, { p: [2.6, 0.3, 2.0] });
+  k.box(1.2, 0.35, 0.5, C.metal2, { p: [2.6, 0.9, 2.0] });
+  k.box(0.08, 0.9, 0.08, C.wood, { p: [2.9, 1.25, 2.3], r: [0, 0, 1.1] });
+  k.cyl(0.5, 0.45, 0.8, 10, C.wood, { p: [-2.9, 0.3, 1.9] });
+  k.cyl(0.42, 0.42, 0.05, 10, '#4cb8ee', { p: [-2.9, 1.05, 1.9], glow: true });
+  for (let i = 0; i < 4; i++) k.box(1.6, 0.12, 0.12, i % 2 ? '#ff7a3a' : C.metal, { p: [0.4, 0.3 + i * 0.14, 2.4], glow: i % 2 === 1 });
+  const gm = new THREE.MeshBasicMaterial({ vertexColors: true });
+  const group = k.build({ glowMat: gm });
+  const smokeMat = new THREE.MeshLambertMaterial({ color: '#e6e3df', transparent: true, opacity: 0.85 });
+  const puffs = [0, 1, 2, 3].map(() => { const m = new THREE.Mesh(new THREE.IcosahedronGeometry(0.45, 0), smokeMat); m.raycast = () => {}; group.add(m); return m; });
+  const lantern = new THREE.Group();
+  const lk = new Kit();
+  lk.box(0.8, 1.0, 0.8, '#ffd76a', { glow: true });
+  lk.box(0.84, 0.1, 0.84, '#e5493d', { p: [0, 0.95, 0] });
+  lantern.add(lk.build({ cast: false }));
+  group.add(lantern);
+  return {
+    group, top: 8.6, flag: [-3.4, 0.3, -2.4],
+    update(t) {
+      const v = 0.8 + 0.2 * Math.sin(t * 6) * Math.sin(t * 2.3); gm.color.setRGB(v, v, v);
+      puffs.forEach((m, i) => { const u = (t * 0.35 + i / 4) % 1; m.position.set(1.6 + Math.sin(u * 6 + i) * 0.4, 7.6 + u * 3.2, -1.8); m.scale.setScalar(0.6 + u * 1.2); });
+      const u = (t * 0.06) % 1; lantern.position.set(-2.2 + Math.sin(t * 0.8) * 0.5, 3.6 + u * 5.5, -2.6); lantern.visible = u < 0.95;
+    },
+  };
+}
+
+/* ---------- 地層火山谷（大地）：冒煙的火山、發光的熔岩、彩色的岩層斷崖、化石 ---------- */
+function volcano() {
+  const k = new Kit(), R = rng(9);
+  k.cone(4.6, 6.4, 9, '#7a6457', { p: [-0.8, 0, -1.6], r: [0, 0.3, 0] });
+  k.cyl(1.25, 1.45, 0.5, 9, '#5d4a40', { p: [-0.8, 5.7, -1.6], r: [0, 0.3, 0] });
+  k.cyl(1.0, 1.0, 0.12, 9, '#ff7a1a', { p: [-0.8, 6.05, -1.6], glow: true });
+  for (const [a, len] of [[0.3, 4.6], [1.4, 3.8], [-0.7, 3.2]]) {
+    for (let i = 0; i < 5; i++) {
+      const f = i / 5, r = 1.2 + f * (len - 0.8), y = 6.0 * (1 - r / 4.9);
+      k.box(0.45, 0.14, 0.9, i % 2 ? '#ff8a1a' : '#ffb02e', { p: [-0.8 + Math.sin(a) * r, Math.max(0.1, y), -1.6 + Math.cos(a) * r], r: [0.9 * (1 - f), a, 0], glow: true });
+    }
+  }
+  ['#c98f5a', '#e3c27d', '#9b7b62', '#d9a46a', '#8a6f5c'].forEach((c, i) => k.box(3.0 - i * 0.12, 0.6, 2.4, c, { p: [3.3, i * 0.6, 0.8] }));
+  k.box(2.2, 0.3, 1.8, '#79b052', { p: [3.3, 3.0, 0.8] });
+  for (let i = 0; i < 6; i++) { const a = R() * Math.PI * 2; k.ball(0.4 + R() * 0.4, 0, i % 2 ? '#6b5a50' : '#8a7a6e', { p: [-0.8 + Math.cos(a) * 4.6, 0.25, -1.6 + Math.sin(a) * 4.2], r: [R(), R(), R()] }); }
+  k.box(1.0, 0.7, 0.8, '#d8cbb2', { p: [1.4, 0, 2.6], r: [0, 0.4, 0] });
+  k.torus(0.22, 0.06, 4, 10, Math.PI * 1.6, '#8a7a6e', { p: [1.6, 0.38, 2.98], r: [0, 0.4, 0] });
+  const gm = new THREE.MeshBasicMaterial({ vertexColors: true });
+  const group = k.build({ glowMat: gm });
+  const smokeMat = new THREE.MeshLambertMaterial({ color: '#b9b2ad', transparent: true, opacity: 0.8 });
+  const puffs = [0, 1, 2, 3, 4].map(() => { const m = new THREE.Mesh(new THREE.IcosahedronGeometry(0.55, 0), smokeMat); m.raycast = () => {}; group.add(m); return m; });
+  return {
+    group, top: 9.2, flag: [3.3, 3.3, 0.8],
+    update(t) {
+      const v = 0.78 + 0.22 * Math.sin(t * 1.7); gm.color.setRGB(v, v, v);
+      puffs.forEach((m, i) => { const u = (t * 0.25 + i / 5) % 1; m.position.set(-0.8 + Math.sin(u * 5 + i) * 0.6, 6.4 + u * 3.4, -1.6); m.scale.setScalar(0.5 + u * 1.6); });
+    },
+  };
+}
+
+/* ---------- 雷電磁石塔（電磁）：繞著線圈的高塔、頂端會閃的電球、馬蹄形磁鐵、指南針、電池 ---------- */
+function magnet() {
+  const k = new Kit();
+  k.cyl(3.0, 3.4, 0.5, 10, C.stone2, {});
+  k.cyl(0.9, 1.4, 6.0, 8, '#6a7891', { p: [0, 0.5, -1.0] });
+  for (let i = 0; i < 9; i++) k.torus(1.25 - i * 0.05, 0.14, 5, 18, Math.PI * 2, '#d98a3a', { r: [Math.PI / 2, 0, 0], p: [0, 1.4 + i * 0.5, -1.0] });
+  k.cyl(0.5, 0.7, 0.5, 8, C.metal2, { p: [0, 6.5, -1.0] });
+  // 馬蹄形磁鐵：上面是紅色半圓，兩腳一紅（N）一藍（S）
+  k.torus(1.0, 0.35, 6, 14, Math.PI, '#e5493d', { p: [3.1, 1.7, 1.6] });
+  k.box(0.7, 1.2, 0.7, '#e5493d', { p: [2.1, 0.5, 1.6] });
+  k.box(0.7, 1.2, 0.7, '#4f6bff', { p: [4.1, 0.5, 1.6] });
+  for (const x of [2.1, 4.1]) k.box(0.72, 0.35, 0.72, '#e8eef6', { p: [x, 0.5, 1.6] });
+  // 指南針
+  k.cyl(0.8, 0.85, 0.25, 16, '#f2e6cc', { p: [-2.6, 0.5, 1.8] });
+  k.box(0.55, 0.06, 0.16, '#e5493d', { p: [-2.32, 0.76, 1.8] });
+  k.box(0.55, 0.06, 0.16, '#4f6bff', { p: [-2.88, 0.77, 1.8] });
+  // 電池和電線
+  k.cyl(0.35, 0.35, 1.2, 10, '#3b3f52', { c: true, r: [0, 0, Math.PI / 2], p: [-1.6, 0.85, 2.6] });
+  k.cyl(0.36, 0.36, 0.35, 10, '#ffc533', { c: true, r: [0, 0, Math.PI / 2], p: [-1.15, 0.85, 2.6] });
+  k.box(0.08, 0.08, 2.6, '#e5493d', { p: [-0.9, 0.5, 1.3] });
+  const group = k.build();
+  const orbMat = new THREE.MeshBasicMaterial({ color: '#9be8ff' });
+  const orb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.75, 1), orbMat);
+  orb.position.set(0, 7.6, -1.0);
+  orb.raycast = () => {};
+  group.add(orb);
+  const boltMat = new THREE.LineBasicMaterial({ color: '#e9fbff' });
+  const bolts = [0, 1, 2].map(() => {
+    const g = new THREE.BufferGeometry().setFromPoints(Array.from({ length: 6 }, () => new THREE.Vector3()));
+    const l = new THREE.Line(g, boltMat); l.raycast = () => {}; l.frustumCulled = false; group.add(l); return l;
+  });
+  return {
+    group, top: 9.0, flag: [-3.0, 0.5, -1.6],
+    update(t) {
+      const f = Math.sin(t * 9) * Math.sin(t * 3.7);
+      orbMat.color.setRGB(0.6 + 0.4 * Math.abs(f), 0.9, 1);
+      orb.scale.setScalar(1 + 0.08 * f);
+      bolts.forEach((l, j) => {
+        const a = l.geometry.attributes.position, base = t * 2 + j * 2.1;
+        for (let i = 0; i < 6; i++) {
+          const u = i / 5, ang = base + u * 0.8;
+          a.setXYZ(i, Math.cos(ang) * (0.7 + u * 1.6) + (Math.random() - 0.5) * 0.25, 7.6 - u * 2.2 + (Math.random() - 0.5) * 0.2, -1.0 + Math.sin(ang) * (0.7 + u * 1.6));
+        }
+        a.needsUpdate = true;
+        l.visible = Math.sin(t * 5 + j * 2) > -0.2;
+      });
+    },
+  };
+}
+
+const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet };
 export function buildLandmark(terrain) { return (BUILDERS[terrain] || generic)(); }
 export const LANDMARK_KEYS = Object.keys(BUILDERS);
 
