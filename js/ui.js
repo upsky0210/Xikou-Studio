@@ -132,7 +132,7 @@
   }
   function explainHTML(text) {
     return String(text).split('\n').map((line) =>
-      line.startsWith('驗算提示') ? `<p class="check">${rich(line)}</p>` : `<p>${rich(line)}</p>`).join('');
+      /^(驗算提示|證據提示)/.test(line) ? `<p class="check">${rich(line)}</p>` : `<p>${rich(line)}</p>`).join('');
   }
 
   function showError(err) {
