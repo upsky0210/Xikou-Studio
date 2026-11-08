@@ -14,7 +14,7 @@
     maze: { label: '迷宮', color: '#43a047' },
     castle: { label: '王城', color: '#d63f6c' },
     weather: { label: '氣象台', color: '#3b9ee8' },
-    forge: { label: '熔爐坊', color: '#e8622c' },
+    forge: { label: '鍛造坊', color: '#e8622c' },
     volcano: { label: '火山谷', color: '#a8643a' },
     magnet: { label: '磁石塔', color: '#7c4ddb' },
     generic: { label: '城鎮', color: '#6d7a99' },
