@@ -70,7 +70,14 @@ export function makeLayout(zones) {
 
   // 空著的地方放一個池塘（最後一排沒有排滿時，東邊會空出來）
   const lastRow = spots.filter((s) => s.row === rows - 1);
-  const lake = lastRow.length < 3 ? { x: lastRow.length === 2 ? 25 : 18, z: lastRow[0].site[1] + 2, r: 4.2 } : null;
+  // 池塘放在最後一排空著的欄位裡，離已經有地標的地方最遠的那一欄
+  let lake = null;
+  if (lastRow.length < 3) {
+    const used = lastRow.map((s) => s.site[0]);
+    const free = COLS.filter((x) => !lastRow.some((s) => s.plaza[0] === x));
+    const best = free.sort((a, b) => Math.min(...used.map((u) => Math.abs(b - u))) - Math.min(...used.map((u) => Math.abs(a - u))))[0];
+    if (best !== undefined) lake = { x: best + (best > 0 ? 5 : best < 0 ? -5 : 0), z: lastRow[0].site[1] + 2, r: 4.2 };
+  }
 
   const all = castle ? [...spots, castle] : spots;
   const xs = all.flatMap((s) => [s.site[0], s.plaza[0]]), zs = all.flatMap((s) => [s.site[1], s.plaza[1]]);

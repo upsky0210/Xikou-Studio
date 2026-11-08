@@ -22,7 +22,8 @@
   /* ---------- 小圖示（SVG） ---------- */
   const svg = (d, vb = '0 0 24 24') => `<svg class="i" viewBox="${vb}" aria-hidden="true"><path d="${d}"/></svg>`;
   const ICON = {
-    star: svg('M12 2.3l2.95 6.1 6.7.85-4.95 4.6 1.3 6.65L12 17.3l-6 3.2 1.3-6.65L2.35 9.25l6.7-.85z'),
+    jewel: svg('M7 3h10l4.5 5.5L12 21.5 2.5 8.5z'),   // 實心寶石（EXP、經驗寶石）
+    trophy: svg('M6 2.5h12v2h3v2.8a4.3 4.3 0 0 1-4.1 4.3A6 6 0 0 1 13.3 15v3h3.2v3.5h-9V18h3.2v-3A6 6 0 0 1 7.1 11.6 4.3 4.3 0 0 1 3 7.3V4.5h3zm12 4V9a2.3 2.3 0 0 0 1-1.7V6.5zM6 6.5h-1v.8A2.3 2.3 0 0 0 6 9z'),
     shield: svg('M12 1.8l8.5 3.2v6.2c0 5.3-3.6 9.9-8.5 11.6C7.1 21.1 3.5 16.5 3.5 11.2V5z'),
     back: svg('M10.8 4.6L3.4 12l7.4 7.4v-4.8h9.8V9.4h-9.8z'),
     bulb: svg('M12 1.8a7.2 7.2 0 0 0-4.2 13v2.4h8.4v-2.4A7.2 7.2 0 0 0 12 1.8zM8.8 19h6.4v1.4a1.8 1.8 0 0 1-1.8 1.8h-2.8a1.8 1.8 0 0 1-1.8-1.8z'),
@@ -92,17 +93,21 @@
     return { have: reg.filter((r) => s && s.badges[r.index]).length, need: reg.length };
   }
 
-  // 一關的 7 顆寶石
-  function gemsHTML(book, level, nowIndex = -1, runOk = null) {
+  /* 一關的 7 顆經驗寶石（每題一顆，依存檔裡每題的作答紀錄）：
+       亮寶石 bright＝第一次作答就答對（first === true）
+       暗寶石 dim＝曾經答錯、重試後答對（first === false 且 ok）
+       空位＝還沒答對；正在作答的那一題外框會閃 */
+  function gemsHTML(book, level, nowIndex = -1) {
     const saved = state.books[book.id] && state.books[book.id].levels[level.id];
-    return `<span class="gems" aria-hidden="true">${level.q.map((_, i) => {
+    const marks = level.q.map((_, i) => {
       const q = saved && saved.q[i];
-      let cls = q && q.first === true ? 'first' : q && q.ok ? 'ok' : q && q.first === false ? 'miss' : '';
-      if (runOk && run && run.review) cls = runOk[i] ? 'ok' : '';
-      if (i === nowIndex && !(runOk && runOk[i])) cls = 'now';
-      return `<i class="${cls}"></i>`;
-    }).join('')}</span>`;
+      return q && q.ok ? (q.first === true ? 'bright' : 'dim') : '';
+    });
+    const n = (k) => marks.filter((m) => m === k).length;
+    return `<span class="gems" role="img" aria-label="亮寶石 ${n('bright')} 顆、暗寶石 ${n('dim')} 顆、空位 ${n('')} 個">${marks.map((m, i) =>
+      `<i class="${m}${i === nowIndex ? ' now' : ''}"></i>`).join('')}</span>`;
   }
+  const gemLegend = '<p class="gem-legend"><i class="g bright"></i>第一次就答對 <i class="g dim"></i>重試才答對 <i class="g"></i>還沒答對</p>';
 
   /* 附件（素養題用）：
        表格 {t: [[標題...], [資料...]]}、條列 {list: [...]}、短文 "文字" 或 {text}
@@ -137,6 +142,10 @@
       <p><a class="btn gold" href="#/">回首頁</a></p></section>`;
   }
 
+  // 可以點進去的區域：有關卡的區域，或王城（看建造進度）；其他「尚未開放」的不能點
+  const enterable = (book, z) => Engine.islandLevels(book, z).length > 0 || Engine.zoneInfo(book, z).final;
+  async function zoneEnterable(id, z) { try { return enterable(await Loader.loadBook(id), z); } catch { return false; } }
+
   /* ---------- 3D 地圖要的資料（每一區的狀態、名牌） ---------- */
   function currentZone(book) {
     if (lastZone[book.id] !== undefined) return lastZone[book.id];
@@ -168,7 +177,7 @@
         const status = zoneStatus(book, zi);
         return {
           index: z, terrain: t.key, final: zi.final, color: t.color, badge,
-          locked: zi.final && !finalOpen(book, zi),
+          locked: (zi.final && !finalOpen(book, zi)) || !enterable(book, z),
           levels: sums.map((x) => ({ state: x.done ? 'done' : x.okCount ? 'going' : 'todo' })),
           next: sums.findIndex((x) => !x.done),
           label: `<span class="in"><span class="no">${zi.final ? ICON.crown : zi.no}</span><span class="tx"><b>${esc(zi.name)}</b><small>${esc(status)}</small></span>${badge ? `<span class="got">${ICON.shield}</span>` : ''}</span>`,
@@ -226,7 +235,7 @@
     const no = book.levels.indexOf(level) + 1;
     const sum = Engine.levelSummary(state, book.id, level);
     const cls = sum.done ? 'done' : sum.okCount ? 'going' : 'todo';
-    const st = sum.done ? `${ICON.star}<span>已過關</span><small>${sum.firstCount * Engine.EXP_PER_Q} EXP</small>`
+    const st = sum.done ? `${ICON.trophy}<span>已過關</span><small>${sum.firstCount * Engine.EXP_PER_Q} EXP</small>`
       : sum.okCount ? `<span>進行中</span><small>${sum.okCount}／${sum.total} 題</small>` : `<span class="go">${ICON.go}</span>`;
     return `<li><a class="quest ${cls}" href="#/p/${book.id}/${encodeURIComponent(level.id)}">
       <span class="qno">${no}</span>
@@ -261,7 +270,7 @@
     return `<aside class="zpanel win" style="${accVars(t.color)}" aria-label="${esc(zi.name)}">
       <button class="round x" id="zClose" type="button" aria-label="關閉">${ICON.close}</button>
       <div class="zhead"><img class="zimg" src="${t.img}" alt="">
-        <div class="zt"><small>${unitLabel(zi)} · ${esc(t.label)}</small><h2>${esc(zi.name)}</h2>${zi.unit ? `<p>${esc(zi.unit)}</p>` : ''}</div></div>
+        <div class="zt"><small>${unitLabel(zi)}${zi.terrain ? " · " + esc(t.label) : ""}</small><h2>${esc(zi.name)}</h2>${zi.unit ? `<p>${esc(zi.unit)}</p>` : ''}</div></div>
       <div class="scroll">${body}</div></aside>`;
   }
 
@@ -270,9 +279,9 @@
       const zi = Engine.zoneInfo(book, z), t = terrainOf(zi);
       const s = state.books[book.id], badge = !!(s && s.badges[z]);
       const locked = (zi.final && !finalOpen(book, zi)) || !Engine.islandLevels(book, z).length;
-      const tagName = 'a';
-      return `<${tagName} class="fzone${badge ? ' got' : ''}${locked ? ' locked' : ''}" href="#/b/${book.id}/z/${z}" style="${accVars(t.color)}">
-        ${badge ? `<span class="gotb" title="已得徽章">${ICON.shield}</span>` : ''}<img src="${t.img}" alt=""><small>${unitLabel(zi)} · ${esc(t.label)}</small><b>${esc(zi.name)}</b><span class="st">${esc(zoneStatus(book, zi))}</span></${tagName}>`;
+      const tagName = enterable(book, z) ? 'a' : 'div';
+      return `<${tagName} class="fzone${badge ? ' got' : ''}${locked ? ' locked' : ''}"${tagName === 'a' ? ` href="#/b/${book.id}/z/${z}"` : ''} style="${accVars(t.color)}">
+        ${badge ? `<span class="gotb" title="已得徽章">${ICON.shield}</span>` : ''}<img src="${t.img}" alt=""><small>${unitLabel(zi)}${zi.terrain ? " · " + esc(t.label) : ""}</small><b>${esc(zi.name)}</b><span class="st">${esc(zoneStatus(book, zi))}</span></${tagName}>`;
     }).join('');
     return `<div class="flat">${mapChrome(book, null)}<div class="flat-zones">${cards}</div>
       <p class="note">${esc(book.note || '')}</p></div>`;
@@ -296,7 +305,7 @@
 
   function renderMap(book, z) {
     const zi = z === null ? null : Engine.zoneInfo(book, z);
-    if (z !== null && (!zi || z < 0 || z >= book.zones.length)) { location.hash = '#/b/' + book.id; return; }
+    if (z !== null && (!zi || z < 0 || z >= book.zones.length || !enterable(book, z))) { location.hash = '#/b/' + book.id; return; }
     updateTop(book);
     if (!world) {
       setMode('flat');
@@ -314,7 +323,7 @@
       if (celebrate && celebrate.book === book.id && z === celebrate.z) {
         const c = celebrate;
         celebrate = null;
-        setTimeout(() => { world.celebrate(c.z); toast(`${ICON.star} 「${zoneName(book, c.z)}」插上了徽章旗！`); }, 900);
+        setTimeout(() => { world.celebrate(c.z); toast(`${ICON.shield} 「${zoneName(book, c.z)}」插上了徽章旗！`); }, 900);
       }
     }
     const close = $('#zClose');
@@ -347,12 +356,12 @@
         <p class="lead">${esc(level.intro)}</p>
         <ul class="rules">
           <li><span class="ico shield">${ICON.gem}</span>共 ${level.q.length} 題，第 6、7 題是素養題。</li>
-          <li><span class="ico gold">${ICON.star}</span>第一次作答就答對 +${Engine.EXP_PER_Q} EXP；答錯不扣分，可以再選一次。</li>
+          <li><span class="ico gold">${ICON.jewel}</span>第一次作答就答對 +${Engine.EXP_PER_Q} EXP；答錯不扣分，可以再選一次。</li>
           <li><span class="ico jade">${ICON.bulb}</span>每題有 3 段提示，看提示不扣 EXP。</li>
         </ul>
-        <div>${gemsHTML(book, level)}</div>
+        <div>${gemsHTML(book, level)}</div>${gemLegend}
         ${level.draft ? `<p class="banner draft">${ICON.book}<span>這一關是草稿，老師抽驗通過後才是正式版。題目有錯請告訴老師。</span></p>` : ''}
-        ${sum.done ? `<p class="banner">${ICON.star}<span>你已經過關了，這次是複習，不會再加 EXP。</span></p>` : ''}
+        ${sum.done ? `<p class="banner">${ICON.trophy}<span>你已經過關了，這次是複習，不會再加 EXP。</span></p>` : ''}
         ${resume ? `<p class="banner">${ICON.go}<span>上次答對了 ${sum.okCount} 題，會從還沒答對的題目接著做。</span></p>` : ''}
         <div class="row"><a class="btn" href="${backTo}">${ICON.back} 回到${esc(zi.name)}</a>
           <button class="btn gold big" id="start" type="button">${ICON.sword} ${sum.done ? '再練一次' : resume ? '繼續闖關' : '開始闖關'}</button></div>
@@ -395,7 +404,7 @@
     const hints = q.hints.slice(0, shown).map((h, k) => `<li><span class="hn">${k + 1}</span><b>提示 ${k + 1}</b>${rich(h)}</li>`).join('');
     let fb = '';
     if (feedback && feedback.ok) {
-      fb = `<div class="fb ok"><b>答對了！</b>${feedback.gained ? `<span class="gain">${ICON.star} +${feedback.gained} EXP</span>`
+      fb = `<div class="fb ok"><b>答對了！</b>${feedback.gained ? `<span class="gain">${ICON.jewel} +${feedback.gained} EXP</span>`
         : run.review ? '<span class="sub">複習模式不加 EXP</span>' : '<span class="sub">重試答對不加 EXP，但你學會了！</span>'}</div>`;
     } else if (feedback) {
       fb = `<div class="fb no"><b>再想想看。</b><span class="sub">${shown < Engine.HINTS_PER_Q ? '卡住的話，可以打開提示。' : '把提示再讀一次，回頭看看題目的條件。'}</span></div>`;
@@ -408,8 +417,8 @@
         <div class="qbar">
           <button class="btn" id="quit" type="button">${ICON.back} 離開</button>
           <div class="qtitle"><img src="${t.img}" alt=""><span><small>${esc(zi.name)} · 第 ${no} 關${run.review ? ' · 複習' : ''}</small><b>${esc(level.name)}</b></span></div>
-          ${gemsHTML(book, level, i, run.ok)}
-          <span class="pill exp" id="qExpPill" title="這本書的 EXP"><i class="ico gold" aria-hidden="true">${ICON.star}</i><b id="qExp">${bookExp}</b><small>EXP</small></span>
+          ${gemsHTML(book, level, i)}
+          <span class="pill exp" id="qExpPill" title="這本書的 EXP"><i class="ico gold" aria-hidden="true">${ICON.jewel}</i><b id="qExp">${bookExp}</b><small>EXP</small></span>
         </div>
         <section class="win qcard">
           <div class="ribbon">第 ${i + 1} 題</div>
@@ -461,7 +470,7 @@
     if (!target || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const el = document.createElement('div');
     el.className = 'fly';
-    el.innerHTML = `${ICON.star} ${text}`;
+    el.innerHTML = `${ICON.jewel} ${text}`;
     fx.appendChild(el);
     const sx = fromRect.left + fromRect.width / 2 - 40, sy = fromRect.top + fromRect.height / 2 - 20;
     el.style.transform = `translate(${sx}px, ${sy}px) scale(1.2)`;
@@ -508,17 +517,17 @@
     app.innerHTML = `
       <div class="play" style="${accVars(t.color)}">
         <section class="win result">
-          <div class="ribbon gold">${ICON.star} 過關！</div>
+          <div class="ribbon gold">${ICON.trophy} 過關！</div>
           <div class="hero-wrap"><div class="rays" aria-hidden="true"></div><img class="hero-img" src="img/hero.webp" alt=""></div>
           <h2>${esc(r.level.name)}</h2>
-          ${gemsHTML(book, r.level)}
+          ${gemsHTML(book, r.level)}${gemLegend}
           <div class="stats">
             <div class="hot"><small>這次獲得</small><b>+${r.expGained}</b><span>EXP</span></div>
             <div><small>第一次就答對</small><b>${sum.firstCount}／${sum.total}</b><span>題</span></div>
             <div><small>提示使用</small><b>${r.hintsUsed}</b><span>次</span></div>
             <div><small>這本書累計</small><b>${bstate.exp}</b><span>EXP</span></div>
           </div>
-          ${r.review ? `<p class="banner">${ICON.star}<span>複習模式：EXP 以第一次闖關為準。</span></p>` : ''}
+          ${r.review ? `<p class="banner">${ICON.jewel}<span>複習模式：EXP 以第一次闖關為準。</span></p>` : ''}
           ${res.badge !== null ? `<div class="badge-get">${medalHTML(book, Engine.zoneInfo(book, res.badge), 'big')}
             <p>恭喜！你拿到了<b>「${esc(zoneName(book, res.badge))}」的徽章</b>回到地圖，看看旗子升起來！</p></div>` : ''}
           <div class="row">
@@ -609,7 +618,7 @@
     };
     $('#badgeBtn').innerHTML = `<i class="ico shield" aria-hidden="true">${ICON.shield}</i><b id="badgeNum">0</b><small>徽章</small>`;
     $('#badgeBtn').onclick = openBadges;
-    $('.pill.exp .ico').innerHTML = ICON.star;
+    $('.pill.exp .ico').innerHTML = ICON.jewel;
   }
 
   // 鍵盤：A～D 或 1～4 選答案、H 看提示、Enter 下一題、Esc 關面板
@@ -647,10 +656,11 @@
     setupKeys();
     world = await waitWorld();
     if (world) {
-      world.onSelect((z) => {
+      world.onSelect(async (z) => {
         const parts = location.hash.replace(/^#\/?/, '').split('/');
         const id = parts[0] === 'b' ? parts[1] : null;
         if (!id) return;
+        if (z !== null && !(await zoneEnterable(id, z))) { toast(`${ICON.lock} 這一區尚未開放`); return; }
         location.hash = z === null ? '#/b/' + id : '#/b/' + id + '/z/' + z;
       });
       let t = 0;

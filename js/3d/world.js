@@ -336,19 +336,19 @@ function start() {
     if (walking) S.still = 0;
   }
 
-  /* ---------- 慶祝：升旗＋金色的光點 ---------- */
-  let starTex = null;
+  /* ---------- 慶祝：升旗＋金色的光點（菱形閃光） ---------- */
+  let sparkTex = null;
   function burst(pos) {
-    if (!starTex) {
+    if (!sparkTex) {
       const c = document.createElement('canvas');
       c.width = c.height = 32;
       const g = c.getContext('2d');
       g.fillStyle = '#fff';
       g.translate(16, 16);
       g.beginPath();
-      for (let i = 0; i < 8; i++) { const a = (i * Math.PI) / 4, r = i % 2 ? 4 : 15; g.lineTo(Math.cos(a) * r, Math.sin(a) * r); }
+      g.moveTo(0, -15); g.lineTo(9, 0); g.lineTo(0, 15); g.lineTo(-9, 0); g.closePath();
       g.fill();
-      starTex = new THREE.CanvasTexture(c);
+      sparkTex = new THREE.CanvasTexture(c);
     }
     const n = 70, geo = new THREE.BufferGeometry(), p = new Float32Array(n * 3), col = new Float32Array(n * 3), vel = [];
     const palette = [new THREE.Color('#ffd54a'), new THREE.Color('#ffffff'), new THREE.Color('#ff9f43'), new THREE.Color('#7fd3ff')];
@@ -361,7 +361,7 @@ function start() {
     }
     geo.setAttribute('position', new THREE.BufferAttribute(p, 3));
     geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-    const pts = new THREE.Points(geo, new THREE.PointsMaterial({ size: 1.1, map: starTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    const pts = new THREE.Points(geo, new THREE.PointsMaterial({ size: 1.1, map: sparkTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
     scene.add(pts);
     S.bursts.push({ pts, vel, life: 0 });
   }

@@ -224,16 +224,21 @@ body.has-panel .maptools { display: none; }
 .zlocked .crane { font-size: 15px; color: var(--ink-2); font-weight: 700; }
 .zlocked .row-medals { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
 
-/* 每關的 7 顆寶石：金＝第一次就答對、銀＝重試答對、紅＝答錯還沒答對、灰＝還沒做 */
+/* 每關的 7 顆經驗寶石：亮寶石＝第一次就答對、暗寶石＝重試才答對、空位（只有輪廓）＝還沒答對 */
 .gems { display: inline-flex; gap: 4px; align-items: center; }
-.gems i { position: relative; width: 16px; height: 18px; background: var(--frame); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
-.gems i::before { content: ''; position: absolute; inset: 2px; background: #efeae0; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
-.gems i.first::before { background: linear-gradient(160deg, #fff6b8, var(--gold) 45%, var(--gold-2)); }
-.gems i.ok::before { background: linear-gradient(160deg, #ffffff, #aeb9cf 50%, #7f8ca8); }
-.gems i.miss::before { background: linear-gradient(160deg, #ffd0d5, #ff7b88); }
+.gems i, .gem-legend .g { position: relative; display: inline-block; width: 16px; height: 18px; background: var(--frame); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.gems i::before, .gem-legend .g::before { content: ''; position: absolute; inset: 2px; background: rgba(255, 255, 255, .85); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.gems i::after, .gem-legend .g::after { content: ''; position: absolute; left: 30%; top: 22%; width: 22%; height: 18%; border-radius: 50%; background: transparent; }
+.gems i.bright::before, .gem-legend .g.bright::before { background: linear-gradient(160deg, #e9fbff 0%, #5fe3ff 30%, #2d8cff 70%, #7b5cff 100%); }
+.gems i.bright::after, .gem-legend .g.bright::after { background: rgba(255, 255, 255, .95); }
+.gems i.bright { animation: gemShine 3s ease-in-out infinite; }
+.gems i.dim::before, .gem-legend .g.dim::before { background: linear-gradient(160deg, #8d93a8, #5b6078 55%, #3b3f52); }
 .gems i.now { animation: gemNow 1.2s ease-in-out infinite; background: var(--royal-2); }
-.gems i.now::before { background: linear-gradient(160deg, #e6ebff, #9fb0ff); }
 @keyframes gemNow { 50% { transform: scale(1.25); } }
+@keyframes gemShine { 0%, 80%, 100% { filter: none; } 88% { filter: brightness(1.45) drop-shadow(0 0 3px #9ff); } }
+.gem-legend { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 6px; margin: 6px 0 10px; font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.gem-legend .g { width: 14px; height: 16px; margin-left: 6px; vertical-align: middle; }
+.brief .gem-legend { justify-content: flex-start; }
 
 /* ---------- 對話框（關卡說明、徽章冊） ---------- */
 .modal { position: fixed; inset: 0; z-index: 25; display: grid; place-items: center; padding: calc(var(--hud-h) + 24px + var(--safe-t)) 16px calc(20px + var(--safe-b));

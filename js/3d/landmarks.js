@@ -505,10 +505,11 @@ function bannerTexture(color) {
   g.fillStyle = color; g.fillRect(0, 0, 128, 80);
   g.fillStyle = 'rgba(255,255,255,.18)'; g.fillRect(0, 0, 128, 14);
   g.fillStyle = '#ffc533'; g.fillRect(0, 70, 128, 10);
+  // 旗子中間畫一顆白色寶石
   g.save(); g.translate(64, 38); g.fillStyle = '#ffffff';
-  g.beginPath();
-  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? 9 : 22; g.lineTo(Math.cos(a) * r, Math.sin(a) * r); }
-  g.closePath(); g.fill(); g.restore();
+  g.beginPath(); g.moveTo(-14, -16); g.lineTo(14, -16); g.lineTo(22, -5); g.lineTo(0, 22); g.lineTo(-22, -5); g.closePath(); g.fill();
+  g.fillStyle = 'rgba(0,0,0,.12)'; g.beginPath(); g.moveTo(-22, -5); g.lineTo(22, -5); g.lineTo(0, 22); g.closePath(); g.fill();
+  g.restore();
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace;
   return t;
@@ -546,7 +547,7 @@ export function makeFlag(color, height = 3.4) {
   };
 }
 
-/* ---------- 關卡石台：還沒挑戰（米色）、進行中（藍）、已過關（金＋星星） ---------- */
+/* ---------- 關卡石台：還沒挑戰（米色）、進行中（藍）、已過關（金色台面＋上面轉的經驗寶石） ---------- */
 const STONE_TOP = { todo: '#efe7d6', going: '#7d95ff', done: '#ffd04a' };
 export function makeStone() {
   const group = new THREE.Group();
@@ -558,10 +559,10 @@ export function makeStone() {
   top.receiveShadow = true;
   group.add(top);
   const sk = new Kit();
-  sk.star(0.48, 0.21, 0.16, C.gold, {});
-  const star = sk.build({ cast: false });
-  star.position.y = 1.5;
-  group.add(star);
+  sk.oct(0.42, '#4fd8ff', { s: [0.8, 1.15, 0.8], glow: true });
+  const gem = sk.build({ cast: false });
+  gem.position.y = 1.5;
+  group.add(gem);
   const ring = new THREE.Mesh(new THREE.RingGeometry(1.25, 1.55, 28).rotateX(-Math.PI / 2),
     new THREE.MeshBasicMaterial({ color: '#ffe066', transparent: true, opacity: 0.8, depthWrite: false }));
   ring.position.y = 0.06;
@@ -570,9 +571,9 @@ export function makeStone() {
   let state = 'todo', next = false;
   return {
     group,
-    set(s, isNext) { state = s; next = isNext; topMat.color.set(STONE_TOP[s]); star.visible = s === 'done'; ring.visible = isNext; },
+    set(s, isNext) { state = s; next = isNext; topMat.color.set(STONE_TOP[s]); gem.visible = s === 'done'; ring.visible = isNext; },
     update(t) {
-      if (state === 'done') { star.rotation.y = t * 1.6; star.position.y = 1.45 + Math.sin(t * 2.4) * 0.12; }
+      if (state === 'done') { gem.rotation.y = t * 1.6; gem.position.y = 1.45 + Math.sin(t * 2.4) * 0.12; }
       if (next) { const s = 1 + 0.12 * Math.sin(t * 3.2); ring.scale.set(s, 1, s); ring.material.opacity = 0.55 + 0.35 * Math.sin(t * 3.2); }
     },
   };

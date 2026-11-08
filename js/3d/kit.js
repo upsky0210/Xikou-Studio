@@ -179,14 +179,6 @@ export class Kit {
   lathe(points, seg, color, o = {}) { return this.geo(new THREE.LatheGeometry(points.map(([x, y]) => new THREE.Vector2(x, y)), seg), color, o); }
   torus(r, tube, rs, ts, arc, color, o = {}) { return this.geo(new THREE.TorusGeometry(r, tube, rs, ts, arc), color, o); }
   sector(r, h, seg, t0, tl, color, o = {}) { return this.geo(new THREE.CylinderGeometry(r, r, h, seg, 1, false, t0, tl).translate(0, h / 2, 0), color, o); }
-  star(ro, ri, depth, color, o = {}) {
-    const sh = new THREE.Shape();
-    for (let i = 0; i < 10; i++) {
-      const a = Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? ri : ro;
-      if (i) sh.lineTo(Math.cos(a) * r, Math.sin(a) * r); else sh.moveTo(Math.cos(a) * r, Math.sin(a) * r);
-    }
-    return this.geo(new THREE.ExtrudeGeometry(sh, { depth, bevelEnabled: false }).translate(0, 0, -depth / 2), color, o);
-  }
   empty() { return !this.parts.length && !this.glows.length; }
   mergedParts() { return merge(this.parts); }
 

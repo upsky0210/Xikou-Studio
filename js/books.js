@@ -8,4 +8,5 @@
      color   書卡左邊的色條 */
 window.BOOKS = [
   { id: 'mn6', title: '六上數學', pub: '南一版', file: 'data/mn6.js', global: 'MN6', color: '#1d4ed8' },
+  { id: 'ns6', title: '六上自然', pub: '南一版', file: 'data/ns6.js', global: 'NS6', color: '#16a34a' },
 ];
