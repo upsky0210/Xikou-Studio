@@ -289,6 +289,7 @@ body.mode-play #app { min-height: 100vh; padding: 0 0 40px; }
 
 .attach { margin: 2px 0 16px; border: 3px solid var(--frame); border-radius: 18px; overflow: hidden; background: #fff; }
 .attach-hd { display: flex; align-items: center; gap: 6px; padding: 4px 14px; background: var(--frame); color: #fff; font-size: 13px; letter-spacing: .12em; font-weight: 900; }
+.attach-cap { padding: 6px 14px; background: var(--paper-2, #f4efe4); border-bottom: 2px solid var(--frame); font-size: 15px; font-weight: 800; line-height: 1.45; }
 .attach table { border-collapse: collapse; width: 100%; font-size: 18px; }
 .attach th, .attach td { border-bottom: 2px solid var(--line); padding: 9px 14px; text-align: left; }
 .attach th { background: #f4efe3; font-weight: 900; }

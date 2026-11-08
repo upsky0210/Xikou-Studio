@@ -37,7 +37,7 @@ for (const f of files) {
     lines.push(`### ${it.id}　${md(it.type)}`, '');
     if (it.attachment) lines.push('**附件**' + attach(it.attachment));
     lines.push(`**題目**：${md(it.stem)}`, '', `**正解**：${md(it.answer)}`, '', '**干擾項**', '');
-    for (const d of it.distractors) lines.push(`- ${md(d.text)}　←　${md(d.misconception)}`);
+    for (const d of it.distractors) lines.push(`- ${md(d.text)}　←　${d.trap ? `【${d.trap}】` : ""}${md(d.misconception)}`);
     lines.push('', '**提示**', '');
     it.hints.forEach((h, i) => lines.push(`${i + 1}. ${md(h)}`));
     const [ex, ...rest] = String(it.explanation).split('\n');

@@ -114,14 +114,16 @@
        圖形 {fig: 'data/fig/檔名.svg', alt: '給看不到圖的人的說明', text?: '圖下方的說明'} */
   function attachHTML(a) {
     if (!a) return '';
+    // 表格、條列可帶 cap（資料標題），顯示在「資料」後面
+    const capHTML = a.cap ? `<div class="attach-cap">${esc(a.cap)}</div>` : '';
     if (Array.isArray(a.t)) {
       const [head, ...rows] = a.t;
-      return `<div class="attach"><div class="attach-hd">${ICON.book} 資料</div><div class="table-wrap"><table>
+      return `<div class="attach"><div class="attach-hd">${ICON.book} 資料</div>${capHTML}<div class="table-wrap"><table>
         <thead><tr>${head.map((c) => `<th>${rich(c)}</th>`).join('')}</tr></thead>
         <tbody>${rows.map((r) => `<tr>${r.map((c) => `<td>${rich(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
     }
     if (Array.isArray(a.list)) {
-      return `<div class="attach"><div class="attach-hd">${ICON.book} 資料</div><ul>${a.list.map((x) => `<li>${rich(x)}</li>`).join('')}</ul></div>`;
+      return `<div class="attach"><div class="attach-hd">${ICON.book} 資料</div>${capHTML}<ul>${a.list.map((x) => `<li>${rich(x)}</li>`).join('')}</ul></div>`;
     }
     if (typeof a.passage === 'string') {
       return `<div class="attach"><div class="attach-hd">${ICON.book} 短文</div><p class="passage">${rich(a.passage).replace(/\n/g, '<br>')}</p></div>`;
