@@ -21,6 +21,13 @@ const attach = (a) => {
   if (!a) return '';
   if (a.t) return '\n' + a.t.map((r, i) => `| ${r.map(md).join(' | ')} |` + (i === 0 ? `\n|${r.map(() => '---').join('|')}|` : '')).join('\n') + '\n';
   if (a.list) return '\n' + a.list.map((x) => `> ${md(x)}`).join('\n>\n') + '\n';
+  // 聽力附件：清單上寫出要念的內容（學生畫面不會顯示）
+  if (typeof a.listen === 'string' || a.speakOptions) {
+    const parts = [];
+    if (a.listen) parts.push(`> 【聽力・畫面不顯示】念：「${a.listen}」${a.rate ? `（語速 ${a.rate}）` : ''}`);
+    if (a.speakOptions) parts.push('> 【選項可點播】每個選項旁有喇叭，按了會念出該選項');
+    return '\n' + parts.join('\n>\n') + '\n';
+  }
   if (typeof a.passage === 'string') return '\n> 【短文】' + md(a.passage).split('\n').join('\n> ') + '\n';
   if (a.fig) return `\n\n![${a.alt}](../${a.fig})\n`;   // 清單放在 drafts/，圖在 data/fig/
   return `\n> ${md(a.text || a)}\n`;

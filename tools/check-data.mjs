@@ -33,10 +33,23 @@ for (const lv of book.levels) {
     if (!Array.isArray(hints) || hints.length !== 3) issues.push(`${where(lv, i)} 提示不是 3 段`);
     for (const t of texts(q)) if (t && badMarkup(t)) issues.push(`${where(lv, i)} 分數標記寫壞了：${t.slice(0, 40)}`);
     if (attach) {
-      const ok = Array.isArray(attach.t) || Array.isArray(attach.list) || typeof attach === 'string' || attach.text || attach.fig || (typeof attach.passage === 'string' && attach.passage);
+      const ok = Array.isArray(attach.t) || Array.isArray(attach.list) || typeof attach === 'string' || attach.text || attach.fig || (typeof attach.passage === 'string' && attach.passage) || typeof attach.listen === 'string' || attach.speakOptions === true;
       if (!ok) issues.push(`${where(lv, i)} 附件格式看不懂`);
       if (attach.fig && !existsSync(attach.fig)) issues.push(`${where(lv, i)} 找不到圖檔 ${attach.fig}`);
       if (attach.fig && !attach.alt) issues.push(`${where(lv, i)} 圖形附件缺 alt 說明`);
+      // 聽力附件 { listen: '要念的英文', rate?: 0.6～1, speakOptions?: true }：由瀏覽器英語語音朗讀
+      const eng = (x) => /^[\x20-\x7E’‘“”—–]+$/.test(x);
+      if ('listen' in attach) {
+        if (typeof attach.listen !== 'string' || !attach.listen.trim()) issues.push(`${where(lv, i)} 聽力附件的 listen 是空的`);
+        else {
+          if (!eng(attach.listen)) issues.push(`${where(lv, i)} 聽力 listen 只能是英文（不能有中文或注音）：${attach.listen.slice(0, 30)}`);
+          if (attach.listen.trim().split(/\s+/).length > 60) issues.push(`${where(lv, i)} 聽力 listen 超過 60 個字`);
+          if (stem.includes(attach.listen.trim())) issues.push(`${where(lv, i)} 題幹直接寫出了要念的內容（聽力題會洩答）`);
+          if (ans.length > 2 && stem.includes(ans)) issues.push(`${where(lv, i)} 聽力題的題幹裡出現了正解`);
+        }
+      }
+      if ('rate' in attach && !(attach.rate >= 0.6 && attach.rate <= 1)) issues.push(`${where(lv, i)} 聽力 rate 要在 0.6～1 之間`);
+      if (attach.speakOptions && ![ans, ...(wrong || [])].every(eng)) issues.push(`${where(lv, i)} speakOptions 的選項都要是英文`);
     }
   });
 }
