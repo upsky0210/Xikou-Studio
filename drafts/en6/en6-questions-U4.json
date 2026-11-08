@@ -1,0 +1,1090 @@
+[
+  {
+    "id": "L11-Q1",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "聽力：聽音選字",
+    "stem": "請聽英文，選出你聽到的片語。",
+    "attachment": {
+      "listen": "tea shop",
+      "rate": 0.8
+    },
+    "answer": "tea shop",
+    "distractors": [
+      {
+        "text": "toy shop",
+        "trap": "音近字",
+        "misconception": "字尾相同，但將 tea 的母音聽成 toy"
+      },
+      {
+        "text": "tea shops",
+        "trap": "漏聽字尾",
+        "misconception": "多聽了 shops 最後的 s 音"
+      },
+      {
+        "text": "sweet shop",
+        "trap": "音近字",
+        "misconception": "只聽出相近的長母音和 shop，忽略第一個字的開頭與尾音"
+      }
+    ],
+    "hints": [
+      "先聽第一個字的母音。",
+      "再聽第二個字的開頭與結尾。",
+      "這個場所販售茶飲，尾端沒有複數音。"
+    ],
+    "explanation": "正確概念：念的是 tea shop（茶店），不是 toy shop、tea shops 或 sweet shop。\n破誤：「toy shop」：字尾相同，但將 tea 的母音聽成 toy；「tea shops」：多聽了 shops 最後的 s 音；「sweet shop」：只聽出相近的長母音和 shop，忽略第一個字的開頭與尾音。\n回頭讀：Unit 4 Vocabulary（課本 pp.50–51）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Vocabulary（課本 pp.50–51）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L11-Q2",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "聽力：聽音選字",
+    "stem": "請聽英文，選出你聽到的片語。",
+    "attachment": {
+      "listen": "science museum",
+      "rate": 0.8
+    },
+    "answer": "science museum",
+    "distractors": [
+      {
+        "text": "science museums",
+        "trap": "漏聽字尾",
+        "misconception": "多聽了複數的 s 音"
+      },
+      {
+        "text": "science center",
+        "trap": "音近字",
+        "misconception": "只確認第一個字，沒有聽出第二個字是 museum 而非 center"
+      },
+      {
+        "text": "history museum",
+        "trap": "音近字",
+        "misconception": "只確認後面的 museum，忽略前面的 science 與 history 不同"
+      }
+    ],
+    "hints": [
+      "兩個字都要聽完。",
+      "第二個字較長，注意結尾是否有複數音。",
+      "第一個字與科學有關，後面是博物館。"
+    ],
+    "explanation": "正確概念：念的是 science museum（科學博物館），第二個字是單數 museum。\n破誤：「science museums」：多聽了複數的 s 音；「science center」：只確認第一個字，沒有聽出第二個字是 museum 而非 center；「history museum」：只確認後面的 museum，忽略前面的 science 與 history 不同。\n回頭讀：Unit 4 Vocabulary（課本 p.50）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Vocabulary（課本 p.50）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L11-Q3",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "聽力：聽音選意思",
+    "stem": "請聽英文，選出正確的中文意思。",
+    "attachment": {
+      "listen": "MRT station",
+      "rate": 0.8
+    },
+    "answer": "捷運站",
+    "distractors": [
+      {
+        "text": "公車站牌",
+        "trap": "中文意思混淆",
+        "misconception": "把 MRT station 與 bus stop 混淆"
+      },
+      {
+        "text": "科學博物館",
+        "trap": "中文意思混淆",
+        "misconception": "將交通場所與 science museum 混淆"
+      },
+      {
+        "text": "附近的便利商店",
+        "trap": "中文意思混淆",
+        "misconception": "把 MRT station 與 convenience store 混淆"
+      }
+    ],
+    "hints": [
+      "先聽前面的交通名稱。",
+      "後面的字表示車站。",
+      "前面是捷運常用的三個英文字母。"
+    ],
+    "explanation": "正確概念：念的是 MRT station，意思是捷運站。\n破誤：「公車站牌」：把 MRT station 與 bus stop 混淆；「科學博物館」：將交通場所與 science museum 混淆；「附近的便利商店」：把 MRT station 與 convenience store 混淆。\n回頭讀：Unit 4 Vocabulary（課本 p.50）；Story（課本 p.48）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Vocabulary（課本 p.50）；Story（課本 p.48）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L11-Q4",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "字彙：看中文選英文",
+    "stem": "哪個英文單字表示「圖書館」？",
+    "attachment": null,
+    "answer": "library",
+    "distractors": [
+      {
+        "text": "bookstore",
+        "trap": "中文意思混淆",
+        "misconception": "bookstore 是書店，不是圖書館"
+      },
+      {
+        "text": "hospital",
+        "trap": "中文意思混淆",
+        "misconception": "hospital 是醫院，不是圖書館"
+      },
+      {
+        "text": "supermarket",
+        "trap": "中文意思混淆",
+        "misconception": "supermarket 是超級市場，不是圖書館"
+      }
+    ],
+    "hints": [
+      "先想可以借書、閱讀的地方。",
+      "買書的店和借書的地方不同。",
+      "圖書館的單字以 l 開頭。"
+    ],
+    "explanation": "正確概念：library 是圖書館，課本 Reminder 收錄此場所字。\n破誤：「bookstore」：bookstore 是書店，不是圖書館；「hospital」：hospital 是醫院，不是圖書館；「supermarket」：supermarket 是超級市場，不是圖書館。\n回頭讀：Unit 4 Reminder（課本 p.51）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Reminder（課本 p.51）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L11-Q5",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "字彙：情境填空",
+    "stem": "選出最合適的場所：\"Amy wants a book to keep at home. She will buy it at the ______.\"",
+    "attachment": null,
+    "answer": "bookstore",
+    "distractors": [
+      {
+        "text": "MRT station",
+        "trap": "文意線索誤讀",
+        "misconception": "捷運站是交通場所，不是專門買書的店"
+      },
+      {
+        "text": "sports center",
+        "trap": "文意線索誤讀",
+        "misconception": "運動中心不是專門販售書籍的場所"
+      },
+      {
+        "text": "library",
+        "trap": "中文意思混淆",
+        "misconception": "圖書館通常借閱書籍；題目說 buy，表示購買"
+      }
+    ],
+    "hints": [
+      "注意她要借書還是買書。",
+      "buy 表示購買，要找販售書籍的場所。",
+      "場所名稱中包含 book。"
+    ],
+    "explanation": "正確概念：bookstore 是書店，符合購書帶回家保存的情境。\n破誤：「MRT station」：捷運站是交通場所，不是專門買書的店；「sports center」：運動中心不是專門販售書籍的場所；「library」：圖書館通常借閱書籍；題目說 buy，表示購買。\n回頭讀：Unit 4 Reminder、More Words（課本 pp.51、55）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Reminder、More Words（課本 pp.51、55）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L11-Q6",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "聽力：聽句子選圖意",
+    "stem": "請聽句子，選出正確的位置描述。",
+    "attachment": {
+      "listen": "The tea shop is next to the bookstore.",
+      "rate": 0.9
+    },
+    "answer": "茶店在書店旁邊",
+    "distractors": [
+      {
+        "text": "茶店在書店對面",
+        "trap": "介系詞混淆",
+        "misconception": "把 next to 誤解為 across from"
+      },
+      {
+        "text": "茶店在公園旁邊",
+        "trap": "對話資訊錯置",
+        "misconception": "位置關係相同，但把 bookstore 換成 park"
+      },
+      {
+        "text": "茶店在醫院對面",
+        "trap": "對話資訊錯置",
+        "misconception": "場所和位置關係都與句子不同"
+      }
+    ],
+    "hints": [
+      "先聽兩個場所，再聽它們的關係。",
+      "分辨是在同側旁邊，還是隔街對面。",
+      "聽到的是茶店和賣書場所相鄰。"
+    ],
+    "explanation": "正確概念：句子是 The tea shop is next to the bookstore.，茶店在書店旁邊。\n破誤：「茶店在書店對面」：把 next to 誤解為 across from；「茶店在公園旁邊」：位置關係相同，但把 bookstore 換成 park；「茶店在醫院對面」：場所和位置關係都與句子不同。\n回頭讀：Unit 4 Vocabulary、Reminder、Sentence A（課本 pp.50–52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Vocabulary、Reminder、Sentence A（課本 pp.50–52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L11-Q7",
+    "level": "L11 Unit 4 字彙與聽力",
+    "type": "聽力：聽短對話回答",
+    "stem": "請聽對話，便利商店在哪裡？",
+    "attachment": {
+      "listen": "Kevin: Is the convenience store next to the tea shop? Amy: No, it is not. It is across from the library.",
+      "rate": 0.9
+    },
+    "answer": "圖書館對面",
+    "distractors": [
+      {
+        "text": "茶店旁邊",
+        "trap": "對話資訊錯置",
+        "misconception": "這是 Kevin 的問句猜測，Amy 已否定"
+      },
+      {
+        "text": "圖書館旁邊",
+        "trap": "介系詞混淆",
+        "misconception": "場所正確，但 across from 不是 next to"
+      },
+      {
+        "text": "茶店對面",
+        "trap": "對話資訊錯置",
+        "misconception": "把問句中的茶店接到回答的位置關係"
+      }
+    ],
+    "hints": [
+      "留意回答先肯定還是否定。",
+      "不要把被否定的問句當作事實。",
+      "真正的位置在否定簡答之後。"
+    ],
+    "explanation": "正確概念：原創對話：Kevin: Is the convenience store next to the tea shop? Amy: No, it is not. It is across from the library. 便利商店在圖書館對面。\n破誤：「茶店旁邊」：這是 Kevin 的問句猜測，Amy 已否定；「圖書館旁邊」：場所正確，但 across from 不是 next to；「茶店對面」：把問句中的茶店接到回答的位置關係。\n回頭讀：Unit 4 Sentence A／B、Reminder（課本 pp.51–53）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A／B、Reminder（課本 pp.51–53）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q1",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "文法：動詞形式",
+    "stem": "介紹現在的地圖，空格應填什麼？\"The tea shop ______ next to the park.\"",
+    "attachment": null,
+    "answer": "is",
+    "distractors": [
+      {
+        "text": "are",
+        "trap": "主詞與動詞不合",
+        "misconception": "主詞是單數 tea shop，不用 are"
+      },
+      {
+        "text": "am",
+        "trap": "主詞與動詞不合",
+        "misconception": "am 只搭配 I，不搭配 tea shop"
+      },
+      {
+        "text": "was",
+        "trap": "時態與時間詞不合",
+        "misconception": "題目指定現在的位置，不是過去的位置"
+      }
+    ],
+    "hints": [
+      "先確認主詞代表幾個場所。",
+      "一間茶店是單數，而且題目說現在。",
+      "選擇單數主詞的現在式 be 動詞。"
+    ],
+    "explanation": "正確概念：The tea shop 是單數，現在的位置敘述用 is。\n破誤：「are」：主詞是單數 tea shop，不用 are；「am」：am 只搭配 I，不搭配 tea shop；「was」：題目指定現在的位置，不是過去的位置。\n回頭讀：Unit 4 Sentence A（課本 p.52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A（課本 p.52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q2",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "句型：填空",
+    "stem": "選字完成句子：\"The library is between the bakery ______ the park.\"",
+    "attachment": null,
+    "answer": "and",
+    "distractors": [
+      {
+        "text": "to",
+        "trap": "介系詞混淆",
+        "misconception": "把 next to 的 to 移到 between 的搭配中"
+      },
+      {
+        "text": "from",
+        "trap": "介系詞混淆",
+        "misconception": "把 across from 的 from 移到 between 的搭配中"
+      },
+      {
+        "text": "on",
+        "trap": "介系詞混淆",
+        "misconception": "on 用於街道位置，不能連接 between 後的兩個場所"
+      }
+    ],
+    "hints": [
+      "注意 between 後面有兩個場所。",
+      "表示在兩者之間，要用固定的連接方式。",
+      "使用 between A and B。"
+    ],
+    "explanation": "正確概念：between A and B 表示在 A 與 B 之間。\n破誤：「to」：把 next to 的 to 移到 between 的搭配中；「from」：把 across from 的 from 移到 between 的搭配中；「on」：on 用於街道位置，不能連接 between 後的兩個場所。\n回頭讀：Unit 4 Sentence A／Grammar Tips（課本 p.52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A／Grammar Tips（課本 p.52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q3",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "句型：問答配對",
+    "stem": "\"Where is the science museum?\" 最適合接哪一句？",
+    "attachment": null,
+    "answer": "It is on Green Street.",
+    "distractors": [
+      {
+        "text": "It is a science museum.",
+        "trap": "疑問詞混淆",
+        "misconception": "回答場所名稱，沒有交代位置"
+      },
+      {
+        "text": "It is open at nine o’clock.",
+        "trap": "疑問詞混淆",
+        "misconception": "回答開門時間，沒有交代位置"
+      },
+      {
+        "text": "It is a very big building.",
+        "trap": "疑問詞混淆",
+        "misconception": "描述建築大小，沒有交代位置"
+      }
+    ],
+    "hints": [
+      "先辨認 Where 要求的資訊。",
+      "回答要告訴對方在哪裡。",
+      "街道名稱可提供位置。"
+    ],
+    "explanation": "正確概念：It is on Green Street. 說明科學博物館在 Green Street 上。\n破誤：「It is a science museum.」：回答場所名稱，沒有交代位置；「It is open at nine o’clock.」：回答開門時間，沒有交代位置；「It is a very big building.」：描述建築大小，沒有交代位置。\n回頭讀：Unit 4 Sentence A（課本 p.52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A（課本 p.52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q4",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "文法：改錯",
+    "stem": "四個句子中，哪一句完全正確？",
+    "attachment": null,
+    "answer": "The park is next to the library.",
+    "distractors": [
+      {
+        "text": "The park is next the library.",
+        "trap": "介系詞混淆",
+        "misconception": "next to 不能省略 to"
+      },
+      {
+        "text": "The park is across the library.",
+        "trap": "介系詞混淆",
+        "misconception": "表示在對面要用 across from，不能省略 from"
+      },
+      {
+        "text": "The park is between the library to the bakery.",
+        "trap": "介系詞混淆",
+        "misconception": "between 的兩個場所之間要用 and，不是 to"
+      }
+    ],
+    "hints": [
+      "檢查位置片語是否完整。",
+      "next、across、between 都有各自的搭配。",
+      "表示在旁邊，next 後需要 to。"
+    ],
+    "explanation": "正確概念：The park is next to the library. 完整使用 next to。\n破誤：「The park is next the library.」：next to 不能省略 to；「The park is across the library.」：表示在對面要用 across from，不能省略 from；「The park is between the library to the bakery.」：between 的兩個場所之間要用 and，不是 to。\n回頭讀：Unit 4 Sentence A／Grammar Tips（課本 p.52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A／Grammar Tips（課本 p.52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q5",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "句型：依位置圖選介系詞",
+    "stem": "依表格，完成句子：\"The tea shop is ______ the bakery and the library.\"",
+    "attachment": {
+      "t": [
+        [
+          "街道兩側",
+          "左格",
+          "中格",
+          "右格"
+        ],
+        [
+          "北側",
+          "bakery",
+          "tea shop",
+          "library"
+        ],
+        [
+          "Green Street",
+          "道路",
+          "道路",
+          "道路"
+        ],
+        [
+          "南側",
+          "MRT station",
+          "science museum",
+          "convenience store"
+        ]
+      ],
+      "cap": "原創位置圖：同側相鄰格表示 next to；南北同欄隔街正對表示 across from；每格只有一個場所。"
+    },
+    "answer": "between",
+    "distractors": [
+      {
+        "text": "across from",
+        "trap": "介系詞混淆",
+        "misconception": "三個場所都在同側，茶店沒有隔街正對這兩個場所"
+      },
+      {
+        "text": "on",
+        "trap": "介系詞混淆",
+        "misconception": "on 通常接街道，不能表示在兩個店家之間"
+      },
+      {
+        "text": "behind",
+        "trap": "介系詞混淆",
+        "misconception": "圖上表示並排，沒有畫出茶店在兩者後方"
+      }
+    ],
+    "hints": [
+      "先看三個場所是否在街道同一側。",
+      "左格、右格各一個場所，中格在兩者之間。",
+      "句尾已有兩個以 and 連接的場所。"
+    ],
+    "explanation": "正確概念：茶店位於北側中格，麵包店在左、圖書館在右，所以用 between。\n破誤：「across from」：三個場所都在同側，茶店沒有隔街正對這兩個場所；「on」：on 通常接街道，不能表示在兩個店家之間；「behind」：圖上表示並排，沒有畫出茶店在兩者後方。\n回頭讀：Unit 4 Sentence A／Grammar Tips（課本 p.52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A／Grammar Tips（課本 p.52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q6",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "聽力：聽問句選回答",
+    "stem": "請聽問句。假設地圖確實符合對方描述，應如何肯定回答？",
+    "attachment": {
+      "listen": "Is the bakery across from the hospital?",
+      "rate": 0.9
+    },
+    "answer": "Yes, it is.",
+    "distractors": [
+      {
+        "text": "Yes, I did.",
+        "trap": "簡答不一致",
+        "misconception": "把現在場所的問句當成自己過去做事的問句"
+      },
+      {
+        "text": "Yes, it does.",
+        "trap": "簡答不一致",
+        "misconception": "Is 開頭的問句要用 is 回答，不是 does"
+      },
+      {
+        "text": "Yes, they are.",
+        "trap": "主詞與動詞不合",
+        "misconception": "題目問單一場所，不能用複數 they are"
+      }
+    ],
+    "hints": [
+      "聽清楚問句開頭，以及問的是人還是場所。",
+      "簡答的主詞和動詞要配合原問句。",
+      "一個場所用 it，be 動詞要和問句一致。"
+    ],
+    "explanation": "正確概念：問句是 Is the bakery across from the hospital?；肯定簡答用 Yes, it is.。\n破誤：「Yes, I did.」：把現在場所的問句當成自己過去做事的問句；「Yes, it does.」：Is 開頭的問句要用 is 回答，不是 does；「Yes, they are.」：題目問單一場所，不能用複數 they are。\n回頭讀：Unit 4 Sentence B（課本 p.53）；Reminder（課本 p.51）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence B（課本 p.53）；Reminder（課本 p.51）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L12-Q7",
+    "level": "L12 Unit 4 句型與文法",
+    "type": "句型：情境應用",
+    "stem": "依位置表格，哪一句正確？",
+    "attachment": {
+      "t": [
+        [
+          "街道兩側",
+          "左格",
+          "中格",
+          "右格"
+        ],
+        [
+          "北側",
+          "bakery",
+          "tea shop",
+          "library"
+        ],
+        [
+          "Green Street",
+          "道路",
+          "道路",
+          "道路"
+        ],
+        [
+          "南側",
+          "MRT station",
+          "science museum",
+          "convenience store"
+        ]
+      ],
+      "cap": "原創位置圖：同側相鄰格表示 next to；南北同欄隔街正對表示 across from；每格只有一個場所。"
+    },
+    "answer": "The MRT station is across from the bakery.",
+    "distractors": [
+      {
+        "text": "The MRT station is across from the tea shop.",
+        "trap": "介系詞混淆",
+        "misconception": "茶店在中欄，捷運站在左欄，兩者不是正對面"
+      },
+      {
+        "text": "The library is between the bakery and the tea shop.",
+        "trap": "介系詞混淆",
+        "misconception": "圖書館在右格；中間的是茶店"
+      },
+      {
+        "text": "The science museum is next to the library.",
+        "trap": "介系詞混淆",
+        "misconception": "科學博物館與圖書館分在街道兩側，不是同側相鄰"
+      }
+    ],
+    "hints": [
+      "先分辨同側旁邊和隔街對面。",
+      "同一欄的南北兩格才是圖上正對面。",
+      "左欄的捷運站和麵包店隔街相對。"
+    ],
+    "explanation": "正確概念：捷運站在南側左格，麵包店在北側左格，所以兩者 across from。\n破誤：「The MRT station is across from the tea shop.」：茶店在中欄，捷運站在左欄，兩者不是正對面；「The library is between the bakery and the tea shop.」：圖書館在右格；中間的是茶店；「The science museum is next to the library.」：科學博物館與圖書館分在街道兩側，不是同側相鄰。\n回頭讀：Unit 4 Sentence A／Grammar Tips（課本 p.52）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A／Grammar Tips（課本 p.52）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q1",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "聽力：辨認字母組合讀音",
+    "stem": "請聽單字。它的母音與哪個選項指定的字母讀音相同？",
+    "attachment": {
+      "listen": "lawn",
+      "rate": 0.8
+    },
+    "answer": "talk 的 al",
+    "distractors": [
+      {
+        "text": "sky 的 y",
+        "trap": "拼字組合混淆",
+        "misconception": "sky 的 y 讀 [aɪ]，與聽到的母音不同"
+      },
+      {
+        "text": "sing 的 i",
+        "trap": "拼字組合混淆",
+        "misconception": "把聽到的母音誤認成 sing 的母音"
+      },
+      {
+        "text": "cake 的 a",
+        "trap": "拼字組合混淆",
+        "misconception": "把聽到的母音誤認成 cake 的母音"
+      }
+    ],
+    "hints": [
+      "先忽略字首字尾，只比較母音。",
+      "本課 al、au、aw 的例字有相同的母音。",
+      "找出本課 al 組的例字。"
+    ],
+    "explanation": "正確概念：念的是 lawn，aw 的母音與 talk 的 al 相同。本題比較讀音，不要求單靠聲音區分同音的 al、au、aw 拼法。\n破誤：「sky 的 y」：sky 的 y 讀 [aɪ]，與聽到的母音不同；「sing 的 i」：把聽到的母音誤認成 sing 的母音；「cake 的 a」：把聽到的母音誤認成 cake 的母音。\n回頭讀：Unit 4 Phonics／Sound It Out（課本 p.58）；Unit 2 Phonics（課本 p.30）；Unit 3 Phonics（課本 p.46）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Phonics／Sound It Out（課本 p.58）；Unit 2 Phonics（課本 p.30）；Unit 3 Phonics（課本 p.46）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q2",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "發音：選出讀音不同的字",
+    "stem": "哪個字的母音和另外三個不同？可點播選項比較。",
+    "attachment": {
+      "speakOptions": true
+    },
+    "answer": "draw",
+    "distractors": [
+      {
+        "text": "fly",
+        "trap": "拼字組合混淆",
+        "misconception": "fly 的 y 讀 [aɪ]，與 cry、sky 相同"
+      },
+      {
+        "text": "cry",
+        "trap": "拼字組合混淆",
+        "misconception": "cry 的 y 讀 [aɪ]，與 fly、sky 相同"
+      },
+      {
+        "text": "sky",
+        "trap": "拼字組合混淆",
+        "misconception": "sky 的 y 讀 [aɪ]，與 fly、cry 相同"
+      }
+    ],
+    "hints": [
+      "先找三個母音相同的字。",
+      "三個是前一單元的 y 字尾例字。",
+      "剩下的字屬於本課 aw 組。"
+    ],
+    "explanation": "正確概念：draw 的 aw 母音不同於 fly、cry、sky 的 [aɪ]。\n破誤：「fly」：fly 的 y 讀 [aɪ]，與 cry、sky 相同；「cry」：cry 的 y 讀 [aɪ]，與 fly、sky 相同；「sky」：sky 的 y 讀 [aɪ]，與 fly、cry 相同。\n回頭讀：Unit 4 Phonics（課本 p.58）；Unit 3 Phonics（課本 p.46）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Phonics（課本 p.58）；Unit 3 Phonics（課本 p.46）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q3",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "發音：拼讀規則",
+    "stem": "哪個字的母音和 \"walk\" 中 al 的讀音相同？",
+    "attachment": null,
+    "answer": "sauce",
+    "distractors": [
+      {
+        "text": "sunny",
+        "trap": "拼字組合混淆",
+        "misconception": "sunny 的 u 及字尾 y 都不是本課 al 的母音"
+      },
+      {
+        "text": "ring",
+        "trap": "拼字組合混淆",
+        "misconception": "ring 的母音屬於 -ing 組，不同於 walk"
+      },
+      {
+        "text": "sky",
+        "trap": "拼字組合混淆",
+        "misconception": "sky 的 y 讀 [aɪ]，與 walk 的母音不同"
+      }
+    ],
+    "hints": [
+      "字母拼法不同，也可能有相同的讀音。",
+      "本課把 al、au、aw 放在一起比較。",
+      "找出 au 組的例字。"
+    ],
+    "explanation": "正確概念：sauce 的 au 與 walk 的 al 有相同的母音，是本課的拼讀重點。\n破誤：「sunny」：sunny 的 u 及字尾 y 都不是本課 al 的母音；「ring」：ring 的母音屬於 -ing 組，不同於 walk；「sky」：sky 的 y 讀 [aɪ]，與 walk 的母音不同。\n回頭讀：Unit 4 Phonics／Sound It Out（課本 p.58）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Phonics／Sound It Out（課本 p.58）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q4",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "聽力：聽音選字",
+    "stem": "請聽單字，選出正確的拼字。",
+    "attachment": {
+      "listen": "talk",
+      "rate": 0.8
+    },
+    "answer": "talk",
+    "distractors": [
+      {
+        "text": "walk",
+        "trap": "音近字",
+        "misconception": "母音和字尾相同，但字首不是 w"
+      },
+      {
+        "text": "chalk",
+        "trap": "音近字",
+        "misconception": "忽略字首和 talk 不同"
+      },
+      {
+        "text": "fork",
+        "trap": "音近字",
+        "misconception": "只聽相近母音與字尾，忽略字首及其他聲音"
+      }
+    ],
+    "hints": [
+      "這些字很相近，先比較開頭。",
+      "別只靠相似的母音和最後的音判斷。",
+      "這個字表示說話。"
+    ],
+    "explanation": "正確概念：念的是 talk；與 walk、chalk、fork 的開頭不同。\n破誤：「walk」：母音和字尾相同，但字首不是 w；「chalk」：忽略字首和 talk 不同；「fork」：只聽相近母音與字尾，忽略字首及其他聲音。\n回頭讀：Unit 4 Phonics／Sound It Out（課本 p.58）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Phonics／Sound It Out（課本 p.58）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q5",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "閱讀：短文擷取",
+    "stem": "依短文，Emma 家的對面是哪個場所？",
+    "attachment": {
+      "passage": "Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
+    },
+    "answer": "書店",
+    "distractors": [
+      {
+        "text": "茶店",
+        "trap": "介系詞混淆",
+        "misconception": "茶店在她家旁邊，不是對面"
+      },
+      {
+        "text": "公園",
+        "trap": "介系詞混淆",
+        "misconception": "公園在書店旁邊，文中沒有說它正對 Emma 家"
+      },
+      {
+        "text": "科學博物館",
+        "trap": "文意推論過度",
+        "misconception": "文中沒有提到科學博物館"
+      }
+    ],
+    "hints": [
+      "先找出 across from 所在的句子。",
+      "不要把 next to 和 across from 混淆。",
+      "對面是可以買書的場所。"
+    ],
+    "explanation": "正確概念：短文寫 The bookstore is across from her house.，所以對面是書店。\n破誤：「茶店」：茶店在她家旁邊，不是對面；「公園」：公園在書店旁邊，文中沒有說它正對 Emma 家；「科學博物館」：文中沒有提到科學博物館。\n回頭讀：Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q6",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "閱讀技巧：心智圖",
+    "stem": "依短文製作「Emma 家附近的場所與活動」心智圖，哪個分支配對正確？",
+    "attachment": {
+      "passage": "Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
+    },
+    "answer": "書店 → 買書",
+    "distractors": [
+      {
+        "text": "茶店 → 買書",
+        "trap": "心智圖分類錯置",
+        "misconception": "把書店的活動放到茶店分支"
+      },
+      {
+        "text": "公園 → 買茶",
+        "trap": "心智圖分類錯置",
+        "misconception": "把茶店的活動放到公園分支"
+      },
+      {
+        "text": "書店 → 遊玩",
+        "trap": "心智圖分類錯置",
+        "misconception": "把文中公園的活動放到書店分支"
+      }
+    ],
+    "hints": [
+      "先把場所分成三個分支。",
+      "每個分支要接回文中對應的活動。",
+      "找出 buy books 所屬的場所。"
+    ],
+    "explanation": "正確概念：書店分支對應買書；茶店對應買茶，公園對應遊玩。心智圖要保留正確的分類關係。\n破誤：「茶店 → 買書」：把書店的活動放到茶店分支；「公園 → 買茶」：把茶店的活動放到公園分支；「書店 → 遊玩」：把文中公園的活動放到書店分支。\n回頭讀：Unit 4 Reading Skills：Mind Map（課本 p.5）；Reading／Mind Map（課本 pp.56–57）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Reading Skills：Mind Map（課本 p.5）；Reading／Mind Map（課本 pp.56–57）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L13-Q7",
+    "level": "L13 Unit 4 發音與閱讀",
+    "type": "閱讀：故事理解",
+    "stem": "依 Unit 4 Story，哪位孩子最後認出迷路長者，叫了他一聲 \"Grandpa\"？",
+    "attachment": null,
+    "answer": "Emma",
+    "distractors": [
+      {
+        "text": "Amy",
+        "trap": "人物資訊錯置",
+        "misconception": "把同行的 Amy 誤認為叫出 Grandpa 的孩子"
+      },
+      {
+        "text": "Kevin",
+        "trap": "人物資訊錯置",
+        "misconception": "把幫忙帶路的 Kevin 誤當成長者的家人"
+      },
+      {
+        "text": "Boka",
+        "trap": "人物資訊錯置",
+        "misconception": "把同行的 Boka 誤當成長者的家人"
+      }
+    ],
+    "hints": [
+      "回想故事最後，誰認出了長者。",
+      "他們原本正要去一位朋友家。",
+      "那位朋友的名字以 E 開頭。"
+    ],
+    "explanation": "正確概念：Emma 認出長者並叫他 Grandpa，呼應 A Small World 的情節。Grandpa 可指爺爺或外公，此題只考人物辨認。\n破誤：「Amy」：把同行的 Amy 誤認為叫出 Grandpa 的孩子；「Kevin」：把幫忙帶路的 Kevin 誤當成長者的家人；「Boka」：把同行的 Boka 誤當成長者的家人。\n回頭讀：Unit 4 Story（課本 p.49）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Story（課本 p.49）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q1",
+    "level": "L14 Review 2 綜合複習",
+    "type": "複習：字彙",
+    "stem": "哪個英文地名表示「愛河」？",
+    "attachment": null,
+    "answer": "Love River",
+    "distractors": [
+      {
+        "text": "Sun Moon Lake",
+        "trap": "中文意思混淆",
+        "misconception": "這是日月潭，是湖的名稱"
+      },
+      {
+        "text": "Guishan Island",
+        "trap": "中文意思混淆",
+        "misconception": "這是龜山島，是島的名稱"
+      },
+      {
+        "text": "Beitou Hot Springs",
+        "trap": "中文意思混淆",
+        "misconception": "這是北投溫泉，不是河流名稱"
+      }
+    ],
+    "hints": [
+      "先判斷中文地名的水域類型。",
+      "河流的英文是 river。",
+      "這個名稱前面還有表示愛的英文。"
+    ],
+    "explanation": "正確概念：Love River 是課本出現的愛河英文名稱。\n破誤：「Sun Moon Lake」：這是日月潭，是湖的名稱；「Guishan Island」：這是龜山島，是島的名稱；「Beitou Hot Springs」：這是北投溫泉，不是河流名稱。\n回頭讀：Unit 3 Vocabulary（課本 pp.38–39）；Review 2 Sentence Review（課本 p.59）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 3 Vocabulary（課本 pp.38–39）；Review 2 Sentence Review（課本 p.59）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q2",
+    "level": "L14 Review 2 綜合複習",
+    "type": "複習：字彙",
+    "stem": "哪個英文場所名稱表示「便利商店」？",
+    "attachment": null,
+    "answer": "convenience store",
+    "distractors": [
+      {
+        "text": "science museum",
+        "trap": "中文意思混淆",
+        "misconception": "這是科學博物館，不是便利商店"
+      },
+      {
+        "text": "MRT station",
+        "trap": "中文意思混淆",
+        "misconception": "這是捷運站，不是商店"
+      },
+      {
+        "text": "tea shop",
+        "trap": "中文意思混淆",
+        "misconception": "這是茶店，不是便利商店"
+      }
+    ],
+    "hints": [
+      "先判斷場所是商店、博物館還是車站。",
+      "store 表示商店，前面的字可區分種類。",
+      "找出本課便利商店的完整名稱。"
+    ],
+    "explanation": "正確概念：convenience store 是便利商店。\n破誤：「science museum」：這是科學博物館，不是便利商店；「MRT station」：這是捷運站，不是商店；「tea shop」：這是茶店，不是便利商店。\n回頭讀：Unit 4 Vocabulary（課本 p.50）；Review 2（課本 pp.59–61）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Vocabulary（課本 p.50）；Review 2（課本 pp.59–61）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q3",
+    "level": "L14 Review 2 綜合複習",
+    "type": "複習：句型",
+    "stem": "選出正確問句來詢問「你上週日去了哪裡？」。",
+    "attachment": null,
+    "answer": "Where did you go last Sunday?",
+    "distractors": [
+      {
+        "text": "Where did you went last Sunday?",
+        "trap": "did 後接過去式",
+        "misconception": "did 後應用 go，不是 went"
+      },
+      {
+        "text": "Where do you go last Sunday?",
+        "trap": "時態與時間詞不合",
+        "misconception": "last Sunday 的過去問句要用 did"
+      },
+      {
+        "text": "Where does you go last Sunday?",
+        "trap": "第三人稱混淆",
+        "misconception": "you 不用 does，且時態應是過去"
+      }
+    ],
+    "hints": [
+      "先檢查時間詞，再看助動詞。",
+      "過去地點問句用 Where did you ...?。",
+      "did 後要接原形 go。"
+    ],
+    "explanation": "正確概念：Where did you go last Sunday? 正確詢問上週日去的地點。\n破誤：「Where did you went last Sunday?」：did 後應用 go，不是 went；「Where do you go last Sunday?」：last Sunday 的過去問句要用 did；「Where does you go last Sunday?」：you 不用 does，且時態應是過去。\n回頭讀：Unit 3 Sentence A（課本 p.40）；Review 2（課本 p.60）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 3 Sentence A（課本 p.40）；Review 2（課本 p.60）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q4",
+    "level": "L14 Review 2 綜合複習",
+    "type": "複習：句型",
+    "stem": "依位置表格，哪一句正確描述書店？",
+    "attachment": {
+      "t": [
+        [
+          "位置",
+          "左格",
+          "中格",
+          "右格"
+        ],
+        [
+          "Park Street 同側",
+          "hospital",
+          "bookstore",
+          "bakery"
+        ]
+      ],
+      "cap": "原創位置圖：三個場所沿街並排，中格位於左右兩格之間。"
+    },
+    "answer": "It is between the hospital and the bakery.",
+    "distractors": [
+      {
+        "text": "It is across from the hospital and the bakery.",
+        "trap": "介系詞混淆",
+        "misconception": "三個場所同側並排，並未隔街相對"
+      },
+      {
+        "text": "It is between the hospital to the bakery.",
+        "trap": "介系詞混淆",
+        "misconception": "between 的搭配是 and，不是 to"
+      },
+      {
+        "text": "It is on the hospital and the bakery.",
+        "trap": "介系詞混淆",
+        "misconception": "on 不能把兩個建築當作街道來表達此位置"
+      }
+    ],
+    "hints": [
+      "先找書店位於哪一格。",
+      "兩側各有一個場所，且三者同側並排。",
+      "表示在兩者之間，要用 between ... and ...。"
+    ],
+    "explanation": "正確概念：書店在醫院與麵包店之間，因此用 between the hospital and the bakery。\n破誤：「It is across from the hospital and the bakery.」：三個場所同側並排，並未隔街相對；「It is between the hospital to the bakery.」：between 的搭配是 and，不是 to；「It is on the hospital and the bakery.」：on 不能把兩個建築當作街道來表達此位置。\n回頭讀：Unit 4 Sentence A（課本 p.52）；Review 2（課本 p.61）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Sentence A（課本 p.52）；Review 2（課本 p.61）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q5",
+    "level": "L14 Review 2 綜合複習",
+    "type": "複習：發音",
+    "stem": "哪一組指定字母的母音相同？",
+    "attachment": null,
+    "answer": "walk（al）／sauce（au）",
+    "distractors": [
+      {
+        "text": "sky（y）／baby（y）",
+        "trap": "y 讀音混淆",
+        "misconception": "sky 的 y 讀 [aɪ]，baby 的 y 依本課標示讀 [ɪ]"
+      },
+      {
+        "text": "cry（y）／lawn（aw）",
+        "trap": "拼字組合混淆",
+        "misconception": "cry 的 [aɪ] 與 lawn 的 aw 不同"
+      },
+      {
+        "text": "puppy（y）／talk（al）",
+        "trap": "拼字組合混淆",
+        "misconception": "puppy 的字尾 y 與 talk 的 al 母音不同"
+      }
+    ],
+    "hints": [
+      "只比較括號指定的字母。",
+      "相同拼法可能不同音；不同拼法也可能同音。",
+      "本課 al、au、aw 的例字可歸在同音組。"
+    ],
+    "explanation": "正確概念：walk 的 al 與 sauce 的 au 母音相同；其他各組指定字母的讀音不同。\n破誤：「sky（y）／baby（y）」：sky 的 y 讀 [aɪ]，baby 的 y 依本課標示讀 [ɪ]；「cry（y）／lawn（aw）」：cry 的 [aɪ] 與 lawn 的 aw 不同；「puppy（y）／talk（al）」：puppy 的字尾 y 與 talk 的 al 母音不同。\n回頭讀：Review 2 Phonics Review（課本 p.62）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Review 2 Phonics Review（課本 p.62）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q6",
+    "level": "L14 Review 2 綜合複習",
+    "type": "聽力：綜合複習",
+    "stem": "請聽對話，Emma 上星期五去了哪裡？",
+    "attachment": {
+      "listen": "Amy: Did you go to the lake last Friday, Emma? Emma: No, I did not. I went to the forest.",
+      "rate": 0.9
+    },
+    "answer": "森林",
+    "distractors": [
+      {
+        "text": "湖邊",
+        "trap": "對話資訊錯置",
+        "misconception": "湖是被問到而否定的地點"
+      },
+      {
+        "text": "海灘",
+        "trap": "對話資訊錯置",
+        "misconception": "對話沒有說 Emma 去海灘"
+      },
+      {
+        "text": "溫泉",
+        "trap": "對話資訊錯置",
+        "misconception": "對話沒有說 Emma 去溫泉"
+      }
+    ],
+    "hints": [
+      "先聽回答是肯定還是否定。",
+      "真正的地點在後面的補充句。",
+      "她去了有許多樹木的地方。"
+    ],
+    "explanation": "正確概念：原創對話：Amy: Did you go to the lake last Friday, Emma? Emma: No, I did not. I went to the forest. Emma 去森林，沒有去湖邊。\n破誤：「湖邊」：湖是被問到而否定的地點；「海灘」：對話沒有說 Emma 去海灘；「溫泉」：對話沒有說 Emma 去溫泉。\n回頭讀：Unit 3 Sentence B（課本 p.41）；Review 2（課本 p.60）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 3 Sentence B（課本 p.41）；Review 2（課本 p.60）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L14-Q7",
+    "level": "L14 Review 2 綜合複習",
+    "type": "聽力：綜合複習",
+    "stem": "請聽句子，哪個位置描述正確？",
+    "attachment": {
+      "listen": "The hospital is across from the park.",
+      "rate": 0.9
+    },
+    "answer": "醫院在公園對面",
+    "distractors": [
+      {
+        "text": "醫院在公園旁邊",
+        "trap": "介系詞混淆",
+        "misconception": "把 across from 誤聽成 next to"
+      },
+      {
+        "text": "醫院在茶店對面",
+        "trap": "對話資訊錯置",
+        "misconception": "把 park 換成 tea shop"
+      },
+      {
+        "text": "書店在公園對面",
+        "trap": "對話資訊錯置",
+        "misconception": "把 hospital 換成 bookstore"
+      }
+    ],
+    "hints": [
+      "分別辨認主詞、位置關係和另一個場所。",
+      "不要只聽到其中一個場所就作答。",
+      "兩個場所隔街相對。"
+    ],
+    "explanation": "正確概念：句子是 The hospital is across from the park.，表示醫院在公園對面。\n破誤：「醫院在公園旁邊」：把 across from 誤聽成 next to；「醫院在茶店對面」：把 park 換成 tea shop；「書店在公園對面」：把 hospital 換成 bookstore。\n回頭讀：Unit 4 Reminder、Sentence A（課本 pp.51–52）；Review 2（課本 p.61）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 4 Reminder、Sentence A（課本 pp.51–52）；Review 2（課本 p.61）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  }
+]

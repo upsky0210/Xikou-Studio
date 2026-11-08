@@ -1,0 +1,257 @@
+[
+  {
+    "id": "L15-Q1",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "聽力：月份",
+    "stem": "請聽月份，選出正確的英文單字。",
+    "attachment": {
+      "listen": "July",
+      "rate": 0.8
+    },
+    "answer": "July",
+    "distractors": [
+      {
+        "text": "June",
+        "trap": "音近字",
+        "misconception": "把相似開頭的六月與七月混淆"
+      },
+      {
+        "text": "January",
+        "trap": "音近字",
+        "misconception": "只聽字首 j，沒有分辨後續音節"
+      },
+      {
+        "text": "February",
+        "trap": "音近字",
+        "misconception": "只注意字尾相似，沒有聽清開頭"
+      }
+    ],
+    "hints": [
+      "聽完整個月份名稱。",
+      "比較音節數與最後的母音。",
+      "這個月份是六月之後的一個月。"
+    ],
+    "explanation": "正確概念：念的是 July（七月）；June 是六月，January 是一月，February 是二月。\n破誤：「June」：把相似開頭的六月與七月混淆；「January」：只聽字首 j，沒有分辨後續音節；「February」：只注意字尾相似，沒有聽清開頭。\n回頭讀：Culture & Festivals：月份（課本 pp.64–66）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：月份（課本 pp.64–66）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L15-Q2",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "字彙：月份",
+    "stem": "哪個英文單字表示「十二月」？",
+    "attachment": null,
+    "answer": "December",
+    "distractors": [
+      {
+        "text": "September",
+        "trap": "中文意思混淆",
+        "misconception": "September 是九月，不能只看共同的字尾"
+      },
+      {
+        "text": "November",
+        "trap": "中文意思混淆",
+        "misconception": "November 是十一月，比十二月早一個月"
+      },
+      {
+        "text": "October",
+        "trap": "中文意思混淆",
+        "misconception": "October 是十月，不是十二月"
+      }
+    ],
+    "hints": [
+      "先比較這些相近的月份字。",
+      "不要只看共同的 -ber 字尾。",
+      "一年最後一個月的英文以 D 開頭。"
+    ],
+    "explanation": "正確概念：December 是十二月；September、October、November 分別是九、十、十一月。\n破誤：「September」：September 是九月，不能只看共同的字尾；「November」：November 是十一月，比十二月早一個月；「October」：October 是十月，不是十二月。\n回頭讀：Culture & Festivals：月份（課本 pp.66–67）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：月份（課本 pp.66–67）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L15-Q3",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "節慶：月份配對",
+    "stem": "依課本介紹，Groundhog Day（土撥鼠日）配在哪個月份？",
+    "attachment": null,
+    "answer": "February",
+    "distractors": [
+      {
+        "text": "May",
+        "trap": "節慶月份混淆",
+        "misconception": "課本 May 配 Mother’s Day，不是 Groundhog Day"
+      },
+      {
+        "text": "March",
+        "trap": "節慶月份混淆",
+        "misconception": "課本 March 配 Saint Patrick’s Day，不是 Groundhog Day"
+      },
+      {
+        "text": "August",
+        "trap": "節慶月份混淆",
+        "misconception": "課本 August 配 Father’s Day，不是 Groundhog Day"
+      }
+    ],
+    "hints": [
+      "先回想課本前幾個月份的節慶。",
+      "它在新年元旦那一個月之後。",
+      "土撥鼠日配在二月。"
+    ],
+    "explanation": "正確概念：課本將 Groundhog Day 配在 February（二月）。\n破誤：「May」：課本 May 配 Mother’s Day，不是 Groundhog Day；「March」：課本 March 配 Saint Patrick’s Day，不是 Groundhog Day；「August」：課本 August 配 Father’s Day，不是 Groundhog Day。\n回頭讀：Culture & Festivals：February／Groundhog Day、月份配對（課本 pp.64–66）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：February／Groundhog Day、月份配對（課本 pp.64–66）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L15-Q4",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "節慶：月份配對",
+    "stem": "依課本介紹，Saint Patrick’s Day（聖派翠克節）配在哪個月份？",
+    "attachment": null,
+    "answer": "March",
+    "distractors": [
+      {
+        "text": "January",
+        "trap": "節慶月份混淆",
+        "misconception": "課本 January 是 New Year’s Day 的月份"
+      },
+      {
+        "text": "February",
+        "trap": "節慶月份混淆",
+        "misconception": "課本 February 是 Groundhog Day 的月份"
+      },
+      {
+        "text": "April",
+        "trap": "節慶月份混淆",
+        "misconception": "課本 April 是 Earth Day 的月份"
+      }
+    ],
+    "hints": [
+      "回想穿綠衣、戴綠帽的節慶在哪一欄。",
+      "它在二月之後、四月之前。",
+      "選三月的英文名稱。"
+    ],
+    "explanation": "正確概念：課本將 Saint Patrick’s Day 配在 March（三月）。\n破誤：「January」：課本 January 是 New Year’s Day 的月份；「February」：課本 February 是 Groundhog Day 的月份；「April」：課本 April 是 Earth Day 的月份。\n回頭讀：Culture & Festivals：March／Saint Patrick’s Day（課本 p.64）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：March／Saint Patrick’s Day（課本 p.64）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L15-Q5",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "節慶：短文擷取",
+    "stem": "依短文，Amy 和 Kevin 正在為哪個節慶製作海報？",
+    "attachment": {
+      "passage": "It is April. Amy and Kevin are making an Earth Day poster at school. Amy draws a river and some trees. Kevin draws a lake. They want people to take care of the Earth. After school, they go to the park with Emma. They clean the park together. Emma says, \"We can help the Earth every day.\" The three friends smile."
+    },
+    "answer": "Earth Day",
+    "distractors": [
+      {
+        "text": "Groundhog Day",
+        "trap": "文意線索誤讀",
+        "misconception": "短文直接寫 Earth Day，沒有提土撥鼠日"
+      },
+      {
+        "text": "Saint Patrick’s Day",
+        "trap": "文意線索誤讀",
+        "misconception": "不能只因畫了樹、想到綠色，就改選聖派翠克節"
+      },
+      {
+        "text": "New Year’s Day",
+        "trap": "文意線索誤讀",
+        "misconception": "文中是四月的地球日海報，不是元旦海報"
+      }
+    ],
+    "hints": [
+      "找出 making 和 poster 所在的句子。",
+      "海報名稱直接出現在文中。",
+      "它關心的是照顧地球。"
+    ],
+    "explanation": "正確概念：短文明寫 an Earth Day poster，所以是地球日。\n破誤：「Groundhog Day」：短文直接寫 Earth Day，沒有提土撥鼠日；「Saint Patrick’s Day」：不能只因畫了樹、想到綠色，就改選聖派翠克節；「New Year’s Day」：文中是四月的地球日海報，不是元旦海報。\n回頭讀：Culture & Festivals：April／Earth Day（課本 p.65）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：April／Earth Day（課本 p.65）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L15-Q6",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "節慶：短文閱讀",
+    "stem": "依短文，哪個說法最符合 Emma 最後一句話？",
+    "attachment": {
+      "passage": "It is April. Amy and Kevin are making an Earth Day poster at school. Amy draws a river and some trees. Kevin draws a lake. They want people to take care of the Earth. After school, they go to the park with Emma. They clean the park together. Emma says, \"We can help the Earth every day.\" The three friends smile."
+    },
+    "answer": "每天都能愛護地球",
+    "distractors": [
+      {
+        "text": "只有四月才能愛護地球",
+        "trap": "文意線索誤讀",
+        "misconception": "every day 表示每天，不限定四月"
+      },
+      {
+        "text": "只有在學校才能愛護地球",
+        "trap": "文意線索誤讀",
+        "misconception": "她們也去公園打掃，不限於學校"
+      },
+      {
+        "text": "只有畫完海報才能愛護地球",
+        "trap": "文意推論過度",
+        "misconception": "文中沒有先完成海報才可行動的限制"
+      }
+    ],
+    "hints": [
+      "先找 Emma 說的最後一句。",
+      "注意 every day 的範圍。",
+      "她鼓勵把照顧地球變成每天都能做的事。"
+    ],
+    "explanation": "正確概念：Emma 說可以每天幫助地球，與課本地球日鼓勵照顧地球的概念相符。\n破誤：「只有四月才能愛護地球」：every day 表示每天，不限定四月；「只有在學校才能愛護地球」：她們也去公園打掃，不限於學校；「只有畫完海報才能愛護地球」：文中沒有先完成海報才可行動的限制。\n回頭讀：Culture & Festivals：April／Earth Day（課本 p.65）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：April／Earth Day（課本 p.65）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L15-Q7",
+    "level": "L15 Culture & Festivals 世界節慶",
+    "type": "聽力：聽句子選節慶",
+    "stem": "請聽英文，依課本介紹選出最符合的節慶。",
+    "attachment": {
+      "listen": "In November, we have turkey and pumpkin pie on this day.",
+      "rate": 0.9
+    },
+    "answer": "Thanksgiving Day",
+    "distractors": [
+      {
+        "text": "Saint Patrick’s Day",
+        "trap": "節慶特徵混淆",
+        "misconception": "課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派"
+      },
+      {
+        "text": "Dragon Boat Festival",
+        "trap": "節慶特徵混淆",
+        "misconception": "課本端午節談龍舟與粽子，不是火雞和南瓜派"
+      },
+      {
+        "text": "Boryeong Mud Festival",
+        "trap": "節慶特徵混淆",
+        "misconception": "課本保寧泥漿節談泥漿遊戲，不是這兩種食物"
+      }
+    ],
+    "hints": [
+      "先聽月份，再聽食物。",
+      "把月份和代表食物一起對照課本。",
+      "課本十一月的節慶介紹火雞和南瓜派。"
+    ],
+    "explanation": "正確概念：原創聽力：In November, we have turkey and pumpkin pie on this day. 依課本 November 欄，這是 Thanksgiving Day。題目限定課本介紹，不將其他地區日期當成前提。\n破誤：「Saint Patrick’s Day」：課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派；「Dragon Boat Festival」：課本端午節談龍舟與粽子，不是火雞和南瓜派；「Boryeong Mud Festival」：課本保寧泥漿節談泥漿遊戲，不是這兩種食物。\n回頭讀：Culture & Festivals：November／Thanksgiving Day（課本 p.67）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Culture & Festivals：November／Thanksgiving Day（課本 p.67）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  }
+]

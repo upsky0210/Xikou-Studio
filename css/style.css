@@ -298,6 +298,22 @@ body.mode-play #app { min-height: 100vh; padding: 0 0 40px; }
 .attach p { padding-left: 16px; }
 .attach p.passage { font-size: 23px; line-height: 1.65; padding: 14px 18px; text-indent: 2em; }
 .attach li { margin: 6px 0; }
+/* 英語聽力：播放鈕、選項點播、答對後顯示念的內容 */
+.attach .listen-body { display: grid; gap: 10px; padding: 14px 16px; }
+.attach .listen-body p { padding: 0; }
+.say-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.say-row .btn { min-height: 56px; font-size: 19px; }
+.say.on, .say-k.on { outline: 4px solid var(--gold-2); outline-offset: 2px; animation: pulse .9s ease infinite; }
+.listen-tip { font-size: 15px; color: var(--ink-2); font-weight: 700; }
+.say-opts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 15px; font-weight: 900; color: var(--ink-2); }
+.say-opts > span { margin-right: 4px; }
+.say-k { display: inline-flex; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding: 6px 12px; border: 3px solid var(--frame); border-radius: 14px;
+  background: #fff; color: var(--ink); font: inherit; font-size: 18px; font-weight: 900; cursor: pointer; }
+.say-k:active { transform: translateY(2px); }
+.say-k .i { width: 20px; height: 20px; }
+.listen-warn { color: var(--ruby-2); font-weight: 800; }
+.listen-script { font-size: 18px; line-height: 1.5; background: #f1fff8; border-radius: 12px; padding: 8px 12px !important; }
+.listen-script span { font-weight: 800; }
 .attach.fig img { display: block; max-width: 100%; height: auto; margin: 12px auto; }
 .attach.fig p { padding: 0 16px 12px; }
 .table-wrap { overflow-x: auto; }

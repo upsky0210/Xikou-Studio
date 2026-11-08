@@ -21,6 +21,11 @@
     lane: { label: '文化巷', color: '#c4553b' },
     industry: { label: '轉型園', color: '#e0912a' },
     eco: { label: '城鄉谷', color: '#2f9e5b' },
+    school: { label: '校園', color: '#4c9a3f' },
+    clocktower: { label: '鐘塔', color: '#7d55d8' },
+    isle: { label: '湖島', color: '#2e8fc9' },
+    street: { label: '街角', color: '#e07a2a' },
+    fest: { label: '廣場', color: '#d63f6c' },
     generic: { label: '城鎮', color: '#6d7a99' },
   };
   function get(key) {

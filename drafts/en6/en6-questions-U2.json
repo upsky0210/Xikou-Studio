@@ -1,0 +1,1038 @@
+[
+  {
+    "id": "L04-Q1",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "聽力：聽音選字",
+    "stem": "請聽英文，選出你聽到的片語。",
+    "attachment": {
+      "listen": "had lunch",
+      "rate": 0.8
+    },
+    "answer": "had lunch",
+    "distractors": [
+      {
+        "text": "has lunch",
+        "trap": "漏聽字尾",
+        "misconception": "把過去式 had 聽成現在式 has"
+      },
+      {
+        "text": "have lunch",
+        "trap": "音近字",
+        "misconception": "把 had 的尾音聽成 have 的尾音"
+      },
+      {
+        "text": "had a lunch",
+        "trap": "音近字",
+        "misconception": "多聽了一個不定冠詞 a"
+      }
+    ],
+    "hints": [
+      "先聽第一個字。",
+      "注意它的尾音，以及兩個字之間有沒有多一個字。",
+      "內容是過去吃午餐的動作。"
+    ],
+    "explanation": "正確概念：念的是 had lunch（吃了午餐）；本課三餐前不加 the 或 a。\n破誤：「has lunch」：把過去式 had 聽成現在式 has；「have lunch」：把 had 的尾音聽成 have 的尾音；「had a lunch」：多聽了一個不定冠詞 a。\n回頭讀：Unit 2 Vocabulary（課本 pp.22–23）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary（課本 pp.22–23）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L04-Q2",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "聽力：聽音選字",
+    "stem": "請聽英文，選出你聽到的片語。",
+    "attachment": {
+      "listen": "went shopping",
+      "rate": 0.8
+    },
+    "answer": "went shopping",
+    "distractors": [
+      {
+        "text": "went swimming",
+        "trap": "音近字",
+        "misconception": "只聽到開頭 went 和字尾 -ing，沒有區分中間動作"
+      },
+      {
+        "text": "went shipping",
+        "trap": "音近字",
+        "misconception": "把 shopping 的母音聽成 shipping 的母音"
+      },
+      {
+        "text": "go shopping",
+        "trap": "音近字",
+        "misconception": "將 went 聽成原形 go"
+      }
+    ],
+    "hints": [
+      "聽完兩個字再選。",
+      "第二個字的開頭與母音都要核對。",
+      "這個片語是在說去購物。"
+    ],
+    "explanation": "正確概念：念的是 went shopping，表示去購物，went 是 go 的過去式。\n破誤：「went swimming」：只聽到開頭 went 和字尾 -ing，沒有區分中間動作；「went shipping」：把 shopping 的母音聽成 shipping 的母音；「go shopping」：將 went 聽成原形 go。\n回頭讀：Unit 2 Vocabulary（課本 p.23）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary（課本 p.23）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L04-Q3",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "聽力：聽音選意思",
+    "stem": "請聽英文，選出片語的中文意思。",
+    "attachment": {
+      "listen": "did the laundry",
+      "rate": 0.8
+    },
+    "answer": "洗衣服",
+    "distractors": [
+      {
+        "text": "清洗碗盤",
+        "trap": "中文意思混淆",
+        "misconception": "把 laundry 誤認成 dishes"
+      },
+      {
+        "text": "打掃房間",
+        "trap": "中文意思混淆",
+        "misconception": "把洗衣和打掃房間這兩種家事混淆"
+      },
+      {
+        "text": "外出購物",
+        "trap": "中文意思混淆",
+        "misconception": "把 did the laundry 和 went shopping 混淆"
+      }
+    ],
+    "hints": [
+      "先辨認家事的對象。",
+      "兩種家事都可用 did，但後面的名詞不同。",
+      "這裡要清洗的是衣物。"
+    ],
+    "explanation": "正確概念：念的是 did the laundry，意思是洗衣服。\n破誤：「清洗碗盤」：把 laundry 誤認成 dishes；「打掃房間」：把洗衣和打掃房間這兩種家事混淆；「外出購物」：把 did the laundry 和 went shopping 混淆。\n回頭讀：Unit 2 Vocabulary（課本 p.22）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary（課本 p.22）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L04-Q4",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "字彙：看中文選英文",
+    "stem": "哪個過去式片語表示「洗碗」？",
+    "attachment": null,
+    "answer": "did the dishes",
+    "distractors": [
+      {
+        "text": "did the laundry",
+        "trap": "中文意思混淆",
+        "misconception": "這是洗衣服，清洗的對象不同"
+      },
+      {
+        "text": "cleaned the room",
+        "trap": "中文意思混淆",
+        "misconception": "這是打掃房間，不是洗碗"
+      },
+      {
+        "text": "had breakfast",
+        "trap": "中文意思混淆",
+        "misconception": "這是吃早餐，不是餐後清洗碗盤"
+      }
+    ],
+    "hints": [
+      "先確認要清洗哪一種東西。",
+      "dishes 在這個片語中是碗盤。",
+      "選用 did 加上清洗碗盤的片語。"
+    ],
+    "explanation": "正確概念：did the dishes 表示洗碗，did the laundry 則表示洗衣服。\n破誤：「did the laundry」：這是洗衣服，清洗的對象不同；「cleaned the room」：這是打掃房間，不是洗碗；「had breakfast」：這是吃早餐，不是餐後清洗碗盤。\n回頭讀：Unit 2 Vocabulary（課本 p.22）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary（課本 p.22）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L04-Q5",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "字彙：情境填空",
+    "stem": "選出最合適的片語：\"Kevin was hungry at noon. He ______ with Amy at twelve.\"",
+    "attachment": null,
+    "answer": "had lunch",
+    "distractors": [
+      {
+        "text": "did the laundry",
+        "trap": "文意線索誤讀",
+        "misconception": "洗衣服不能解決 hungry 所表示的肚子餓"
+      },
+      {
+        "text": "went swimming",
+        "trap": "文意線索誤讀",
+        "misconception": "游泳不是中午吃東西的活動"
+      },
+      {
+        "text": "watered the flowers",
+        "trap": "文意線索誤讀",
+        "misconception": "澆花與 hungry、noon 的用餐線索不合"
+      }
+    ],
+    "hints": [
+      "注意 hungry 和 noon。",
+      "中午肚子餓，通常要吃哪一餐？",
+      "空格需要一個過去式的用餐片語。"
+    ],
+    "explanation": "正確概念：had lunch 是吃了午餐，符合中午十二點肚子餓的情境。\n破誤：「did the laundry」：洗衣服不能解決 hungry 所表示的肚子餓；「went swimming」：游泳不是中午吃東西的活動；「watered the flowers」：澆花與 hungry、noon 的用餐線索不合。\n回頭讀：Unit 2 Vocabulary、Sentence A（課本 pp.22–24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary、Sentence A（課本 pp.22–24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L04-Q6",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "聽力：聽句子選圖意",
+    "stem": "請聽句子，選出最符合的中文描述。",
+    "attachment": {
+      "listen": "I had dinner at seven thirty.",
+      "rate": 0.9
+    },
+    "answer": "七點半吃晚餐",
+    "distractors": [
+      {
+        "text": "七點整吃晚餐",
+        "trap": "時間資訊錯置",
+        "misconception": "漏聽 thirty，把半點當成整點"
+      },
+      {
+        "text": "六點半吃晚餐",
+        "trap": "音近字",
+        "misconception": "把 seven 聽成 six"
+      },
+      {
+        "text": "七點半洗碗盤",
+        "trap": "對話資訊錯置",
+        "misconception": "時間相同，但將用餐換成洗碗"
+      }
+    ],
+    "hints": [
+      "把活動和時間分開記住。",
+      "時間要辨認整點還是半點。",
+      "聽到的是晚餐，而且時間有半點。"
+    ],
+    "explanation": "正確概念：句子是 I had dinner at seven thirty.，表示七點半吃晚餐。\n破誤：「七點整吃晚餐」：漏聽 thirty，把半點當成整點；「六點半吃晚餐」：把 seven 聽成 six；「七點半洗碗盤」：時間相同，但將用餐換成洗碗。\n回頭讀：Unit 2 Vocabulary、Sentence A（課本 pp.22–24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary、Sentence A（課本 pp.22–24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L04-Q7",
+    "level": "L04 Unit 2 字彙與聽力",
+    "type": "聽力：聽短對話回答",
+    "stem": "請聽對話，Kevin 昨天幾點洗碗？",
+    "attachment": {
+      "listen": "Amy: I did the dishes at six thirty yesterday. What time did you do the dishes, Kevin? Kevin: I did the dishes at eight.",
+      "rate": 0.9
+    },
+    "answer": "八點",
+    "distractors": [
+      {
+        "text": "六點半",
+        "trap": "對話資訊錯置",
+        "misconception": "這是 Amy 洗碗的時間"
+      },
+      {
+        "text": "八點半",
+        "trap": "時間資訊錯置",
+        "misconception": "把 Amy 時間中的 thirty 接到 Kevin 的時間"
+      },
+      {
+        "text": "六點",
+        "trap": "對話資訊錯置",
+        "misconception": "選到 Amy 的時數，並漏掉半點"
+      }
+    ],
+    "hints": [
+      "先找出題目問的是哪一個人。",
+      "兩人說的是同一種家事，時間卻不同。",
+      "Kevin 回答的是整點，不是半點。"
+    ],
+    "explanation": "正確概念：原創對話：Amy: I did the dishes at six thirty yesterday. What time did you do the dishes, Kevin? Kevin: I did the dishes at eight. Kevin 的時間是八點。\n破誤：「六點半」：這是 Amy 洗碗的時間；「八點半」：把 Amy 時間中的 thirty 接到 Kevin 的時間；「六點」：選到 Amy 的時數，並漏掉半點。\n回頭讀：Unit 2 Sentence A（課本 p.24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence A（課本 p.24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q1",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "文法：動詞形式",
+    "stem": "選字完成句子：\"We ______ swimming yesterday.\"",
+    "attachment": null,
+    "answer": "went",
+    "distractors": [
+      {
+        "text": "go",
+        "trap": "時態與時間詞不合",
+        "misconception": "忽略 yesterday，使用原形"
+      },
+      {
+        "text": "goes",
+        "trap": "第三人稱混淆",
+        "misconception": "We 不用 goes，過去情境也不適用"
+      },
+      {
+        "text": "going",
+        "trap": "動詞形式混淆",
+        "misconception": "把 -ing 形式當成單獨的過去式"
+      }
+    ],
+    "hints": [
+      "先辨認這件事發生的時間。",
+      "go 的過去式不是直接加 -ed。",
+      "不規則動詞要使用對應的過去式。"
+    ],
+    "explanation": "正確概念：go 的過去式為 went，因此用 went swimming。\n破誤：「go」：忽略 yesterday，使用原形；「goes」：We 不用 goes，過去情境也不適用；「going」：把 -ing 形式當成單獨的過去式。\n回頭讀：Unit 2 Reminder、Grammar Tips（課本 pp.23–25）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Reminder、Grammar Tips（課本 pp.23–25）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q2",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "句型：填空",
+    "stem": "選字完成問句：\"What time ______ Emma have dinner yesterday?\"",
+    "attachment": null,
+    "answer": "did",
+    "distractors": [
+      {
+        "text": "does",
+        "trap": "時態與時間詞不合",
+        "misconception": "只看 Emma 是第三人稱，忽略 yesterday"
+      },
+      {
+        "text": "do",
+        "trap": "時態與時間詞不合",
+        "misconception": "使用現在式，且未配合第三人稱"
+      },
+      {
+        "text": "was",
+        "trap": "動詞形式混淆",
+        "misconception": "把 be 動詞放在 have 前，不能構成本課的動作問句"
+      }
+    ],
+    "hints": [
+      "先找出時間詞。",
+      "過去動作問句不因主詞是 Emma 就改用現在式。",
+      "後面 have 是原形，前面需要過去式助動詞。"
+    ],
+    "explanation": "正確概念：yesterday 表示過去，用 What time did ... have dinner?。\n破誤：「does」：只看 Emma 是第三人稱，忽略 yesterday；「do」：使用現在式，且未配合第三人稱；「was」：把 be 動詞放在 have 前，不能構成本課的動作問句。\n回頭讀：Unit 2 Sentence A／Grammar Tips（課本 p.24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence A／Grammar Tips（課本 p.24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q3",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "句型：問答配對",
+    "stem": "\"What time did you go swimming?\" 最適合接哪一句？",
+    "attachment": null,
+    "answer": "I went at five.",
+    "distractors": [
+      {
+        "text": "I went with my sister.",
+        "trap": "疑問詞混淆",
+        "misconception": "回答和誰去，沒有說幾點"
+      },
+      {
+        "text": "I went last Sunday.",
+        "trap": "疑問詞混淆",
+        "misconception": "回答哪一天，沒有回答幾點"
+      },
+      {
+        "text": "I went to the beach.",
+        "trap": "疑問詞混淆",
+        "misconception": "回答地點，沒有回答時刻"
+      }
+    ],
+    "hints": [
+      "留意疑問詞要問哪一種資訊。",
+      "What time 要求具體時刻。",
+      "找出 at 後面接幾點的回答。"
+    ],
+    "explanation": "正確概念：What time 問幾點；I went at five. 回答五點。\n破誤：「I went with my sister.」：回答和誰去，沒有說幾點；「I went last Sunday.」：回答哪一天，沒有回答幾點；「I went to the beach.」：回答地點，沒有回答時刻。\n回頭讀：Unit 2 Sentence A（課本 p.24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence A（課本 p.24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q4",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "文法：改錯",
+    "stem": "四個句子中，哪一句完全正確？",
+    "attachment": null,
+    "answer": "She had lunch at one.",
+    "distractors": [
+      {
+        "text": "She have lunch at one yesterday.",
+        "trap": "時態與時間詞不合",
+        "misconception": "昨天應用 had，不是 have"
+      },
+      {
+        "text": "Did she had lunch at one?",
+        "trap": "did 後接過去式",
+        "misconception": "did 後要用 have，不是 had"
+      },
+      {
+        "text": "She did not had lunch at one.",
+        "trap": "did 後接過去式",
+        "misconception": "did not 後也要還原成 have"
+      }
+    ],
+    "hints": [
+      "先看句中有沒有 did。",
+      "有 did 就用原形；直接陳述過去活動才用 had。",
+      "正確句子直接說她一點吃了午餐。"
+    ],
+    "explanation": "正確概念：She had lunch at one. 使用 have 的過去式 had，時間介系詞用 at。\n破誤：「She have lunch at one yesterday.」：昨天應用 had，不是 have；「Did she had lunch at one?」：did 後要用 have，不是 had；「She did not had lunch at one.」：did not 後也要還原成 have。\n回頭讀：Unit 2 Sentence A／B、Grammar Tips（課本 pp.24–25）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence A／B、Grammar Tips（課本 pp.24–25）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q5",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "文法：時間詞",
+    "stem": "依序選出兩個空格的動詞：\"Amy ______ the dishes every day. She ______ the dishes yesterday, too.\"",
+    "attachment": null,
+    "answer": "does / did",
+    "distractors": [
+      {
+        "text": "did / does",
+        "trap": "時態與時間詞不合",
+        "misconception": "把日常習慣與過去活動的動詞順序顛倒"
+      },
+      {
+        "text": "do / did",
+        "trap": "第三人稱混淆",
+        "misconception": "過去式正確，但 Amy 的現在式應用 does"
+      },
+      {
+        "text": "does / do",
+        "trap": "時態與時間詞不合",
+        "misconception": "現在式正確，但 yesterday 應用 did"
+      }
+    ],
+    "hints": [
+      "分別標出兩句的時間詞。",
+      "every day 是習慣，yesterday 是過去。",
+      "Amy 的現在式要注意第三人稱，過去式用 did。"
+    ],
+    "explanation": "正確概念：Amy 的習慣用 does，昨天已做過的事用 did。\n破誤：「did / does」：把日常習慣與過去活動的動詞順序顛倒；「do / did」：過去式正確，但 Amy 的現在式應用 does；「does / do」：現在式正確，但 yesterday 應用 did。\n回頭讀：Unit 2 Sentence B／Grammar Tips（課本 p.25）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence B／Grammar Tips（課本 p.25）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q6",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "聽力：聽問句選回答",
+    "stem": "請聽問句，選出最合適的回答。",
+    "attachment": {
+      "listen": "What time did you have breakfast yesterday?",
+      "rate": 0.9
+    },
+    "answer": "I had it at seven.",
+    "distractors": [
+      {
+        "text": "I had it with my dad.",
+        "trap": "疑問詞混淆",
+        "misconception": "回答和誰一起吃，沒有時刻"
+      },
+      {
+        "text": "I had it at home.",
+        "trap": "疑問詞混淆",
+        "misconception": "at home 是地點，不是幾點"
+      },
+      {
+        "text": "Yes, I had breakfast.",
+        "trap": "疑問詞混淆",
+        "misconception": "只確認有吃早餐，沒有回答時刻"
+      }
+    ],
+    "hints": [
+      "先辨認問題要求的資訊。",
+      "不是只要肯定或否定，回答要有具體時刻。",
+      "找出用 at 接幾點的句子。"
+    ],
+    "explanation": "正確概念：問句是 What time did you have breakfast yesterday?；I had it at seven. 回答七點。\n破誤：「I had it with my dad.」：回答和誰一起吃，沒有時刻；「I had it at home.」：at home 是地點，不是幾點；「Yes, I had breakfast.」：只確認有吃早餐，沒有回答時刻。\n回頭讀：Unit 2 Sentence A（課本 p.24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence A（課本 p.24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L05-Q7",
+    "level": "L05 Unit 2 句型與文法",
+    "type": "句型：情境應用",
+    "stem": "依 Kevin 昨天的紀錄，哪一句正確？",
+    "attachment": {
+      "t": [
+        [
+          "時間",
+          "Kevin 昨天的活動"
+        ],
+        [
+          "10:00",
+          "did the laundry"
+        ],
+        [
+          "16:00",
+          "went swimming"
+        ],
+        [
+          "18:00",
+          "had dinner"
+        ]
+      ],
+      "cap": "Kevin 昨天的紀錄（原創，24 小時制）"
+    },
+    "answer": "He did the laundry at ten.",
+    "distractors": [
+      {
+        "text": "He went swimming at ten.",
+        "trap": "時間資訊錯置",
+        "misconception": "游泳時間是四點，不是十點"
+      },
+      {
+        "text": "He does the laundry at ten.",
+        "trap": "時態與時間詞不合",
+        "misconception": "紀錄是昨天的事，應用 did"
+      },
+      {
+        "text": "He had dinner at four.",
+        "trap": "時間資訊錯置",
+        "misconception": "晚餐時間是六點，不是四點"
+      }
+    ],
+    "hints": [
+      "逐一對照表格的活動與時間。",
+      "昨天的活動要使用過去式。",
+      "十點那一列是洗衣服。"
+    ],
+    "explanation": "正確概念：表格記錄昨天十點洗衣服，用 He did the laundry at ten.。\n破誤：「He went swimming at ten.」：游泳時間是四點，不是十點；「He does the laundry at ten.」：紀錄是昨天的事，應用 did；「He had dinner at four.」：晚餐時間是六點，不是四點。\n回頭讀：Unit 2 Vocabulary、Sentence A（課本 pp.22–24）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary、Sentence A（課本 pp.22–24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q1",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "聽力：辨認字母組合",
+    "stem": "請聽單字，選出它最後三個字母的組合。",
+    "attachment": {
+      "listen": "strong",
+      "rate": 0.8
+    },
+    "answer": "-ong",
+    "distractors": [
+      {
+        "text": "-ing",
+        "trap": "拼字組合混淆",
+        "misconception": "把母音聽成 king 那一組"
+      },
+      {
+        "text": "-ink",
+        "trap": "音近字",
+        "misconception": "把母音和最後的鼻音誤聽成 ink"
+      },
+      {
+        "text": "-ang",
+        "trap": "音近字",
+        "misconception": "將中間母音誤聽成 sang 的母音"
+      }
+    ],
+    "hints": [
+      "注意字尾前的母音。",
+      "本課分成兩個主要字尾組合，別只聽最後的鼻音。",
+      "這個字和 long 的字尾同組。"
+    ],
+    "explanation": "正確概念：念的是 strong，最後三個字母是 ong。\n破誤：「-ing」：把母音聽成 king 那一組；「-ink」：把母音和最後的鼻音誤聽成 ink；「-ang」：將中間母音誤聽成 sang 的母音。\n回頭讀：Unit 2 Phonics／Sound It Out（課本 p.30）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Phonics／Sound It Out（課本 p.30）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q2",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "發音：選出讀音不同的字",
+    "stem": "哪個字的母音和另外三個不同？可點播選項比較。",
+    "attachment": {
+      "speakOptions": true
+    },
+    "answer": "sing",
+    "distractors": [
+      {
+        "text": "long",
+        "trap": "拼字組合混淆",
+        "misconception": "long 與 strong、wrong 都屬於 -ong"
+      },
+      {
+        "text": "strong",
+        "trap": "拼字組合混淆",
+        "misconception": "strong 與 long、wrong 的母音相同"
+      },
+      {
+        "text": "wrong",
+        "trap": "拼字組合混淆",
+        "misconception": "wrong 與 long、strong 都屬於 -ong"
+      }
+    ],
+    "hints": [
+      "先分組，不必比較字首。",
+      "三個字都有相同的字尾組合。",
+      "找出唯一的 -ing 字。"
+    ],
+    "explanation": "正確概念：sing 屬於 -ing；long、strong、wrong 屬於 -ong，母音不同。\n破誤：「long」：long 與 strong、wrong 都屬於 -ong；「strong」：strong 與 long、wrong 的母音相同；「wrong」：wrong 與 long、strong 都屬於 -ong。\n回頭讀：Unit 2 Phonics／Sound It Out（課本 p.30）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Phonics／Sound It Out（課本 p.30）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q3",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "發音：拼讀規則",
+    "stem": "哪個字和 \"king\" 有相同的字尾讀音？",
+    "attachment": null,
+    "answer": "ring",
+    "distractors": [
+      {
+        "text": "long",
+        "trap": "拼字組合混淆",
+        "misconception": "long 屬於 -ong，不和 king 押韻"
+      },
+      {
+        "text": "strong",
+        "trap": "拼字組合混淆",
+        "misconception": "strong 的母音屬於 -ong 那一組"
+      },
+      {
+        "text": "wrong",
+        "trap": "拼字組合混淆",
+        "misconception": "wrong 的字尾是 -ong，不是 -ing"
+      }
+    ],
+    "hints": [
+      "比較字尾的字母組合。",
+      "要找母音和最後的音都相同的字。",
+      "king 的字尾是 -ing。"
+    ],
+    "explanation": "正確概念：ring 與 king 都以 -ing 結尾，字尾讀音相同。\n破誤：「long」：long 屬於 -ong，不和 king 押韻；「strong」：strong 的母音屬於 -ong 那一組；「wrong」：wrong 的字尾是 -ong，不是 -ing。\n回頭讀：Unit 2 Phonics／Sound It Out（課本 p.30）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Phonics／Sound It Out（課本 p.30）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q4",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "聽力：聽音選字",
+    "stem": "請聽單字，選出正確的拼字。",
+    "attachment": {
+      "listen": "king",
+      "rate": 0.8
+    },
+    "answer": "king",
+    "distractors": [
+      {
+        "text": "ring",
+        "trap": "音近字",
+        "misconception": "字尾相同，但字首不同"
+      },
+      {
+        "text": "sing",
+        "trap": "音近字",
+        "misconception": "只聽出 -ing，忽略字首不是 s"
+      },
+      {
+        "text": "wing",
+        "trap": "音近字",
+        "misconception": "只比較字尾，沒有辨認開頭的子音"
+      }
+    ],
+    "hints": [
+      "四個選項的字尾很像，先聽字首。",
+      "不要只靠 -ing 作答。",
+      "這個字的意思是國王。"
+    ],
+    "explanation": "正確概念：念的是 king，和 ring、sing、wing 的字首不同。\n破誤：「ring」：字尾相同，但字首不同；「sing」：只聽出 -ing，忽略字首不是 s；「wing」：只比較字尾，沒有辨認開頭的子音。\n回頭讀：Unit 2 Phonics／Sound It Out（課本 p.30）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Phonics／Sound It Out（課本 p.30）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q5",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "閱讀：短文擷取",
+    "stem": "依短文，Kevin 昨天用什麼洗碗？",
+    "attachment": {
+      "passage": "Emma and Kevin were busy yesterday. Emma did the dishes by hand after lunch. Kevin used a dishwasher after dinner. Emma likes to do housework by hand. She does not want to use a machine. Kevin likes to use a machine. It gives him time to play the recorder. They both help at home, but they do the dishes in different ways."
+    },
+    "answer": "洗碗機",
+    "distractors": [
+      {
+        "text": "自己的雙手",
+        "trap": "人物資訊錯置",
+        "misconception": "用手洗碗的是 Emma"
+      },
+      {
+        "text": "家裡的洗衣機",
+        "trap": "中文意思混淆",
+        "misconception": "將 dishwasher 誤解成洗衣機"
+      },
+      {
+        "text": "家裡的掃地機器人",
+        "trap": "中文意思混淆",
+        "misconception": "把不同家事機器的用途混淆"
+      }
+    ],
+    "hints": [
+      "找出 Kevin 的活動句。",
+      "辨認 used 後面的物品。",
+      "這台機器專門處理碗盤。"
+    ],
+    "explanation": "正確概念：Kevin used a dishwasher，表示他使用洗碗機。\n破誤：「自己的雙手」：用手洗碗的是 Emma；「家裡的洗衣機」：將 dishwasher 誤解成洗衣機；「家裡的掃地機器人」：把不同家事機器的用途混淆。\n回頭讀：Unit 2 Reading（課本 pp.28–29）；Reading Skills：Contrast（課本 p.4）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Reading（課本 pp.28–29）；Reading Skills：Contrast（課本 p.4）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q6",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "閱讀技巧：對比",
+    "stem": "比較短文中的兩人，哪一項差異符合內容？",
+    "attachment": {
+      "passage": "Emma and Kevin were busy yesterday. Emma did the dishes by hand after lunch. Kevin used a dishwasher after dinner. Emma likes to do housework by hand. She does not want to use a machine. Kevin likes to use a machine. It gives him time to play the recorder. They both help at home, but they do the dishes in different ways."
+    },
+    "answer": "Emma 用手洗；Kevin 用機器洗",
+    "distractors": [
+      {
+        "text": "Emma 用機器洗；Kevin 用手洗",
+        "trap": "人物資訊錯置",
+        "misconception": "把兩人的方式互換"
+      },
+      {
+        "text": "Emma 不做家事；Kevin 做家事",
+        "trap": "文意線索誤讀",
+        "misconception": "Emma 也洗碗，不能說她不做家事"
+      },
+      {
+        "text": "Emma 洗衣服；Kevin 打掃房間",
+        "trap": "文意線索誤讀",
+        "misconception": "兩人在文中都洗碗，不是這兩種活動"
+      }
+    ],
+    "hints": [
+      "找出兩人做同一件事時的不同方法。",
+      "by hand 和 machine 是對比的關鍵。",
+      "兩人都有幫忙，差別是洗碗方式。"
+    ],
+    "explanation": "正確概念：兩人都幫忙洗碗，Emma 用手，Kevin 用洗碗機；對比的是做法。\n破誤：「Emma 用機器洗；Kevin 用手洗」：把兩人的方式互換；「Emma 不做家事；Kevin 做家事」：Emma 也洗碗，不能說她不做家事；「Emma 洗衣服；Kevin 打掃房間」：兩人在文中都洗碗，不是這兩種活動。\n回頭讀：Unit 2 Reading／Contrast（課本 pp.28–29）；Reading Skills（課本 p.4）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Reading／Contrast（課本 pp.28–29）；Reading Skills（課本 p.4）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L06-Q7",
+    "level": "L06 Unit 2 發音與閱讀",
+    "type": "閱讀：故事理解",
+    "stem": "依 Unit 2 Story，Amy 和媽媽幾點回家？",
+    "attachment": null,
+    "answer": "五點",
+    "distractors": [
+      {
+        "text": "六點",
+        "trap": "故事細節錯置",
+        "misconception": "六點是後來 Kevin 等人去夜市的時間"
+      },
+      {
+        "text": "九點",
+        "trap": "人物資訊錯置",
+        "misconception": "九點是 Kevin 等人回家的時間，不是 Amy 和媽媽"
+      },
+      {
+        "text": "六點半",
+        "trap": "故事細節錯置",
+        "misconception": "故事沒有說 Amy 和媽媽六點半回家"
+      }
+    ],
+    "hints": [
+      "回想 Amy 說到媽媽的那一句。",
+      "故事中有不同人的回家時間，別混在一起。",
+      "她們比後來去夜市的同伴早回家。"
+    ],
+    "explanation": "正確概念：Amy 和媽媽五點回家；Kevin 等人六點去夜市、九點回家。\n破誤：「六點」：六點是後來 Kevin 等人去夜市的時間；「九點」：九點是 Kevin 等人回家的時間，不是 Amy 和媽媽；「六點半」：故事沒有說 Amy 和媽媽六點半回家。\n回頭讀：Unit 2 Story（課本 pp.20–21）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Story（課本 pp.20–21）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q1",
+    "level": "L07 Review 1 綜合複習",
+    "type": "複習：字彙",
+    "stem": "哪個片語表示「探望我的祖父母」？",
+    "attachment": null,
+    "answer": "visited my grandparents",
+    "distractors": [
+      {
+        "text": "played the recorder at home",
+        "trap": "中文意思混淆",
+        "misconception": "這是在家吹直笛，沒有探望家人"
+      },
+      {
+        "text": "cooked dinner with my parents",
+        "trap": "中文意思混淆",
+        "misconception": "這是和父母煮晚餐，不是探望祖父母"
+      },
+      {
+        "text": "watched a movie with my sister",
+        "trap": "中文意思混淆",
+        "misconception": "這是和妹妹看電影，人物和活動都不同"
+      }
+    ],
+    "hints": [
+      "先找家人的稱呼。",
+      "parents 和 grandparents 代表不同輩分。",
+      "探望的動作要用 visit 的過去式。"
+    ],
+    "explanation": "正確概念：visited my grandparents 表示探望我的祖父母。\n破誤：「played the recorder at home」：這是在家吹直笛，沒有探望家人；「cooked dinner with my parents」：這是和父母煮晚餐，不是探望祖父母；「watched a movie with my sister」：這是和妹妹看電影，人物和活動都不同。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）；Review 1 Sentence Review（課本 p.31）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary（課本 pp.10–11）；Review 1 Sentence Review（課本 p.31）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q2",
+    "level": "L07 Review 1 綜合複習",
+    "type": "複習：字彙",
+    "stem": "選出「昨天去游泳」的英文片語。",
+    "attachment": null,
+    "answer": "went swimming yesterday",
+    "distractors": [
+      {
+        "text": "went shopping yesterday",
+        "trap": "中文意思混淆",
+        "misconception": "這是昨天購物，不是游泳"
+      },
+      {
+        "text": "did the laundry yesterday",
+        "trap": "中文意思混淆",
+        "misconception": "這是昨天洗衣，不是游泳"
+      },
+      {
+        "text": "played basketball yesterday",
+        "trap": "中文意思混淆",
+        "misconception": "這是昨天打籃球，運動項目不同"
+      }
+    ],
+    "hints": [
+      "各選項的時間相同，要比較活動。",
+      "購物與游泳的字尾都像 -ing，別只看字尾。",
+      "找與水中運動相關的字。"
+    ],
+    "explanation": "正確概念：went swimming yesterday 表示昨天去游泳。\n破誤：「went shopping yesterday」：這是昨天購物，不是游泳；「did the laundry yesterday」：這是昨天洗衣，不是游泳；「played basketball yesterday」：這是昨天打籃球，運動項目不同。\n回頭讀：Unit 2 Vocabulary（課本 pp.22–23）；Review 1 Sentence Review（課本 p.31）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Vocabulary（課本 pp.22–23）；Review 1 Sentence Review（課本 p.31）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q3",
+    "level": "L07 Review 1 綜合複習",
+    "type": "複習：句型",
+    "stem": "選出正確問句來詢問「你昨天有煮晚餐嗎？」。",
+    "attachment": null,
+    "answer": "Did you cook dinner yesterday?",
+    "distractors": [
+      {
+        "text": "Did you cooked dinner yesterday?",
+        "trap": "did 後接過去式",
+        "misconception": "did 後應接原形 cook"
+      },
+      {
+        "text": "Do you cook dinner yesterday?",
+        "trap": "時態與時間詞不合",
+        "misconception": "yesterday 的問句要用 Did"
+      },
+      {
+        "text": "Does you cook dinner yesterday?",
+        "trap": "第三人稱混淆",
+        "misconception": "you 不用 Does，且時態也不對"
+      }
+    ],
+    "hints": [
+      "先看時間，再檢查助動詞後的動詞。",
+      "過去問句用 did 加原形。",
+      "cook 不要再加 -ed。"
+    ],
+    "explanation": "正確概念：Did you cook dinner yesterday? 同時符合過去時間與 did 後接原形的規則。\n破誤：「Did you cooked dinner yesterday?」：did 後應接原形 cook；「Do you cook dinner yesterday?」：yesterday 的問句要用 Did；「Does you cook dinner yesterday?」：you 不用 Does，且時態也不對。\n回頭讀：Unit 1 Sentence B（課本 p.13）；Review 1 Sentence Review（課本 p.31）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Sentence B（課本 p.13）；Review 1 Sentence Review（課本 p.31）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q4",
+    "level": "L07 Review 1 綜合複習",
+    "type": "複習：句型",
+    "stem": "要回答 \"What time did you have lunch?\"，哪一句最合適？",
+    "attachment": null,
+    "answer": "I had lunch at twelve.",
+    "distractors": [
+      {
+        "text": "I have lunch at twelve yesterday.",
+        "trap": "時態與時間詞不合",
+        "misconception": "yesterday 需要 had，不能用 have"
+      },
+      {
+        "text": "I had lunch with my grandparents.",
+        "trap": "疑問詞混淆",
+        "misconception": "只回答和誰吃，沒有回答時刻"
+      },
+      {
+        "text": "I had lunch in the kitchen.",
+        "trap": "疑問詞混淆",
+        "misconception": "只回答地點，沒有回答幾點"
+      }
+    ],
+    "hints": [
+      "問句要的是時間。",
+      "回答過去的活動，要用 have 的過去式。",
+      "選出既有過去式，也有時刻的句子。"
+    ],
+    "explanation": "正確概念：I had lunch at twelve. 表示十二點吃了午餐。\n破誤：「I have lunch at twelve yesterday.」：yesterday 需要 had，不能用 have；「I had lunch with my grandparents.」：只回答和誰吃，沒有回答時刻；「I had lunch in the kitchen.」：只回答地點，沒有回答幾點。\n回頭讀：Unit 2 Sentence A（課本 p.24）；Review 1（課本 p.31）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 Sentence A（課本 p.24）；Review 1（課本 p.31）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q5",
+    "level": "L07 Review 1 綜合複習",
+    "type": "複習：發音",
+    "stem": "哪一組的兩個字有相同的字尾讀音？（動詞比較 -ed；其他字比較最後三個字母。）",
+    "attachment": null,
+    "answer": "sing / ring",
+    "distractors": [
+      {
+        "text": "long / king",
+        "trap": "拼字組合混淆",
+        "misconception": "-ong 和 -ing 的母音不同"
+      },
+      {
+        "text": "played / cooked",
+        "trap": "-ed 讀音混淆",
+        "misconception": "played 的 -ed 讀 [d]，cooked 讀 [t]"
+      },
+      {
+        "text": "visited / watched",
+        "trap": "-ed 讀音混淆",
+        "misconception": "visited 的 -ed 讀 [ɪd]，watched 讀 [t]"
+      }
+    ],
+    "hints": [
+      "每組要比較指定的字尾。",
+      "-ed 有三種讀音；-ing 和 -ong 也不能混為一組。",
+      "找兩個都以 -ing 結尾的字。"
+    ],
+    "explanation": "正確概念：sing 與 ring 的 -ing 相同；另外三組各自有不同的指定字尾讀音。\n破誤：「long / king」：-ong 和 -ing 的母音不同；「played / cooked」：played 的 -ed 讀 [d]，cooked 讀 [t]；「visited / watched」：visited 的 -ed 讀 [ɪd]，watched 讀 [t]。\n回頭讀：Review 1 Phonics Review（課本 p.34）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Review 1 Phonics Review（課本 p.34）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q6",
+    "level": "L07 Review 1 綜合複習",
+    "type": "聽力：綜合複習",
+    "stem": "請聽句子，說話者昨天做了哪一件事？",
+    "attachment": {
+      "listen": "I did not do the laundry yesterday. I cleaned the room.",
+      "rate": 0.9
+    },
+    "answer": "打掃房間",
+    "distractors": [
+      {
+        "text": "洗衣服",
+        "trap": "對話資訊錯置",
+        "misconception": "把句中否定的活動當成做過的事"
+      },
+      {
+        "text": "清洗碗盤",
+        "trap": "中文意思混淆",
+        "misconception": "將兩種家事片語混淆"
+      },
+      {
+        "text": "探望祖父母",
+        "trap": "對話資訊錯置",
+        "misconception": "句子沒有提到這個活動"
+      }
+    ],
+    "hints": [
+      "注意哪個動作前面有否定。",
+      "沒有做的事和後面真正做的事要分開。",
+      "答案在否定句之後的肯定句。"
+    ],
+    "explanation": "正確概念：原創聽力：I did not do the laundry yesterday. I cleaned the room. 說話者打掃房間，沒有洗衣服。\n破誤：「洗衣服」：把句中否定的活動當成做過的事；「清洗碗盤」：將兩種家事片語混淆；「探望祖父母」：句子沒有提到這個活動。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）；Unit 2 Sentence B（課本 p.25）；Review 1 Listening Skill（課本 pp.32–33）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary（課本 pp.10–11）；Unit 2 Sentence B（課本 p.25）；Review 1 Listening Skill（課本 pp.32–33）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L07-Q7",
+    "level": "L07 Review 1 綜合複習",
+    "type": "聽力：綜合複習",
+    "stem": "請聽對話，Emma 昨天做了什麼？",
+    "attachment": {
+      "listen": "Kevin: I went shopping yesterday. What did you do, Emma? Emma: I stayed at home and watched TV.",
+      "rate": 0.9
+    },
+    "answer": "在家看電視",
+    "distractors": [
+      {
+        "text": "外出去購物",
+        "trap": "對話資訊錯置",
+        "misconception": "把 Kevin 做的活動套到 Emma 身上"
+      },
+      {
+        "text": "在家洗衣服",
+        "trap": "對話資訊錯置",
+        "misconception": "對話沒有說 Emma 洗衣服"
+      },
+      {
+        "text": "外出去游泳",
+        "trap": "對話資訊錯置",
+        "misconception": "Emma 說待在家，沒有說去游泳"
+      }
+    ],
+    "hints": [
+      "先分辨問話者和回答者。",
+      "題目只問 Emma，不要選另一個人的活動。",
+      "她說的活動是在家看某種節目。"
+    ],
+    "explanation": "正確概念：原創對話：Kevin: I went shopping yesterday. What did you do, Emma? Emma: I stayed at home and watched TV. Emma 在家看電視。\n破誤：「外出去購物」：把 Kevin 做的活動套到 Emma 身上；「在家洗衣服」：對話沒有說 Emma 洗衣服；「外出去游泳」：Emma 說待在家，沒有說去游泳。\n回頭讀：Unit 2 More Words（課本 p.27）；Review 1 Listening Skill（課本 pp.32–33）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 2 More Words（課本 p.27）；Review 1 Listening Skill（課本 pp.32–33）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  }
+]

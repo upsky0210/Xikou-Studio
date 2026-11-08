@@ -1,0 +1,783 @@
+[
+  {
+    "id": "L01-Q1",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "聽力：聽音選字",
+    "stem": "請聽英文，選出你聽到的片語。",
+    "attachment": {
+      "listen": "cooked dinner",
+      "rate": 0.8
+    },
+    "answer": "cooked dinner",
+    "distractors": [
+      {
+        "text": "cook dinner",
+        "trap": "漏聽字尾",
+        "misconception": "漏聽動詞結尾的 [t]，選成原形"
+      },
+      {
+        "text": "cooks dinner",
+        "trap": "漏聽字尾",
+        "misconception": "將過去式字尾誤聽成現在式的 s"
+      },
+      {
+        "text": "cooked dessert",
+        "trap": "音近字",
+        "misconception": "只辨認第一個動詞，將晚餐誤聽成甜點"
+      }
+    ],
+    "hints": [
+      "先聽動作，再聽後面的餐點。",
+      "注意動詞尾音及第二個字的開頭。",
+      "動作已發生，餐點是晚餐。"
+    ],
+    "explanation": "正確概念：念的是 cooked dinner，意思是煮晚餐，cooked 的 -ed 讀 [t]。\n破誤：「cook dinner」：漏聽動詞結尾的 [t]，選成原形；「cooks dinner」：將過去式字尾誤聽成現在式的 s；「cooked dessert」：只辨認第一個動詞，將晚餐誤聽成甜點。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary（課本 pp.10–11）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L01-Q2",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "聽力：聽音選字",
+    "stem": "請聽英文，選出你聽到的片語。",
+    "attachment": {
+      "listen": "watched a movie",
+      "rate": 0.8
+    },
+    "answer": "watched a movie",
+    "distractors": [
+      {
+        "text": "watch a movie",
+        "trap": "漏聽字尾",
+        "misconception": "忽略 watched 最後的 [t]，選成原形"
+      },
+      {
+        "text": "watched a musical",
+        "trap": "音近字",
+        "misconception": "只聽到最後一字相近的開頭，就把電影聽成音樂劇"
+      },
+      {
+        "text": "watched the movie",
+        "trap": "音近字",
+        "misconception": "將不定冠詞 a 聽成 the"
+      }
+    ],
+    "hints": [
+      "先注意第一個字的尾音。",
+      "動詞後還有一個很短的字，也要聽清楚。",
+      "整個片語是在說看了一部電影。"
+    ],
+    "explanation": "正確概念：念的是 watched a movie（看了電影），不是 watch a movie、watched a musical 或 watched the movie。\n破誤：「watch a movie」：忽略 watched 最後的 [t]，選成原形；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched the movie」：將不定冠詞 a 聽成 the。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary（課本 pp.10–11）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L01-Q3",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "聽力：聽音選意思",
+    "stem": "請聽英文，選出片語的中文意思。",
+    "attachment": {
+      "listen": "played the recorder",
+      "rate": 0.8
+    },
+    "answer": "吹直笛",
+    "distractors": [
+      {
+        "text": "打籃球",
+        "trap": "中文意思混淆",
+        "misconception": "只聽出 played，沒有辨認後面的樂器"
+      },
+      {
+        "text": "玩線上遊戲",
+        "trap": "中文意思混淆",
+        "misconception": "把 played 後的名詞當成 online games"
+      },
+      {
+        "text": "聽音樂",
+        "trap": "中文意思混淆",
+        "misconception": "把演奏樂器和聆聽音樂混為一談"
+      }
+    ],
+    "hints": [
+      "注意動作後面接的是什麼。",
+      "同一個動詞可搭配運動、遊戲或樂器。",
+      "這裡說的是一種用嘴吹奏的樂器。"
+    ],
+    "explanation": "正確概念：念的是 played the recorder，意思是吹直笛。\n破誤：「打籃球」：只聽出 played，沒有辨認後面的樂器；「玩線上遊戲」：把 played 後的名詞當成 online games；「聽音樂」：把演奏樂器和聆聽音樂混為一談。\n回頭讀：Unit 1 Vocabulary、More Words（課本 pp.10–11、15）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary、More Words（課本 pp.10–11、15）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L01-Q4",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "字彙：看中文選英文",
+    "stem": "哪個過去式片語表示「澆花」？",
+    "attachment": null,
+    "answer": "watered the flowers",
+    "distractors": [
+      {
+        "text": "visited my grandparents",
+        "trap": "中文意思混淆",
+        "misconception": "這是探望祖父母，沒有照顧植物的意思"
+      },
+      {
+        "text": "played online games",
+        "trap": "中文意思混淆",
+        "misconception": "這是玩線上遊戲，不是澆花"
+      },
+      {
+        "text": "listened to music",
+        "trap": "中文意思混淆",
+        "misconception": "這是聽音樂，不是給花澆水"
+      }
+    ],
+    "hints": [
+      "找出與植物有關的名詞。",
+      "water 也能當動詞，表示澆水。",
+      "規則過去式在 water 後面加 -ed。"
+    ],
+    "explanation": "正確概念：watered the flowers 表示澆花，屬於課本 More Words。\n破誤：「visited my grandparents」：這是探望祖父母，沒有照顧植物的意思；「played online games」：這是玩線上遊戲，不是澆花；「listened to music」：這是聽音樂，不是給花澆水。\n回頭讀：Unit 1 More Words（課本 p.15）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 More Words（課本 p.15）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L01-Q5",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "字彙：情境填空",
+    "stem": "選出最合適的片語：\"My room was dirty. I ______ yesterday. Now it is clean.\"",
+    "attachment": null,
+    "answer": "cleaned the room",
+    "distractors": [
+      {
+        "text": "played the recorder",
+        "trap": "文意線索誤讀",
+        "misconception": "吹直笛不能解釋房間從髒變乾淨"
+      },
+      {
+        "text": "visited my grandparents",
+        "trap": "文意線索誤讀",
+        "misconception": "探望祖父母不能解釋房間的變化"
+      },
+      {
+        "text": "watched a movie",
+        "trap": "文意線索誤讀",
+        "misconception": "看電影沒有整理房間的意思"
+      }
+    ],
+    "hints": [
+      "看看前後兩句，房間有什麼變化。",
+      "空格要填能造成這種變化的動作。",
+      "從髒變乾淨，表示昨天做了打掃。"
+    ],
+    "explanation": "正確概念：cleaned the room 表示打掃房間，符合前後文的變化。\n破誤：「played the recorder」：吹直笛不能解釋房間從髒變乾淨；「visited my grandparents」：探望祖父母不能解釋房間的變化；「watched a movie」：看電影沒有整理房間的意思。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary（課本 pp.10–11）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L01-Q6",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "聽力：聽句子選圖意",
+    "stem": "請聽句子，選出最符合的中文描述。",
+    "attachment": {
+      "listen": "I walked the dog yesterday.",
+      "rate": 0.9
+    },
+    "answer": "昨天遛狗",
+    "distractors": [
+      {
+        "text": "今天遛狗",
+        "trap": "對話資訊錯置",
+        "misconception": "動作相同，但把昨天聽成今天"
+      },
+      {
+        "text": "昨天洗狗",
+        "trap": "音近字",
+        "misconception": "把 walked 誤聽為 washed，動作不同"
+      },
+      {
+        "text": "昨晚看電影",
+        "trap": "對話資訊錯置",
+        "misconception": "把遛狗換成別的本課活動，時間也不同"
+      }
+    ],
+    "hints": [
+      "分別注意動作和時間。",
+      "先確認是在說今天還是已過去的一天。",
+      "說話者昨天帶狗出去散步。"
+    ],
+    "explanation": "正確概念：句子是 I walked the dog yesterday.，意思是我昨天遛狗。\n破誤：「今天遛狗」：動作相同，但把昨天聽成今天；「昨天洗狗」：把 walked 誤聽為 washed，動作不同；「昨晚看電影」：把遛狗換成別的本課活動，時間也不同。\n回頭讀：Unit 1 Vocabulary、Sentence A（課本 pp.10–12）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary、Sentence A（課本 pp.10–12）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L01-Q7",
+    "level": "L01 Unit 1 字彙與聽力",
+    "type": "聽力：聽短對話回答",
+    "stem": "請聽對話，Amy 昨天做了什麼？",
+    "attachment": {
+      "listen": "Kevin: I cleaned the room yesterday. What did you do, Amy? Amy: I visited my grandparents.",
+      "rate": 0.9
+    },
+    "answer": "探望祖父母",
+    "distractors": [
+      {
+        "text": "打掃房間",
+        "trap": "對話資訊錯置",
+        "misconception": "這是 Kevin 說自己做的事"
+      },
+      {
+        "text": "看了一部電影",
+        "trap": "對話資訊錯置",
+        "misconception": "對話沒有說 Amy 看電影"
+      },
+      {
+        "text": "吹奏直笛",
+        "trap": "對話資訊錯置",
+        "misconception": "把本課另一個活動套到 Amy 身上"
+      }
+    ],
+    "hints": [
+      "先分清楚兩個說話者。",
+      "留意被問到的人如何回答。",
+      "她做的是去探望家人。"
+    ],
+    "explanation": "正確概念：原創對話：Kevin: I cleaned the room yesterday. What did you do, Amy? Amy: I visited my grandparents. Amy 探望祖父母，打掃房間的是 Kevin。\n破誤：「打掃房間」：這是 Kevin 說自己做的事；「看了一部電影」：對話沒有說 Amy 看電影；「吹奏直笛」：把本課另一個活動套到 Amy 身上。\n回頭讀：Unit 1 Vocabulary、Sentence A（課本 pp.10–12）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary、Sentence A（課本 pp.10–12）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q1",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "文法：動詞形式",
+    "stem": "在 \"Amy ______ her grandparents last Friday.\" 中，visit 應改成哪個形式？",
+    "attachment": null,
+    "answer": "visited",
+    "distractors": [
+      {
+        "text": "visits",
+        "trap": "時態與時間詞不合",
+        "misconception": "把第三人稱現在式用在 last Friday 的過去情境"
+      },
+      {
+        "text": "visit",
+        "trap": "時態與時間詞不合",
+        "misconception": "沒有依過去時間改變動詞"
+      },
+      {
+        "text": "visiting",
+        "trap": "動詞形式混淆",
+        "misconception": "把 -ing 形式當成可單獨使用的過去式"
+      }
+    ],
+    "hints": [
+      "先找句尾的時間詞。",
+      "last Friday 表示過去，visit 是規則動詞。",
+      "在原形後加上 -ed。"
+    ],
+    "explanation": "正確概念：visit 的過去式是 visited，符合 last Friday。\n破誤：「visits」：把第三人稱現在式用在 last Friday 的過去情境；「visit」：沒有依過去時間改變動詞；「visiting」：把 -ing 形式當成可單獨使用的過去式。\n回頭讀：Unit 1 Sentence A／Grammar Tips（課本 p.12）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Sentence A／Grammar Tips（課本 p.12）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q2",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "文法：句型填空",
+    "stem": "選字完成問句：\"______ you watch TV last night?\"",
+    "attachment": null,
+    "answer": "Did",
+    "distractors": [
+      {
+        "text": "Do",
+        "trap": "時態與時間詞不合",
+        "misconception": "忽略 last night，使用現在式助動詞"
+      },
+      {
+        "text": "Does",
+        "trap": "第三人稱混淆",
+        "misconception": "主詞 you 不用 does，且本題是過去時間"
+      },
+      {
+        "text": "Are",
+        "trap": "動詞形式混淆",
+        "misconception": "將 be 動詞放在原形 watch 前，不能形成此問句"
+      }
+    ],
+    "hints": [
+      "先看時間，再看主詞和動詞。",
+      "詢問過去做過的動作，要用過去式助動詞。",
+      "後面的 watch 已經是原形。"
+    ],
+    "explanation": "正確概念：last night 是過去時間，問句用 Did you 加原形動詞。\n破誤：「Do」：忽略 last night，使用現在式助動詞；「Does」：主詞 you 不用 does，且本題是過去時間；「Are」：將 be 動詞放在原形 watch 前，不能形成此問句。\n回頭讀：Unit 1 Sentence B／Grammar Tips（課本 p.13）；More Words（課本 p.15）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Sentence B／Grammar Tips（課本 p.13）；More Words（課本 p.15）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q3",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "句型：問答配對",
+    "stem": "\"What did you do last night?\" 最適合接哪一句？",
+    "attachment": null,
+    "answer": "I watched TV.",
+    "distractors": [
+      {
+        "text": "I watch TV every night.",
+        "trap": "時態與時間詞不合",
+        "misconception": "回答每天的習慣，沒有回答昨晚做了什麼"
+      },
+      {
+        "text": "Yes, I do.",
+        "trap": "疑問詞混淆",
+        "misconception": "只作現在式肯定簡答，沒有回答昨晚做了什麼"
+      },
+      {
+        "text": "No, I did not.",
+        "trap": "疑問詞混淆",
+        "misconception": "只作否定簡答，沒有說明做了什麼"
+      }
+    ],
+    "hints": [
+      "先辨認這是問活動，還是問有沒有做。",
+      "回答要說明過去的活動。",
+      "找出用過去式直接說昨晚活動的句子。"
+    ],
+    "explanation": "正確概念：I watched TV. 直接回答昨晚的活動。\n破誤：「I watch TV every night.」：回答每天的習慣，沒有回答昨晚做了什麼；「Yes, I do.」：只作現在式肯定簡答，沒有回答昨晚做了什麼；「No, I did not.」：只作否定簡答，沒有說明做了什麼。\n回頭讀：Unit 1 Sentence A（課本 p.12）；More Words（課本 p.15）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Sentence A（課本 p.12）；More Words（課本 p.15）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q4",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "文法：改錯",
+    "stem": "四個句子中，哪一句完全正確？",
+    "attachment": null,
+    "answer": "Did you visit Amy?",
+    "distractors": [
+      {
+        "text": "Did you visited Amy?",
+        "trap": "did 後接過去式",
+        "misconception": "did 後仍使用 visited，應還原成 visit"
+      },
+      {
+        "text": "Amy visit me yesterday.",
+        "trap": "時態與時間詞不合",
+        "misconception": "yesterday 要用 visited，不能用 visit"
+      },
+      {
+        "text": "Amy did not visited me.",
+        "trap": "did 後接過去式",
+        "misconception": "did not 後應接 visit，不再加 -ed"
+      }
+    ],
+    "hints": [
+      "檢查助動詞後面的動詞。",
+      "用了 did 或 did not，後面的動詞要用原形。",
+      "正確問句中的 visit 不需要再加 -ed。"
+    ],
+    "explanation": "正確概念：Did you visit Amy? 的 did 搭配原形 visit，句型正確。\n破誤：「Did you visited Amy?」：did 後仍使用 visited，應還原成 visit；「Amy visit me yesterday.」：yesterday 要用 visited，不能用 visit；「Amy did not visited me.」：did not 後應接 visit，不再加 -ed。\n回頭讀：Unit 1 Sentence A／B（課本 pp.12–13）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Sentence A／B（課本 pp.12–13）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q5",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "文法：時間詞",
+    "stem": "要表達「我昨天聽了音樂」，哪一句正確？",
+    "attachment": null,
+    "answer": "I listened to music yesterday.",
+    "distractors": [
+      {
+        "text": "I listen to music yesterday.",
+        "trap": "時態與時間詞不合",
+        "misconception": "yesterday 是過去，不能用 listen"
+      },
+      {
+        "text": "I listen to music every day.",
+        "trap": "時態與時間詞不合",
+        "misconception": "句子表示每天的習慣，不是昨天的事"
+      },
+      {
+        "text": "I listened to music last Friday.",
+        "trap": "時間資訊錯置",
+        "misconception": "動詞正確，但把昨天改成上週五"
+      }
+    ],
+    "hints": [
+      "先對照中文指定的時間。",
+      "昨天用過去式；每天表示習慣。",
+      "動詞與 yesterday 要同時符合題意。"
+    ],
+    "explanation": "正確概念：昨天用 yesterday，listen 的過去式是 listened。\n破誤：「I listen to music yesterday.」：yesterday 是過去，不能用 listen；「I listen to music every day.」：句子表示每天的習慣，不是昨天的事；「I listened to music last Friday.」：動詞正確，但把昨天改成上週五。\n回頭讀：Unit 1 Grammar Tips（課本 pp.12–13）；More Words（課本 p.15）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Grammar Tips（課本 pp.12–13）；More Words（課本 p.15）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q6",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "聽力：聽問句選回答",
+    "stem": "請聽問句。假設你確實做了對方問的事，哪一句回答正確？",
+    "attachment": {
+      "listen": "Did you water the flowers last Friday?",
+      "rate": 0.9
+    },
+    "answer": "Yes, I did.",
+    "distractors": [
+      {
+        "text": "Yes, I do.",
+        "trap": "簡答不一致",
+        "misconception": "把過去問句回答成現在式"
+      },
+      {
+        "text": "Yes, I am.",
+        "trap": "簡答不一致",
+        "misconception": "問的是動作，不是 be 動詞句"
+      },
+      {
+        "text": "Yes, I does.",
+        "trap": "第三人稱混淆",
+        "misconception": "I 不搭配 does，且時間不是現在"
+      }
+    ],
+    "hints": [
+      "先聽問句開頭。",
+      "肯定簡答要使用與問句相同的助動詞。",
+      "對過去動作的肯定簡答，要用過去式。"
+    ],
+    "explanation": "正確概念：問句是 Did you water the flowers last Friday?；肯定回答是 Yes, I did.。\n破誤：「Yes, I do.」：把過去問句回答成現在式；「Yes, I am.」：問的是動作，不是 be 動詞句；「Yes, I does.」：I 不搭配 does，且時間不是現在。\n回頭讀：Unit 1 Sentence B（課本 p.13）；More Words（課本 p.15）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Sentence B（課本 p.13）；More Words（課本 p.15）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L02-Q7",
+    "level": "L02 Unit 1 句型與文法",
+    "type": "句型：情境應用",
+    "stem": "依 Amy 的活動紀錄，哪一句符合「昨天」那一列？",
+    "attachment": {
+      "t": [
+        [
+          "時間",
+          "Amy 的活動"
+        ],
+        [
+          "last Friday",
+          "watched a movie"
+        ],
+        [
+          "yesterday",
+          "cooked dinner"
+        ]
+      ],
+      "cap": "Amy 的活動紀錄（原創）"
+    },
+    "answer": "Amy cooked dinner yesterday.",
+    "distractors": [
+      {
+        "text": "Amy watched a movie yesterday.",
+        "trap": "對話資訊錯置",
+        "misconception": "把上週五的活動移到昨天"
+      },
+      {
+        "text": "Amy cooks dinner yesterday.",
+        "trap": "時態與時間詞不合",
+        "misconception": "昨天已經過去，不能用 cooks"
+      },
+      {
+        "text": "Amy cooked dinner last Friday.",
+        "trap": "時間資訊錯置",
+        "misconception": "把煮晚餐的日期改成上週五"
+      }
+    ],
+    "hints": [
+      "先找出昨天那一列。",
+      "活動和時間都要符合紀錄，動詞也要用過去式。",
+      "昨天的活動是煮晚餐。"
+    ],
+    "explanation": "正確概念：紀錄中的昨天是 cooked dinner，因此用 Amy cooked dinner yesterday.。\n破誤：「Amy watched a movie yesterday.」：把上週五的活動移到昨天；「Amy cooks dinner yesterday.」：昨天已經過去，不能用 cooks；「Amy cooked dinner last Friday.」：把煮晚餐的日期改成上週五。\n回頭讀：Unit 1 Vocabulary、Grammar Tips（課本 pp.10–13）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary、Grammar Tips（課本 pp.10–13）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q1",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "聽力：辨認字尾讀音",
+    "stem": "請聽單字，選出它的 -ed 字尾讀音。",
+    "attachment": {
+      "listen": "landed",
+      "rate": 0.8
+    },
+    "answer": "-ed 讀 [ɪd]",
+    "distractors": [
+      {
+        "text": "-ed 讀 [d]",
+        "trap": "-ed 讀音混淆",
+        "misconception": "忽略字尾多出的一個音節"
+      },
+      {
+        "text": "-ed 讀 [t]",
+        "trap": "-ed 讀音混淆",
+        "misconception": "把有額外音節的字尾聽成短促的 [t]"
+      },
+      {
+        "text": "-ed 不發音",
+        "trap": "漏聽字尾",
+        "misconception": "完全忽略過去式字尾"
+      }
+    ],
+    "hints": [
+      "聽聽結尾是否多出一個音節。",
+      "本課有三組 -ed 讀音，先排除沒有念字尾的說法。",
+      "這個字屬於結尾多出一個音節的一組。"
+    ],
+    "explanation": "正確概念：念的是 landed；land 以 d 結尾，加 -ed 後字尾讀 [ɪd]。\n破誤：「-ed 讀 [d]」：忽略字尾多出的一個音節；「-ed 讀 [t]」：把有額外音節的字尾聽成短促的 [t]；「-ed 不發音」：完全忽略過去式字尾。\n回頭讀：Unit 1 Phonics／Sound It Out（課本 p.18）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Phonics／Sound It Out（課本 p.18）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q2",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "發音：選出讀音不同的字",
+    "stem": "哪一個單字的 -ed 讀音和另外三個不同？可點播選項比較。",
+    "attachment": {
+      "speakOptions": true
+    },
+    "answer": "helped",
+    "distractors": [
+      {
+        "text": "listened",
+        "trap": "-ed 讀音混淆",
+        "misconception": "listened 的 -ed 讀 [d]，與 played、rained 同組"
+      },
+      {
+        "text": "played",
+        "trap": "-ed 讀音混淆",
+        "misconception": "played 的 -ed 讀 [d]，與 listened、rained 同組"
+      },
+      {
+        "text": "rained",
+        "trap": "-ed 讀音混淆",
+        "misconception": "rained 的 -ed 讀 [d]，與 listened、played 同組"
+      }
+    ],
+    "hints": [
+      "只比較字尾，不要比較字首。",
+      "先找三個字尾相同的選項。",
+      "三個是 [d]，另一個是 [t]。"
+    ],
+    "explanation": "正確概念：helped 的 -ed 讀 [t]；其餘三字都讀 [d]。\n破誤：「listened」：listened 的 -ed 讀 [d]，與 played、rained 同組；「played」：played 的 -ed 讀 [d]，與 listened、rained 同組；「rained」：rained 的 -ed 讀 [d]，與 listened、played 同組。\n回頭讀：Unit 1 Phonics／Sound It Out（課本 p.18）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Phonics／Sound It Out（課本 p.18）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q3",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "發音：拼讀規則",
+    "stem": "哪個單字的 -ed 讀 [ɪd]？",
+    "attachment": null,
+    "answer": "visited",
+    "distractors": [
+      {
+        "text": "listened",
+        "trap": "-ed 讀音混淆",
+        "misconception": "listen 結尾不是 t 或 d，listened 的 -ed 讀 [d]"
+      },
+      {
+        "text": "watched",
+        "trap": "-ed 讀音混淆",
+        "misconception": "watched 的 -ed 讀 [t]，不多一個音節"
+      },
+      {
+        "text": "played",
+        "trap": "-ed 讀音混淆",
+        "misconception": "played 的 -ed 讀 [d]，不是 [ɪd]"
+      }
+    ],
+    "hints": [
+      "先看原形動詞最後的聲音。",
+      "原形以 t 或 d 結尾，加 -ed 後會多一個音節。",
+      "visit 的最後一個音符合這個條件。"
+    ],
+    "explanation": "正確概念：visited 的 -ed 讀 [ɪd]，與 landed、shouted 同組。\n破誤：「listened」：listen 結尾不是 t 或 d，listened 的 -ed 讀 [d]；「watched」：watched 的 -ed 讀 [t]，不多一個音節；「played」：played 的 -ed 讀 [d]，不是 [ɪd]。\n回頭讀：Unit 1 Phonics（課本 p.18）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Phonics（課本 p.18）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q4",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "聽力：聽音選字",
+    "stem": "請聽單字，選出正確的拼字。",
+    "attachment": {
+      "listen": "rained",
+      "rate": 0.8
+    },
+    "answer": "rained",
+    "distractors": [
+      {
+        "text": "stayed",
+        "trap": "音近字",
+        "misconception": "兩字母音和 -ed 讀音相近，但字首、結尾不同"
+      },
+      {
+        "text": "played",
+        "trap": "音近字",
+        "misconception": "母音相近，但沒有聽清楚字首"
+      },
+      {
+        "text": "trained",
+        "trap": "音近字",
+        "misconception": "多聽了開頭的 t 音"
+      }
+    ],
+    "hints": [
+      "先聽開頭，再聽字尾。",
+      "這些字很相近，不能只靠母音判斷。",
+      "開頭沒有多加一個 t 音，意思與下雨有關。"
+    ],
+    "explanation": "正確概念：念的是 rained，字首是 r，字尾 -ed 讀 [d]。\n破誤：「stayed」：兩字母音和 -ed 讀音相近，但字首、結尾不同；「played」：母音相近，但沒有聽清楚字首；「trained」：多聽了開頭的 t 音。\n回頭讀：Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q5",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "閱讀：短文擷取",
+    "stem": "閱讀短文，Kevin 昨天和妹妹做了什麼？",
+    "attachment": {
+      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
+    },
+    "answer": "一起看電影",
+    "distractors": [
+      {
+        "text": "一起打籃球",
+        "trap": "文意線索誤讀",
+        "misconception": "把 Amy 原先想做的活動當成 Kevin 已做的事"
+      },
+      {
+        "text": "一起吹直笛",
+        "trap": "人物資訊錯置",
+        "misconception": "吹直笛的是 Amy，不是 Kevin 和妹妹"
+      },
+      {
+        "text": "一起探望祖父母",
+        "trap": "文意推論過度",
+        "misconception": "短文沒有寫探望祖父母"
+      }
+    ],
+    "hints": [
+      "先找 Kevin 出現的句子。",
+      "注意 with his sister 接在哪個活動後。",
+      "答案是兩個人在家一起看的內容。"
+    ],
+    "explanation": "正確概念：Kevin 和妹妹一起看電影；短文的 watched a movie with his sister 直接提供答案。\n破誤：「一起打籃球」：把 Amy 原先想做的活動當成 Kevin 已做的事；「一起吹直笛」：吹直笛的是 Amy，不是 Kevin 和妹妹；「一起探望祖父母」：短文沒有寫探望祖父母。\n回頭讀：Unit 1 Vocabulary、More Words（課本 pp.10–11、15）；Reading Skills：Make Inferences（課本 p.4）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Vocabulary、More Words（課本 pp.10–11、15）；Reading Skills：Make Inferences（課本 p.4）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q6",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "閱讀技巧：推論",
+    "stem": "依短文，Amy 今天望向窗外微笑，最可能是什麼原因？",
+    "attachment": {
+      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
+    },
+    "answer": "天晴了，可以去打球",
+    "distractors": [
+      {
+        "text": "妹妹送她一顆新籃球",
+        "trap": "文意推論過度",
+        "misconception": "文中沒有說妹妹送球，妹妹屬於 Kevin 的家庭資訊"
+      },
+      {
+        "text": "爺爺帶她出去看電影",
+        "trap": "文意推論過度",
+        "misconception": "文中沒有爺爺或出門看電影的線索"
+      },
+      {
+        "text": "她已經打贏籃球比賽",
+        "trap": "文意推論過度",
+        "misconception": "有籃球不代表已參加或贏得比賽"
+      }
+    ],
+    "hints": [
+      "把昨天想做的事和今天的天氣連起來。",
+      "推論要有文中線索，不能自行加入新事件。",
+      "昨天因下雨留在家，今天有球而且天空是藍的。"
+    ],
+    "explanation": "正確概念：昨天想打球卻下雨，今天帶著球、看到藍天微笑，可推論她期待天晴後打球。這是可能原因，不是已發生的比賽結果。\n破誤：「妹妹送她一顆新籃球」：文中沒有說妹妹送球，妹妹屬於 Kevin 的家庭資訊；「爺爺帶她出去看電影」：文中沒有爺爺或出門看電影的線索；「她已經打贏籃球比賽」：有籃球不代表已參加或贏得比賽。\n回頭讀：Unit 1 Reading Skills：Make Inferences（課本 p.4）；Reading／Make Inferences（課本 p.17）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Reading Skills：Make Inferences（課本 p.4）；Reading／Make Inferences（課本 p.17）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  },
+  {
+    "id": "L03-Q7",
+    "level": "L03 Unit 1 發音與閱讀",
+    "type": "閱讀：故事理解",
+    "stem": "依 Unit 1 Story，Emma 打掃房間時，在書裡發現了什麼？",
+    "attachment": null,
+    "answer": "一張百元鈔票",
+    "distractors": [
+      {
+        "text": "一張電影票",
+        "trap": "故事細節錯置",
+        "misconception": "故事提到看電影，但 Emma 找到的不是電影票"
+      },
+      {
+        "text": "一張家人的照片",
+        "trap": "故事細節錯置",
+        "misconception": "把探望家人的話題誤連結成書中的照片"
+      },
+      {
+        "text": "一張音樂光碟",
+        "trap": "故事細節錯置",
+        "misconception": "把直笛、音樂活動誤當成書中找到的物品"
+      }
+    ],
+    "hints": [
+      "回想 Emma 說打掃後的驚喜。",
+      "她提到書裡的一樣東西，和錢有關。",
+      "那是一張面額一百元的物品。"
+    ],
+    "explanation": "正確概念：Emma 在書裡找到一張百元鈔票。此題詢問故事細節，沒有沿用課本問她做了什麼的練習題。\n破誤：「一張電影票」：故事提到看電影，但 Emma 找到的不是電影票；「一張家人的照片」：把探望家人的話題誤連結成書中的照片；「一張音樂光碟」：把直笛、音樂活動誤當成書中找到的物品。\n回頭讀：Unit 1 Story（課本 p.9）。",
+    "verify": {
+      "kind": "judge",
+      "basis": "Unit 1 Story（課本 p.9）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+    }
+  }
+]

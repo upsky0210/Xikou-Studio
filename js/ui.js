@@ -41,7 +41,50 @@
     crown: svg('M3 7.2l4.6 3.6L12 4l4.4 6.8L21 7.2 19.4 18H4.6zM4.6 19.5h14.8V22H4.6z'),
     book: svg('M5 3.5A2.5 2.5 0 0 1 7.5 1H20v17H7.5a1 1 0 0 0 0 2H20v2.6H7.5A2.5 2.5 0 0 1 5 20.1z'),
     gem: svg('M7 3h10l4.5 5.5L12 21.5 2.5 8.5zm1.1 2L5.7 8h3.6l1.2-3zm4.3 0l1.2 3h3.6l-2.4-3zM9.4 10H5.9l5 6.8zm5.2 0l-1.5 6.8 5-6.8zm-1 0h-3.2L12 17.2z'),
+    speaker: svg('M3 9h4l5-4.5v15L7 15H3zm12.5-1.8a6 6 0 0 1 0 9.6l-1.4-1.5a4 4 0 0 0 0-6.6zm2.6-2.9a10 10 0 0 1 0 15.4l-1.4-1.5a8 8 0 0 0 0-12.4z'),
   };
+
+  /* ---------- 英語聽力：用瀏覽器內建的英語語音朗讀（不錄音、不上網） ----------
+     題目附件 {listen: '要念的英文', rate?: 0.6～1, speakOptions?: true}
+     iPad Safari 規定要使用者按了按鈕才能出聲，所以不自動播放，一律按「播放」 */
+  const Say = (() => {
+    const ok = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+    let voice = null;
+    const pick = () => {
+      const en = speechSynthesis.getVoices().filter((v) => /^en([-_]|$)/i.test(v.lang));
+      const us = en.filter((v) => /^en[-_]US/i.test(v.lang));
+      voice = us.find((v) => v.localService) || us[0] || en.find((v) => v.localService) || en[0] || null;
+    };
+    if (ok) { pick(); speechSynthesis.addEventListener && speechSynthesis.addEventListener('voiceschanged', pick); }
+    let lit = null;
+    const off = () => { if (lit) lit.classList.remove('on'); lit = null; };
+    function speak(text, rate, btn) {
+      if (!ok || !text) return;
+      speechSynthesis.cancel(); off();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = voice ? voice.lang : 'en-US';
+      if (voice) u.voice = voice;
+      u.rate = rate || 0.85;
+      if (btn) { lit = btn; btn.classList.add('on'); }
+      u.onend = u.onerror = () => { if (lit === btn) off(); };
+      speechSynthesis.speak(u);
+    }
+    return { ok, speak, stop: () => { if (ok) speechSynthesis.cancel(); off(); } };
+  })();
+  const isListen = (a) => !!a && (typeof a.listen === 'string' || a.speakOptions === true);
+  // 聽力附件：播放、慢速播放；speakOptions 時每個選項 A～D 都能點來聽；答對後才顯示念的內容
+  function listenHTML(a, q, solved) {
+    const rate = a.rate || 0.85, slow = Math.max(0.5, Math.round(rate * 70) / 100);
+    return `<div class="attach listen"><div class="attach-hd">${ICON.speaker} 聽力</div><div class="listen-body">
+      ${a.listen ? `<div class="say-row"><button class="btn gold say" type="button" data-say="main" data-rate="${rate}">${ICON.speaker} 播放</button>
+        <button class="btn say" type="button" data-say="main" data-rate="${slow}">慢速播放</button></div>
+        <p class="listen-tip">可以重複播放，聽清楚再作答。</p>` : ''}
+      ${a.speakOptions ? `<div class="say-opts"><span>點選項聽聽看</span>${q.options.map((_, k) =>
+        `<button class="say-k" type="button" data-say="opt" data-k="${k}" aria-label="念出選項 ${'ABCD'[k]}">${ICON.speaker}<b>${'ABCD'[k]}</b></button>`).join('')}</div>` : ''}
+      ${Say.ok ? '' : '<p class="listen-warn">這台裝置不能播放語音。請換一台裝置，或請老師念給你聽。</p>'}
+      ${solved && a.listen ? `<p class="listen-script"><b>剛剛念的是：</b><span lang="en">${esc(a.listen)}</span></p>` : ''}
+    </div></div>`;
+  }
 
   let state = null;       // 進度（Save.load 讀進來）
   let run = null;         // 目前這次闖關
@@ -444,7 +487,7 @@
         <section class="win qcard">
           <div class="ribbon">第 ${i + 1} 題</div>
           <div class="qhd">${qTagOf(book, i) ? `<span class="tag lit">${esc(qTagOf(book, i))}</span>` : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
-          ${attachHTML(q.attach)}
+          ${isListen(q.attach) ? listenHTML(q.attach, q, solved) : attachHTML(q.attach)}
           <p class="stem">${rich(q.stem)}</p>
           <div class="opts${short ? ' two' : ''}">${opts}</div>
           <div aria-live="polite">${fb}</div>
@@ -469,6 +512,10 @@
         if (res.ok) { const el = $('.explain'); if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150); }
       };
     });
+    app.querySelectorAll('[data-say]').forEach((b) => {
+      b.onclick = () => Say.speak(b.dataset.say === 'opt' ? plain(q.options[+b.dataset.k]) : q.attach.listen,
+        +b.dataset.rate || q.attach.rate, b);
+    });
     const hb = $('#hint');
     if (hb) hb.onclick = () => {
       Engine.revealHint(state, run);
@@ -479,10 +526,11 @@
     };
     const nb = $('#next');
     if (nb) nb.onclick = () => {
+      Say.stop();
       if (Engine.next(run)) { Engine.enterQuestion(run); renderQuestion(book); window.scrollTo(0, 0); }
       else finishRun(book);
     };
-    $('#quit').onclick = () => { run = null; location.hash = '#/b/' + book.id + '/z/' + level.z; };
+    $('#quit').onclick = () => { Say.stop(); run = null; location.hash = '#/b/' + book.id + '/z/' + level.z; };
   }
 
   // 第一次就答對：+EXP 從按鈕飛到右上角
