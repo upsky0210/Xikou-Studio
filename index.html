@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>溪口練功王國</title>
+<meta name="description" content="溪口國小全科闖關練習：選課本、走進 3D 冒險地圖、每關 7 題，有提示、有 EXP 和徽章">
+<meta name="theme-color" content="#4fa6f2">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="練功王國">
+<link href="fonts/noto-sans-tc.css" rel="stylesheet">   <!-- 字型放在自己網站裡，學校網路擋 Google Fonts 也能用 -->
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body class="mode-boot">
+<div id="world" aria-hidden="true"></div>   <!-- 3D 地圖（js/3d/world.js） -->
+<div id="veil" aria-hidden="true"></div>    <!-- 闖關時蓋在地圖上的淡色布幕 -->
+<div id="labels" hidden></div>              <!-- 地圖上每個地方的名牌 -->
+
+<header id="hud">
+  <a class="brand" href="#/" aria-label="回到首頁">
+    <img class="crest" src="icons/icon-192.png" alt="">
+    <span class="name"><b>溪口練功王國</b><small>XIKOU QUEST KINGDOM</small></span>
+  </a>
+  <span class="spacer"></span>
+  <span class="pill exp" title="累計 EXP"><i class="ico gold" aria-hidden="true"></i><b id="expNum">0</b><small>EXP</small></span>
+  <button class="pill badges" id="badgeBtn" type="button" title="徽章冊"><i class="ico shield" aria-hidden="true"></i><b id="badgeNum">0</b><small>徽章</small></button>
+  <div class="menu-wrap">
+    <button class="round" id="menuBtn" type="button" aria-label="選單" aria-expanded="false"></button>
+    <div class="menu" id="menu" hidden>
+      <button id="threeBtn" type="button"></button>
+      <button id="clearBtn" type="button" class="danger">清除這台裝置的進度</button>
+    </div>
+  </div>
+</header>
+
+<main id="app"><div class="boot"><span class="gem-spin" aria-hidden="true"></span><p>王國載入中…</p></div></main>
+<div id="fx" aria-hidden="true"></div>
+
+<script src="js/books.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/save.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/terrain.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+<!-- 3D 地圖：不支援的瀏覽器、直接雙擊開檔（file://）時載入不了，畫面會改用平面地圖 -->
+<script nomodule>window.__noModule = true;</script>
+<script type="module" src="js/3d/world.js" onerror="window.dispatchEvent(new Event('world-fail'))"></script>
+</body>
+</html>

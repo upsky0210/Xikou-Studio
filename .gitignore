@@ -1,0 +1,17 @@
+# 這個 repo 只放網站要用的檔案（GitHub Pages 直接從這裡發布）。
+# 用「先全部忽略、再一個一個放行」的寫法：之後在資料夾裡新增的文件、草稿，預設都不會被傳上去。
+# 不上傳：source/（教師用書，有版權）、drafts/、tools/、questions.json、規劃文件、JDPS-SS 的分析。
+/*
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/manifest.webmanifest
+!/sw.js
+!/css/
+!/js/
+!/data/
+!/img/
+!/icons/
+!/fonts/
+!/vendor/
