@@ -123,6 +123,9 @@
     if (Array.isArray(a.list)) {
       return `<div class="attach"><div class="attach-hd">${ICON.book} 資料</div><ul>${a.list.map((x) => `<li>${rich(x)}</li>`).join('')}</ul></div>`;
     }
+    if (typeof a.passage === 'string') {
+      return `<div class="attach"><div class="attach-hd">${ICON.book} 短文</div><p class="passage">${rich(a.passage).replace(/\n/g, '<br>')}</p></div>`;
+    }
     if (a.fig) {
       return `<figure class="attach fig" style="margin:2px 0 16px"><div class="attach-hd">${ICON.gem} 圖</div><img src="${esc(a.fig)}" alt="${esc(a.alt || '')}">
         ${a.text ? `<p>${rich(a.text).replace(/\n/g, '<br>')}</p>` : ''}</figure>`;
@@ -243,6 +246,14 @@
       <span class="qst">${st}</span></a></li>`;
   }
 
+  function soonCard(book, level) {
+    const no = book.levels.indexOf(level) + 1;
+    return `<li><div class="quest soon" aria-disabled="true">
+      <span class="qno">${no}</span>
+      <span class="qt"><b>${esc(level.name)}</b><small>${esc(level.lesson || '')}</small></span>
+      <span class="qst">${ICON.lock}<span>尚未開放</span></span></div></li>`;
+  }
+
   function medalHTML(book, zi, cls = '') {
     const t = terrainOf(zi), s = state.books[book.id], got = !!(s && s.badges[zi.index]);
     return `<div class="medal ${got ? '' : 'no'} ${cls}" style="${accVars(t.color)}"><span class="disc"><img src="${t.img}" alt=""></span>
@@ -263,9 +274,14 @@
     } else if (!levels.length) {
       body = '<p class="banner">這一區的關卡還在準備中。</p>';
     } else {
+      // 列出課名、還沒有題目的關：照順序排進清單，標「尚未開放」
+      const all = book.levels.filter((l) => l.z === z);
+      const soon = all.length - levels.length;
       body = `<div class="zbadge${badge ? ' got' : ''}"><span class="medal-mini">${ICON.shield}</span>
-          <span>${badge ? `已經拿到「${esc(zi.name)}」的徽章！` : `把這一區的 ${levels.length} 關全部過關，就能拿到「${esc(zi.name)}」的徽章。`}</span></div>
-        <ol class="quests">${levels.map((l) => questCard(book, l)).join('')}</ol>`;
+          <span>${badge ? `已經拿到「${esc(zi.name)}」的徽章！`
+            : soon ? `這一區還有 ${soon} 關尚未開放。全部開放、全部過關後，就能拿到「${esc(zi.name)}」的徽章。`
+            : `把這一區的 ${levels.length} 關全部過關，就能拿到「${esc(zi.name)}」的徽章。`}</span></div>
+        <ol class="quests">${all.map((l) => Engine.playable(l) ? questCard(book, l) : soonCard(book, l)).join('')}</ol>`;
     }
     return `<aside class="zpanel win" style="${accVars(t.color)}" aria-label="${esc(zi.name)}">
       <button class="round x" id="zClose" type="button" aria-label="關閉">${ICON.close}</button>

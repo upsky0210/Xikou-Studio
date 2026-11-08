@@ -214,6 +214,11 @@ body.has-panel .maptools { display: none; }
 .quest .qt small { font-size: 13px; color: var(--ink-2); line-height: 1.35; }
 .quest .qst { flex: none; display: flex; flex-direction: column; align-items: center; min-width: 64px; font-size: 14px; font-weight: 900; color: var(--ink-2); text-align: center; line-height: 1.25; }
 .quest .qst small { font-weight: 700; font-size: 12px; }
+.quest.soon { background: #f1ede4; border-style: dashed; box-shadow: none; cursor: default; }
+.quest.soon:active { transform: none; box-shadow: none; }
+.quest.soon .qno { filter: grayscale(1); opacity: .55; }
+.quest.soon .qt b { color: var(--ink-2); }
+.quest.soon .qst svg { width: 20px; height: 20px; }
 .quest .qst .go { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--gold-ink); background: linear-gradient(#ffe37e, var(--gold-2)); border: 3px solid var(--frame); box-shadow: 0 3px 0 var(--frame); }
 .quest .qst .go svg { width: 22px; height: 22px; }
 .quest.done { background: linear-gradient(#fffdf3, #fff6d6); }
@@ -290,6 +295,7 @@ body.mode-play #app { min-height: 100vh; padding: 0 0 40px; }
 .attach tr:last-child td { border-bottom: 0; }
 .attach ul, .attach p { margin: 0; padding: 12px 16px 12px 34px; }
 .attach p { padding-left: 16px; }
+.attach p.passage { font-size: 23px; line-height: 1.65; padding: 14px 18px; text-indent: 2em; }
 .attach li { margin: 6px 0; }
 .attach.fig img { display: block; max-width: 100%; height: auto; margin: 12px auto; }
 .attach.fig p { padding: 0 16px 12px; }
@@ -463,7 +469,7 @@ body.mode-flat .zpanel { position: fixed; }
   .book em { font-size: 12px; }
   .logo { margin-top: 2vh; }
   .opts.two { grid-template-columns: 1fr; }
-  .stem { font-size: 20px; }
+  .stem, .attach p.passage { font-size: 20px; }
   .opt { font-size: 18px; min-height: 58px; }
   .qcard { padding: 26px 16px 20px; }
   .qbar .gems { order: 3; width: 100%; justify-content: center; }

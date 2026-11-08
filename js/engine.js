@@ -153,6 +153,8 @@
   function islandComplete(state, book, z) {
     const levels = islandLevels(book, z);
     if (!levels.length) return false;
+    // 這一區還有列出課名、但沒有題目的關（尚未開放）：先不發徽章
+    if (book.levels.some((l) => l.z === z && !playable(l))) return false;
     const b = state.books[book.id];
     return !!b && levels.every((l) => b.levels[l.id] && b.levels[l.id].done);
   }

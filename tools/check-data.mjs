@@ -33,7 +33,7 @@ for (const lv of book.levels) {
     if (!Array.isArray(hints) || hints.length !== 3) issues.push(`${where(lv, i)} 提示不是 3 段`);
     for (const t of texts(q)) if (t && badMarkup(t)) issues.push(`${where(lv, i)} 分數標記寫壞了：${t.slice(0, 40)}`);
     if (attach) {
-      const ok = Array.isArray(attach.t) || Array.isArray(attach.list) || typeof attach === 'string' || attach.text || attach.fig;
+      const ok = Array.isArray(attach.t) || Array.isArray(attach.list) || typeof attach === 'string' || attach.text || attach.fig || (typeof attach.passage === 'string' && attach.passage);
       if (!ok) issues.push(`${where(lv, i)} 附件格式看不懂`);
       if (attach.fig && !existsSync(attach.fig)) issues.push(`${where(lv, i)} 找不到圖檔 ${attach.fig}`);
       if (attach.fig && !attach.alt) issues.push(`${where(lv, i)} 圖形附件缺 alt 說明`);
