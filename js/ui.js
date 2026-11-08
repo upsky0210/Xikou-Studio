@@ -18,6 +18,9 @@
   const plain = (s) => String(s).replace(FRAC, (_, w, n, d) => (w ? w + ' ' : '') + n + '/' + d);
   const CN = '一二三四五六七八九十';
   const LIT_START = 5;   // 第 6、7 題是素養題
+  // 第 6、7 題的標籤：預設都叫「素養題」；書可以在資料檔用 qTags 改成自己的名稱（例如國語：主旨與寓意、短文閱讀）
+  const qTagOf = (book, i) => (i < LIT_START ? '' : (book.qTags && book.qTags[i - LIT_START]) || '素養題');
+  const qTagRule = (book) => book.qTags ? `第 6 題是「${esc(book.qTags[0])}」、第 7 題是「${esc(book.qTags[1])}」` : '第 6、7 題是素養題';
 
   /* ---------- 小圖示（SVG） ---------- */
   const svg = (d, vb = '0 0 24 24') => `<svg class="i" viewBox="${vb}" aria-hidden="true"><path d="${d}"/></svg>`;
@@ -373,7 +376,7 @@
         <p class="lesson">${esc(level.lesson)}</p>
         <p class="lead">${esc(level.intro)}</p>
         <ul class="rules">
-          <li><span class="ico shield">${ICON.gem}</span>共 ${level.q.length} 題，第 6、7 題是素養題。</li>
+          <li><span class="ico shield">${ICON.gem}</span>共 ${level.q.length} 題，${qTagRule(book)}。</li>
           <li><span class="ico gold">${ICON.jewel}</span>第一次作答就答對 +${Engine.EXP_PER_Q} EXP；答錯不扣分，可以再選一次。</li>
           <li><span class="ico jade">${ICON.bulb}</span>每題有 3 段提示，看提示不扣 EXP。</li>
         </ul>
@@ -440,7 +443,7 @@
         </div>
         <section class="win qcard">
           <div class="ribbon">第 ${i + 1} 題</div>
-          <div class="qhd">${i >= LIT_START ? '<span class="tag lit">素養題</span>' : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
+          <div class="qhd">${qTagOf(book, i) ? `<span class="tag lit">${esc(qTagOf(book, i))}</span>` : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
           ${attachHTML(q.attach)}
           <p class="stem">${rich(q.stem)}</p>
           <div class="opts${short ? ' two' : ''}">${opts}</div>
