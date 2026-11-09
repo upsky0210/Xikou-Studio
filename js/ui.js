@@ -652,7 +652,7 @@
       <div class="play" style="${accVars(t.color)}">
         <section class="win result">
           <div class="ribbon gold">${ICON.trophy} 過關！</div>
-          <div class="hero-wrap"><div class="rays" aria-hidden="true"></div><img class="hero-img" src="img/hero.webp" alt=""></div>
+          <div class="hero-wrap"><div class="rays" aria-hidden="true"></div><img class="hero-img" src="${heroImg()}" alt=""></div>
           <h2>${esc(r.level.name)}</h2>
           ${gemsHTML(book, r.level)}${gemLegend}
           <div class="stats">
@@ -724,6 +724,39 @@
     }
   }
 
+  /* ---------- 選角色：貓劍士或兔探險家（記在這台裝置上；3D 地圖、結算畫面都用它） ---------- */
+  const HERO_KEY = 'xk-hero';
+  const HEROES = [
+    { id: 'cat', name: '貓劍士', desc: '灰白虎斑貓，戴小圓帽、背木劍' },
+    { id: 'rabbit', name: '兔探險家', desc: '米白兔子，圍圍巾、拿著地圖' },
+  ];
+  function heroId() { try { return localStorage.getItem(HERO_KEY) === 'rabbit' ? 'rabbit' : 'cat'; } catch { return 'cat'; } }
+  const heroImg = () => `img/hero-${heroId()}.webp`;
+  function openHeroPick() {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    const now = heroId();
+    modal.innerHTML = `<section class="win heropick"><div class="ribbon">${ICON.hero} 選角色</div>
+      <p class="sum">選一位夥伴陪你闖關（只記在這台裝置上）</p>
+      <div class="heroes">${HEROES.map((h) => `<button class="hcard${h.id === now ? ' on' : ''}" type="button" data-hero="${h.id}" aria-pressed="${h.id === now}">
+        <img src="img/hero-${h.id}.webp" alt=""><b>${esc(h.name)}</b><small>${esc(h.desc)}</small>${h.id === now ? `<span class="now">${ICON.check} 目前</span>` : ''}</button>`).join('')}</div>
+      <button class="btn wide" type="button" id="hpClose">關閉</button></section>`;
+    document.body.appendChild(modal);
+    const close = () => modal.remove();
+    modal.addEventListener('click', (e) => {
+      const c = e.target.closest('[data-hero]');
+      if (c) {
+        try { localStorage.setItem(HERO_KEY, c.dataset.hero); } catch { /* 私密模式：這次有效就好 */ }
+        if (world && world.setHero) world.setHero(c.dataset.hero);
+        document.querySelectorAll('.hero-img').forEach((img) => { img.src = heroImg(); });
+        close();
+        return;
+      }
+      if (e.target === modal || e.target.closest('#hpClose')) close();
+    });
+    $('.hcard.on', modal).focus();
+  }
+
   /* ---------- 選單 ---------- */
   const THREE_OFF = 'xk-3d-off';
   function threeOff() { try { return localStorage.getItem(THREE_OFF) === '1'; } catch { return false; } }
@@ -733,6 +766,9 @@
     const open = (v) => { menu.hidden = !v; btn.setAttribute('aria-expanded', String(v)); };
     btn.onclick = (e) => { e.stopPropagation(); open(menu.hidden); };
     document.addEventListener('click', (e) => { if (!e.target.closest('.menu-wrap')) open(false); });
+    const hp = $('#heroPickBtn');
+    hp.innerHTML = `${ICON.hero} 換角色（貓劍士／兔探險家）`;
+    hp.onclick = () => { open(false); openHeroPick(); };
     const tb = $('#threeBtn');
     tb.innerHTML = `${ICON.gem} 3D 地圖：${threeOff() ? '關（點一下打開）' : '開（點一下改成平面，比較省電）'}`;
     tb.onclick = () => {

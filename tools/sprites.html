@@ -125,17 +125,19 @@ try {
     await send(`img/zone/${key}.webp`, shot(scene, cam, 360, 360), 'image/webp', 0.9);
     log.push(key);
   }
-  // 2. 小勇者（首頁、結算畫面用）
-  {
+  // 2. 小勇者（首頁、結算畫面、選角色用）：每隻一張；img/hero.webp 是預設（貓劍士）
+  for (const kind of ['cat', 'rabbit']) {
     const scene = new THREE.Scene();
     lights(scene);
-    const h = buildHero();
+    const h = buildHero(kind);
     h.shadow.visible = false;
     h.group.rotation.y = 0.35;
     scene.add(h.group);
     const cam = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
     frame(h.group, cam, 0.2, 0.18, 1.04);
-    await send('img/hero.webp', shot(scene, cam, 360, 360), 'image/webp', 0.9);
+    const img = shot(scene, cam, 360, 360);
+    await send(`img/hero-${kind}.webp`, img, 'image/webp', 0.9);
+    if (kind === 'cat') await send('img/hero.webp', img, 'image/webp', 0.9);
   }
   // 3. App 圖示：天空底＋王城（iPad 主畫面、PWA）
   {

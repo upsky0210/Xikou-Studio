@@ -50,9 +50,9 @@ function start() {
   const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.5, 700);
   const testCam = camera.clone();
 
-  const hemi = new THREE.HemisphereLight('#eaf5ff', '#8f7d5c', 1.3);
+  const hemi = new THREE.HemisphereLight('#e6f3ff', '#9a8562', 1.28);
   const amb = new THREE.AmbientLight('#ffffff', 0.35);
-  const sun = new THREE.DirectionalLight('#fff3dc', 1.9);
+  const sun = new THREE.DirectionalLight('#ffecc8', 2.0);   // 午後偏暖的陽光
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
   sun.shadow.bias = -0.0006;
@@ -333,6 +333,7 @@ function start() {
     while (d < -Math.PI) d += Math.PI * 2;
     h.group.rotation.y += d * Math.min(1, dt * (walking ? 12 : 4));
     h.body.scale.y = walking ? 1 : 1 + Math.sin(S.t * 2.6) * 0.025;
+    h.animate(S.t, k.heroPhase, walking);
     if (walking) S.still = 0;
   }
 
@@ -678,6 +679,19 @@ function start() {
       const at = zn.flag ? zn.flag.group.position.clone().add(new THREE.Vector3(0, 3, 0)) : zn.anchor.clone();
       burst(at);
       setTimeout(() => burst(zn.anchor.clone()), 450);
+      wake();
+    },
+    // 換角色（選單用）：每個已經蓋好的王國都換上新的小勇者
+    setHero(kind) {
+      for (const k of S.kingdoms.values()) {
+        const old = k.hero, h = buildHero(kind);
+        h.group.position.copy(old.group.position);
+        h.group.rotation.y = old.group.rotation.y;
+        k.root.remove(old.group);
+        k.root.add(h.group);
+        k.hero = h;
+      }
+      S.still = 0;
       wake();
     },
     // 3D 開關（選單用）

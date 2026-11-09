@@ -3,7 +3,7 @@
    沒變的檔案伺服器只回 304，很省流量），所以改完程式上傳後，學生下次開就是新版。
    「改了要預先快取的檔案清單」時，記得把 VERSION 加一。
    字型分片、題庫資料檔和題目的圖，在第一次用到時才放進快取。 */
-const VERSION = 'v5';
+const VERSION = 'v6';
 const CACHE = 'xk-practice-' + VERSION;
 const ZONES = ['mine', 'mill', 'oasis', 'arena', 'palace', 'garden', 'mountain', 'maze', 'castle', 'weather', 'forge', 'volcano', 'magnet', 'generic'];
 const CORE = [
@@ -13,7 +13,7 @@ const CORE = [
   'vendor/three/build/three.module.min.js',
   'fonts/noto-sans-tc.css',
   'icons/icon-192.png', 'icons/apple-touch-icon.png', 'icons/icon-32.png',
-  'img/hero.webp', ...ZONES.map((z) => 'img/zone/' + z + '.webp'),
+  'img/hero.webp', 'img/hero-cat.webp', 'img/hero-rabbit.webp', ...ZONES.map((z) => 'img/zone/' + z + '.webp'),
 ];
 
 self.addEventListener('install', (e) => {

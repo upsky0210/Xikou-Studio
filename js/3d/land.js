@@ -2,7 +2,7 @@
    配置：一個單元一區，三區一排，像蛇一樣來回往上走（第 1 排左→右，第 2 排右→左……），
    最後走上王城。一條溪在每兩排之間穿過，道路過溪的地方自動架橋。
    座標：x 往右、z 往鏡頭（南），y 往上。每區有「地標」（site）和地標前面路上的「廣場」（plaza）。 */
-import { THREE, Kit, MAT, OUTLINE, addOutlineNormals, merge, paint, matrixOf, rng, noise, smooth, lerp, waterMaterial } from './kit.js';
+import { THREE, Kit, MAT, OUTLINE, GRADIENT, addOutlineNormals, merge, paint, matrixOf, rng, noise, smooth, lerp, waterMaterial } from './kit.js';
 
 const COLS = [-20, 0, 20];
 const ROW_GAP = 24;
@@ -134,6 +134,13 @@ const PAL = {
   plaza: ['#ddd6c9', '#d3cbbd'].map(hex),
 };
 const pick = (arr, v) => arr[Math.min(arr.length - 1, Math.floor(v * arr.length))];
+// 草地的大色塊：有些地方嫩綠偏黃（向陽）、有些地方深綠（樹蔭），看起來不會是一整片同一個綠
+const SUNNY = hex('#c3e47e'), SHADY = hex('#6aa847');
+function grassPatch(c, x, z) {
+  const n = noise(x * 0.045 + 31, z * 0.045 + 17);
+  if (n > 0.6) c.lerp(SUNNY, smooth(0.6, 0.85, n) * 0.55);
+  else if (n < 0.35) c.lerp(SHADY, smooth(0.35, 0.12, n) * 0.45);
+}
 
 /* ---------- 大地 ---------- */
 export function buildLand(layout) {
@@ -240,8 +247,8 @@ export function buildLand(layout) {
       else if (t === 'mountain') c.copy(pick(PAL.moss, n1));
       else if (t === 'maze') c.copy(pick(PAL.hedge, r));
       else if (t === 'castle') c.copy(dz < 7.5 ? pick(PAL.plaza, r) : pick(PAL.grass, n1));
-      else c.copy(pick(PAL.grass, n1));
-    } else c.copy(n1 > 0.62 ? pick(PAL.forest, r) : pick(PAL.grass, n1 * 0.6 + r * 0.4));
+      else { c.copy(pick(PAL.grass, n1)); grassPatch(c, mx, mz); }
+    } else { c.copy(n1 > 0.62 ? pick(PAL.forest, r) : pick(PAL.grass, n1 * 0.6 + r * 0.4)); grassPatch(c, mx, mz); }
     c.multiplyScalar(0.96 + r * 0.08);
     for (let k = 0; k < 3; k++) col.push(c.r, c.g, c.b);
   };
@@ -381,10 +388,117 @@ export function buildLand(layout) {
   rockK.ball(0.7, 0, '#ffffff', { s: [1.2, 0.75, 1] });
   const bushK = new Kit();
   bushK.ball(0.6, 1, '#ffffff', { p: [0, 0.35, 0] });
-  group.add(instanced([[trunkK.mergedParts(), false], [crownK.mergedParts(), true]], roundT, (r) => greenTint(r, 0.3, 0.5), 0.85, 1.35, R));
-  group.add(instanced([[pTrunkK.mergedParts(), false], [pCrownK.mergedParts(), true]], pineT, (r) => greenTint(r, 0.38, 0.36), 0.85, 1.45, R));
+  // 圓樹裡混一些開花的（粉紅）、秋天的（橘、黃）樹；樹冠會隨風輕輕晃（在顯示卡上算，不花電腦時間）
+  const roundTint = (r) => {
+    if (r < 0.07) return new THREE.Color().setHSL(0.94 + r * 0.4, 0.62, 0.78);
+    if (r < 0.13) return new THREE.Color().setHSL(0.07 + (r - 0.07), 0.72, 0.6);
+    if (r < 0.18) return new THREE.Color().setHSL(0.14, 0.7, 0.6);
+    return greenTint((r - 0.18) / 0.82, 0.3, 0.5);
+  };
+  group.add(instanced([[trunkK.mergedParts(), false], [crownK.mergedParts(), true]], roundT, roundTint, 0.85, 1.35, R, { sway: true }));
+  group.add(instanced([[pTrunkK.mergedParts(), false], [pCrownK.mergedParts(), true]], pineT, (r) => greenTint(r, 0.38, 0.36), 0.85, 1.45, R, { sway: true }));
   group.add(instanced([[rockK.mergedParts(), true]], rocks, (r) => new THREE.Color().setHSL(0.07, 0.06, 0.6 + r * 0.12), 0.6, 1.5, R));
   group.add(instanced([[bushK.mergedParts(), true]], bushes, (r) => new THREE.Color().setHSL([0.93, 0.13, 0.8, 0.3][Math.floor(r * 4)], 0.7, 0.66), 0.7, 1.2, R));
+
+  /* ---- 地面小細節：草叢、小花、蘑菇；水邊：蘆葦、鵝卵石、荷葉（都很小，不描邊、不投影） ---- */
+  const tufts = [], flowers = [], shrooms = [], reeds = [], pebbles = [], pads = [];
+  const bx0 = layout.bounds.x0 - 16, bx1 = layout.bounds.x1 + 16, bz0 = layout.bounds.z0 - 12, bz1 = layout.bounds.z1 + 12;
+  for (let z = bz0; z < bz1; z += 1.45) for (let x = bx0; x < bx1; x += 1.45) {
+    const px = x + (R() - 0.5) * 1.3, pz = z + (R() - 0.5) * 1.3;
+    const [, dc] = creekLine.near(px, pz), [, dr] = roadLine.near(px, pz);
+    if (dc < 2.7 || dr < 1.45 || avoid(px, pz)) continue;
+    const h = height(px, pz);
+    if (h > 3) continue;
+    const meadow = noise(px * 0.12 + 3, pz * 0.12 + 8), r = R();
+    if (meadow > 0.58 && r < 0.55) flowers.push([px, h, pz]);
+    else if (r < 0.32) tufts.push([px, h, pz]);
+    else if (r > 0.985) shrooms.push([px, h, pz]);
+  }
+  // 路邊多一排小花、草叢
+  for (let i = 0; i < roadPts.length; i += 3) {
+    const p = roadPts[i], q = roadPts[Math.min(roadPts.length - 1, i + 1)];
+    const tx = q.x - p.x, tz = q.z - p.z, l = Math.hypot(tx, tz) || 1;
+    for (const side of [-1, 1]) {
+      if (R() > 0.42) continue;
+      const off = 1.6 + R() * 0.5, x = p.x + (-tz / l) * side * off, z = p.z + (tx / l) * side * off;
+      if (creekLine.near(x, z)[1] < 2.9 || avoid(x, z) || nearBridge({ x, z })) continue;
+      (R() < 0.6 ? flowers : tufts).push([x, height(x, z), z]);
+    }
+  }
+  // 溪的兩岸：蘆葦、鵝卵石
+  for (let i = 0; i < creekPts.length; i += 2) {
+    const p = creekPts[i], q = creekPts[Math.min(creekPts.length - 1, i + 1)];
+    const tx = q.x - p.x, tz = q.z - p.z, l = Math.hypot(tx, tz) || 1;
+    for (const side of [-1, 1]) {
+      const nx2 = (-tz / l) * side, nz2 = (tx / l) * side;
+      if (nearBridge({ x: p.x + nx2 * 2.5, z: p.z + nz2 * 2.5 })) continue;
+      const rr = R();
+      if (rr < 0.3) { const o = 2.45 + R() * 0.5; reeds.push([p.x + nx2 * o, WATER_Y, p.z + nz2 * o]); }
+      else if (rr < 0.55) { const o = 2.2 + R() * 0.35; pebbles.push([p.x + nx2 * o, WATER_Y + 0.02, p.z + nz2 * o]); }
+    }
+  }
+  if (lake) {
+    for (let i = 0; i < 10; i++) { const a = R() * Math.PI * 2, d = R() * (lake.r - 0.5); pads.push([lake.x + Math.cos(a) * d, WATER_Y + 0.02, lake.z + Math.sin(a) * d]); }
+    for (let i = 0; i < 26; i++) { const a = R() * Math.PI * 2, d = lake.r + 0.6 + R() * 0.9; (R() < 0.6 ? reeds : pebbles).push([lake.x + Math.cos(a) * d, WATER_Y, lake.z + Math.sin(a) * d]); }
+  }
+  const tuftK = new Kit();
+  for (const [x, z, a] of [[0, 0, 0], [0.16, 0.06, 0.4], [-0.14, 0.08, -0.4], [0.04, -0.14, 0.2]]) tuftK.cone(0.08, 0.5, 3, '#ffffff', { p: [x, 0, z], r: [a * 0.6, 0, a] });
+  const flowerK = new Kit(), petalK = new Kit();
+  flowerK.cyl(0.025, 0.03, 0.42, 3, '#4f9a3c', {});
+  flowerK.cone(0.09, 0.2, 3, '#5aa845', { p: [0.07, 0, 0], r: [0, 0, -0.5] });
+  petalK.ball(0.13, 0, '#ffffff', { p: [0, 0.46, 0], s: [1, 0.6, 1] });
+  petalK.ball(0.055, 0, '#ffe066', { p: [0, 0.52, 0] });
+  const shroomK = new Kit(), capK = new Kit();
+  shroomK.cyl(0.06, 0.08, 0.22, 5, '#f6efe0', {});
+  capK.dome(0.18, 7, 3, '#ffffff', { p: [0, 0.2, 0] });
+  const reedK = new Kit();
+  for (const [x, z, h, a] of [[0, 0, 1.0, 0], [0.12, 0.05, 0.8, 0.15], [-0.1, 0.07, 0.9, -0.12]]) {
+    reedK.cyl(0.02, 0.03, h, 3, '#5f9a42', { p: [x, 0, z], r: [0, 0, a] });
+    reedK.cyl(0.05, 0.05, 0.2, 5, '#8a5a32', { p: [x + Math.sin(-a) * h, h * Math.cos(a) - 0.05, z] });
+  }
+  const pebbleK = new Kit();
+  pebbleK.ball(0.22, 0, '#ffffff', { s: [1.3, 0.55, 1] });
+  pebbleK.ball(0.14, 0, '#ffffff', { p: [0.28, 0, 0.12], s: [1.2, 0.6, 1] });
+  const padK = new Kit(), padFlowerK = new Kit();
+  padK.sector(0.55, 0.03, 10, 0.4, Math.PI * 2 - 0.5, '#4fae5a', {});
+  padFlowerK.ball(0.12, 0, '#ffffff', { p: [0.15, 0.08, 0.1], s: [1, 0.7, 1] });
+  const small = { outline: false, cast: false };
+  group.add(instanced([[tuftK.mergedParts(), true]], tufts, (r) => greenTint(r, 0.27, 0.42), 0.8, 1.4, R, small));
+  group.add(instanced([[flowerK.mergedParts(), false], [petalK.mergedParts(), true]], flowers,
+    (r) => new THREE.Color(['#ff8cc0', '#ffffff', '#b794ff', '#ffd23f', '#ff7a7a', '#8ec5ff'][Math.floor(r * 6)]), 0.75, 1.25, R, small));
+  group.add(instanced([[shroomK.mergedParts(), false], [capK.mergedParts(), true]], shrooms, (r) => new THREE.Color(r < 0.7 ? '#e5493d' : '#d9a35a'), 0.8, 1.4, R, { cast: false }));
+  group.add(instanced([[reedK.mergedParts(), false]], reeds, null, 0.8, 1.3, R, { outline: false, cast: false, sway: true }));
+  group.add(instanced([[pebbleK.mergedParts(), true]], pebbles, (r) => new THREE.Color().setHSL(0.08, 0.08, 0.62 + r * 0.16), 0.6, 1.2, R, small));
+  group.add(instanced([[padK.mergedParts(), false], [padFlowerK.mergedParts(), true]], pads, (r) => new THREE.Color(r < 0.5 ? '#ff9ec7' : '#ffffff'), 0.8, 1.3, R, small));
+
+  /* ---- 小動物：蝴蝶在花叢間飛、鳥在天上繞圈 ---- */
+  const critters = new THREE.Group();
+  const wingGeo = new THREE.CircleGeometry(0.22, 6).rotateX(-Math.PI / 2).translate(0.2, 0, 0);
+  const butterflies = [];
+  const homes = flowers.length ? flowers : tufts;
+  for (let i = 0; i < 16 && homes.length; i++) {
+    const [hx, hy, hz] = homes[Math.floor(R() * homes.length)];
+    const mat = new THREE.MeshBasicMaterial({ color: ['#ffd23f', '#ff8cc0', '#ffffff', '#8ec5ff', '#ff9f43'][i % 5], side: THREE.DoubleSide });
+    const b = new THREE.Group(), wl = new THREE.Group(), wr = new THREE.Group();
+    wl.add(new THREE.Mesh(wingGeo, mat));
+    const mr = new THREE.Mesh(wingGeo, mat); mr.scale.x = -1; wr.add(mr);
+    b.add(wl, wr);
+    b.traverse((o) => { o.raycast = () => {}; });
+    critters.add(b);
+    butterflies.push({ b, wl, wr, x: hx, y: hy + 1.0, z: hz, ph: R() * 10, sp: 0.6 + R() * 0.6, r: 1.2 + R() * 1.8 });
+  }
+  const birdGeo = new THREE.BufferGeometry();
+  birdGeo.setAttribute('position', new THREE.Float32BufferAttribute([0, 0, 0.35, -0.9, 0.15, -0.2, 0, 0.05, -0.05, 0, 0, 0.35, 0, 0.05, -0.05, 0.9, 0.15, -0.2], 3));
+  const birdMat = new THREE.MeshBasicMaterial({ color: '#3b3550', side: THREE.DoubleSide });
+  const birds = [];
+  const cx = (layout.bounds.x0 + layout.bounds.x1) / 2, cz = (layout.bounds.z0 + layout.bounds.z1) / 2;
+  for (let i = 0; i < 5; i++) {
+    const m = new THREE.Mesh(birdGeo, birdMat);
+    m.raycast = () => {};
+    critters.add(m);
+    birds.push({ m, a: R() * Math.PI * 2, rad: 18 + R() * 22, y: 13 + R() * 5, sp: 0.12 + R() * 0.08, x: cx + (R() - 0.5) * 20, z: cz + (R() - 0.5) * 20 });
+  }
+  group.add(critters);
 
   /* ---- 雲（在地圖外圍慢慢飄） ---- */
   const clouds = [];
@@ -411,7 +525,23 @@ export function buildLand(layout) {
     },
     // 離某一點最近的道路位置（公尺）
     roadNear(x, z) { return (roadLine.nearest(x, z)[0] / (roadPts.length - 1)) * roadLen; },
-    update(t, dt) { for (const c2 of clouds) { c2.g.position.x = c2.x0 + Math.sin(t * 0.02 * c2.sp) * 10; } },
+    update(t, dt) {
+      for (const c2 of clouds) { c2.g.position.x = c2.x0 + Math.sin(t * 0.02 * c2.sp) * 10; }
+      SWAY.value = t;
+      for (const f of butterflies) {
+        const a = t * f.sp + f.ph;
+        f.b.position.set(f.x + Math.cos(a) * f.r, f.y + Math.sin(a * 2.3) * 0.35, f.z + Math.sin(a * 1.3) * f.r);
+        f.b.rotation.y = -a;
+        const flap = Math.sin(t * 16 + f.ph) * 0.9;
+        f.wl.rotation.z = flap; f.wr.rotation.z = -flap;
+      }
+      for (const b of birds) {
+        const a = b.a + t * b.sp;
+        b.m.position.set(b.x + Math.cos(a) * b.rad, b.y + Math.sin(t * 0.7 + b.a) * 0.6, b.z + Math.sin(a) * b.rad);
+        b.m.rotation.y = -a;
+        b.m.scale.y = 1 + Math.sin(t * 5 + b.a) * 0.8;
+      }
+    },
   };
 }
 
@@ -449,27 +579,49 @@ function greenTint(r, h0, l0) {
   return new THREE.Color().setHSL(h0 - 0.05 + r * 0.1, 0.5 + r * 0.15, l0 - 0.05 + r * 0.08);
 }
 /* 同一種東西（樹、石頭、花叢）一次畫完：parts 是 [[幾何, 要不要染色], ...]，描邊用全部零件合起來的外形 */
-function instanced(parts, list, colorFn, s0, s1, R) {
+function instanced(parts, list, colorFn, s0, s1, R, { outline = true, cast = true, sway = false } = {}) {
   const g = new THREE.Group();
   if (!list.length) return g;
   const n = list.length;
   const meshes = parts.map(([geo, tint]) => {
-    const m = new THREE.InstancedMesh(geo, MAT.toon, n);
-    m.castShadow = true; m.receiveShadow = true;
+    const m = new THREE.InstancedMesh(geo, sway ? SWAY_MAT : MAT.toon, n);
+    m.castShadow = cast; m.receiveShadow = true;
     m.userData.tint = tint;
     return m;
   });
-  const hull = new THREE.InstancedMesh(addOutlineNormals(merge(parts.map(([geo]) => geo))), OUTLINE, n);
+  const hull = outline ? new THREE.InstancedMesh(addOutlineNormals(merge(parts.map(([geo]) => geo))), sway ? SWAY_OUTLINE : OUTLINE, n) : null;
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), sv = new THREE.Vector3(), pv = new THREE.Vector3();
   list.forEach(([x, y, z], i) => {
     const s = s0 + R() * (s1 - s0);
     e.set(0, R() * Math.PI * 2, 0); q.setFromEuler(e); sv.set(s, s * (0.9 + R() * 0.25), s); pv.set(x, y - 0.05, z);
     m.compose(pv, q, sv);
-    const col = colorFn(R());
-    for (const mesh of meshes) { mesh.setMatrixAt(i, m); if (mesh.userData.tint) mesh.setColorAt(i, col); }
-    hull.setMatrixAt(i, m);
+    const col = colorFn ? colorFn(R()) : null;
+    for (const mesh of meshes) { mesh.setMatrixAt(i, m); if (mesh.userData.tint && col) mesh.setColorAt(i, col); }
+    if (hull) hull.setMatrixAt(i, m);
   });
-  for (const mesh of [...meshes, hull]) { mesh.raycast = () => {}; mesh.computeBoundingSphere(); }
-  g.add(...meshes, hull);
+  const all = hull ? [...meshes, hull] : meshes;
+  for (const mesh of all) { mesh.raycast = () => {}; mesh.computeBoundingSphere(); }
+  g.add(...all);
   return g;
 }
+
+/* 隨風輕晃：樹冠、蘆葦越高的地方晃越多；每棵的節奏依位置錯開。描邊也跟著晃，線才不會和樹分開 */
+const SWAY = { value: 0 };
+const SWAY_GLSL = `
+  #ifdef USE_INSTANCING
+    vec3 swayAt = instanceMatrix[3].xyz;
+  #else
+    vec3 swayAt = vec3(0.0);
+  #endif
+  float swayK = sin(uSway * 1.5 + swayAt.x * 0.31 + swayAt.z * 0.23) * 0.045 * max(0.0, position.y - 0.7);
+`;
+const SWAY_MAT = new THREE.MeshToonMaterial({ vertexColors: true, gradientMap: GRADIENT });
+SWAY_MAT.onBeforeCompile = (sh) => {
+  sh.uniforms.uSway = SWAY;
+  sh.vertexShader = 'uniform float uSway;\n' + sh.vertexShader.replace('#include <begin_vertex>',
+    '#include <begin_vertex>\n' + SWAY_GLSL + '  transformed.x += swayK; transformed.z += swayK * 0.6;');
+};
+const SWAY_OUTLINE = OUTLINE.clone();
+SWAY_OUTLINE.uniforms = Object.assign({}, OUTLINE.uniforms, { uSway: SWAY });
+SWAY_OUTLINE.vertexShader = 'uniform float uSway;\n' + OUTLINE.vertexShader.replace('vec4 p = vec4(position, 1.0);',
+  'vec4 p = vec4(position, 1.0);\n' + SWAY_GLSL + '  p.x += swayK; p.z += swayK * 0.6;');
