@@ -190,7 +190,7 @@
     "stem": "請聽句子，選出最符合的中文描述。",
     "attachment": {
       "listen": "I walked the dog yesterday.",
-      "rate": 0.9
+      "rate": 0.8
     },
     "answer": "昨天遛狗",
     "distractors": [

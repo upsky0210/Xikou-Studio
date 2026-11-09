@@ -139,7 +139,7 @@ const EN6 = {
      "正確概念：句子是 I walked the dog yesterday.，意思是我昨天遛狗。\n破誤：「今天遛狗」：動作相同，但把昨天聽成今天；「昨天洗狗」：把 walked 誤聽為 washed，動作不同；「昨晚看電影」：把遛狗換成別的本課活動，時間也不同。\n回頭讀：Unit 1 Vocabulary、Sentence A（課本 pp.10–12）。",
      {
       "listen": "I walked the dog yesterday.",
-      "rate": 0.9
+      "rate": 0.8
      }
     ],
     [

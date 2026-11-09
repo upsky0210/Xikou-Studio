@@ -103,22 +103,28 @@
     let lit = null, seq = 0, keep = [];
     const off = () => { if (lit) lit.classList.remove('on'); lit = null; };
     function stop() { seq++; keep = []; if (ok) speechSynthesis.cancel(); off(); }
-    function speak(text, rate, btn, retry) {
+    // opt.words：慢速播放時句子一字一字念（每個字分開排進佇列，字和字之間自然停頓），單字和兩個字的片語照常念
+    function speak(text, rate, btn, opt = {}) {
       if (!ok || !text) return;
       stop(); pick();
-      const my = seq, list = turns(text);
+      const my = seq;
+      let list = turns(text);
+      if (opt.words) list = list.flatMap((t) => {
+        const w = t.text.split(/\s+/).filter(Boolean);
+        return w.length >= 3 ? w.map((x) => ({ who: t.who, text: x, word: true })) : [t];
+      });
       if (btn) { lit = btn; btn.classList.add('on'); }
       // 每一段都在按按鈕當下排進佇列（iPad 只准按按鈕時出聲，不能等上一段念完才 speak）
       keep = list.map((t, i) => {
         const st = styleFor(t.who);
         const u = new SpeechSynthesisUtterance(t.text);
         if (st.voice) { u.voice = st.voice; u.lang = st.voice.lang; } else u.lang = 'en-US';
-        u.rate = rate || 0.85;
+        u.rate = t.word ? Math.max(rate || 0.85, 0.8) : rate || 0.85;   // 一字一字念時單字本身不用拖太慢
         u.pitch = st.pitch;
         u.onend = () => { if (my === seq && i === list.length - 1) off(); };
         u.onerror = (e) => {
           if (my !== seq || e.error === 'canceled' || e.error === 'interrupted') return;
-          if (st.voice && !st.voice.localService && !retry) { netBad = true; speak(text, rate, btn, true); return; }
+          if (st.voice && !st.voice.localService && !opt.retry) { netBad = true; speak(text, rate, btn, { ...opt, retry: true }); return; }
           off();
         };
         return u;
@@ -135,7 +141,7 @@
     const rate = a.rate || 0.85, slow = Math.max(0.5, Math.round(rate * 70) / 100);
     return `<div class="attach listen"><div class="attach-hd">${ICON.speaker} 聽力</div><div class="listen-body">
       ${a.listen ? `<div class="say-row"><button class="btn gold say" type="button" data-say="main" data-rate="${rate}">${ICON.speaker} 播放</button>
-        <button class="btn say" type="button" data-say="main" data-rate="${slow}">慢速播放</button></div>
+        <button class="btn say" type="button" data-say="main" data-rate="${slow}" data-words="1">慢速播放</button></div>
         <p class="listen-tip">可以重複播放，聽清楚再作答。</p>` : ''}
       ${a.speakOptions ? `<div class="say-opts"><span>點選項聽聽看</span>${q.options.map((_, k) =>
         `<button class="say-k" type="button" data-say="opt" data-k="${k}" aria-label="念出選項 ${'ABCD'[k]}">${ICON.speaker}<b>${'ABCD'[k]}</b></button>`).join('')}</div>` : ''}
@@ -573,7 +579,7 @@
     });
     app.querySelectorAll('[data-say]').forEach((b) => {
       b.onclick = () => Say.speak(b.dataset.say === 'opt' ? plain(q.options[+b.dataset.k]) : q.attach.listen,
-        +b.dataset.rate || q.attach.rate, b);
+        +b.dataset.rate || q.attach.rate, b, { words: b.dataset.words === '1' });
     });
     const hb = $('#hint');
     if (hb) hb.onclick = () => {

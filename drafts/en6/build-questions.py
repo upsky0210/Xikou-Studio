@@ -25,7 +25,7 @@ D('visited my grandparents','中文意思混淆','這是探望祖父母，沒有
 add(1,5,'字彙：情境填空','選出最合適的片語："My room was dirty. I ______ yesterday. Now it is clean."','cleaned the room',[
 D('played the recorder','文意線索誤讀','吹直笛不能解釋房間從髒變乾淨'),D('visited my grandparents','文意線索誤讀','探望祖父母不能解釋房間的變化'),D('watched a movie','文意線索誤讀','看電影沒有整理房間的意思')],['看看前後兩句，房間有什麼變化。','空格要填能造成這種變化的動作。','從髒變乾淨，表示昨天做了打掃。'],'cleaned the room 表示打掃房間，符合前後文的變化。','Unit 1 Vocabulary（課本 pp.10–11）')
 add(1,6,'聽力：聽句子選圖意','請聽句子，選出最符合的中文描述。','昨天遛狗',[
-D('今天遛狗','對話資訊錯置','動作相同，但把昨天聽成今天'),D('昨天洗狗','音近字','把 walked 誤聽為 washed，動作不同'),D('昨晚看電影','對話資訊錯置','把遛狗換成別的本課活動，時間也不同')],['分別注意動作和時間。','先確認是在說今天還是已過去的一天。','說話者昨天帶狗出去散步。'],'句子是 I walked the dog yesterday.，意思是我昨天遛狗。','Unit 1 Vocabulary、Sentence A（課本 pp.10–12）',audio('I walked the dog yesterday.'))
+D('今天遛狗','對話資訊錯置','動作相同，但把昨天聽成今天'),D('昨天洗狗','音近字','把 walked 誤聽為 washed，動作不同'),D('昨晚看電影','對話資訊錯置','把遛狗換成別的本課活動，時間也不同')],['分別注意動作和時間。','先確認是在說今天還是已過去的一天。','說話者昨天帶狗出去散步。'],'句子是 I walked the dog yesterday.，意思是我昨天遛狗。','Unit 1 Vocabulary、Sentence A（課本 pp.10–12）',audio('I walked the dog yesterday.',.8))
 add(1,7,'聽力：聽短對話回答','請聽對話，Amy 昨天做了什麼？','探望祖父母',[
 D('打掃房間','對話資訊錯置','這是 Kevin 說自己做的事'),D('看了一部電影','對話資訊錯置','對話沒有說 Amy 看電影'),D('吹奏直笛','對話資訊錯置','把本課另一個活動套到 Amy 身上')],['先分清楚兩個說話者。','留意被問到的人如何回答。','她做的是去探望家人。'],'原創對話：Kevin: I cleaned the room yesterday. What did you do, Amy? Amy: I visited my grandparents. Amy 探望祖父母，打掃房間的是 Kevin。','Unit 1 Vocabulary、Sentence A（課本 pp.10–12）',audio('Kevin: I cleaned the room yesterday. What did you do, Amy? Amy: I visited my grandparents.'))
 add(2,1,'文法：動詞形式','在 "Amy ______ her grandparents last Friday." 中，visit 應改成哪個形式？','visited',[
