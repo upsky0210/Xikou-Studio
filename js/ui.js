@@ -46,30 +46,88 @@
 
   /* ---------- 英語聽力：用瀏覽器內建的英語語音朗讀（不錄音、不上網） ----------
      題目附件 {listen: '要念的英文', rate?: 0.6～1, speakOptions?: true}
-     iPad Safari 規定要使用者按了按鈕才能出聲，所以不自動播放，一律按「播放」 */
+     iPad Safari 規定要使用者按了按鈕才能出聲，所以不自動播放，一律按「播放」
+     選語音：各裝置列出的英語語音品質差很多，用評分挑最清楚的
+       - 線上的高品質語音優先（Chrome 的 Google US English、Edge 的 Natural、Apple 的 Enhanced／Premium）
+       - Windows 舊版語音（Microsoft Zira／David／Mark Desktop）字尾子音會被吃掉，只在沒有別的語音時才用
+       - iPad／Mac 的特效語音（Albert、Bubbles、Zarvox…）一律排除
+       - 沒有網路時只用本機語音；線上語音念到一半失敗，改用本機語音重念一次
+     對話（"Kevin: … Amy: …"）：拆成一人一段，男生女生用不同聲音（沒有男聲就把音調壓低），不念出「Kevin:」 */
   const Say = (() => {
     const ok = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
-    let voice = null;
-    const pick = () => {
-      const en = speechSynthesis.getVoices().filter((v) => /^en([-_]|$)/i.test(v.lang));
-      const us = en.filter((v) => /^en[-_]US/i.test(v.lang));
-      voice = us.find((v) => v.localService) || us[0] || en.find((v) => v.localService) || en[0] || null;
+    const NOVELTY = /\b(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Junior|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Ralph|Fred|Kathy|Princess|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley)\b/i;
+    const LEGACY = /^Microsoft (Zira|David|Mark|Hazel|George|Susan|Catherine|James|Linda|Richard|Heera|Ravi|Sean)\b(?!.*(Online|Natural))/i;
+    const MALE = /\b(male|david|mark|guy|davis|tony|andrew|brian|christopher|eric|roger|steffan|jason|daniel|alex|aaron|evan|nathan|tom|arthur|oliver|rishi|gordon|lee|ryan|thomas|liam)\b/i;
+    const BOYS = /^(Kevin|Tom|Ben|Tony|Mike|Jack|Sam|Peter|Bill|John|David|Eric|Andy|Leo|Max|Bob|Danny|Paul)$/i;
+    let netBad = false;   // 線上語音念失敗過（網路不通），這次開網頁改用本機語音
+    let main = null, male = null, female = null;
+    const score = (v) => {
+      let s = /^en[-_]US/i.test(v.lang) ? 10 : /^en[-_]GB/i.test(v.lang) ? 6 : 3;
+      if (/(Natural|Neural|Online|Enhanced|Premium|Siri)/i.test(v.name)) s += 50;
+      else if (/^Google/i.test(v.name)) s += 40;
+      else if (/\b(Samantha|Ava|Allison|Susan|Nicky|Zoe|Evan|Nathan|Tom|Aaron|Joelle|Noelle)\b/i.test(v.name)) s += 30;
+      if (LEGACY.test(v.name)) s -= 20;
+      if (v.localService) s += 1;
+      return s;
     };
-    if (ok) { pick(); speechSynthesis.addEventListener && speechSynthesis.addEventListener('voiceschanged', pick); }
-    let lit = null;
-    const off = () => { if (lit) lit.classList.remove('on'); lit = null; };
-    function speak(text, rate, btn) {
-      if (!ok || !text) return;
-      speechSynthesis.cancel(); off();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = voice ? voice.lang : 'en-US';
-      if (voice) u.voice = voice;
-      u.rate = rate || 0.85;
-      if (btn) { lit = btn; btn.classList.add('on'); }
-      u.onend = u.onerror = () => { if (lit === btn) off(); };
-      speechSynthesis.speak(u);
+    const pick = () => {
+      const online = navigator.onLine !== false && !netBad;
+      const en = speechSynthesis.getVoices()
+        .filter((v) => /^en([-_]|$)/i.test(v.lang) && !NOVELTY.test(v.name) && (online || v.localService))
+        .sort((a, b) => score(b) - score(a));
+      main = en[0] || null;
+      const us = en.filter((v) => /^en[-_]US/i.test(v.lang) && !LEGACY.test(v.name));
+      male = us.find((v) => MALE.test(v.name)) || null;
+      female = us.find((v) => !MALE.test(v.name)) || null;
+    };
+    if (ok) {
+      pick();
+      speechSynthesis.addEventListener && speechSynthesis.addEventListener('voiceschanged', pick);
+      addEventListener('online', pick); addEventListener('offline', pick);
     }
-    return { ok, speak, stop: () => { if (ok) speechSynthesis.cancel(); off(); } };
+    // 某個說話者用哪個聲音：男生配男聲、女生配女聲；裝置沒有就用主要聲音改音調
+    const styleFor = (who) => {
+      if (!who) return { voice: main, pitch: 1 };
+      const mainMale = !!main && MALE.test(main.name);
+      if (BOYS.test(who)) return male ? { voice: male, pitch: 1 } : { voice: main, pitch: mainMale ? 1 : 0.7 };
+      return female ? { voice: female, pitch: 1 } : { voice: main, pitch: mainMale ? 1.25 : 1 };
+    };
+    // "Kevin: I cleaned… Amy: I visited…" → [{who:'Kevin', text:'I cleaned…'}, {who:'Amy', text:'I visited…'}]
+    const turns = (text) => {
+      const p = text.split(/(?:^|\s)([A-Z][a-z]+):\s+/);
+      if (p.length < 3) return [{ who: '', text }];
+      const out = p[0].trim() ? [{ who: '', text: p[0].trim() }] : [];
+      for (let i = 1; i < p.length; i += 2) if (p[i + 1] && p[i + 1].trim()) out.push({ who: p[i], text: p[i + 1].trim() });
+      return out;
+    };
+    let lit = null, seq = 0, keep = [];
+    const off = () => { if (lit) lit.classList.remove('on'); lit = null; };
+    function stop() { seq++; keep = []; if (ok) speechSynthesis.cancel(); off(); }
+    function speak(text, rate, btn, retry) {
+      if (!ok || !text) return;
+      stop(); pick();
+      const my = seq, list = turns(text);
+      if (btn) { lit = btn; btn.classList.add('on'); }
+      // 每一段都在按按鈕當下排進佇列（iPad 只准按按鈕時出聲，不能等上一段念完才 speak）
+      keep = list.map((t, i) => {
+        const st = styleFor(t.who);
+        const u = new SpeechSynthesisUtterance(t.text);
+        if (st.voice) { u.voice = st.voice; u.lang = st.voice.lang; } else u.lang = 'en-US';
+        u.rate = rate || 0.85;
+        u.pitch = st.pitch;
+        u.onend = () => { if (my === seq && i === list.length - 1) off(); };
+        u.onerror = (e) => {
+          if (my !== seq || e.error === 'canceled' || e.error === 'interrupted') return;
+          if (st.voice && !st.voice.localService && !retry) { netBad = true; speak(text, rate, btn, true); return; }
+          off();
+        };
+        return u;
+      });
+      keep.forEach((u) => speechSynthesis.speak(u));
+    }
+    // 只剩舊版或沒有清楚語音時，畫面提醒（語音還沒載入時先不判斷）
+    const poor = () => ok && !!main && (LEGACY.test(main.name) || score(main) < 10);
+    return { ok, speak, stop, poor };
   })();
   const isListen = (a) => !!a && (typeof a.listen === 'string' || a.speakOptions === true);
   // 聽力附件：播放、慢速播放；speakOptions 時每個選項 A～D 都能點來聽；答對後才顯示念的內容
@@ -81,7 +139,8 @@
         <p class="listen-tip">可以重複播放，聽清楚再作答。</p>` : ''}
       ${a.speakOptions ? `<div class="say-opts"><span>點選項聽聽看</span>${q.options.map((_, k) =>
         `<button class="say-k" type="button" data-say="opt" data-k="${k}" aria-label="念出選項 ${'ABCD'[k]}">${ICON.speaker}<b>${'ABCD'[k]}</b></button>`).join('')}</div>` : ''}
-      ${Say.ok ? '' : '<p class="listen-warn">這台裝置不能播放語音。請換一台裝置，或請老師念給你聽。</p>'}
+      ${Say.ok ? (Say.poor() ? '<p class="listen-warn">這台裝置的英語語音比較不清楚。聽不清楚可以按「慢速播放」，或換一台有網路的裝置。</p>' : '')
+        : '<p class="listen-warn">這台裝置不能播放語音。請換一台裝置，或請老師念給你聽。</p>'}
       ${solved && a.listen ? `<p class="listen-script"><b>剛剛念的是：</b><span lang="en">${esc(a.listen)}</span></p>` : ''}
     </div></div>`;
   }

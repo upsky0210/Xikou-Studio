@@ -12,10 +12,12 @@ def add(l,n,typ,stem,answer,ds,hints,concept,ref,attachment=None):
     Q.append({'id':f'L{l:02}-Q{n}','level':f'L{l:02} '+NAMES[l],'type':typ,'stem':stem,'attachment':attachment,'answer':answer,'distractors':ds,'hints':hints,'explanation':'正確概念：'+concept+'\n破誤：'+'；'.join('「'+d['text']+'」：'+d['misconception'] for d in ds)+'。\n回頭讀：'+ref+'。','verify':{'kind':'judge','basis':ref+'；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。'}})
 
 # Unit 1
-add(1,1,'聽力：聽音選字','請聽英文，選出你聽到的片語。','cooked dinner',[
-D('cook dinner','漏聽字尾','漏聽動詞結尾的 [t]，選成原形'),D('cooks dinner','漏聽字尾','將過去式字尾誤聽成現在式的 s'),D('cooked dessert','音近字','只辨認第一個動詞，將晚餐誤聽成甜點')],['先聽動作，再聽後面的餐點。','注意動詞尾音及第二個字的開頭。','動作已發生，餐點是晚餐。'],'念的是 cooked dinner，意思是煮晚餐，cooked 的 -ed 讀 [t]。','Unit 1 Vocabulary（課本 pp.10–11）',audio('cooked dinner',.8))
+# Q1、Q2 修訂：-ed 後面緊接子音時（cooked dinner、watch(ed) a movie）[t] 幾乎聽不出來，
+# 不再用「有沒有 -ed」當聽力選項的唯一差別；改聽時間詞與名詞，過去式字形留給文法題。
+add(1,1,'聽力：聽句子選句子','請聽英文，選出你聽到的句子。','I cooked dinner yesterday.',[
+D('I cook dinner every day.','時間資訊錯置','句尾說的是 yesterday，不是 every day；說的是昨天做過的事'),D('I cooked dinner last night.','時間資訊錯置','動作相同，但把 yesterday 聽成 last night'),D('I cooked dessert yesterday.','音近字','時間相同，但把晚餐 dinner 聽成甜點 dessert')],['先聽動作，再聽句尾的時間。','句尾的時間是 yesterday、last night 還是 every day？','說的是昨天做的事，煮的是晚餐。'],'念的是 I cooked dinner yesterday.（我昨天煮了晚餐）。-ed 在句子裡常念得很輕，要靠句尾的 yesterday 判斷是過去的事。','Unit 1 Vocabulary、Sentence A（課本 pp.10–12）',audio('I cooked dinner yesterday.',.85))
 add(1,2,'聽力：聽音選字','請聽英文，選出你聽到的片語。','watched a movie',[
-D('watch a movie','漏聽字尾','忽略 watched 最後的 [t]，選成原形'),D('watched a musical','音近字','只聽到最後一字相近的開頭，就把電影聽成音樂劇'),D('watched the movie','音近字','將不定冠詞 a 聽成 the')],['先注意第一個字的尾音。','動詞後還有一個很短的字，也要聽清楚。','整個片語是在說看了一部電影。'],'念的是 watched a movie（看了電影），不是 watch a movie、watched a musical 或 watched the movie。','Unit 1 Vocabulary（課本 pp.10–11）',audio('watched a movie',.8))
+D('watched TV','同類活動混淆','動詞相同，但把電影聽成電視'),D('watched a musical','音近字','只聽到最後一字相近的開頭，就把電影聽成音樂劇'),D('watched the movie','音近字','將不定冠詞 a 聽成 the')],['先聽動詞後面看的東西。','注意那個東西前面是 a 還是 the。','整個片語是在說看了一部電影。'],'念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched the movie。','Unit 1 Vocabulary（課本 pp.10–11）',audio('watched a movie',.8))
 add(1,3,'聽力：聽音選意思','請聽英文，選出片語的中文意思。','吹直笛',[
 D('打籃球','中文意思混淆','只聽出 played，沒有辨認後面的樂器'),D('玩線上遊戲','中文意思混淆','把 played 後的名詞當成 online games'),D('聽音樂','中文意思混淆','把演奏樂器和聆聽音樂混為一談')],['注意動作後面接的是什麼。','同一個動詞可搭配運動、遊戲或樂器。','這裡說的是一種用嘴吹奏的樂器。'],'念的是 played the recorder，意思是吹直笛。','Unit 1 Vocabulary、More Words（課本 pp.10–11、15）',audio('played the recorder',.8))
 add(1,4,'字彙：看中文選英文','哪個過去式片語表示「澆花」？','watered the flowers',[

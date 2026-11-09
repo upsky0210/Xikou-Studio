@@ -2,39 +2,39 @@
   {
     "id": "L01-Q1",
     "level": "L01 Unit 1 字彙與聽力",
-    "type": "聽力：聽音選字",
-    "stem": "請聽英文，選出你聽到的片語。",
+    "type": "聽力：聽句子選句子",
+    "stem": "請聽英文，選出你聽到的句子。",
     "attachment": {
-      "listen": "cooked dinner",
-      "rate": 0.8
+      "listen": "I cooked dinner yesterday.",
+      "rate": 0.85
     },
-    "answer": "cooked dinner",
+    "answer": "I cooked dinner yesterday.",
     "distractors": [
       {
-        "text": "cook dinner",
-        "trap": "漏聽字尾",
-        "misconception": "漏聽動詞結尾的 [t]，選成原形"
+        "text": "I cook dinner every day.",
+        "trap": "時間資訊錯置",
+        "misconception": "句尾說的是 yesterday，不是 every day；說的是昨天做過的事"
       },
       {
-        "text": "cooks dinner",
-        "trap": "漏聽字尾",
-        "misconception": "將過去式字尾誤聽成現在式的 s"
+        "text": "I cooked dinner last night.",
+        "trap": "時間資訊錯置",
+        "misconception": "動作相同，但把 yesterday 聽成 last night"
       },
       {
-        "text": "cooked dessert",
+        "text": "I cooked dessert yesterday.",
         "trap": "音近字",
-        "misconception": "只辨認第一個動詞，將晚餐誤聽成甜點"
+        "misconception": "時間相同，但把晚餐 dinner 聽成甜點 dessert"
       }
     ],
     "hints": [
-      "先聽動作，再聽後面的餐點。",
-      "注意動詞尾音及第二個字的開頭。",
-      "動作已發生，餐點是晚餐。"
+      "先聽動作，再聽句尾的時間。",
+      "句尾的時間是 yesterday、last night 還是 every day？",
+      "說的是昨天做的事，煮的是晚餐。"
     ],
-    "explanation": "正確概念：念的是 cooked dinner，意思是煮晚餐，cooked 的 -ed 讀 [t]。\n破誤：「cook dinner」：漏聽動詞結尾的 [t]，選成原形；「cooks dinner」：將過去式字尾誤聽成現在式的 s；「cooked dessert」：只辨認第一個動詞，將晚餐誤聽成甜點。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+    "explanation": "正確概念：念的是 I cooked dinner yesterday.（我昨天煮了晚餐）。-ed 在句子裡常念得很輕，要靠句尾的 yesterday 判斷是過去的事。\n破誤：「I cook dinner every day.」：句尾說的是 yesterday，不是 every day；說的是昨天做過的事；「I cooked dinner last night.」：動作相同，但把 yesterday 聽成 last night；「I cooked dessert yesterday.」：時間相同，但把晚餐 dinner 聽成甜點 dessert。\n回頭讀：Unit 1 Vocabulary、Sentence A（課本 pp.10–12）。",
     "verify": {
       "kind": "judge",
-      "basis": "Unit 1 Vocabulary（課本 pp.10–11）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
+      "basis": "Unit 1 Vocabulary、Sentence A（課本 pp.10–12）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
     }
   },
   {
@@ -49,9 +49,9 @@
     "answer": "watched a movie",
     "distractors": [
       {
-        "text": "watch a movie",
-        "trap": "漏聽字尾",
-        "misconception": "忽略 watched 最後的 [t]，選成原形"
+        "text": "watched TV",
+        "trap": "同類活動混淆",
+        "misconception": "動詞相同，但把電影聽成電視"
       },
       {
         "text": "watched a musical",
@@ -65,11 +65,11 @@
       }
     ],
     "hints": [
-      "先注意第一個字的尾音。",
-      "動詞後還有一個很短的字，也要聽清楚。",
+      "先聽動詞後面看的東西。",
+      "注意那個東西前面是 a 還是 the。",
       "整個片語是在說看了一部電影。"
     ],
-    "explanation": "正確概念：念的是 watched a movie（看了電影），不是 watch a movie、watched a musical 或 watched the movie。\n破誤：「watch a movie」：忽略 watched 最後的 [t]，選成原形；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched the movie」：將不定冠詞 a 聽成 the。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+    "explanation": "正確概念：念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched the movie。\n破誤：「watched TV」：動詞相同，但把電影聽成電視；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched the movie」：將不定冠詞 a 聽成 the。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 1 Vocabulary（課本 pp.10–11）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
