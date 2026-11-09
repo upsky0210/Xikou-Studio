@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>角色預覽</title>
+<style>body { margin: 0; background: #fdf6e3; } canvas { display: block; }</style></head>
+<body>
+<!-- 開發用：看貓劍士和兔探險家長什麼樣子（網址加 ?a=角度 可以轉，例如 ?a=1.2；?walk=1 看走路） -->
+<script type="module">
+import { THREE } from '../js/3d/kit.js';
+import { buildHero } from '../js/3d/hero.js';
+const q = new URLSearchParams(location.search);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#fdf6e3');
+scene.add(new THREE.HemisphereLight('#e6f3ff', '#9a8562', 1.28), new THREE.AmbientLight('#ffffff', 0.35));
+const sun = new THREE.DirectionalLight('#ffecc8', 2.0); sun.position.set(-20, 40, 22); scene.add(sun);
+const heroes = ['cat', 'rabbit'].map((k, i) => { const h = buildHero(k); h.group.position.x = i ? 1.7 : -1.7; h.group.rotation.y = +(q.get('a') || 0.35); scene.add(h.group); return h; });
+const cam = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 100);
+cam.position.set(0, 2.4, 10.5); cam.lookAt(0, 1.45, 0);
+const walk = q.get('walk') === '1';
+let t = 0;
+renderer.setAnimationLoop(() => { t += 1 / 60; for (const h of heroes) h.animate(t, t * 13, walk); renderer.render(scene, cam); });
+</script>
+</body></html>

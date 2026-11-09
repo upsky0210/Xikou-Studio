@@ -135,7 +135,7 @@ try {
     scene.add(h.group);
     const cam = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
     frame(h.group, cam, 0.2, 0.18, 1.04);
-    const img = shot(scene, cam, 360, 360);
+    const img = shot(scene, cam, 512, 512);
     await send(`img/hero-${kind}.webp`, img, 'image/webp', 0.9);
     if (kind === 'cat') await send('img/hero.webp', img, 'image/webp', 0.9);
   }

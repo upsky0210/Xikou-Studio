@@ -542,3 +542,14 @@ body.mode-flat .zpanel { position: fixed; }
 .hcard.on { background: linear-gradient(#fffbea, #fff1bf); border-color: var(--gold-2); box-shadow: 0 5px 0 var(--gold-2); }
 .hcard .now { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 99px;
   background: var(--jade-2); color: #fff; font-size: 13px; font-weight: 900; }
+/* 首頁的「你的夥伴」 */
+.hero-chip { display: inline-flex; align-items: center; gap: 10px; margin-top: 12px; padding: 6px 16px 6px 6px; border: 3px solid var(--frame); border-radius: 99px;
+  background: rgba(255, 255, 255, .92); color: var(--ink); font: inherit; cursor: pointer; box-shadow: 0 4px 0 var(--frame); }
+.hero-chip:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--frame); }
+.hero-chip img { width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(#fff8dd, #ffe9a8); object-fit: contain; }
+.hero-chip span { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+.hero-chip small { font-size: 12px; font-weight: 700; color: var(--ink-2); }
+.hero-chip b { font-size: 18px; font-weight: 900; }
+.hero-chip em { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 6px 12px; border-radius: 99px; background: var(--gold); color: var(--gold-ink); font-style: normal; font-size: 14px; font-weight: 900; }
+.logo .hero-chip { display: flex; width: fit-content; margin: 12px auto 0; }
+.heropick .sum small { display: block; margin-top: 2px; font-size: 13px; color: var(--ink-3); }

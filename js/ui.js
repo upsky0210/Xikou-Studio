@@ -323,12 +323,18 @@
           <span class="kicker">${ICON.crown} 溪口國小</span>
           <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
           <p class="tagline">選一本課本，展開你的冒險</p>
+          <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b></span><em>${ICON.hero} 換角色</em></button>
         </div>
         <div>
           <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>更多課本</b><span class="prog"><em>敬請期待</em></span></span></div></div>
           <p class="title-foot">題目內容皆為原創 · 進度目前只存在這台裝置</p>
         </div>
       </section>`;
+    $('#heroChip').onclick = openHeroPick;
+    // 一進站先選角色（共用的 iPad：每次打開網站，下一位同學都可以重選）
+    let asked = false;
+    try { asked = sessionStorage.getItem('xk-hero-asked') === '1'; sessionStorage.setItem('xk-hero-asked', '1'); } catch { asked = true; }
+    if (!asked) openHeroPick(true);
     if (world) {
       Loader.loadBook(window.BOOKS[0].id).then((book) => {
         if (!document.body.classList.contains('mode-title')) return;
@@ -732,15 +738,16 @@
   ];
   function heroId() { try { return localStorage.getItem(HERO_KEY) === 'rabbit' ? 'rabbit' : 'cat'; } catch { return 'cat'; } }
   const heroImg = () => `img/hero-${heroId()}.webp`;
-  function openHeroPick() {
+  const heroName = () => HEROES.find((h) => h.id === heroId()).name;
+  function openHeroPick(welcome) {
     const modal = document.createElement('div');
     modal.className = 'modal';
     const now = heroId();
     modal.innerHTML = `<section class="win heropick"><div class="ribbon">${ICON.hero} 選角色</div>
-      <p class="sum">選一位夥伴陪你闖關（只記在這台裝置上）</p>
+      <p class="sum">${welcome ? '歡迎！先' : ''}選一位夥伴陪你闖關<small>選好的角色只記在這台裝置上</small></p>
       <div class="heroes">${HEROES.map((h) => `<button class="hcard${h.id === now ? ' on' : ''}" type="button" data-hero="${h.id}" aria-pressed="${h.id === now}">
         <img src="img/hero-${h.id}.webp" alt=""><b>${esc(h.name)}</b><small>${esc(h.desc)}</small>${h.id === now ? `<span class="now">${ICON.check} 目前</span>` : ''}</button>`).join('')}</div>
-      <button class="btn wide" type="button" id="hpClose">關閉</button></section>`;
+      <button class="btn wide" type="button" id="hpClose">${welcome ? '先用' + esc(heroName()) : '關閉'}</button></section>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
     modal.addEventListener('click', (e) => {
@@ -748,7 +755,9 @@
       if (c) {
         try { localStorage.setItem(HERO_KEY, c.dataset.hero); } catch { /* 私密模式：這次有效就好 */ }
         if (world && world.setHero) world.setHero(c.dataset.hero);
-        document.querySelectorAll('.hero-img').forEach((img) => { img.src = heroImg(); });
+        document.querySelectorAll('.hero-img, #heroChip img').forEach((img) => { img.src = heroImg(); });
+        const chipName = $('#heroChip b');
+        if (chipName) chipName.textContent = heroName();
         close();
         return;
       }
