@@ -9,6 +9,8 @@
   const $ = (sel, el = document) => el.querySelector(sel);
   const app = $('#app'), fx = $('#fx');
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => '&#' + c.charCodeAt(0) + ';');
+  // 課本書名兩字一組、組內不斷行：放不下時斷成「六上／國語」，不會變成「六上國／語」
+  const pairs = (s) => (String(s).match(/.{1,2}/gu) || []).map((p) => `<span class="nw">${esc(p)}</span>`).join('');
 
   /* 題目文字：先跳脫 HTML，再把分數排成上下的樣子。
      資料裡寫 {{3/4}}（四分之三）、{{2 1/3}}（二又三分之一）；分子、分母也可以是 □。 */
@@ -313,7 +315,7 @@
       const exp = s ? s.exp : 0;
       return `<a class="book" href="#/b/${b.id}" style="--c:${b.color};--c2:${mix(b.color, '#000000', 0.35)}">
         <span class="pages"></span>
-        <span class="cover"><small>${esc(b.pub)}</small><b>${esc(b.title)}</b>
+        <span class="cover"><small>${esc(b.pub)}</small><b>${pairs(b.title)}</b>
           ${i === 0 ? '<img class="art" src="img/zone/castle.webp" alt="">' : ''}
           <span class="prog"><span class="bar"><i style="width:${Math.min(100, done * 6)}%"></i></span><em>已過關 ${done} 關 · ${exp} EXP</em></span></span></a>`;
     }).join('');
@@ -326,7 +328,7 @@
           <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b></span><em>${ICON.hero} 換角色</em></button>
         </div>
         <div>
-          <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>更多課本</b><span class="prog"><em>敬請期待</em></span></span></div></div>
+          <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>${pairs('更多課本')}</b><span class="prog"><em>敬請期待</em></span></span></div></div>
           <p class="title-foot">題目內容皆為原創 · 進度目前只存在這台裝置</p>
         </div>
       </section>`;
