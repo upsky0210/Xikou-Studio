@@ -140,8 +140,10 @@ button.pill:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(26, 34
 body.mode-title #app, body.mode-map #app { position: fixed; inset: 0; pointer-events: none; }
 body.mode-title #app > *, body.mode-map #app > * { pointer-events: auto; }
 .title-screen { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-  padding: calc(28px + var(--safe-t)) 16px calc(18px + var(--safe-b)); pointer-events: none !important; }
-.title-screen > * { pointer-events: auto; }
+  padding: calc(28px + var(--safe-t)) 16px calc(18px + var(--safe-b));
+  /* 課本多了以後手機一個畫面放不下：首頁本身可以上下滑（首頁的 3D 背景只會自己繞，不用拖曳，所以整頁接手觸控） */
+  overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.title-screen > * { pointer-events: auto; flex-shrink: 0; }
 .title-screen::before { content: ''; position: absolute; inset: 0 0 auto; height: 55%; pointer-events: none;
   background: radial-gradient(60% 70% at 50% 20%, rgba(255, 255, 255, .78), rgba(255, 255, 255, 0) 70%); }
 .logo { position: relative; text-align: center; margin-top: 4vh; }
@@ -479,7 +481,7 @@ body.mode-flat .zpanel { position: fixed; }
   .pill .ico { width: 28px; height: 28px; }
   .round { width: 44px; height: 44px; }
   .shelf { gap: 14px; padding: 14px 4px 4px; }
-  .book { width: 150px; height: 196px; }
+  .book { width: min(150px, calc(50vw - 30px)); height: 196px; }   /* 窄手機也保持一排兩本 */
   .book .cover { padding: 14px 12px 12px 28px; }
   .book b { font-size: 25px; }
   .book .art { width: 80px; bottom: 50px; }
@@ -500,6 +502,9 @@ body.mode-flat .zpanel { position: fixed; }
   .brief h2 { font-size: 26px; }
   .nextrow .btn { width: 100%; }
   .maptip { font-size: 14px; }
+}
+@media (max-width: 380px) {
+  .book b { font-size: 22px; }   /* 窄手機一排兩本時，「六上數學」不要斷成兩行 */
 }
 @media (max-width: 480px) {
   .brand { padding: 3px; }
