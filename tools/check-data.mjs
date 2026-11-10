@@ -1,9 +1,11 @@
 // 檢查題庫資料檔格式，並和作者端原始檔比對（以原始檔為準，只回報差異、不改題目）
-// 用法：node tools/check-data.mjs data/mn6.js MN6 [questions.json] [其他題目檔.json ...]
+// 用法：node tools/check-data.mjs data/mn6.js MN6 [questions.json] [其他題目檔.json ...] [--long]
 import { readFileSync, existsSync } from 'node:fs';
 import { loadBook, plain, badMarkup, parseValue, eq } from './lib.mjs';
 
-const [file, globalName, ...qfiles] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const listLong = args.includes('--long');   // 列出「正解是最長選項」的每一題
+const [file, globalName, ...qfiles] = args.filter((x) => x !== '--long');
 if (!file || !globalName) { console.log('用法：node tools/check-data.mjs <資料檔> <物件名稱> [題目檔.json ...]'); process.exit(1); }
 
 const book = loadBook(file, globalName);
@@ -69,8 +71,27 @@ for (const qjson of qfiles) {
   console.log(`已和 ${qjson} 比對 ${Q.length} 題`);
 }
 
+// 正解常常是最長的選項：學生挑最長的就能猜對。只算選項比較長的題目（最長的選項有 6 個字以上），隨機猜大約 25%。
+// 只提醒、不算錯誤。超過 40% 要把干擾項寫得和正解差不多長（或把正解寫短）。
+const len = (s) => plain(s).length;
+let longTotal = 0;
+const longAns = [];
+for (const lv of book.levels) (lv.q || []).forEach((q, i) => {
+  if (!Array.isArray(q[2]) || q[2].length !== 3) return;
+  const a = len(q[1]), mx = Math.max(...q[2].map(len));
+  if (Math.max(a, mx) < 6) return;
+  longTotal++;
+  if (a > mx) longAns.push(`${where(lv, i)}（正解 ${a} 字，最長干擾項 ${mx} 字）`);
+});
+const longPct = longTotal ? Math.round((longAns.length / longTotal) * 100) : 0;
+
 const count = book.levels.reduce((a, l) => a + (l.q ? l.q.length : 0), 0);
 const drafts = book.levels.filter((l) => l.draft).map((l) => l.id);
 console.log(`${book.id}：${book.zones.length} 個區域、${book.levels.length} 關、${count} 題${drafts.length ? `（草稿：${drafts.join('、')}）` : ''}`);
+if (longTotal) {
+  console.log(`正解是最長選項：${longAns.length}／${longTotal} 題（${longPct}%，隨機約 25%）${longPct > 40 ? ' ← 偏高，干擾項要寫得和正解一樣長' : ''}`);
+  if (listLong && longAns.length) console.log('- ' + longAns.join('\n- '));
+  else if (longPct > 40) console.log('  加上 --long 可以列出是哪些題目');
+}
 console.log(issues.length ? '發現問題：\n- ' + issues.join('\n- ') : '沒有問題');
 process.exit(issues.length ? 1 : 0);

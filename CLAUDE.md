@@ -17,8 +17,13 @@
 - 英語：改 `drafts/en6/build-questions.py` → `python -I drafts/en6/build-questions.py` 產生五份 JSON → `node tools/assemble.mjs data/en6.js EN6 <五份 JSON>` → `node tools/check-data.mjs data/en6.js EN6 <五份 JSON>`。
   `node drafts/en6/check-delivery.mjs` 會順便更新 `drafts/en6/en6.js` 和抽驗清單（最後找不到 `work/en6-skeleton.js` 而報錯是舊問題，前面的輸出仍有效）。
 - 其他書的作法見 `README.md`。
+- 每次組裝完看 `check-data.mjs` 最後的「正解是最長選項」比例：超過 40% 要把干擾項寫得和正解一樣長（`--long` 列出題目）。
 
-## 已定案的方向（細節見 `規劃報告.md`）
+## 檔案放哪裡
+- 規劃書、任務書、審核報告放 `docs/`；舊的題目來源檔放 `drafts/`。
+- `private/`（不上傳）：拆解別人網站的報告等內部文件，只留在自己電腦。repo 是公開的，這類文件不要放進來。
+
+## 已定案的方向（細節見 `docs/規劃報告.md`）
 - P2 雲端存檔：Firebase Auth＋Firestore，只換 `js/save.js` 的內部。學生用 `@st.skps.tp.edu.tw` 登入，每人只能讀寫自己那份；老師用 `@skps.tp.edu.tw`。
   - 2026-11-10 已做好：Firebase 專案 `xikou-studio-83723`（用教師帳號建立，Spark 免費方案），登入畫面、雲端存檔、`firestore.rules`。細節見 `README.md`「雲端存檔（P2）」。
   - 還沒做：共同擁有者、OAuth 同意畫面（內部／外部）和管理控制台信任用戶端 ID（學生帳號未滿 18 歲要這步才能登入）、真的 iPad 全螢幕測登入、老師看全班進度的頁面。
