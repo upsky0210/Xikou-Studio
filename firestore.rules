@@ -1,0 +1,30 @@
+rules_version = '2';
+// 溪口練功王國的資料庫規則：貼到 Firebase 控制台 → Firestore Database → 規則（Rules）→ 發布
+// progress/{uid}：每人一份進度。只有學校帳號（學生 st.skps.tp.edu.tw、老師 skps.tp.edu.tw）能用，
+// 而且只能讀寫自己那一份；不能刪除。其他資料一律不能讀寫。
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function school() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.matches('.*@(st[.])?skps[.]tp[.]edu[.]tw$');
+    }
+    function mine(uid) {
+      return school() && request.auth.uid == uid;
+    }
+    function goodDoc() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['email', 'name', 'json', 'at', 'updatedAt'])
+        && d.email == request.auth.token.email
+        && d.name is string && d.name.size() <= 100
+        && d.json is string && d.json.size() <= 300000
+        && d.at is int
+        && d.updatedAt == request.time;
+    }
+
+    match /progress/{uid} {
+      allow read: if mine(uid);
+      allow create, update: if mine(uid) && goodDoc();
+    }
+  }
+}

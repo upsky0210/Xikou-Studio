@@ -20,5 +20,7 @@
 
 ## 已定案的方向（細節見 `規劃報告.md`）
 - P2 雲端存檔：Firebase Auth＋Firestore，只換 `js/save.js` 的內部。學生用 `@st.skps.tp.edu.tw` 登入，每人只能讀寫自己那份；老師用 `@skps.tp.edu.tw`。
+  - 2026-11-10 已做好：Firebase 專案 `xikou-studio-83723`（用教師帳號建立，Spark 免費方案），登入畫面、雲端存檔、`firestore.rules`。細節見 `README.md`「雲端存檔（P2）」。
+  - 還沒做：共同擁有者、OAuth 同意畫面（內部／外部）和管理控制台信任用戶端 ID（學生帳號未滿 18 歲要這步才能登入）、真的 iPad 全螢幕測登入、老師看全班進度的頁面。
 - iPad 是共用、訪客模式，登出就清空，所以雲端存檔是必要的。
 - 英語聽力用瀏覽器語音朗讀（`js/ui.js` 的 `Say`）；預錄音檔是之後的第二階段。

@@ -176,6 +176,17 @@ a.book:active { transform: translateY(-2px) scale(.98); }
 .book.soon b { font-size: 26px; text-shadow: none; }
 .title-foot { position: relative; margin: 8px 0 0; font-size: 12px; font-weight: 700; color: var(--frame); text-align: center; background: rgba(255, 255, 255, .7); padding: 2px 12px; border-radius: 999px; }
 
+/* ---------- 登入 ---------- */
+.login-screen { justify-content: center; gap: 4vh; }
+.login-screen .logo { margin-top: 0; }
+.win.login { width: 100%; max-width: 440px; padding: 26px 24px 18px; text-align: center; }
+.btn svg.g { width: 32px; height: 32px; padding: 4px; background: #fff; border-radius: 50%; border: 2px solid var(--frame); }
+.btn:disabled { opacity: .7; cursor: default; }
+.win.login .nw { white-space: nowrap; }
+.login-tip { margin: 14px 0 0; font-size: 15px; font-weight: 700; line-height: 1.6; color: var(--ink-2); }
+.login-err { margin: 12px 0 0; padding: 8px 12px; border-radius: 12px; font-size: 15px; font-weight: 700; background: #ffe9ec; color: var(--ruby-3); border: 2px solid #f6b9c1; }
+.login-guest { margin-top: 12px; background: none; border: 0; padding: 8px; font-size: 14px; font-weight: 700; color: var(--ink-3); text-decoration: underline; cursor: pointer; }
+
 /* ---------- 冒險地圖上的按鈕 ---------- */
 .mapbar { position: fixed; left: calc(14px + var(--safe-l)); top: calc(var(--hud-h) + 10px + var(--safe-t)); display: flex; gap: 8px; align-items: center; }
 .mapbar .pill { padding: 0 16px; gap: 6px; height: 40px; }

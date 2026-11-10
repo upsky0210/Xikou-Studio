@@ -126,10 +126,13 @@ node tools/review-sheet.mjs drafts/抽驗清單-L07-L08.md drafts/questions-L07-
 
 還沒寫好題目的關，`q` 留空陣列，畫面會當作尚未開放。
 
-## 換成雲端存檔（P2）
+## 雲端存檔（P2）
 
-只換 `js/save.js` 的內部，保留 `Save.load()`、`Save.save(state)`、`Save.clear()` 三個介面（都回傳 Promise）。
-進度格式寫在 `save.js` 開頭的註解裡。
+- Firebase 專案 `xikou-studio-83723`（Spark 免費方案），設定碼在 `js/save.js`。Firebase 的程式從 gstatic 載入（13.1.0）。
+- 登入：學校 Google 帳號（學生 `@st.skps.tp.edu.tw`、老師 `@skps.tp.edu.tw`），其他帳號會被登出。也可以「先不登入」，進度只存這台裝置。
+- 進度存在 Firestore `progress/{uid}`，每人一份，只能讀寫自己那份。規則在 `firestore.rules`，改了要貼到 Firebase 控制台 → Firestore Database → 規則 → 發布。
+- 畫面只用 `Save.load()`、`Save.save(state)`、`Save.clear()`；寫入最多每 15 秒一次，過關、切到背景、登出時馬上寫。進度格式寫在 `save.js` 開頭的註解裡。
+- 登出會清掉這台裝置上這個人的副本（共用 iPad）。
 
 ## 3D 地圖
 

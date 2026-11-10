@@ -329,7 +329,7 @@
         </div>
         <div>
           <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>${pairs('更多課本')}</b><span class="prog"><em>敬請期待</em></span></span></div></div>
-          <p class="title-foot">題目內容皆為原創 · 進度目前只存在這台裝置</p>
+          <p class="title-foot">題目內容皆為原創 · ${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
         </div>
       </section>`;
     $('#heroChip').onclick = openHeroPick;
@@ -643,7 +643,7 @@
 
   function finishRun(book) {
     const res = Engine.finish(state, run, book);
-    persist(); updateTop(book);
+    Save.save(state, { now: true }); updateTop(book);
     lastResult = { run, res };
     if (res.badge !== null) celebrate = { book: book.id, z: res.badge };
     renderResult(book);
@@ -777,6 +777,25 @@
     const open = (v) => { menu.hidden = !v; btn.setAttribute('aria-expanded', String(v)); };
     btn.onclick = (e) => { e.stopPropagation(); open(menu.hidden); };
     document.addEventListener('click', (e) => { if (!e.target.closest('.menu-wrap')) open(false); });
+    const ab = $('#acctBtn');
+    if (Save.user) {
+      ab.innerHTML = `${ICON.hero} 登出（${esc(Save.user.name)}）`;
+      ab.onclick = async () => {
+        open(false);
+        if (!confirm(`要登出 ${Save.user.email} 嗎？\n進度已經存在雲端，下次登入就會回來。`)) return;
+        let r = await Save.signOut();
+        if (r === 'unsaved') {
+          if (!confirm('網路好像不通，最近幾題的進度還沒存到雲端。\n現在登出，這幾題要重做。仍要登出嗎？')) return;
+          r = await Save.signOut(true);
+        }
+        location.hash = '#/';
+        location.reload();
+      };
+      $('#clearBtn').hidden = true;
+    } else {
+      ab.innerHTML = `${ICON.hero} 登入學校帳號（進度存到雲端）`;
+      ab.onclick = () => { Save.leaveGuest(); location.hash = '#/'; location.reload(); };
+    }
     const hp = $('#heroPickBtn');
     hp.innerHTML = `${ICON.hero} 換角色（貓劍士／兔探險家）`;
     hp.onclick = () => { open(false); openHeroPick(); };
@@ -831,11 +850,64 @@
     });
   }
 
+  /* ---------- 登入：學校 Google 帳號（進度存雲端）或先不登入（只存這台裝置） ---------- */
+  const G_ICON = '<svg class="i g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.6 13.2l7.9 6.2C12.4 13.7 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 7l7.4 5.7c4.3-4 6.9-9.9 6.9-17.2z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.2C.9 16.6 0 20.2 0 24s.9 7.4 2.6 10.8z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.2-13.5-10l-7.9 6.2C6.6 42.6 14.6 48 24 48z"/></svg>';
+  const LOGIN_ERR = {
+    domain: '這不是學校帳號。學生請用 <b>@st.skps.tp.edu.tw</b> 的帳號登入。',
+    'auth/unauthorized-domain': '這個網址還沒加進 Firebase 的「授權網域」，請告訴老師。',
+    'auth/network-request-failed': '網路不通，請確認連上網路再試一次。',
+    'auth/too-many-requests': '試太多次了，請等一下再試。',
+  };
+  function askLogin() {
+    setMode('title');
+    const hud = $('#hud');
+    hud.hidden = true;   // 上方列（EXP、選單）登入後才有內容
+    return new Promise((done) => {
+      const resolve = (u) => { hud.hidden = false; done(u); };
+      app.innerHTML = `
+        <section class="title-screen login-screen">
+          <div class="logo">
+            <span class="kicker">${ICON.crown} 溪口國小</span>
+            <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
+            <p class="tagline">登入學校帳號，進度存到雲端</p>
+          </div>
+          <div class="win login">
+            <button class="btn gold big wide" id="loginBtn" type="button" disabled>${G_ICON}<span>準備中…</span></button>
+            <p class="login-tip">學生請用 <b>@st.skps.tp.edu.tw</b> 的帳號<br>換一台平板登入，進度也會跟著你</p>
+            <p class="login-err" id="loginErr" hidden></p>
+            <button class="login-guest" id="guestBtn" type="button">先不登入（進度只存在這台裝置）</button>
+          </div>
+        </section>`;
+      const btn = $('#loginBtn'), err = $('#loginErr');
+      const label = (t) => { btn.querySelector('span').innerHTML = t.replace(/帳號登入$/, '<span class="nw">帳號登入</span>'); };
+      const say = (html) => { err.innerHTML = html; err.hidden = !html; };
+      Save.prepare().then(() => { btn.disabled = false; label('用學校 Google 帳號登入'); })
+        .catch(() => { label('連不上登入服務'); say('連不上登入服務。請確認網路後重新整理，或先不登入。'); });
+      btn.onclick = async () => {
+        btn.disabled = true; label('登入中…'); say('');
+        try {
+          const u = await Save.signIn();
+          if (u) return resolve(u);
+        } catch (e) {
+          console.warn(e);
+          if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') {
+            say(LOGIN_ERR[e.code] || `登入沒有成功（${esc(e.code || e.message)}）。可以再試一次，或先不登入。`);
+          }
+        }
+        btn.disabled = false; label('用學校 Google 帳號登入');
+      };
+      $('#guestBtn').onclick = () => { Save.useGuest(); resolve(null); };
+    });
+  }
+
   async function start() {
+    const worldP = waitWorld();
+    await Save.init();
+    if (!Save.user && !Save.guest) await askLogin();
     state = await Save.load();
     setupMenu();
     setupKeys();
-    world = await waitWorld();
+    world = await worldP;
     if (world) {
       world.onSelect(async (z) => {
         const parts = location.hash.replace(/^#\/?/, '').split('/');
