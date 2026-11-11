@@ -17,7 +17,7 @@ def add(l,n,typ,stem,answer,ds,hints,concept,ref,attachment=None):
 add(1,1,'聽力：聽句子選句子','請聽英文，選出你聽到的句子。','I cooked dinner yesterday.',[
 D('I cook dinner every day.','時間資訊錯置','句尾說的是 yesterday，不是 every day；說的是昨天做過的事'),D('I cooked dinner last night.','時間資訊錯置','動作相同，但把 yesterday 聽成 last night'),D('I cooked dessert yesterday.','音近字','時間相同，但把晚餐 dinner 聽成甜點 dessert')],['先聽動作，再聽句尾的時間。','句尾的時間是 yesterday、last night 還是 every day？','說的是昨天做的事，煮的是晚餐。'],'念的是 I cooked dinner yesterday.（我昨天煮了晚餐）。-ed 在句子裡常念得很輕，要靠句尾的 yesterday 判斷是過去的事。','Unit 1 Vocabulary、Sentence A（課本 pp.10–12）',audio('I cooked dinner yesterday.',.85))
 add(1,2,'聽力：聽音選字','請聽英文，選出你聽到的片語。','watched a movie',[
-D('watched TV','同類活動混淆','動詞相同，但把電影聽成電視'),D('watched a musical','音近字','只聽到最後一字相近的開頭，就把電影聽成音樂劇'),D('watched the movie','音近字','將不定冠詞 a 聽成 the')],['先聽動詞後面看的東西。','注意那個東西前面是 a 還是 the。','整個片語是在說看了一部電影。'],'念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched the movie。','Unit 1 Vocabulary（課本 pp.10–11）',audio('watched a movie',.8))
+D('watched TV','同類活動混淆','動詞相同，但把電影聽成電視'),D('watched a musical','音近字','只聽到最後一字相近的開頭，就把電影聽成音樂劇'),D('watched a basketball game','同類活動混淆','動詞相同，但把電影聽成籃球比賽')],['先聽動詞後面看的東西。','電視、電影、音樂劇、球賽，聽清楚是哪一個。','整個片語是在說看了一部電影。'],'念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched a basketball game。','Unit 1 Vocabulary（課本 pp.10–11）',audio('watched a movie',.8))
 add(1,3,'聽力：聽音選意思','請聽英文，選出片語的中文意思。','吹直笛',[
 D('打籃球','中文意思混淆','只聽出 played，沒有辨認後面的樂器'),D('玩線上遊戲','中文意思混淆','把 played 後的名詞當成 online games'),D('聽音樂','中文意思混淆','把演奏樂器和聆聽音樂混為一談')],['注意動作後面接的是什麼。','同一個動詞可搭配運動、遊戲或樂器。','這裡說的是一種用嘴吹奏的樂器。'],'念的是 played the recorder，意思是吹直笛。','Unit 1 Vocabulary、More Words（課本 pp.10–11、15）',audio('played the recorder',.8))
 add(1,4,'字彙：看中文選英文','哪個過去式片語表示「澆花」？','watered the flowers',[
@@ -44,8 +44,10 @@ add(2,7,'句型：情境應用','依 Amy 的活動紀錄，哪一句符合「昨
 D('Amy watched a movie yesterday.','對話資訊錯置','把上週五的活動移到昨天'),D('Amy cooks dinner yesterday.','時態與時間詞不合','昨天已經過去，不能用 cooks'),D('Amy cooked dinner last Friday.','時間資訊錯置','把煮晚餐的日期改成上週五')],['先找出昨天那一列。','活動和時間都要符合紀錄，動詞也要用過去式。','昨天的活動是煮晚餐。'],'紀錄中的昨天是 cooked dinner，因此用 Amy cooked dinner yesterday.。','Unit 1 Vocabulary、Grammar Tips（課本 pp.10–13）',{'t':[['時間','Amy 的活動'],['last Friday','watched a movie'],['yesterday','cooked dinner']],'cap':'Amy 的活動紀錄（原創）'})
 add(3,1,'聽力：辨認字尾讀音','請聽單字，選出它的 -ed 字尾讀音。','-ed 讀 [ɪd]',[
 D('-ed 讀 [d]','-ed 讀音混淆','忽略字尾多出的一個音節'),D('-ed 讀 [t]','-ed 讀音混淆','把有額外音節的字尾聽成短促的 [t]'),D('-ed 不發音','漏聽字尾','完全忽略過去式字尾')],['聽聽結尾是否多出一個音節。','本課有三組 -ed 讀音，先排除沒有念字尾的說法。','這個字屬於結尾多出一個音節的一組。'],'念的是 landed；land 以 d 結尾，加 -ed 後字尾讀 [ɪd]。','Unit 1 Phonics／Sound It Out（課本 p.18）',audio('landed',.8))
-add(3,2,'發音：選出讀音不同的字','哪一個單字的 -ed 讀音和另外三個不同？可點播選項比較。','helped',[
-D('listened','-ed 讀音混淆','listened 的 -ed 讀 [d]，與 played、rained 同組'),D('played','-ed 讀音混淆','played 的 -ed 讀 [d]，與 listened、rained 同組'),D('rained','-ed 讀音混淆','rained 的 -ed 讀 [d]，與 listened、played 同組')],['只比較字尾，不要比較字首。','先找三個字尾相同的選項。','三個是 [d]，另一個是 [t]。'],'helped 的 -ed 讀 [t]；其餘三字都讀 [d]。','Unit 1 Phonics／Sound It Out（課本 p.18）',{'speakOptions':True})
+# Q2 修訂（英語老師試聽回饋）：語音朗讀分不出 [t] 和 [d]（helped 和 played 聽起來一樣），
+# 改成找「多一個音節」的 [ɪd]：t、d 結尾的字（wanted、needed、visited）聽得出明顯不同。
+add(3,2,'發音：選出讀音不同的字','哪一個單字的 -ed 讀音和另外三個不同？可點播選項比較。','wanted',[
+D('listened','-ed 讀音混淆','listened 的 -ed 讀 [d]，與 played、rained 同組'),D('played','-ed 讀音混淆','played 的 -ed 讀 [d]，與 listened、rained 同組'),D('rained','-ed 讀音混淆','rained 的 -ed 讀 [d]，與 listened、played 同組')],['只比較字尾，不要比較字首。','點每個選項聽聽看，字尾有沒有多出一個音節。','三個讀 [d]，另一個多一個音節，讀 [ɪd]。'],'want 以 t 結尾，wanted 的 -ed 讀 [ɪd]，多一個音節；其餘三字都讀 [d]。','Unit 1 Phonics／Sound It Out（課本 p.18）',{'speakOptions':True})
 add(3,3,'發音：拼讀規則','哪個單字的 -ed 讀 [ɪd]？','visited',[
 D('listened','-ed 讀音混淆','listen 結尾不是 t 或 d，listened 的 -ed 讀 [d]'),D('watched','-ed 讀音混淆','watched 的 -ed 讀 [t]，不多一個音節'),D('played','-ed 讀音混淆','played 的 -ed 讀 [d]，不是 [ɪd]')],['先看原形動詞最後的聲音。','原形以 t 或 d 結尾，加 -ed 後會多一個音節。','visit 的最後一個音符合這個條件。'],'visited 的 -ed 讀 [ɪd]，與 landed、shouted 同組。','Unit 1 Phonics（課本 p.18）')
 add(3,4,'聽力：聽音選字','請聽單字，選出正確的拼字。','rained',[
@@ -77,8 +79,8 @@ add(5,1,'文法：動詞形式','選字完成句子："We ______ swimming yester
 D('go','時態與時間詞不合','忽略 yesterday，使用原形'),D('goes','第三人稱混淆','We 不用 goes，過去情境也不適用'),D('going','動詞形式混淆','把 -ing 形式當成單獨的過去式')],['先辨認這件事發生的時間。','go 的過去式不是直接加 -ed。','不規則動詞要使用對應的過去式。'],'go 的過去式為 went，因此用 went swimming。','Unit 2 Reminder、Grammar Tips（課本 pp.23–25）')
 add(5,2,'句型：填空','選字完成問句："What time ______ Emma have dinner yesterday?"','did',[
 D('does','時態與時間詞不合','只看 Emma 是第三人稱，忽略 yesterday'),D('do','時態與時間詞不合','使用現在式，且未配合第三人稱'),D('was','動詞形式混淆','把 be 動詞放在 have 前，不能構成本課的動作問句')],['先找出時間詞。','過去動作問句不因主詞是 Emma 就改用現在式。','後面 have 是原形，前面需要過去式助動詞。'],'yesterday 表示過去，用 What time did ... have dinner?。','Unit 2 Sentence A／Grammar Tips（課本 p.24）')
-add(5,3,'句型：問答配對','"What time did you go swimming?" 最適合接哪一句？','I went at five.',[
-D('I went with my sister.','疑問詞混淆','回答和誰去，沒有說幾點'),D('I went last Sunday.','疑問詞混淆','回答哪一天，沒有回答幾點'),D('I went to the beach.','疑問詞混淆','回答地點，沒有回答時刻')],['留意疑問詞要問哪一種資訊。','What time 要求具體時刻。','找出 at 後面接幾點的回答。'],'What time 問幾點；I went at five. 回答五點。','Unit 2 Sentence A（課本 p.24）')
+add(5,3,'句型：問答配對','"What time did you go swimming?" 最適合接哪一句？','I went swimming at five.',[
+D('I went swimming with my sister.','疑問詞混淆','回答和誰去，沒有說幾點'),D('I went swimming last Sunday.','疑問詞混淆','回答哪一天，沒有回答幾點'),D('I went swimming at the beach.','疑問詞混淆','回答地點，沒有回答時刻')],['留意疑問詞要問哪一種資訊。','What time 要求具體時刻。','找出 at 後面接幾點的回答。'],'What time 問幾點；I went swimming at five. 回答五點。','Unit 2 Sentence A（課本 p.24）')
 add(5,4,'文法：改錯','四個句子中，哪一句完全正確？','She had lunch at one.',[
 D('She have lunch at one yesterday.','時態與時間詞不合','昨天應用 had，不是 have'),D('Did she had lunch at one?','did 後接過去式','did 後要用 have，不是 had'),D('She did not had lunch at one.','did 後接過去式','did not 後也要還原成 have')],['先看句中有沒有 did。','有 did 就用原形；直接陳述過去活動才用 had。','正確句子直接說她一點吃了午餐。'],'She had lunch at one. 使用 have 的過去式 had，時間介系詞用 at。','Unit 2 Sentence A／B、Grammar Tips（課本 pp.24–25）')
 add(5,5,'文法：時間詞','依序選出兩個空格的動詞："Amy ______ the dishes every day. She ______ the dishes yesterday, too."','does / did',[

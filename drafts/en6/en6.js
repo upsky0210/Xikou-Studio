@@ -61,14 +61,14 @@ const EN6 = {
      [
       "watched TV",
       "watched a musical",
-      "watched the movie"
+      "watched a basketball game"
      ],
      [
       "先聽動詞後面看的東西。",
-      "注意那個東西前面是 a 還是 the。",
+      "電視、電影、音樂劇、球賽，聽清楚是哪一個。",
       "整個片語是在說看了一部電影。"
      ],
-     "正確概念：念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched the movie。\n破誤：「watched TV」：動詞相同，但把電影聽成電視；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched the movie」：將不定冠詞 a 聽成 the。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+     "正確概念：念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched a basketball game。\n破誤：「watched TV」：動詞相同，但把電影聽成電視；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched a basketball game」：動詞相同，但把電影聽成籃球比賽。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
      {
       "listen": "watched a movie",
       "rate": 0.8
@@ -328,7 +328,7 @@ const EN6 = {
     ],
     [
      "哪一個單字的 -ed 讀音和另外三個不同？可點播選項比較。",
-     "helped",
+     "wanted",
      [
       "listened",
       "played",
@@ -336,10 +336,10 @@ const EN6 = {
      ],
      [
       "只比較字尾，不要比較字首。",
-      "先找三個字尾相同的選項。",
-      "三個是 [d]，另一個是 [t]。"
+      "點每個選項聽聽看，字尾有沒有多出一個音節。",
+      "三個讀 [d]，另一個多一個音節，讀 [ɪd]。"
      ],
-     "正確概念：helped 的 -ed 讀 [t]；其餘三字都讀 [d]。\n破誤：「listened」：listened 的 -ed 讀 [d]，與 played、rained 同組；「played」：played 的 -ed 讀 [d]，與 listened、rained 同組；「rained」：rained 的 -ed 讀 [d]，與 listened、played 同組。\n回頭讀：Unit 1 Phonics／Sound It Out（課本 p.18）。",
+     "正確概念：want 以 t 結尾，wanted 的 -ed 讀 [ɪd]，多一個音節；其餘三字都讀 [d]。\n破誤：「listened」：listened 的 -ed 讀 [d]，與 played、rained 同組；「played」：played 的 -ed 讀 [d]，與 listened、rained 同組；「rained」：rained 的 -ed 讀 [d]，與 listened、played 同組。\n回頭讀：Unit 1 Phonics／Sound It Out（課本 p.18）。",
      {
       "speakOptions": true
      }
@@ -606,18 +606,18 @@ const EN6 = {
     ],
     [
      "\"What time did you go swimming?\" 最適合接哪一句？",
-     "I went at five.",
+     "I went swimming at five.",
      [
-      "I went with my sister.",
-      "I went last Sunday.",
-      "I went to the beach."
+      "I went swimming with my sister.",
+      "I went swimming last Sunday.",
+      "I went swimming at the beach."
      ],
      [
       "留意疑問詞要問哪一種資訊。",
       "What time 要求具體時刻。",
       "找出 at 後面接幾點的回答。"
      ],
-     "正確概念：What time 問幾點；I went at five. 回答五點。\n破誤：「I went with my sister.」：回答和誰去，沒有說幾點；「I went last Sunday.」：回答哪一天，沒有回答幾點；「I went to the beach.」：回答地點，沒有回答時刻。\n回頭讀：Unit 2 Sentence A（課本 p.24）。"
+     "正確概念：What time 問幾點；I went swimming at five. 回答五點。\n破誤：「I went swimming with my sister.」：回答和誰去，沒有說幾點；「I went swimming last Sunday.」：回答哪一天，沒有回答幾點；「I went swimming at the beach.」：回答地點，沒有回答時刻。\n回頭讀：Unit 2 Sentence A（課本 p.24）。"
     ],
     [
      "四個句子中，哪一句完全正確？",

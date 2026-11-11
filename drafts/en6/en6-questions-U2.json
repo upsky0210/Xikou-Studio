@@ -335,20 +335,20 @@
     "type": "句型：問答配對",
     "stem": "\"What time did you go swimming?\" 最適合接哪一句？",
     "attachment": null,
-    "answer": "I went at five.",
+    "answer": "I went swimming at five.",
     "distractors": [
       {
-        "text": "I went with my sister.",
+        "text": "I went swimming with my sister.",
         "trap": "疑問詞混淆",
         "misconception": "回答和誰去，沒有說幾點"
       },
       {
-        "text": "I went last Sunday.",
+        "text": "I went swimming last Sunday.",
         "trap": "疑問詞混淆",
         "misconception": "回答哪一天，沒有回答幾點"
       },
       {
-        "text": "I went to the beach.",
+        "text": "I went swimming at the beach.",
         "trap": "疑問詞混淆",
         "misconception": "回答地點，沒有回答時刻"
       }
@@ -358,7 +358,7 @@
       "What time 要求具體時刻。",
       "找出 at 後面接幾點的回答。"
     ],
-    "explanation": "正確概念：What time 問幾點；I went at five. 回答五點。\n破誤：「I went with my sister.」：回答和誰去，沒有說幾點；「I went last Sunday.」：回答哪一天，沒有回答幾點；「I went to the beach.」：回答地點，沒有回答時刻。\n回頭讀：Unit 2 Sentence A（課本 p.24）。",
+    "explanation": "正確概念：What time 問幾點；I went swimming at five. 回答五點。\n破誤：「I went swimming with my sister.」：回答和誰去，沒有說幾點；「I went swimming last Sunday.」：回答哪一天，沒有回答幾點；「I went swimming at the beach.」：回答地點，沒有回答時刻。\n回頭讀：Unit 2 Sentence A（課本 p.24）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 2 Sentence A（課本 p.24）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"

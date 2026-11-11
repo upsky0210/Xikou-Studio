@@ -59,17 +59,17 @@
         "misconception": "只聽到最後一字相近的開頭，就把電影聽成音樂劇"
       },
       {
-        "text": "watched the movie",
-        "trap": "音近字",
-        "misconception": "將不定冠詞 a 聽成 the"
+        "text": "watched a basketball game",
+        "trap": "同類活動混淆",
+        "misconception": "動詞相同，但把電影聽成籃球比賽"
       }
     ],
     "hints": [
       "先聽動詞後面看的東西。",
-      "注意那個東西前面是 a 還是 the。",
+      "電視、電影、音樂劇、球賽，聽清楚是哪一個。",
       "整個片語是在說看了一部電影。"
     ],
-    "explanation": "正確概念：念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched the movie。\n破誤：「watched TV」：動詞相同，但把電影聽成電視；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched the movie」：將不定冠詞 a 聽成 the。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
+    "explanation": "正確概念：念的是 watched a movie（看了電影），不是 watched TV、watched a musical 或 watched a basketball game。\n破誤：「watched TV」：動詞相同，但把電影聽成電視；「watched a musical」：只聽到最後一字相近的開頭，就把電影聽成音樂劇；「watched a basketball game」：動詞相同，但把電影聽成籃球比賽。\n回頭讀：Unit 1 Vocabulary（課本 pp.10–11）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 1 Vocabulary（課本 pp.10–11）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
@@ -569,7 +569,7 @@
     "attachment": {
       "speakOptions": true
     },
-    "answer": "helped",
+    "answer": "wanted",
     "distractors": [
       {
         "text": "listened",
@@ -589,10 +589,10 @@
     ],
     "hints": [
       "只比較字尾，不要比較字首。",
-      "先找三個字尾相同的選項。",
-      "三個是 [d]，另一個是 [t]。"
+      "點每個選項聽聽看，字尾有沒有多出一個音節。",
+      "三個讀 [d]，另一個多一個音節，讀 [ɪd]。"
     ],
-    "explanation": "正確概念：helped 的 -ed 讀 [t]；其餘三字都讀 [d]。\n破誤：「listened」：listened 的 -ed 讀 [d]，與 played、rained 同組；「played」：played 的 -ed 讀 [d]，與 listened、rained 同組；「rained」：rained 的 -ed 讀 [d]，與 listened、played 同組。\n回頭讀：Unit 1 Phonics／Sound It Out（課本 p.18）。",
+    "explanation": "正確概念：want 以 t 結尾，wanted 的 -ed 讀 [ɪd]，多一個音節；其餘三字都讀 [d]。\n破誤：「listened」：listened 的 -ed 讀 [d]，與 played、rained 同組；「played」：played 的 -ed 讀 [d]，與 listened、rained 同組；「rained」：rained 的 -ed 讀 [d]，與 listened、played 同組。\n回頭讀：Unit 1 Phonics／Sound It Out（課本 p.18）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 1 Phonics／Sound It Out（課本 p.18）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
