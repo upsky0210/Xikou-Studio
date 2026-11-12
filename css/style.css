@@ -186,6 +186,22 @@ a.book:active { transform: translateY(-2px) scale(.98); }
 .login-tip { margin: 14px 0 0; font-size: 15px; font-weight: 700; line-height: 1.6; color: var(--ink-2); }
 .login-err { margin: 12px 0 0; padding: 8px 12px; border-radius: 12px; font-size: 15px; font-weight: 700; background: #ffe9ec; color: var(--ruby-3); border: 2px solid #f6b9c1; }
 .login-guest { margin-top: 12px; background: none; border: 0; padding: 8px; font-size: 14px; font-weight: 700; color: var(--ink-3); text-decoration: underline; cursor: pointer; }
+/* 首頁：沒登入時的「登入學校帳號」 */
+.login-chip { display: flex; align-items: center; gap: 10px; width: fit-content; margin: 10px auto 0; padding: 6px 18px 6px 8px; border: 3px solid var(--frame); border-radius: 99px;
+  background: linear-gradient(#ffe27a, var(--gold-2)); color: var(--gold-ink); font: inherit; cursor: pointer; box-shadow: 0 4px 0 var(--frame); }
+.login-chip:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--frame); }
+.login-chip svg.g { flex: none; width: 34px; height: 34px; padding: 5px; background: #fff; border-radius: 50%; border: 2px solid var(--frame); }
+.login-chip span { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; text-align: left; }
+.login-chip b { font-size: 17px; font-weight: 900; }
+.login-chip small { font-size: 12px; font-weight: 700; }
+/* 登入後問：這台裝置上的訪客進度是不是你的 */
+.win.guestask { padding-top: 38px; }
+.win.guestask .login-tip { margin-top: 0; }
+.guest-sum { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 14px; margin: 8px 0 10px; padding: 8px 10px; border-radius: 14px; background: #fff8dd; border: 2px solid var(--gold-2); font-size: 15px; font-weight: 700; color: var(--ink); }
+.guest-sum span { white-space: nowrap; }
+.guest-sum b { font-size: 20px; font-weight: 900; }
+.win.guestask .btn { margin-top: 12px; }
+.guest-note { margin: 12px 0 0; font-size: 13px; font-weight: 700; line-height: 1.5; color: var(--ink-3); }
 
 /* ---------- 冒險地圖上的按鈕 ---------- */
 .mapbar { position: fixed; left: calc(14px + var(--safe-l)); top: calc(var(--hud-h) + 10px + var(--safe-t)); display: flex; gap: 8px; align-items: center; }

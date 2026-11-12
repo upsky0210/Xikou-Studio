@@ -7,7 +7,11 @@
      共用 iPad 的訪客模式一登出就清空，所以進度一定要在雲端。
      同一個人可能同時開著兩台裝置（學校 iPad 沒關、回家用電腦）：存檔不是整份蓋過去，而是「逐關逐題合併」，
      每次寫入前先讀雲端那一份、合在一起再寫（transaction），所以兩邊做的都留得住。合併規則見 merge()。
-   - 先不登入（訪客）：跟以前一樣只存在這台裝置（xk-practice-v1）。第一次登入時，會把這台裝置的訪客進度併進帳號。
+   - 先不登入（訪客）：跟以前一樣只存在這台裝置（xk-practice-v1）。
+     登入後如果這台裝置還留著訪客進度，不會自動併進帳號（共用的電腦上那份可能是別人玩的）：
+     畫面用 guestLeft 看有沒有、問過本人，再呼叫 takeGuest(是不是我的)。
+   - 開站時沒網路：Firebase 沒載到，先用這台裝置的副本玩（user.offline）。網路回來（online 事件、回到分頁、下一次存檔）
+     會補連一次，連上就和雲端合併。sw.js 會把 Firebase 的程式放進快取，所以通常沒網路也載得到。
 
    Firebase 的程式從 gstatic 載入（只有要登入的人才下載，約 420 KB）。設定碼本來就是公開的，安全靠資料庫規則。
    寫入次數有限（免費方案每天 2 萬次），所以不是每答一題就寫：最多每 15 秒寫一次，過關、切到背景、登出時馬上寫。
@@ -36,6 +40,7 @@
   const CACHE = 'xk-cloud-';        // 登入後的本機副本：xk-cloud-{uid} → { at, s }
   const LAST = 'xk-user';           // 上次登入的人（離線時用，也用來判斷要不要先載入 Firebase）
   const GUEST = 'xk-guest';         // 選了「先不登入」
+  const NOT_MINE = 'xk-guest-no';   // 登入後看到訪客進度、回答「不是我玩的」的人（uid 清單）；訪客進度有變動就清空，下次再問
   const FB = 'https://www.gstatic.com/firebasejs/13.1.0/';
   const CONFIG = {
     apiKey: 'AIzaSyBOFh8QwApwzpRQoK4Bu8dY1xCSNIw7AAY',
@@ -150,14 +155,48 @@
     return c && valid(c.s) ? c : null;
   }
 
+  // 這台裝置上的訪客進度有多少：{ done 過關關數, ok 答對題數, exp }；沒有答對過任何一題就當作沒有
+  function guestSum() {
+    const g = valid(json(ls.get(KEY)));
+    if (!g) return null;
+    let done = 0, ok = 0, exp = 0;
+    for (const b of Object.values(g.books)) {
+      for (const l of Object.values((b && b.levels) || {})) {
+        if (l.done) done++;
+        for (const x of l.q || []) { if (x && x.ok) ok++; if (x && x.first === true) exp += EXP_PER_Q; }
+      }
+    }
+    return ok ? { done, ok, exp } : null;
+  }
+
+  /* 開站時沒連上登入服務（user.offline）：補連一次。Firebase 載到了、而且登入著的還是同一個人，才算連上。
+     連不上就維持原狀（繼續用這台的副本），之後還會再試。 */
+  let reconnecting = null;
+  function reconnect() {
+    if (!reconnecting) {
+      const u = user;
+      reconnecting = (async () => {
+        try {
+          await boot();
+          await timeout(fb.auth.authStateReady(), 10000);
+          const cu = fb.auth.currentUser;
+          if (user === u && cu && cu.uid === u.uid) { user = who(cu); ls.set(LAST, JSON.stringify(user)); }
+        } catch (e) { console.warn('還連不上登入服務', e); }
+        reconnecting = null;
+      })();
+    }
+    return reconnecting;
+  }
+
   /* 和雲端對一次：讀雲端那一份 → 和這台的合併 → 有新東西才寫回去（讀和寫包在同一個 transaction，
      兩台裝置剛好同時寫也不會互相蓋掉）。雲端有這台沒有的進度，就併進這台並通知畫面。
      pull＝這台沒有要存的東西也去對一次（回到分頁時用）。 */
   async function push(pull) {
     pull = pull === true;
     clearTimeout(timer); timer = 0;
+    if (user && user.offline && (dirty || pull)) await reconnect();
     if (pushing) { await pushing; if (!dirty && !pull) return true; }
-    if ((!dirty && !pull) || !user || !fb || !memory) return !dirty;
+    if ((!dirty && !pull) || !user || !fb || user.offline || !memory) return !dirty;
     const had = dirty;        // 只是回到分頁對一次（沒有東西要存）的話，失敗了不用記成「還沒存」
     dirty = false;
     const u = user, ref = fb.F.doc(fb.db, COL, u.uid);
@@ -193,10 +232,11 @@
   // 切到背景（換 App、關螢幕、登出 iPad 前）就先存；回到這個分頁時，隔了一分鐘以上就和雲端對一次（可能在別台裝置玩過）
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') { if (dirty) push(); }
-    else if (user && fb && !user.offline && Date.now() - synced > 60000) push(true);
+    else if (user && Date.now() - synced > 60000) push(true);
   });
   addEventListener('pagehide', () => { if (dirty) push(); });
-  addEventListener('online', () => { if (dirty) push(); });
+  // 網路回來：不管有沒有東西要存都對一次（開站時沒網路的話，這台的副本可能比雲端多，雲端也可能有別台的新進度）
+  addEventListener('online', () => { if (user) push(true); });
 
   window.Save = {
     /* 開站時呼叫：判斷有沒有登入。上次登入過，或還沒選過「先不登入」，才載入 Firebase。 */
@@ -221,6 +261,30 @@
     set onChange(f) { onChange = f; },   // f(進度)：雲端有別台裝置的新進度，已經併進來了
     useGuest() { ls.set(GUEST, '1'); },
     leaveGuest() { ls.del(GUEST); },
+
+    /* 登入了，而這台裝置還留著沒登入時玩的進度、這個人也還沒回答過是不是他的 → { done, ok, exp }；否則 null。 */
+    get guestLeft() {
+      if (!user) return null;
+      const no = json(ls.get(NOT_MINE));
+      if (Array.isArray(no) && no.includes(user.uid)) return null;
+      return guestSum();
+    },
+    /* 回答訪客進度是不是自己的。mine＝true：逐題併進帳號、存上雲端、刪掉訪客那份。
+       false：那份留在這台裝置（給真正玩的人），記下這個人已經答過。回傳現在的進度。 */
+    async takeGuest(mine) {
+      const g = valid(json(ls.get(KEY)));
+      if (!user || !g) return memory;
+      if (!mine) {
+        const no = json(ls.get(NOT_MINE));
+        ls.set(NOT_MINE, JSON.stringify([...new Set([...(Array.isArray(no) ? no : []), user.uid])]));
+        return memory;
+      }
+      const mine0 = memory || empty();
+      const s = { ...mine0, books: mergeBooks(mine0.books, g.books) };
+      ls.del(KEY); ls.del(NOT_MINE);
+      await this.save(s, { now: true });
+      return s;
+    },
 
     async signIn() {
       await boot();
@@ -265,10 +329,8 @@
         } catch (e) { console.warn('讀不到雲端進度，先用這台裝置的副本', e); }
       }
       // 雲端和這台的副本合在一起（這台可能有上次離線玩的、雲端可能有別台裝置玩的）
-      let s = cloud && local ? merge(cloud.s, local.s) : cloud ? cloud.s : local ? local.s : empty();
-      // 登入前在這台裝置用訪客身分玩過：逐題併進帳號，訪客那份就刪掉
-      const g = valid(json(ls.get(KEY)));
-      if (g && cloudOk) { s = { ...s, books: mergeBooks(s.books, g.books) }; ls.del(KEY); }
+      const s = cloud && local ? merge(cloud.s, local.s) : cloud ? cloud.s : local ? local.s : empty();
+      // 這台裝置的訪客進度不在這裡併（見 guestLeft / takeGuest）
       // 雲端沒有、或合併後比雲端多：補存上去
       dirty = cloudOk && (!cloud || !same(s, cloud.s));
       if (cloudOk) synced = Date.now();
@@ -281,7 +343,7 @@
     /* opt.now：馬上存上雲端（過關時） */
     async save(state, opt = {}) {
       memory = state;
-      if (!user) { ls.set(KEY, JSON.stringify(state)); return; }
+      if (!user) { ls.set(KEY, JSON.stringify(state)); ls.del(NOT_MINE); return; }
       ls.set(CACHE + user.uid, JSON.stringify({ at: Date.now(), s: state }));
       dirty = true;
       if (opt.now) push();
@@ -290,7 +352,7 @@
 
     /* 清除進度。登入時要記下清除的時間（reset），不然合併時會被雲端或別台裝置的舊進度補回來。 */
     async clear() {
-      if (!user) { memory = null; ls.del(KEY); return; }
+      if (!user) { memory = null; ls.del(KEY); ls.del(NOT_MINE); return; }
       await this.save({ ...empty(), reset: Date.now() }, { now: true });
     },
   };

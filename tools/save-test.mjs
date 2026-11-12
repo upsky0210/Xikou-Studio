@@ -15,11 +15,11 @@ assert.ok(src.includes("__imp('fs')"), 'save.js 載入 Firebase 的寫法變了�
 const clock = { t: 1_800_000_000_000 };
 
 /* 一台裝置。cloud＝{ doc } 是「雲端那一份」，兩台裝置傳同一個物件進來就是同一個帳號開兩台。 */
-function setup({ email = 'kid@st.skps.tp.edu.tw', cloud = { doc: null }, store = {}, failGet = false } = {}) {
+function setup({ email = 'kid@st.skps.tp.edu.tw', cloud = { doc: null }, store = {}, failGet = false, noBoot = false } = {}) {
   const ls = { ...store };
   const writes = [];
-  const net = { reads: 0, fail: failGet };
-  const handlers = {};
+  const net = { reads: 0, fail: failGet, noBoot };   // noBoot＝連 Firebase 的程式都載不到（開站時完全沒網路）
+  const handlers = {}, winHandlers = {};
   const snapOf = () => { const d = cloud.doc; return { exists: () => !!d, data: () => d }; };
   let current = email ? { uid: 'u1', email, displayName: '小明' } : null;
   const mods = {
@@ -51,10 +51,10 @@ function setup({ email = 'kid@st.skps.tp.edu.tw', cloud = { doc: null }, store =
   const timers = [];
   const doc = { visibilityState: 'visible', addEventListener: (ev, f) => { handlers[ev] = f; } };
   const ctx = {
-    __imp: async (k) => mods[k],
+    __imp: async (k) => { if (net.noBoot) throw new Error('offline'); return mods[k]; },
     localStorage: { getItem: (k) => (k in ls ? ls[k] : null), setItem: (k, v) => { ls[k] = String(v); }, removeItem: (k) => { delete ls[k]; } },
     document: doc,
-    addEventListener() {},
+    addEventListener: (ev, f) => { winHandlers[ev] = f; },
     setTimeout: (f, ms) => { timers.push({ f, ms }); return timers.length; },
     clearTimeout() {},
     console: { warn() {} },
@@ -65,7 +65,9 @@ function setup({ email = 'kid@st.skps.tp.edu.tw', cloud = { doc: null }, store =
   vm.createContext(ctx);
   vm.runInContext(src, ctx);
   const show = (v) => { doc.visibilityState = v; handlers.visibilitychange(); };
-  return { Save: ctx.Save, ls, writes, timers, net, cloud, show };
+  const fire = (ev) => winHandlers[ev]();     // window 的事件（online、pagehide）
+  const signedOut = () => { current = null; };
+  return { Save: ctx.Save, ls, writes, timers, net, cloud, show, fire, signedOut };
 }
 const tick = async () => { for (let i = 0; i < 5; i++) await new Promise((r) => setTimeout(r, 0)); };
 const plain = (x) => JSON.parse(JSON.stringify(x));
@@ -87,36 +89,45 @@ const cloudDoc = (s, at = 1000) => ({ doc: { email: 'kid@st.skps.tp.edu.tw', nam
 const cached = (s, at = 1000) => ({ 'xk-user': '{"uid":"u1","email":"kid@st.skps.tp.edu.tw","name":"小明"}', 'xk-cloud-u1': JSON.stringify({ at, s }) });
 const inCloud = (t) => JSON.parse(t.cloud.doc.json);
 
-// 1. 第一次登入、沒有雲端資料、裝置上有訪客進度 → 併進帳號、寫上雲端、刪掉訪客那份
+// 1. 第一次登入、沒有雲端資料、裝置上有訪客進度 → 不自動併；回答「是我玩的」才併進帳號、寫上雲端、刪掉訪客那份
 {
-  const t = setup({ store: { 'xk-practice-v1': JSON.stringify(st({ mn6: { 'mn6-01': level(3) } })) } });
+  const t = setup({ store: { 'xk-guest': '1', 'xk-practice-v1': JSON.stringify(st({ mn6: { 'mn6-01': level(3) } })) } });
+  assert.equal(t.Save.guestLeft, null);                        // 還沒登入：不問
+  assert.equal(await t.Save.init(), null);                     // 選過「先不登入」：開站不載入 Firebase
+  t.Save.leaveGuest();                                         // 按了「登入學校帳號」
   assert.equal((await t.Save.init()).email, 'kid@st.skps.tp.edu.tw');
-  const s = await t.Save.load(); await tick();
-  assert.equal(s.books.mn6.exp, 30);
-  assert.equal(t.writes.length, 1);
+  let s = await t.Save.load(); await tick();
+  assert.deepEqual(plain(s.books), {});                        // 訪客那份還沒進帳號
+  assert.equal(t.writes.length, 1);                            // 雲端本來沒有：先寫一份空的
   assert.equal(t.writes[0].ref, 'progress/u1');
   assert.deepEqual(Object.keys(t.writes[0].d).sort(), ['at', 'email', 'json', 'name', 'updatedAt']);   // 規則只准這五欄
   assert.equal(typeof t.writes[0].d.at, 'number');
+  assert.ok('xk-practice-v1' in t.ls);
+  assert.deepEqual(plain(t.Save.guestLeft), { done: 1, ok: 7, exp: 30 });
+  s = await t.Save.takeGuest(true); await tick();
+  assert.equal(s.books.mn6.exp, 30);
+  assert.equal(t.writes.length, 2);
   assert.equal(inCloud(t).books.mn6.exp, 30);
   assert.ok(!('xk-practice-v1' in t.ls));
+  assert.equal(t.Save.guestLeft, null);
   assert.ok('xk-cloud-u1' in t.ls && 'xk-user' in t.ls);
   // 存檔：不馬上寫，15 秒後才寫；過關（now）馬上寫
   s.books.mn6.levels['mn6-02'] = part(q(true)); s.books.mn6.exp = 40;
   await t.Save.save(s);
-  assert.equal(t.writes.length, 1);
+  assert.equal(t.writes.length, 2);
   assert.equal(t.timers.at(-1).ms, 15000);
   s.books.mn6.levels['mn6-02'] = part(q(true), q(true)); s.books.mn6.exp = 50;
   await t.Save.save(s, { now: true }); await tick();
-  assert.equal(t.writes.length, 2);
+  assert.equal(t.writes.length, 3);
   assert.equal(inCloud(t).books.mn6.exp, 50);
   // 內容沒變再存一次：讀了發現一樣，不寫
   await t.Save.save(s, { now: true }); await tick();
-  assert.equal(t.writes.length, 2);
+  assert.equal(t.writes.length, 3);
   // 登出：清掉這個人的副本
   assert.equal(await t.Save.signOut(), 'ok');
   assert.ok(!('xk-cloud-u1' in t.ls) && !('xk-user' in t.ls));
   assert.equal(t.Save.user, null);
-  console.log('1 ok  第一次登入，訪客進度併進帳號');
+  console.log('1 ok  第一次登入：訪客進度問過才併進帳號');
 }
 // 2. 雲端比這台多 → 用雲端的，不寫
 {
@@ -333,5 +344,82 @@ const inCloud = (t) => JSON.parse(t.cloud.doc.json);
   assert.equal(inCloud(t).books.mn6.levels['mn6-02'].star, true);
   assert.equal(told, 0);
   console.log('14 ok 精熟也會合併');
+}
+// 15. 開站時完全沒網路（Firebase 載不到）→ 用這台的副本玩；網路回來補連，把這台的和雲端的合在一起
+{
+  const cloud = cloudDoc(st({ mn6: { 'mn6-01': level(7), 'mn6-03': level(4) } }));
+  const t = setup({ cloud, noBoot: true, store: cached(st({ mn6: { 'mn6-01': level(7) } })) });
+  assert.equal((await t.Save.init()).offline, true);
+  const s = await t.Save.load();
+  assert.equal(s.books.mn6.exp, 70);
+  s.books.mn6.levels['mn6-02'] = level(5); s.books.mn6.exp = 120;
+  await t.Save.save(s, { now: true }); await tick();
+  assert.equal(t.writes.length, 0);
+  t.fire('online'); await tick();                              // 網路其實還沒好：再試也連不上，不出錯
+  assert.equal(t.Save.user.offline, true);
+  assert.equal(t.writes.length, 0);
+  let got = null;
+  t.Save.onChange = (m) => { got = m; };
+  t.net.noBoot = false;
+  t.fire('online'); await tick();
+  assert.ok(!t.Save.user.offline);
+  assert.equal(t.writes.length, 1);
+  assert.deepEqual(Object.keys(inCloud(t).books.mn6.levels).sort(), ['mn6-01', 'mn6-02', 'mn6-03']);
+  assert.equal(inCloud(t).books.mn6.exp, 160);
+  assert.equal(got.books.mn6.exp, 160);                        // 雲端有別台裝置的 mn6-03：併進這台並通知畫面
+  assert.ok(!JSON.parse(t.ls['xk-user']).offline);
+  assert.equal(await t.Save.signOut(), 'ok');
+  console.log('15 ok 開站時沒網路：網路回來補連、補存');
+}
+// 16. 開站時沒網路、沒有新作答 → 網路回來一樣對一次；補連後發現已經不是登入狀態 → 不寫，副本留著
+{
+  const cloud = cloudDoc(st({ mn6: { 'mn6-01': level(7) } }));
+  const t = setup({ cloud, noBoot: true, store: cached(st({ mn6: { 'mn6-01': level(7), 'mn6-02': level(2) } })) });
+  await t.Save.init(); await t.Save.load();
+  t.net.noBoot = false;
+  t.show('hidden'); t.show('visible'); await tick();           // 回到分頁也會補連
+  assert.ok(!t.Save.user.offline);
+  assert.equal(inCloud(t).books.mn6.exp, 90);
+  const t2 = setup({ cloud: cloudDoc(st({})), noBoot: true, store: cached(st({ mn6: { 'mn6-01': level(7) } })) });
+  await t2.Save.init(); const s2 = await t2.Save.load();
+  t2.signedOut();
+  t2.net.noBoot = false;
+  await t2.Save.save(s2, { now: true }); await tick();
+  assert.equal(t2.Save.user.offline, true);
+  assert.equal(t2.writes.length, 0);
+  assert.ok('xk-cloud-u1' in t2.ls);
+  console.log('16 ok 補連：回到分頁也會做；登入狀態不在了就不寫');
+}
+// 17. 訪客進度「不是我玩的」→ 不進帳號、留在這台、不再問同一個人；之後有人用訪客身分再玩，又會問
+{
+  const guest = st({ mn6: { 'mn6-01': level(3) } });
+  const t = setup({ cloud: cloudDoc(st({ sk6: { 'sk6-01': level(7) } })), store: { 'xk-practice-v1': JSON.stringify(guest) } });
+  await t.Save.init(); const s = await t.Save.load(); await tick();
+  assert.ok(t.Save.guestLeft);
+  const kept = await t.Save.takeGuest(false); await tick();
+  assert.ok(!kept.books.mn6 && kept.books.sk6.exp === 70);
+  assert.equal(t.Save.guestLeft, null);
+  assert.deepEqual(JSON.parse(t.ls['xk-practice-v1']), plain(guest));
+  assert.equal(t.writes.length, 0);
+  assert.ok(!inCloud(t).books.mn6);
+  await t.Save.save(s, { now: true }); await tick();           // 自己的存檔不會把「不用再問」清掉
+  assert.equal(t.Save.guestLeft, null);
+  // 重新開站（同一個人還登入著）：還是不問
+  const again = setup({ cloud: t.cloud, store: { ...t.ls } });
+  await again.Save.init(); await again.Save.load(); await tick();
+  assert.equal(again.Save.guestLeft, null);
+  // 沒登入的人在這台又玩了：下次登入的人會再被問
+  const g = setup({ email: null, store: { ...t.ls, 'xk-guest': '1' } });
+  delete g.ls['xk-user']; delete g.ls['xk-cloud-u1'];
+  assert.equal(await g.Save.init(), null);
+  const gs = await g.Save.load();
+  gs.books.mn6.levels['mn6-02'] = level(7);
+  await g.Save.save(gs);
+  assert.ok(!('xk-guest-no' in g.ls));
+  // 只答錯、沒答對過任何一題的訪客進度：不值得問
+  const none = setup({ store: { 'xk-practice-v1': JSON.stringify(st({ mn6: { 'mn6-01': part(q(false, false)) } })) } });
+  await none.Save.init(); await none.Save.load(); await tick();
+  assert.equal(none.Save.guestLeft, null);
+  console.log('17 ok 訪客進度不是我的：留在這台，不進帳號');
 }
 console.log('存檔測試全部通過');

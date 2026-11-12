@@ -326,6 +326,7 @@
           <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
           <p class="tagline">選一本課本，展開你的冒險</p>
           <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b></span><em>${ICON.hero} 換角色</em></button>
+          ${Save.user ? '' : `<button class="login-chip" id="homeLogin" type="button">${G_ICON}<span><b>登入學校帳號</b><small>現在沒登入，進度只存在這台裝置</small></span></button>`}
         </div>
         <div>
           <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>${pairs('更多課本')}</b><span class="prog"><em>敬請期待</em></span></span></div></div>
@@ -333,6 +334,8 @@
         </div>
       </section>`;
     $('#heroChip').onclick = openHeroPick;
+    // 沒登入的人（以前有人在這台裝置按過「先不登入」）：首頁就看得到登入的入口，不用去選單找
+    if ($('#homeLogin')) $('#homeLogin').onclick = toLogin;
     // 一進站先選角色（共用的 iPad：每次打開網站，下一位同學都可以重選）
     let asked = false;
     try { asked = sessionStorage.getItem('xk-hero-asked') === '1'; sessionStorage.setItem('xk-hero-asked', '1'); } catch { asked = true; }
@@ -795,6 +798,9 @@
     $('.hcard.on', modal).focus();
   }
 
+  // 回到登入畫面（從訪客改成登入）
+  function toLogin() { Save.leaveGuest(); location.hash = '#/'; location.reload(); }
+
   /* ---------- 選單 ---------- */
   const THREE_OFF = 'xk-3d-off';
   function threeOff() { try { return localStorage.getItem(THREE_OFF) === '1'; } catch { return false; } }
@@ -821,7 +827,7 @@
       $('#clearBtn').hidden = true;
     } else {
       ab.innerHTML = `${ICON.hero} 登入學校帳號（進度存到雲端）`;
-      ab.onclick = () => { Save.leaveGuest(); location.hash = '#/'; location.reload(); };
+      ab.onclick = toLogin;
     }
     const hp = $('#heroPickBtn');
     hp.innerHTML = `${ICON.hero} 換角色（貓劍士／兔探險家）`;
@@ -929,11 +935,43 @@
     });
   }
 
+  /* 登入後，這台裝置上還留著沒登入時玩的進度：先問是不是本人玩的，不自動併進帳號
+     （電腦教室、家裡共用的電腦，那份可能是前一個人玩的）。g＝Save.guestLeft。 */
+  function askGuest(g) {
+    setMode('title');
+    const hud = $('#hud');
+    hud.hidden = true;
+    return new Promise((done) => {
+      app.innerHTML = `
+        <section class="title-screen login-screen">
+          <div class="win login guestask">
+            <div class="ribbon">${ICON.bulb} 這台裝置上有一份進度</div>
+            <p class="login-tip">有人在這台裝置<b>沒登入</b>就玩過：</p>
+            <p class="guest-sum"><span>答對 <b>${g.ok}</b> 題</span><span>過關 <b>${g.done}</b> 關</span><span><b>${g.exp}</b> EXP</span></p>
+            <p class="login-tip"><b>${esc(Save.user.name)}</b>，這是你玩的嗎？</p>
+            <button class="btn gold big wide" id="guestYes" type="button">是我玩的，存進帳號</button>
+            <button class="btn wide" id="guestNo" type="button">不是我玩的</button>
+            <p class="guest-note">選「不是我玩的」，那份進度會留在這台裝置，不會進到你的帳號。</p>
+          </div>
+        </section>`;
+      const pick = async (mine) => {
+        app.querySelectorAll('.guestask .btn').forEach((b) => { b.disabled = true; });
+        const s = await Save.takeGuest(mine);
+        hud.hidden = false;
+        done(s);
+      };
+      $('#guestYes').onclick = () => pick(true);
+      $('#guestNo').onclick = () => pick(false);
+    });
+  }
+
   async function start() {
     const worldP = waitWorld();
     await Save.init();
     if (!Save.user && !Save.guest) await askLogin();
     state = await Save.load();
+    const left = Save.guestLeft;
+    if (left) state = (await askGuest(left)) || state;
     // 同一個帳號在別台裝置玩過：存檔層已經把那邊的進度併進來，這裡換上新的進度。
     // 正在闖關或看結算就不打斷（下次換畫面就會看到）；在首頁或地圖就重畫。
     Save.onChange = (s) => {

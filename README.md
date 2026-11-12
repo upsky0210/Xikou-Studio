@@ -129,14 +129,16 @@ node tools/review-sheet.mjs drafts/抽驗清單-L07-L08.md drafts/questions-L07-
 ## 雲端存檔（P2）
 
 - Firebase 專案 `xikou-studio-83723`（Spark 免費方案），設定碼在 `js/save.js`。Firebase 的程式從 gstatic 載入（13.1.0）。
-- 登入：學校 Google 帳號（學生 `@st.skps.tp.edu.tw`、老師 `@skps.tp.edu.tw`），其他帳號會被登出。也可以「先不登入」，進度只存這台裝置。
+- 登入：學校 Google 帳號（學生 `@st.skps.tp.edu.tw`、老師 `@skps.tp.edu.tw`），其他帳號會被登出。也可以「先不登入」，進度只存這台裝置；沒登入時首頁有「登入學校帳號」的按鈕，隨時可以改成登入。
+- 登入後如果這台裝置還留著沒登入時玩的進度，會先問「這是你玩的嗎」（`Save.guestLeft`、`Save.takeGuest`），答「是」才併進帳號；答「不是」就留在這台裝置，不再問同一個人。
+- 開站時沒網路：先用這台裝置的副本玩，網路回來（或回到分頁、下一次存檔）會補連、和雲端合併。`sw.js` 會把 Firebase 的程式放進快取，沒網路也載得到。
 - 進度存在 Firestore `progress/{uid}`，每人一份，只能讀寫自己那份。規則在 `firestore.rules`，改了要貼到 Firebase 控制台 → Firestore Database → 規則 → 發布。
 - 畫面只用 `Save.load()`、`Save.save(state)`、`Save.clear()`；寫入最多每 15 秒一次，過關、切到背景、登出時馬上寫。進度格式寫在 `save.js` 開頭的註解裡。
 - 登出會清掉這台裝置上這個人的副本（共用 iPad）。
 - 同一個帳號可以同時開兩台裝置（學校 iPad 沒關、回家用電腦）：存檔是「逐關逐題合併」，不是整份蓋過去。每次寫入前先讀雲端那一份、合併再寫；回到分頁時隔一分鐘以上也會重新對一次，把別台裝置的進度併進畫面。合併規則：答對過就算答對、有一邊第一次就答對就算、提示次數取多的、過關和徽章有一邊有就有。
 - 「清除進度」會記下清除時間（`reset`），別台裝置上的舊進度不會把它補回來。
 - 兩台裝置各過了同一區的不同關時，合併後打開地圖會補發那一區的徽章（`Engine.syncBadges`）。
-- 改了 `js/save.js` 要跑 `node tools/save-test.mjs`（不連網路，用假的 Firebase 跑 13 種情境）。
+- 改了 `js/save.js` 要跑 `node tools/save-test.mjs`（不連網路，用假的 Firebase 跑 17 種情境）。
 
 ## 3D 地圖
 
