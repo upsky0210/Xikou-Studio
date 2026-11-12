@@ -276,12 +276,12 @@
   }
   function zoneStatus(book, zi) {
     const levels = Engine.islandLevels(book, zi.index);
-    const done = levels.filter((l) => Engine.levelSummary(state, book.id, l).done).length;
+    const star = levels.filter((l) => Engine.levelSummary(state, book.id, l).star).length;
     if (zi.final && !finalOpen(book, zi)) {
       const { have, need } = badgeCount(book);
       return have >= need ? '建造中' : `徽章 ${have}／${need}`;
     }
-    return levels.length ? `${done}／${levels.length} 關` : '尚未開放';
+    return levels.length ? `精熟 ${star}／${levels.length} 關` : '尚未開放';
   }
   function worldVM(book) {
     const s = state.books[book.id];
@@ -296,7 +296,7 @@
         return {
           index: z, terrain: t.key, final: zi.final, color: t.color, badge,
           locked: (zi.final && !finalOpen(book, zi)) || !enterable(book, z),
-          levels: sums.map((x) => ({ state: x.done ? 'done' : x.okCount ? 'going' : 'todo' })),
+          levels: sums.map((x) => ({ state: x.star ? 'done' : x.done || x.okCount ? 'going' : 'todo' })),
           next: sums.findIndex((x) => !x.done),
           label: `<span class="in"><span class="no">${zi.final ? ICON.crown : zi.no}</span><span class="tx"><b>${esc(zi.name)}</b><small>${esc(status)}</small></span>${badge ? `<span class="got">${ICON.shield}</span>` : ''}</span>`,
           aria: `${unitLabel(zi)}，${zi.name}，${status}${badge ? '，已得徽章' : ''}`,
@@ -358,8 +358,10 @@
   function questCard(book, level) {
     const no = book.levels.indexOf(level) + 1;
     const sum = Engine.levelSummary(state, book.id, level);
-    const cls = sum.done ? 'done' : sum.okCount ? 'going' : 'todo';
-    const st = sum.done ? `${ICON.trophy}<span>已過關</span><small>${sum.firstCount * Engine.EXP_PER_Q} EXP</small>`
+    // 精熟＝金獎盃；過關但還沒精熟＝提醒再練一次
+    const cls = sum.star ? 'done' : sum.done ? 'going passed' : sum.okCount ? 'going' : 'todo';
+    const st = sum.star ? `${ICON.trophy}<span>精熟</span><small>${sum.firstCount * Engine.EXP_PER_Q} EXP</small>`
+      : sum.done ? `<span>已過關</span><small>再練拿精熟</small>`
       : sum.okCount ? `<span>進行中</span><small>${sum.okCount}／${sum.total} 題</small>` : `<span class="go">${ICON.go}</span>`;
     return `<li><a class="quest ${cls}" href="#/p/${book.id}/${encodeURIComponent(level.id)}">
       <span class="qno">${no}</span>
@@ -400,8 +402,8 @@
       const soon = all.length - levels.length;
       body = `<div class="zbadge${badge ? ' got' : ''}"><span class="medal-mini">${ICON.shield}</span>
           <span>${badge ? `已經拿到「${esc(zi.name)}」的徽章！`
-            : soon ? `這一區還有 ${soon} 關尚未開放。全部開放、全部過關後，就能拿到「${esc(zi.name)}」的徽章。`
-            : `把這一區的 ${levels.length} 關全部過關，就能拿到「${esc(zi.name)}」的徽章。`}</span></div>
+            : soon ? `這一區還有 ${soon} 關尚未開放。全部開放、每一關都精熟後，就能拿到「${esc(zi.name)}」的徽章。`
+            : `把這一區的 ${levels.length} 關都練到精熟（第一次就答對 ${Engine.masterNeed(levels[0].q.length)} 題以上），就能拿到「${esc(zi.name)}」的徽章。`}</span></div>
         <ol class="quests">${all.map((l) => Engine.playable(l) ? questCard(book, l) : soonCard(book, l)).join('')}</ol>`;
     }
     return `<aside class="zpanel win" style="${accVars(t.color)}" aria-label="${esc(zi.name)}">
@@ -498,12 +500,14 @@
         <p class="lead">${esc(level.intro)}</p>
         <ul class="rules">
           <li><span class="ico shield">${ICON.gem}</span>共 ${level.q.length} 題，${qTagRule(book)}。</li>
-          <li><span class="ico gold">${ICON.jewel}</span>第一次作答就答對 +${Engine.EXP_PER_Q} EXP；答錯不扣分，可以再選一次。</li>
-          <li><span class="ico jade">${ICON.bulb}</span>每題有 3 段提示，看提示不扣 EXP。</li>
+          <li><span class="ico gold">${ICON.jewel}</span>第一次作答就答對 +${Engine.EXP_PER_Q} EXP；答錯不扣分，等 ${Engine.LOCK_MS / 1000} 秒可以再選。</li>
+          <li><span class="ico jade">${ICON.bulb}</span>每題有 3 段提示，看提示不扣 EXP。同一題錯兩次，要先看提示才能再選。</li>
+          <li><span class="ico gold">${ICON.trophy}</span>第一次就答對 ${Engine.masterNeed(level.q.length)} 題以上就是「精熟」。這一區每一關都精熟，才拿得到徽章。</li>
         </ul>
         <div>${gemsHTML(book, level)}</div>${gemLegend}
         ${level.draft ? `<p class="banner draft">${ICON.book}<span>這一關是草稿，老師抽驗通過後才是正式版。題目有錯請告訴老師。</span></p>` : ''}
-        ${sum.done ? `<p class="banner">${ICON.trophy}<span>你已經過關了，這次是複習，不會再加 EXP。</span></p>` : ''}
+        ${sum.star ? `<p class="banner">${ICON.trophy}<span>你已經精熟這一關了，這次是複習，不會再加 EXP。</span></p>`
+          : sum.done ? `<p class="banner">${ICON.trophy}<span>你已經過關，但還沒精熟。這次第一次就答對 ${Engine.masterNeed(level.q.length)} 題以上，就能拿到精熟（不會再加 EXP）。</span></p>` : ''}
         ${resume ? `<p class="banner">${ICON.go}<span>上次答對了 ${sum.okCount} 題，會從還沒答對的題目接著做。</span></p>` : ''}
         <div class="row"><a class="btn" href="${backTo}">${ICON.back} 回到${esc(zi.name)}</a>
           <button class="btn gold big" id="start" type="button">${ICON.sword} ${sum.done ? '再練一次' : resume ? '繼續闖關' : '開始闖關'}</button></div>
@@ -524,9 +528,9 @@
   }
 
   /* ---------- 答題 ---------- */
-  function hintButton(shown) {
+  function hintButton(shown, must) {
     const left = Engine.HINTS_PER_Q - shown;
-    return `<button class="btn hintbtn" id="hint" type="button">${ICON.bulb} 看提示 ${shown + 1}／${Engine.HINTS_PER_Q}
+    return `<button class="btn hintbtn${must ? ' must' : ''}" id="hint" type="button">${ICON.bulb} 看提示 ${shown + 1}／${Engine.HINTS_PER_Q}
       <span class="dots">${Array.from({ length: Engine.HINTS_PER_Q }, (_, k) => `<i class="${k < shown ? 'used' : ''}"></i>`).join('')}</span><span class="sr" hidden>還有 ${left} 段</span></button>`;
   }
 
@@ -538,18 +542,24 @@
     const wrong = run.wrongPicks[i];
     const shown = run.shown[i];
     const short = q.options.every((o) => plain(o).length <= 14);
+    // 防亂點：答錯後先鎖 2 秒；同一題錯兩次以上，要先打開提示才能再選
+    const mustHint = !solved && Engine.needHint(run);
+    const wait = solved || mustHint ? 0 : Math.max(0, run.lockUntil - Date.now());
+    const hold = mustHint || wait > 0;
     const opts = q.options.map((o, k) => {
       const isWrong = wrong.includes(o), isRight = solved && o === q.answer;
-      const cls = (isRight ? 'right' : isWrong ? 'wrong' : '') + (o === picked ? ' just' : '');
-      return `<button class="opt ${cls}" data-k="${k}" type="button" ${solved || isWrong ? 'disabled' : ''}><span class="key">${'ABCD'[k]}</span><span class="t">${rich(o)}</span></button>`;
+      const cls = (isRight ? 'right' : isWrong ? 'wrong' : hold ? 'hold' : '') + (o === picked ? ' just' : '');
+      return `<button class="opt ${cls}" data-k="${k}" type="button" ${solved || isWrong || hold ? 'disabled' : ''}><span class="key">${'ABCD'[k]}</span><span class="t">${rich(o)}</span></button>`;
     }).join('');
     const hints = q.hints.slice(0, shown).map((h, k) => `<li><span class="hn">${k + 1}</span><b>提示 ${k + 1}</b>${rich(h)}</li>`).join('');
     let fb = '';
     if (feedback && feedback.ok) {
       fb = `<div class="fb ok"><b>答對了！</b>${feedback.gained ? `<span class="gain">${ICON.jewel} +${feedback.gained} EXP</span>`
         : run.review ? '<span class="sub">複習模式不加 EXP</span>' : '<span class="sub">重試答對不加 EXP，但你學會了！</span>'}</div>`;
+    } else if (mustHint) {
+      fb = `<div class="fb no"><b>先看提示，再選一次。</b><span class="sub">這一題已經答錯 ${wrong.length} 次了。按下面的「看提示」，讀完再想想。</span></div>`;
     } else if (feedback) {
-      fb = `<div class="fb no"><b>再想想看。</b><span class="sub">${shown < Engine.HINTS_PER_Q ? '卡住的話，可以打開提示。' : '把提示再讀一次，回頭看看題目的條件。'}</span></div>`;
+      fb = `<div class="fb no"><b>再想想看。</b><span class="sub">${wait ? `<span id="waitTxt">等 ${Engine.LOCK_MS / 1000} 秒才能再選。</span>` : ''}${shown < Engine.HINTS_PER_Q ? '卡住的話，可以打開提示。' : '把提示再讀一次，回頭看看題目的條件。'}</span>${wait ? `<span class="lockbar" aria-hidden="true"><i style="animation-duration:${wait}ms"></i></span>` : ''}</div>`;
     }
     const nextLeft = run.ok.filter((x) => !x).length;
     const no = book.levels.indexOf(level) + 1;
@@ -572,7 +582,7 @@
           ${solved ? `<div class="explain"><div class="attach-hd">${ICON.book} 詳解</div>${explainHTML(q.explain)}</div>` : ''}
           <div class="hints">
             ${hints ? `<ol>${hints}</ol>` : ''}
-            ${!solved && shown < Engine.HINTS_PER_Q ? hintButton(shown) : ''}
+            ${!solved && shown < Engine.HINTS_PER_Q ? hintButton(shown, mustHint) : ''}
           </div>
           ${solved ? `<div class="nextrow"><button class="btn gold big" id="next" type="button">${nextLeft ? '下一題' : '看結算'} ${ICON.go}</button></div>` : ''}
         </section>
@@ -583,6 +593,7 @@
         const text = q.options[+btn.dataset.k];
         const rect = btn.getBoundingClientRect();
         const res = Engine.answer(state, run, text);
+        if (res.blocked) return;
         persist();
         renderQuestion(book, res, text);
         updateTop(book);
@@ -590,6 +601,15 @@
         if (res.ok) { const el = $('.explain'); if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150); }
       };
     });
+    if (wait > 0) {
+      // 時間到：把還能選的選項打開（題目沒換、也沒有再答錯才動）
+      const r = run, until = run.lockUntil;
+      setTimeout(() => {
+        if (run !== r || r.lockUntil !== until || r.index !== i || r.ok[i]) return;
+        app.querySelectorAll('.opt.hold').forEach((b) => { b.disabled = false; b.classList.remove('hold'); });
+        app.querySelectorAll('#waitTxt, .lockbar').forEach((el) => el.remove());
+      }, wait + 30);
+    }
     app.querySelectorAll('[data-say]').forEach((b) => {
       b.onclick = () => Say.speak(b.dataset.say === 'opt' ? plain(q.options[+b.dataset.k]) : q.attach.listen,
         +b.dataset.rate || q.attach.rate, b, { words: b.dataset.words === '1' });
@@ -664,29 +684,31 @@
     app.innerHTML = `
       <div class="play" style="${accVars(t.color)}">
         <section class="win result">
-          <div class="ribbon gold">${ICON.trophy} 過關！</div>
-          <div class="hero-wrap"><div class="rays" aria-hidden="true"></div><img class="hero-img" src="${heroImg()}" alt=""></div>
+          ${res.star ? `<div class="ribbon gold">${ICON.trophy} 精熟過關！</div>` : '<div class="ribbon">過關了，還沒精熟</div>'}
+          <div class="hero-wrap">${res.star ? '<div class="rays" aria-hidden="true"></div>' : ''}<img class="hero-img" src="${heroImg()}" alt=""></div>
           <h2>${esc(r.level.name)}</h2>
           ${gemsHTML(book, r.level)}${gemLegend}
           <div class="stats">
             <div class="hot"><small>這次獲得</small><b>+${r.expGained}</b><span>EXP</span></div>
-            <div><small>第一次就答對</small><b>${sum.firstCount}／${sum.total}</b><span>題</span></div>
+            <div><small>${r.review ? '這次第一次就答對' : '第一次就答對'}</small><b>${res.firstNow}／${sum.total}</b><span>題</span></div>
             <div><small>提示使用</small><b>${r.hintsUsed}</b><span>次</span></div>
             <div><small>這本書累計</small><b>${bstate.exp}</b><span>EXP</span></div>
           </div>
+          ${res.star ? (res.newlyStar ? `<p class="banner">${ICON.trophy}<span>第一次就答對 ${res.firstNow} 題，這一關精熟了！</span></p>` : '')
+            : `<p class="banner">${ICON.bulb}<span>這次第一次就答對 ${res.firstNow} 題。再練一次，第一次就答對 <b>${res.need} 題以上</b>就是精熟；這一區每一關都精熟，才拿得到徽章。</span></p>`}
           ${r.review ? `<p class="banner">${ICON.jewel}<span>複習模式：EXP 以第一次闖關為準。</span></p>` : ''}
           ${res.badge !== null ? `<div class="badge-get">${medalHTML(book, Engine.zoneInfo(book, res.badge), 'big')}
             <p>恭喜！你拿到了<b>「${esc(zoneName(book, res.badge))}」的徽章</b>回到地圖，看看旗子升起來！</p></div>` : ''}
           <div class="row">
-            <a class="btn gold big" href="#/b/${book.id}/z/${r.level.z}">${ICON.back} 回到${esc(zi.name)}</a>
-            <a class="btn" id="again" href="#/p/${book.id}/${encodeURIComponent(r.level.id)}">再練一次</a>
+            <a class="btn${res.star ? ' gold big' : ''}" href="#/b/${book.id}/z/${r.level.z}">${ICON.back} 回到${esc(zi.name)}</a>
+            <a class="btn${res.star ? '' : ' gold big'}" id="again" href="#/p/${book.id}/${encodeURIComponent(r.level.id)}">${res.star ? '再練一次' : `${ICON.sword} 再練一次拿精熟`}</a>
           </div>
         </section>
       </div>`;
     $('#again').onclick = (e) => { e.preventDefault(); renderIntro(book, r.level); };
     run = null;
     window.scrollTo(0, 0);
-    confetti(res.badge !== null ? 140 : 80);
+    if (res.star) confetti(res.badge !== null ? 140 : 80);      // 彩帶留給精熟
   }
 
   /* ---------- 徽章冊 ---------- */

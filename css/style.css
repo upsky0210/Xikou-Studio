@@ -353,6 +353,12 @@ body.mode-play #app { min-height: 100vh; padding: 0 0 40px; }
 .opt:nth-child(4) .key { --k1: #ffd66a; --k2: var(--gold-2); }
 .opt .t { flex: 1; min-width: 0; }
 .opt:disabled { cursor: default; }
+.opt.hold { opacity: .55; }
+.lockbar { flex: 1 1 100%; height: 8px; border-radius: 999px; background: #ffd9dc; overflow: hidden; }
+.lockbar i { display: block; width: 100%; height: 100%; background: var(--ruby); transform-origin: left center; animation: lockbar 2s linear forwards; }
+@keyframes lockbar { to { transform: scaleX(0); } }
+.hintbtn.must { animation: hop 1s ease infinite; outline: 4px solid var(--gold-2); outline-offset: 3px; }
+.quest.passed .qst small { color: var(--ruby-3); }
 .opt.wrong { background: #f4f1ea; color: var(--ink-3); border-color: #c8c1b1; box-shadow: 0 2px 0 #c8c1b1; text-decoration: line-through; text-decoration-thickness: 2px; }
 .opt.wrong .key { background: #c8c1b1; box-shadow: none; }
 .opt.wrong.just { animation: shake .45s ease; }

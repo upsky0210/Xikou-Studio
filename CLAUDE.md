@@ -13,6 +13,7 @@
 - `sw.js` 是先上網再用快取，一般不用改版本號；只有改了預先快取的檔案清單才把 `VERSION` 加一。
 - 本機預覽：`.claude/launch.json` 的 `xikou`（port 5181）。
 - 改了 `js/save.js`（存檔）一定要跑 `node tools/save-test.mjs`，最後印「存檔測試全部通過」才算好。
+- 改了 `js/engine.js`（答題規則）一定要跑 `node tools/engine-test.mjs`，最後印「規則測試全部通過」才算好。
 
 ## 題庫流程（不要手改 `data/*.js` 的題目）
 - 英語：改 `drafts/en6/build-questions.py` → `python -I drafts/en6/build-questions.py` 產生五份 JSON → `node tools/assemble.mjs data/en6.js EN6 <五份 JSON>` → `node tools/check-data.mjs data/en6.js EN6 <五份 JSON>`。
@@ -25,6 +26,8 @@
 - `private/`（不上傳）：拆解別人網站的報告等內部文件，只留在自己電腦。repo 是公開的，這類文件不要放進來。
 
 ## 已定案的方向（細節見 `docs/規劃報告.md`）
+- 防亂點（2026-11-12 老師選定三條都做，規則都在 `js/engine.js` 開頭）：答錯鎖 2 秒；同一題錯兩次要先看提示；
+  「過關」（7 題都答對過）和「精熟」（一次闖關裡第一次就答對 5 題以上，可以再練一次拿）分開，徽章看整區精熟。已經發出去的徽章不收回。
 - P2 雲端存檔：Firebase Auth＋Firestore，只換 `js/save.js` 的內部。學生用 `@st.skps.tp.edu.tw` 登入，每人只能讀寫自己那份；老師用 `@skps.tp.edu.tw`。
   - 2026-11-10 已做好：Firebase 專案 `xikou-studio-83723`（用教師帳號建立，Spark 免費方案），登入畫面、雲端存檔、`firestore.rules`。細節見 `README.md`「雲端存檔（P2）」。
   - 2026-11-12 存檔改成逐關逐題合併（同一個帳號開兩台裝置不會互相蓋掉），寫入前先讀雲端再合併。真的帳號、真的兩台裝置還沒實測。

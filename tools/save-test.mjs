@@ -316,4 +316,22 @@ const inCloud = (t) => JSON.parse(t.cloud.doc.json);
   assert.equal(await t.Save.signOut(), 'ok');
   console.log('13 ok 回到分頁時沒網路：不影響登出');
 }
+// 14. 精熟（star）：有一邊精熟就是精熟；沒有精熟的關不會多出 star 欄位（不然每次存檔都被當成「雲端有新進度」）
+{
+  const starred = { ...level(2, 4000), star: true, starAt: 8000 };
+  const cloud = cloudDoc(st({ mn6: { 'mn6-01': starred, 'mn6-02': level(1) } }));
+  const t = setup({ cloud, store: cached(st({ mn6: { 'mn6-01': level(2, 4000), 'mn6-02': level(1) } })) });
+  await t.Save.init(); const s = await t.Save.load(); await tick();
+  assert.equal(s.books.mn6.levels['mn6-01'].star, true);
+  assert.equal(s.books.mn6.levels['mn6-01'].starAt, 8000);
+  assert.ok(!('star' in s.books.mn6.levels['mn6-02']));
+  assert.equal(t.writes.length, 0);
+  let told = 0;
+  t.Save.onChange = () => { told++; };
+  s.books.mn6.levels['mn6-02'].star = true; s.books.mn6.levels['mn6-02'].starAt = 9000;
+  await t.Save.save(s, { now: true }); await tick();
+  assert.equal(inCloud(t).books.mn6.levels['mn6-02'].star, true);
+  assert.equal(told, 0);
+  console.log('14 ok 精熟也會合併');
+}
 console.log('存檔測試全部通過');
