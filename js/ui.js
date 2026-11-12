@@ -441,6 +441,11 @@
   }
 
   function renderMap(book, z) {
+    const late = Engine.syncBadges(state, book);       // 別台裝置的進度併進來後，整區都過了：補發徽章
+    if (late.length) {
+      Save.save(state, { now: true });
+      toast(`${ICON.shield} 補發徽章：${late.map((i) => '「' + esc(zoneName(book, i)) + '」').join('')}`);
+    }
     const zi = z === null ? null : Engine.zoneInfo(book, z);
     if (z !== null && (!zi || z < 0 || z >= book.zones.length || !enterable(book, z))) { location.hash = '#/b/' + book.id; return; }
     updateTop(book);
@@ -807,7 +812,9 @@
     };
     $('#clearBtn').onclick = async () => {
       open(false);
-      if (!confirm('要清除這台裝置上的所有闖關進度嗎？EXP 和徽章都會歸零，不能復原。')) return;
+      if (!confirm(Save.user
+        ? `要清除 ${Save.user.email} 的所有闖關進度嗎？\n雲端和其他裝置上的也會一起清掉，EXP 和徽章都會歸零，不能復原。`
+        : '要清除這台裝置上的所有闖關進度嗎？EXP 和徽章都會歸零，不能復原。')) return;
       await Save.clear();
       state = await Save.load();
       run = null;
@@ -905,6 +912,14 @@
     await Save.init();
     if (!Save.user && !Save.guest) await askLogin();
     state = await Save.load();
+    // 同一個帳號在別台裝置玩過：存檔層已經把那邊的進度併進來，這裡換上新的進度。
+    // 正在闖關或看結算就不打斷（下次換畫面就會看到）；在首頁或地圖就重畫。
+    Save.onChange = (s) => {
+      state = s;
+      if (run || location.hash.startsWith('#/p/')) return;
+      toast('已經把你在其他裝置的進度合併進來了');
+      route();
+    };
     setupMenu();
     setupKeys();
     world = await worldP;

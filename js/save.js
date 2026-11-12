@@ -5,6 +5,8 @@
    - 登入學校 Google 帳號：進度存在 Firestore 的 progress/{uid}（每人一份，只有自己能讀寫，規則見 firestore.rules），
      這台裝置另外留一份副本（xk-cloud-{uid}），網路斷了也能繼續玩，下次連上再補存。
      共用 iPad 的訪客模式一登出就清空，所以進度一定要在雲端。
+     同一個人可能同時開著兩台裝置（學校 iPad 沒關、回家用電腦）：存檔不是整份蓋過去，而是「逐關逐題合併」，
+     每次寫入前先讀雲端那一份、合在一起再寫（transaction），所以兩邊做的都留得住。合併規則見 merge()。
    - 先不登入（訪客）：跟以前一樣只存在這台裝置（xk-practice-v1）。第一次登入時，會把這台裝置的訪客進度併進帳號。
 
    Firebase 的程式從 gstatic 載入（只有要登入的人才下載，約 420 KB）。設定碼本來就是公開的，安全靠資料庫規則。
@@ -13,6 +15,7 @@
    進度格式（v1）：
    {
      v: 1,
+     reset: 1731000000000,                         // 上次按「清除進度」的時間（沒清過就沒有這一欄）；合併時比較新的那次清除算數
      books: {
        mn6: {
          exp: 70,                                  // 總 EXP（由各題 first 算出來，存一份方便老師端讀）
@@ -55,20 +58,60 @@
   const valid = (d) => (d && d.v === 1 && d.books ? d : null);
   const timeout = (p, ms) => Promise.race([p, new Promise((_, no) => setTimeout(() => no(new Error('timeout')), ms))]);
 
-  // 兩份進度合在一起：每本書取 EXP 比較多的那份
-  function merge(a, b) {
-    const out = empty();
-    for (const id of new Set([...Object.keys(a.books), ...Object.keys(b.books)])) {
-      const x = a.books[id], y = b.books[id];
-      out.books[id] = !y || (x && (x.exp || 0) >= (y.exp || 0)) ? x : y;
+  /* 兩份進度合在一起（哪一份放前面結果都一樣，合幾次也一樣）：
+     - 每一題：答對過（ok）有一邊是就是；第一次就答對（first）有一邊是 true 就算 true；提示次數取多的。
+     - 每一關：有一邊過關就是過關，過關時間取早的。徽章：有一邊拿到就有，時間取早的。
+     - EXP 由合併後的 first 重新算（規則同 engine.js 的 recalcExp）。
+     - 清除進度：reset 比較新的那一份整份算數，另一份（清除之前的舊進度）丟掉。
+     回傳全新的物件，不會動到 a、b。 */
+  const EXP_PER_Q = 10;             // 和 engine.js 的 EXP_PER_Q 一樣
+  const clone = (x) => JSON.parse(JSON.stringify(x));
+  const keys = (a, b) => [...new Set([...Object.keys(a || {}), ...Object.keys(b || {})])];
+  const early = (a, b) => (a && b ? Math.min(a, b) : a || b || 0);
+  function mergeQ(x, y) {
+    if (!x || !y) return clone(x || y);
+    const first = x.first === true || y.first === true ? true : x.first === false || y.first === false ? false : null;
+    return { ...y, ...x, first, ok: !!(x.ok || y.ok), hints: Math.max(x.hints || 0, y.hints || 0) };
+  }
+  function mergeLevel(x, y) {
+    if (!x || !y) return clone(x || y);
+    const xq = x.q || [], yq = y.q || [], q = [];
+    for (let i = 0; i < Math.max(xq.length, yq.length); i++) q.push(mergeQ(xq[i], yq[i]));
+    const done = !!(x.done || y.done);
+    return { ...y, ...x, done, doneAt: done ? early(x.done && x.doneAt, y.done && y.doneAt) : 0, q };
+  }
+  function mergeBook(x, y) {
+    const out = x && y ? { ...y, ...x, badges: {}, levels: {} } : clone(x || y);
+    if (x && y) {
+      for (const z of keys(x.badges, y.badges)) out.badges[z] = early((x.badges || {})[z], (y.badges || {})[z]) || 1;
+      for (const id of keys(x.levels, y.levels)) out.levels[id] = mergeLevel((x.levels || {})[id], (y.levels || {})[id]);
     }
+    let n = 0;
+    for (const l of Object.values(out.levels || {})) for (const q of l.q || []) if (q.first === true) n++;
+    out.exp = n * EXP_PER_Q;
     return out;
   }
+  function mergeBooks(a, b) {
+    const out = {};
+    for (const id of keys(a, b)) out[id] = mergeBook(a[id], b[id]);
+    return out;
+  }
+  function merge(a, b) {
+    const ra = a.reset || 0, rb = b.reset || 0;
+    if (ra !== rb) return clone(ra > rb ? a : b);
+    return { ...b, ...a, books: mergeBooks(a.books, b.books) };
+  }
+  // 內容一樣嗎（不管欄位順序）
+  const canon = (x) => JSON.stringify(x, (_, v) => (v && typeof v === 'object' && !Array.isArray(v)
+    ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, v[k]])) : v));
+  const same = (a, b) => canon(a) === canon(b);
 
   let fb = null, booting = null;
   let user = null;          // { uid, email, name, offline? }
   let memory = null;        // 最新的進度（localStorage 不能用時至少這次記得）
   let dirty = false, timer = 0, pushing = null;
+  let synced = 0;           // 上次和雲端對過的時間
+  let onChange = null;      // 雲端有別台裝置的新進度時通知畫面
 
   function boot() {
     if (fb) return Promise.resolve(fb);
@@ -104,18 +147,39 @@
     return c && valid(c.s) ? c : null;
   }
 
-  async function push() {
+  /* 和雲端對一次：讀雲端那一份 → 和這台的合併 → 有新東西才寫回去（讀和寫包在同一個 transaction，
+     兩台裝置剛好同時寫也不會互相蓋掉）。雲端有這台沒有的進度，就併進這台並通知畫面。
+     pull＝這台沒有要存的東西也去對一次（回到分頁時用）。 */
+  async function push(pull) {
+    pull = pull === true;
     clearTimeout(timer); timer = 0;
-    if (pushing) { await pushing; if (!dirty) return true; }
-    if (!dirty || !user || !fb) return !dirty;
+    if (pushing) { await pushing; if (!dirty && !pull) return true; }
+    if ((!dirty && !pull) || !user || !fb || !memory) return !dirty;
+    const had = dirty;        // 只是回到分頁對一次（沒有東西要存）的話，失敗了不用記成「還沒存」
     dirty = false;
-    const s = memory, at = Date.now();
-    pushing = fb.F.setDoc(fb.F.doc(fb.db, COL, user.uid), {
-      email: user.email, name: user.name, json: JSON.stringify(s), at, updatedAt: fb.F.serverTimestamp(),
-    }).then(() => true, (e) => {
+    const u = user, ref = fb.F.doc(fb.db, COL, u.uid);
+    pushing = fb.F.runTransaction(fb.db, async (tx) => {
+      const snap = await tx.get(ref);
+      const theirs = snap.exists() ? valid(json(snap.data().json)) : null;
+      const s = theirs ? merge(memory, theirs) : clone(memory);
+      if (!theirs || !same(s, theirs)) {
+        tx.set(ref, { email: u.email, name: u.name, json: JSON.stringify(s), at: Date.now(), updatedAt: fb.F.serverTimestamp() });
+      }
+      return s;
+    }).then((s) => {
+      synced = Date.now();
+      if (user !== u || !memory) return true;                // 這段時間已經登出了
+      const m = merge(memory, s);                            // memory 在等待時可能又多答了幾題，再合一次
+      if (!same(m, memory)) {
+        memory = m;
+        ls.set(CACHE + u.uid, JSON.stringify({ at: Date.now(), s: m }));
+        if (onChange) { try { onChange(m); } catch (e) { console.warn(e); } }
+      }
+      return true;
+    }, (e) => {
       console.warn('雲端存檔失敗，稍後再試', e);
-      dirty = true;
-      if (!timer) timer = setTimeout(push, WAIT * 2);
+      if (had) dirty = true;
+      if (dirty && !timer) timer = setTimeout(push, WAIT * 2);
       return false;
     });
     const ok = await pushing;
@@ -123,8 +187,11 @@
     return ok;
   }
 
-  // 切到背景（換 App、關螢幕、登出 iPad 前）就先存
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && dirty) push(); });
+  // 切到背景（換 App、關螢幕、登出 iPad 前）就先存；回到這個分頁時，隔了一分鐘以上就和雲端對一次（可能在別台裝置玩過）
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') { if (dirty) push(); }
+    else if (user && fb && !user.offline && Date.now() - synced > 60000) push(true);
+  });
   addEventListener('pagehide', () => { if (dirty) push(); });
   addEventListener('online', () => { if (dirty) push(); });
 
@@ -148,6 +215,7 @@
     prepare: boot,                       // 登入畫面先把 Firebase 載好，按鈕按下去才不會被擋彈出視窗
     get user() { return user; },
     get guest() { return ls.get(GUEST) === '1'; },
+    set onChange(f) { onChange = f; },   // f(進度)：雲端有別台裝置的新進度，已經併進來了
     useGuest() { ls.set(GUEST, '1'); },
     leaveGuest() { ls.del(GUEST); },
 
@@ -193,15 +261,16 @@
           }
         } catch (e) { console.warn('讀不到雲端進度，先用這台裝置的副本', e); }
       }
-      let s, at;
-      if (cloud && (!local || cloud.at >= local.at)) ({ s, at } = cloud);
-      else if (local) { ({ s, at } = local); dirty = cloudOk; }        // 這台裝置比較新（上次離線玩的）：補存上去
-      else { s = empty(); at = 0; dirty = cloudOk && !cloud; }        // 第一次登入：建立雲端那一份
-      // 登入前在這台裝置用訪客身分玩過：併進帳號（每本書取 EXP 多的），訪客那份就刪掉
+      // 雲端和這台的副本合在一起（這台可能有上次離線玩的、雲端可能有別台裝置玩的）
+      let s = cloud && local ? merge(cloud.s, local.s) : cloud ? cloud.s : local ? local.s : empty();
+      // 登入前在這台裝置用訪客身分玩過：逐題併進帳號，訪客那份就刪掉
       const g = valid(json(ls.get(KEY)));
-      if (g && cloudOk) { s = merge(s, g); ls.del(KEY); dirty = true; }
+      if (g && cloudOk) { s = { ...s, books: mergeBooks(s.books, g.books) }; ls.del(KEY); }
+      // 雲端沒有、或合併後比雲端多：補存上去
+      dirty = cloudOk && (!cloud || !same(s, cloud.s));
+      if (cloudOk) synced = Date.now();
       memory = s;
-      ls.set(CACHE + user.uid, JSON.stringify({ at: dirty ? Date.now() : at, s }));
+      ls.set(CACHE + user.uid, JSON.stringify({ at: Date.now(), s }));
       if (dirty) push();
       return s;
     },
@@ -216,9 +285,10 @@
       else if (!timer) timer = setTimeout(push, WAIT);
     },
 
+    /* 清除進度。登入時要記下清除的時間（reset），不然合併時會被雲端或別台裝置的舊進度補回來。 */
     async clear() {
       if (!user) { memory = null; ls.del(KEY); return; }
-      await this.save(empty(), { now: true });
+      await this.save({ ...empty(), reset: Date.now() }, { now: true });
     },
   };
 })();

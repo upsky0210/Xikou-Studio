@@ -159,6 +159,18 @@
     return !!b && levels.every((l) => b.levels[l.id] && b.levels[l.id].done);
   }
 
+  /* 補發徽章：同一個人在兩台裝置各過了同一區的不同關，進度合併後整區都過了，
+     但兩邊結算時都還沒到齊，所以沒人領到。回傳這次補發的區域索引。 */
+  function syncBadges(state, book) {
+    const b = state.books[book.id];
+    const got = [];
+    if (!b) return got;
+    book.zones.forEach((_, z) => {
+      if (!b.badges[z] && islandComplete(state, book, z)) { b.badges[z] = Date.now(); got.push(z); }
+    });
+    return got;
+  }
+
   function levelSummary(state, bookId, level) {
     const l = state.books[bookId] && state.books[bookId].levels[level.id];
     const total = level.q ? level.q.length : 0;
@@ -175,6 +187,6 @@
   window.Engine = {
     EXP_PER_Q, HINTS_PER_Q,
     shuffle, view, playable, startRun, enterQuestion, answer, revealHint, next, finish,
-    zoneInfo, regularZones, islandLevels, islandComplete, levelSummary, recalcExp,
+    zoneInfo, regularZones, islandLevels, islandComplete, syncBadges, levelSummary, recalcExp,
   };
 })();

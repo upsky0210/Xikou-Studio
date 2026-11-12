@@ -25,7 +25,7 @@
 | `js/3d/kit.js` | 3D 工具：材質、拼模型的 Kit、描邊 |
 | `vendor/three/` | three.js r160（MIT，從 3D 校園複製一份放在自己網站裡） |
 | `img/zone/`、`img/hero.webp` | 3D 地標畫成的小圖（由 `tools/render-sprites.mjs` 產生） |
-| `js/save.js` | **儲存層**：進度只透過這裡讀寫（目前存 localStorage） |
+| `js/save.js` | **儲存層**：進度只透過這裡讀寫（登入存 Firestore，沒登入存這台裝置） |
 | `js/ui.js` | 各個畫面 |
 | `js/main.js` | 啟動、註冊 service worker |
 | `data/mn6.js` | 六上數學南一的題庫（由 `tools/assemble.mjs` 組裝，不要手改題目） |
@@ -133,6 +133,10 @@ node tools/review-sheet.mjs drafts/抽驗清單-L07-L08.md drafts/questions-L07-
 - 進度存在 Firestore `progress/{uid}`，每人一份，只能讀寫自己那份。規則在 `firestore.rules`，改了要貼到 Firebase 控制台 → Firestore Database → 規則 → 發布。
 - 畫面只用 `Save.load()`、`Save.save(state)`、`Save.clear()`；寫入最多每 15 秒一次，過關、切到背景、登出時馬上寫。進度格式寫在 `save.js` 開頭的註解裡。
 - 登出會清掉這台裝置上這個人的副本（共用 iPad）。
+- 同一個帳號可以同時開兩台裝置（學校 iPad 沒關、回家用電腦）：存檔是「逐關逐題合併」，不是整份蓋過去。每次寫入前先讀雲端那一份、合併再寫；回到分頁時隔一分鐘以上也會重新對一次，把別台裝置的進度併進畫面。合併規則：答對過就算答對、有一邊第一次就答對就算、提示次數取多的、過關和徽章有一邊有就有。
+- 「清除進度」會記下清除時間（`reset`），別台裝置上的舊進度不會把它補回來。
+- 兩台裝置各過了同一區的不同關時，合併後打開地圖會補發那一區的徽章（`Engine.syncBadges`）。
+- 改了 `js/save.js` 要跑 `node tools/save-test.mjs`（不連網路，用假的 Firebase 跑 13 種情境）。
 
 ## 3D 地圖
 

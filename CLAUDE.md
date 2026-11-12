@@ -12,6 +12,7 @@
 - 上線方式：推到 `main` → GitHub Pages 約 30～60 秒更新（https://upsky0210.github.io/Xikou-Studio/ ）。使用者習慣「先推上去，我在線上看」，用手機（Android Chrome）和 Windows Chrome 測。
 - `sw.js` 是先上網再用快取，一般不用改版本號；只有改了預先快取的檔案清單才把 `VERSION` 加一。
 - 本機預覽：`.claude/launch.json` 的 `xikou`（port 5181）。
+- 改了 `js/save.js`（存檔）一定要跑 `node tools/save-test.mjs`，最後印「存檔測試全部通過」才算好。
 
 ## 題庫流程（不要手改 `data/*.js` 的題目）
 - 英語：改 `drafts/en6/build-questions.py` → `python -I drafts/en6/build-questions.py` 產生五份 JSON → `node tools/assemble.mjs data/en6.js EN6 <五份 JSON>` → `node tools/check-data.mjs data/en6.js EN6 <五份 JSON>`。
@@ -26,6 +27,8 @@
 ## 已定案的方向（細節見 `docs/規劃報告.md`）
 - P2 雲端存檔：Firebase Auth＋Firestore，只換 `js/save.js` 的內部。學生用 `@st.skps.tp.edu.tw` 登入，每人只能讀寫自己那份；老師用 `@skps.tp.edu.tw`。
   - 2026-11-10 已做好：Firebase 專案 `xikou-studio-83723`（用教師帳號建立，Spark 免費方案），登入畫面、雲端存檔、`firestore.rules`。細節見 `README.md`「雲端存檔（P2）」。
+  - 2026-11-12 存檔改成逐關逐題合併（同一個帳號開兩台裝置不會互相蓋掉），寫入前先讀雲端再合併。真的帳號、真的兩台裝置還沒實測。
+  - 整站的問題清單和後續分工見 `docs/網站審核與分工計畫-2026-11-12.md`。
   - 還沒做：共同擁有者、OAuth 同意畫面（內部／外部）和管理控制台信任用戶端 ID（學生帳號未滿 18 歲要這步才能登入）、真的 iPad 全螢幕測登入、老師看全班進度的頁面。
 - iPad 是共用、訪客模式，登出就清空，所以雲端存檔是必要的。
 - 英語聽力用瀏覽器語音朗讀（`js/ui.js` 的 `Say`）；預錄音檔是之後的第二階段。
