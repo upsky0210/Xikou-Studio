@@ -129,7 +129,8 @@ node tools/review-sheet.mjs drafts/抽驗清單-L07-L08.md drafts/questions-L07-
 ## 雲端存檔（P2）
 
 - Firebase 專案 `xikou-studio-83723`（Spark 免費方案），設定碼在 `js/save.js`。Firebase 的程式從 gstatic 載入（13.1.0）。
-- 登入：學校 Google 帳號（學生 `@st.skps.tp.edu.tw`、老師 `@skps.tp.edu.tw`），其他帳號會被登出。也可以「先不登入」，進度只存這台裝置；沒登入時首頁有「登入學校帳號」的按鈕，隨時可以改成登入。
+- 登入：學校 Google 帳號（學生 `@st.skps.tp.edu.tw`、老師 `@skps.tp.edu.tw`），其他帳號會被登出。也可以「先不登入」，進度只存這台裝置。
+- 開站順序：先到首頁選角色（貓劍士／兔探險家），選好了才跳出登入視窗（每個分頁第一次打開時；同一台 iPad 換下一位同學也會再問）。沒登入時首頁和選單都有「登入學校帳號」，隨時可以登入。
 - 登入後如果這台裝置還留著沒登入時玩的進度，會先問「這是你玩的嗎」（`Save.guestLeft`、`Save.takeGuest`），答「是」才併進帳號；答「不是」就留在這台裝置，不再問同一個人。
 - 開站時沒網路：先用這台裝置的副本玩，網路回來（或回到分頁、下一次存檔）會補連、和雲端合併。`sw.js` 會把 Firebase 的程式放進快取，沒網路也載得到。
 - 進度存在 Firestore `progress/{uid}`，每人一份，只能讀寫自己那份。規則在 `firestore.rules`，改了要貼到 Firebase 控制台 → Firestore Database → 規則 → 發布。

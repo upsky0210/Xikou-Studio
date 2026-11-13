@@ -333,13 +333,13 @@
           <p class="title-foot">題目內容皆為原創 · ${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
         </div>
       </section>`;
-    $('#heroChip').onclick = openHeroPick;
-    // 沒登入的人（以前有人在這台裝置按過「先不登入」）：首頁就看得到登入的入口，不用去選單找
-    if ($('#homeLogin')) $('#homeLogin').onclick = toLogin;
-    // 一進站先選角色（共用的 iPad：每次打開網站，下一位同學都可以重選）
+    $('#heroChip').onclick = () => openHeroPick();
+    // 沒登入的人：首頁就看得到登入的入口，不用去選單找
+    if ($('#homeLogin')) $('#homeLogin').onclick = () => openLogin();
+    // 一進站先選角色（共用的 iPad：每次打開網站，下一位同學都可以重選），選好了再問要不要登入
     let asked = false;
     try { asked = sessionStorage.getItem('xk-hero-asked') === '1'; sessionStorage.setItem('xk-hero-asked', '1'); } catch { asked = true; }
-    if (!asked) openHeroPick(true);
+    if (!asked) openHeroPick(true, () => { if (!Save.user) openLogin(true); });
     if (world) {
       Loader.loadBook(window.BOOKS[0].id).then((book) => {
         if (!document.body.classList.contains('mode-title')) return;
@@ -771,7 +771,8 @@
   function heroId() { try { return localStorage.getItem(HERO_KEY) === 'rabbit' ? 'rabbit' : 'cat'; } catch { return 'cat'; } }
   const heroImg = () => `img/hero-${heroId()}.webp`;
   const heroName = () => HEROES.find((h) => h.id === heroId()).name;
-  function openHeroPick(welcome) {
+  /* after：視窗關掉（選好角色、按「先用…」或點旁邊）之後要做的事 */
+  function openHeroPick(welcome, after) {
     const modal = document.createElement('div');
     modal.className = 'modal';
     const now = heroId();
@@ -781,7 +782,7 @@
         <img src="img/hero-${h.id}.webp" alt=""><b>${esc(h.name)}</b><small>${esc(h.desc)}</small>${h.id === now ? `<span class="now">${ICON.check} 目前</span>` : ''}</button>`).join('')}</div>
       <button class="btn wide" type="button" id="hpClose">${welcome ? '先用' + esc(heroName()) : '關閉'}</button></section>`;
     document.body.appendChild(modal);
-    const close = () => modal.remove();
+    const close = () => { modal.remove(); if (after) after(); };
     modal.addEventListener('click', (e) => {
       const c = e.target.closest('[data-hero]');
       if (c) {
@@ -798,9 +799,6 @@
     $('.hcard.on', modal).focus();
   }
 
-  // 回到登入畫面（從訪客改成登入）
-  function toLogin() { Save.leaveGuest(); location.hash = '#/'; location.reload(); }
-
   /* ---------- 選單 ---------- */
   const THREE_OFF = 'xk-3d-off';
   function threeOff() { try { return localStorage.getItem(THREE_OFF) === '1'; } catch { return false; } }
@@ -810,25 +808,7 @@
     const open = (v) => { menu.hidden = !v; btn.setAttribute('aria-expanded', String(v)); };
     btn.onclick = (e) => { e.stopPropagation(); open(menu.hidden); };
     document.addEventListener('click', (e) => { if (!e.target.closest('.menu-wrap')) open(false); });
-    const ab = $('#acctBtn');
-    if (Save.user) {
-      ab.innerHTML = `${ICON.hero} 登出（${esc(Save.user.name)}）`;
-      ab.onclick = async () => {
-        open(false);
-        if (!confirm(`要登出 ${Save.user.email} 嗎？\n進度已經存在雲端，下次登入就會回來。`)) return;
-        let r = await Save.signOut();
-        if (r === 'unsaved') {
-          if (!confirm('網路好像不通，最近幾題的進度還沒存到雲端。\n現在登出，這幾題要重做。仍要登出嗎？')) return;
-          r = await Save.signOut(true);
-        }
-        location.hash = '#/';
-        location.reload();
-      };
-      $('#clearBtn').hidden = true;
-    } else {
-      ab.innerHTML = `${ICON.hero} 登入學校帳號（進度存到雲端）`;
-      ab.onclick = toLogin;
-    }
+    setupAcct();
     const hp = $('#heroPickBtn');
     hp.innerHTML = `${ICON.hero} 換角色（貓劍士／兔探險家）`;
     hp.onclick = () => { open(false); openHeroPick(); };
@@ -893,85 +873,111 @@
     'auth/network-request-failed': '網路不通，請確認連上網路再試一次。',
     'auth/too-many-requests': '試太多次了，請等一下再試。',
   };
-  function askLogin() {
-    setMode('title');
-    const hud = $('#hud');
-    hud.hidden = true;   // 上方列（EXP、選單）登入後才有內容
-    return new Promise((done) => {
-      const resolve = (u) => { hud.hidden = false; done(u); };
-      app.innerHTML = `
-        <section class="title-screen login-screen">
-          <div class="logo">
-            <span class="kicker">${ICON.crown} 溪口國小</span>
-            <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
-            <p class="tagline">登入學校帳號，進度存到雲端</p>
-          </div>
-          <div class="win login">
-            <button class="btn gold big wide" id="loginBtn" type="button" disabled>${G_ICON}<span>準備中…</span></button>
-            <p class="login-tip">學生請用 <b>@st.skps.tp.edu.tw</b> 的帳號<br>換一台平板登入，進度也會跟著你</p>
-            <p class="login-err" id="loginErr" hidden></p>
-            <button class="login-guest" id="guestBtn" type="button">先不登入（進度只存在這台裝置）</button>
-          </div>
-        </section>`;
-      const btn = $('#loginBtn'), err = $('#loginErr');
-      const label = (t) => { btn.querySelector('span').innerHTML = t.replace(/帳號登入$/, '<span class="nw">帳號登入</span>'); };
-      const say = (html) => { err.innerHTML = html; err.hidden = !html; };
-      Save.prepare().then(() => { btn.disabled = false; label('用學校 Google 帳號登入'); })
-        .catch(() => { label('連不上登入服務'); say('連不上登入服務。請確認網路後重新整理，或先不登入。'); });
-      btn.onclick = async () => {
-        btn.disabled = true; label('登入中…'); say('');
-        try {
-          const u = await Save.signIn();
-          if (u) return resolve(u);
-        } catch (e) {
-          console.warn(e);
-          if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') {
-            say(LOGIN_ERR[e.code] || `登入沒有成功（${esc(e.code || e.message)}）。可以再試一次，或先不登入。`);
-          }
+  /* 登入視窗：開站先到首頁，選好角色後跳出來；首頁和選單的「登入學校帳號」也會打開它。
+     welcome＝剛選好角色。按「先不登入」就關掉，照樣在首頁玩（進度只存在這台裝置）。 */
+  let loginOpen = false;
+  function openLogin(welcome) {
+    if (loginOpen || Save.user) return;
+    loginOpen = true;
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `<section class="win login"><div class="ribbon">${ICON.hero} 登入學校帳號</div>
+      <p class="login-lead">${welcome ? `${esc(heroName())}準備好了！<br>` : ''}登入以後，進度會存到雲端</p>
+      <button class="btn gold big wide" id="loginBtn" type="button" disabled>${G_ICON}<span>準備中…</span></button>
+      <p class="login-tip">學生請用 <b>@st.skps.tp.edu.tw</b> 的帳號<br>換一台平板登入，進度也會跟著你</p>
+      <p class="login-err" id="loginErr" hidden></p>
+      <button class="login-guest" id="guestBtn" type="button">先不登入（進度只存在這台裝置）</button></section>`;
+    document.body.appendChild(modal);
+    const close = () => { modal.remove(); loginOpen = false; };
+    const btn = $('#loginBtn', modal), err = $('#loginErr', modal);
+    const label = (t) => { btn.querySelector('span').innerHTML = t.replace(/帳號登入$/, '<span class="nw">帳號登入</span>'); };
+    const say = (html) => { err.innerHTML = html; err.hidden = !html; };
+    Save.prepare().then(() => { btn.disabled = false; label('用學校 Google 帳號登入'); })
+      .catch(() => { label('連不上登入服務'); say('連不上登入服務。請確認網路後重新整理，或先不登入。'); });
+    btn.onclick = async () => {
+      btn.disabled = true; label('登入中…'); say('');
+      try {
+        const u = await Save.signIn();
+        if (u) { close(); await afterLogin(); return; }
+      } catch (e) {
+        console.warn(e);
+        if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') {
+          say(LOGIN_ERR[e.code] || `登入沒有成功（${esc(e.code || e.message)}）。可以再試一次，或先不登入。`);
         }
-        btn.disabled = false; label('用學校 Google 帳號登入');
+      }
+      btn.disabled = false; label('用學校 Google 帳號登入');
+    };
+    $('#guestBtn', modal).onclick = () => { Save.useGuest(); close(); };
+    btn.focus();
+  }
+
+  // 登入成功：換成這個帳號的進度，選單改成「登出」，畫面重畫
+  async function afterLogin() {
+    state = await Save.load();
+    run = null;
+    setupAcct();
+    toast(`${ICON.hero} 已登入：${esc(Save.user.name)}，進度會存到雲端`);
+    await checkGuest();
+    route();
+  }
+
+  // 選單裡的「登入／登出」（登入之後要重設一次）
+  function setupAcct() {
+    const ab = $('#acctBtn');
+    const closeMenu = () => { $('#menu').hidden = true; $('#menuBtn').setAttribute('aria-expanded', 'false'); };
+    $('#clearBtn').hidden = !!Save.user;
+    if (Save.user) {
+      ab.innerHTML = `${ICON.hero} 登出（${esc(Save.user.name)}）`;
+      ab.onclick = async () => {
+        closeMenu();
+        if (!confirm(`要登出 ${Save.user.email} 嗎？\n進度已經存在雲端，下次登入就會回來。`)) return;
+        let r = await Save.signOut();
+        if (r === 'unsaved') {
+          if (!confirm('網路好像不通，最近幾題的進度還沒存到雲端。\n現在登出，這幾題要重做。仍要登出嗎？')) return;
+          r = await Save.signOut(true);
+        }
+        location.hash = '#/';
+        location.reload();
       };
-      $('#guestBtn').onclick = () => { Save.useGuest(); resolve(null); };
-    });
+    } else {
+      ab.innerHTML = `${ICON.hero} 登入學校帳號（進度存到雲端）`;
+      ab.onclick = () => { closeMenu(); openLogin(); };
+    }
   }
 
   /* 登入後，這台裝置上還留著沒登入時玩的進度：先問是不是本人玩的，不自動併進帳號
-     （電腦教室、家裡共用的電腦，那份可能是前一個人玩的）。g＝Save.guestLeft。 */
-  function askGuest(g) {
-    setMode('title');
-    const hud = $('#hud');
-    hud.hidden = true;
-    return new Promise((done) => {
-      app.innerHTML = `
-        <section class="title-screen login-screen">
-          <div class="win login guestask">
-            <div class="ribbon">${ICON.bulb} 這台裝置上有一份進度</div>
-            <p class="login-tip">有人在這台裝置<b>沒登入</b>就玩過：</p>
-            <p class="guest-sum"><span>答對 <b>${g.ok}</b> 題</span><span>過關 <b>${g.done}</b> 關</span><span><b>${g.exp}</b> EXP</span></p>
-            <p class="login-tip"><b>${esc(Save.user.name)}</b>，這是你玩的嗎？</p>
-            <button class="btn gold big wide" id="guestYes" type="button">是我玩的，存進帳號</button>
-            <button class="btn wide" id="guestNo" type="button">不是我玩的</button>
-            <p class="guest-note">選「不是我玩的」，那份進度會留在這台裝置，不會進到你的帳號。</p>
-          </div>
-        </section>`;
+     （電腦教室、家裡共用的電腦，那份可能是前一個人玩的）。 */
+  async function checkGuest() {
+    const g = Save.guestLeft;
+    if (!g) return;
+    const s = await new Promise((done) => {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `<section class="win login guestask"><div class="ribbon">${ICON.bulb} 這台裝置上有一份進度</div>
+        <p class="login-tip">有人在這台裝置<b>沒登入</b>就玩過：</p>
+        <p class="guest-sum"><span>答對 <b>${g.ok}</b> 題</span><span>過關 <b>${g.done}</b> 關</span><span><b>${g.exp}</b> EXP</span></p>
+        <p class="login-tip"><b>${esc(Save.user.name)}</b>，這是你玩的嗎？</p>
+        <button class="btn gold big wide" id="guestYes" type="button">是我玩的，存進帳號</button>
+        <button class="btn wide" id="guestNo" type="button">不是我玩的</button>
+        <p class="guest-note">選「不是我玩的」，那份進度會留在這台裝置，不會進到你的帳號。</p></section>`;
+      document.body.appendChild(modal);
       const pick = async (mine) => {
-        app.querySelectorAll('.guestask .btn').forEach((b) => { b.disabled = true; });
-        const s = await Save.takeGuest(mine);
-        hud.hidden = false;
-        done(s);
+        modal.querySelectorAll('.btn').forEach((b) => { b.disabled = true; });
+        const r = await Save.takeGuest(mine);
+        modal.remove();
+        done(r);
       };
-      $('#guestYes').onclick = () => pick(true);
-      $('#guestNo').onclick = () => pick(false);
+      $('#guestYes', modal).onclick = () => pick(true);
+      $('#guestNo', modal).onclick = () => pick(false);
     });
+    if (s) state = s;
   }
 
   async function start() {
     const worldP = waitWorld();
     await Save.init();
-    if (!Save.user && !Save.guest) await askLogin();
     state = await Save.load();
-    const left = Save.guestLeft;
-    if (left) state = (await askGuest(left)) || state;
+    await checkGuest();      // 整頁跳轉登入回來時，才會在這裡遇到
     // 同一個帳號在別台裝置玩過：存檔層已經把那邊的進度併進來，這裡換上新的進度。
     // 正在闖關或看結算就不打斷（下次換畫面就會看到）；在首頁或地圖就重畫。
     Save.onChange = (s) => {
