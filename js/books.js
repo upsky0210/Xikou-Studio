@@ -12,4 +12,5 @@ window.BOOKS = [
   { id: 'ck6', title: '六上國語', pub: '康軒版', file: 'data/ck6.js', global: 'CK6', color: '#dc2626' },
   { id: 'sk6', title: '六上社會', pub: '康軒版', file: 'data/sk6.js', global: 'SK6', color: '#d97706' },
   { id: 'en6', title: '六上英語', pub: '康軒版', file: 'data/en6.js', global: 'EN6', color: '#7c3aed' },
+  { id: 'mn5', title: '五上數學', pub: '南一版', file: 'data/mn5.js', global: 'MN5', color: '#0e7490' },
 ];

@@ -189,4 +189,4 @@ iPad 的描述檔（Web Clip）網址填 `https://upsky0210.github.io/Xikou-Stud
 - Noto Sans TC：SIL OFL 1.1
 - three.js：MIT（`vendor/three/LICENSE`）
 - 3D 模型、小圖、App 圖示都是用程式畫的
-- 題目內容皆為原創
+- 題目內容為自編。五年級部分題目改作自 [JDPS-SS](https://github.com/shanechen07/JDPS-SS)（作者陳煥文，CC BY-NC-SA 4.0，2026-11-08 授權改作）；改作的題目在作者端題目檔用 `source` 欄位標示，含改作題的書（目前是 `data/mn5.js`）同樣以 CC BY-NC-SA 4.0 分享
