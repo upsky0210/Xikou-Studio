@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>mk4 題目用圖總覽</title>
+<style>body{font-family:sans-serif;background:#eee;margin:8px}div{display:inline-block;margin:6px;background:#fff;padding:4px;vertical-align:top}img{display:block;max-width:440px;height:auto}p{margin:2px;font-size:13px}</style>
+<body>
+<script>
+// 用法：本機預覽開 /drafts/mk4/figs.html?06,07 看這幾關的圖（a～h 有的才顯示）
+const lv = (location.search.slice(1) || '06,07,12,13,20,21').split(',');
+for (const n of lv) for (const c of 'abcdefgh') {
+  const img = new Image();
+  img.onload = () => { const d = document.createElement('div'); d.innerHTML = `<p>mk4-${n}-${c}</p>`; d.appendChild(img); document.body.appendChild(d); };
+  img.src = `../../data/fig/mk4-${n}-${c}.svg`;
+}
+</script>

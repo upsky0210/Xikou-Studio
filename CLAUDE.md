@@ -44,4 +44,5 @@
 - 規格和權限寫在 `docs/五年級題庫交接手冊-Codex.md`。11/16～17 先由 Claude Code 出題（Fable 5.2 做畫圖的幾何單元和國語、Opus 做其他、Sonnet 子代理做 PDF 轉文字和跑檢查），額度到了沒做完的整批交 Codex；分工表和狀態在手冊第 0.1 節，做完一批就更新狀態。
 - Claude Code 省額度：一個單元開一個新對話；課本先讀 `source/_text/` 的文字檔（不上傳；新電腦跑 `python -I tools/pdf2text.py .`，要先 `pip install pypdfium2`）。國語是直排，抽出來行序會顛倒。
 - 五上版本：國語、英語康軒；數學、自然、社會南一。書的代號 mn5（2026-11-16 全部 23 關 161 題做完，都是草稿、待老師抽驗）、ns5、ss5、ck5（2026-11-16 全部 12 關 84 題做完，都是草稿、待老師抽驗；第 1～3 課 Claude Code、第 4～12 課 Codex；題目改 `drafts/ck5/build-L*.mjs` 再重跑）、en5。
+- 四上數學（康軒，代號 mk4）：2026-11-16 規劃 21 關 147 題，JDPS 骨架＋題目重寫；各單元由哪個模型做寫在手冊第 0.2 節。課本文字檔用 `python -I tools/pdf2text-pypdf.py . 康軒四上數學`（pypdf）。2026-11-16 做完單元三、六、十共 6 關 42 題、圖 13 張（草稿、待老師抽驗，`drafts/mk4/自檢報告-U3-U6-U10.md`）；其餘 15 關還沒出題，也還沒登記到 `js/books.js`。題目寫在 `drafts/mk4/mk4-questions-U*.json`，圖改 `tools/make-figures-mk4.mjs`。
 - JDPS 底稿：`node tools/jdps-base.mjs mn5 zn5 n5 gk5` 產生到 `private/jdps/`（不上傳，每台電腦要各自有 `private/jdps/JDPS-SS`）。
