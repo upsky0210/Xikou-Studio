@@ -93,5 +93,70 @@ figs['mn5-02-b'] = (() => {
   return svg(540, 440, b);
 })();
 
+/* ---------- 幾何圖 ---------- */
+const FILL = '#ffe9a8', FILL2 = '#cfe6fb';
+const poly = (pts, fill = FILL) => `<polygon points="${pts.map(([x, y]) => `${f(x)},${f(y)}`).join(' ')}" fill="${fill}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
+const dash = (x1, y1, x2, y2, c = '#d6452f', w = 2.5) => line(x1, y1, x2, y2, c, w, 'stroke-dasharray="8 6"');
+const tag = (x, y, s, size = 20) => text(x, y, s, 'middle', size);
+const badge = (x, y, s) => `<circle cx="${f(x)}" cy="${f(y)}" r="14" fill="#fff" stroke="#d6452f" stroke-width="2"/>` + text(x, y + 1, s, 'middle', 16, '#d6452f');
+
+/* L09：五邊形從頂點 A 連到 C、D，分成 3 個三角形 */
+figs['mn5-09-a'] = (() => {
+  const A = [240, 44], B = [400, 150], C = [340, 316], D = [140, 316], E = [80, 150];
+  let b = poly([A, B, C, D, E]);
+  b += dash(...A, ...C) + dash(...A, ...D);
+  const mid = (...ps) => [ps.reduce((a, q) => a + q[0], 0) / ps.length, ps.reduce((a, q) => a + q[1], 0) / ps.length];
+  [[A, B, C], [A, C, D], [A, D, E]].forEach((t, i) => { const [x, y] = mid(...t); b += badge(x, y, String(i + 1)); });
+  b += tag(240, 22, 'A') + tag(422, 148, 'B') + tag(356, 338, 'C') + tag(124, 338, 'D') + tag(58, 148, 'E');
+  return svg(480, 360, b);
+})();
+
+/* L12：四個圖形，哪一個不是線對稱圖形（甲等腰三角形、乙平行四邊形、丙長方形、丁等腰梯形） */
+figs['mn5-12-a'] = (() => {
+  let b = '';
+  b += poly([[85, 40], [30, 160], [140, 160]]);
+  b += poly([[215, 60], [325, 60], [285, 160], [175, 160]], FILL2);
+  b += poly([[365, 66], [490, 66], [490, 160], [365, 160]]);
+  b += poly([[560, 60], [620, 60], [655, 160], [525, 160]], FILL2);
+  ['甲', '乙', '丙', '丁'].forEach((s, i) => { b += tag([85, 250, 427, 590][i], 190, s); });
+  return svg(680, 214, b);
+})();
+
+/* L12：長方形上的四條虛線，哪幾條是對稱軸 */
+figs['mn5-12-b'] = (() => {
+  const x0 = 70, y0 = 60, w = 360, h = 200;
+  let b = poly([[x0, y0], [x0 + w, y0], [x0 + w, y0 + h], [x0, y0 + h]]);
+  b += dash(x0 + w / 2, y0 - 22, x0 + w / 2, y0 + h + 22) + badge(x0 + w / 2, y0 - 38, '1');
+  b += dash(x0 - 14, y0 - 8, x0 + w + 14, y0 + h + 8) + badge(x0 + w + 30, y0 + h + 18, '2');
+  b += dash(x0 - 22, y0 + h / 2, x0 + w + 22, y0 + h / 2) + badge(x0 + w + 40, y0 + h / 2, '3');
+  b += dash(x0 + 70, y0 - 22, x0 + 70, y0 + h + 22) + badge(x0 + 70, y0 - 38, '4');
+  return svg(500, 300, b);
+})();
+
+/* L13：左右對稱的六邊形 ABCDEF，對稱軸是直線 AD */
+figs['mn5-13-a'] = (() => {
+  const A = [220, 50], B = [340, 120], C = [310, 260], D = [220, 330], E = [130, 260], F = [100, 120];
+  let b = poly([A, B, C, D, E, F]);
+  b += dash(220, 20, 220, 362);
+  b += tag(238, 34, 'A') + tag(362, 114, 'B') + tag(332, 270, 'C') + tag(238, 348, 'D') + tag(108, 270, 'E') + tag(78, 114, 'F');
+  b += text(228, 372, '對稱軸', 'start', 14, '#d6452f');
+  return svg(440, 386, b);
+})();
+
+/* L13：方格紙上找點 P 的對稱點（對稱軸在第 6 條直格線；P 在左 3 格、第 2 列） */
+figs['mn5-13-b'] = (() => {
+  const cell = 36, cols = 12, rows = 6, x0 = 36, y0 = 44, ax = 6;
+  const X = (c) => x0 + c * cell, Y = (r) => y0 + r * cell;
+  let b = '';
+  for (let c = 0; c <= cols; c++) b += line(X(c), Y(0), X(c), Y(rows), GRID, 1.2);
+  for (let r = 0; r <= rows; r++) b += line(X(0), Y(r), X(cols), Y(r), GRID, 1.2);
+  b += line(X(ax), Y(0) - 12, X(ax), Y(rows) + 12, '#d6452f', 4);
+  b += text(X(ax), Y(0) - 26, '對稱軸', 'middle', 15, '#d6452f');
+  const dot = (c, r, label, color) => `<circle cx="${X(c)}" cy="${Y(r)}" r="7" fill="${color}" stroke="#fff" stroke-width="1.5"/>` + text(X(c) + 6, Y(r) - 17, label, 'middle', 18, color);
+  b += dot(ax - 3, 2, 'P', '#2b2b2b');
+  b += dot(ax + 3, 2, '甲', '#2f6fd0') + dot(ax + 3, 4, '乙', '#2f6fd0') + dot(ax + 2, 2, '丙', '#2f6fd0') + dot(ax + 5, 2, '丁', '#2f6fd0');
+  return svg(X(cols) + 36, Y(rows) + 30, b);
+})();
+
 for (const [name, content] of Object.entries(figs)) writeFileSync(new URL(name + '.svg', OUT), content);
 console.log('已產生 ' + Object.keys(figs).length + ' 張圖：' + Object.keys(figs).join('、'));
