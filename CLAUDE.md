@@ -43,5 +43,5 @@
 ## 五年級題庫的分工（2026-11-16）
 - 規格和權限寫在 `docs/五年級題庫交接手冊-Codex.md`。11/16～17 先由 Claude Code 出題（Fable 5.2 做畫圖的幾何單元和國語、Opus 做其他、Sonnet 子代理做 PDF 轉文字和跑檢查），額度到了沒做完的整批交 Codex；分工表和狀態在手冊第 0.1 節，做完一批就更新狀態。
 - Claude Code 省額度：一個單元開一個新對話；課本先讀 `source/_text/` 的文字檔（不上傳；新電腦跑 `python -I tools/pdf2text.py .`，要先 `pip install pypdfium2`）。國語是直排，抽出來行序會顛倒。
-- 五上版本：國語、英語康軒；數學、自然、社會南一。書的代號 mn5（已做 17 關：單元一到五、八、十；還缺單元六、七、九的 mn5-14～18、21）、ns5、ss5、ck5、en5。
+- 五上版本：國語、英語康軒；數學、自然、社會南一。書的代號 mn5（2026-11-16 全部 23 關 161 題做完，都是草稿、待老師抽驗）、ns5、ss5、ck5、en5。
 - JDPS 底稿：`node tools/jdps-base.mjs mn5 zn5 n5 gk5` 產生到 `private/jdps/`（不上傳，每台電腦要各自有 `private/jdps/JDPS-SS`）。
