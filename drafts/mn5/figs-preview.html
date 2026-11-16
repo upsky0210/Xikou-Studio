@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>mn5 圖總覽</title>
+<style>body{font-family:sans-serif;background:#eee;margin:8px}div{display:inline-block;vertical-align:top;margin:4px;background:#fff;border:1px solid #999}p{margin:2px 6px;font-size:13px}img{display:block;max-width:440px}</style>
+<script>
+const names='19-a 19-b 19-c 19-d 20-a 20-b 20-c 20-d 20-e 20-f 22-a 22-b 23-a 23-b'.split(' ');
+const only=new URLSearchParams(location.search).get('only');
+for(const n of names){ if(only&&!only.split(',').includes(n))continue; document.write(`<div><p>mn5-${n}</p><img src="../../data/fig/mn5-${n}.svg"></div>`);}
+</script>
