@@ -35,7 +35,7 @@
 
 | 順序 | 批次 | 誰做 | 狀態 |
 |---|---|---|---|
-| 0 | 五上五科課本 PDF 轉文字（放 `source/_text/`，不上傳） | CC-Sonnet | 未開始 |
+| 0 | 五上五科課本 PDF 轉文字（放 `source/_text/`，不上傳） | CC-Opus | 11/16 家裡電腦完成（89 檔）；學校電腦要另外跑 |
 | 1 | 數學 單元八 面積（mn5-19、20，要畫圖） | CC-Fable | 未開始 |
 | 2 | 數學 單元十 正方體、展開圖（mn5-22、23，要畫圖） | CC-Fable | 未開始 |
 | 3 | 數學 單元六 異分母加減（mn5-14、15） | CC-Opus | 未開始 |
@@ -228,7 +228,9 @@ node tools/review-sheet.mjs drafts/<id>/抽驗清單-<批次>.md drafts/<id>/<�
 ## 8. 已經踩過的坑（工具和環境）
 
 - **Windows 的 shell 會弄壞中文和引號**。不要用一行指令塞一段程式（`node -e "…"`、`python - <<EOF`）去改含中文的檔案；把程式寫成檔案放在 `drafts/<id>/` 再執行。Python 讀寫檔案一律 `encoding='utf-8'`，要印中文先 `sys.stdout.reconfigure(encoding='utf-8')`。
-- **讀 PDF**：這台電腦沒有 `pdftotext`、`pdftoppm`，用 pypdf 抽文字、pypdfium2 轉圖片。抽出來的文字有些字會缺或變亂碼（注音、特殊符號、部分國字），遇到關鍵內容看不清楚就把那一頁轉成圖片看。
+- **讀課本：先讀 `source/_text/`**。五科課本已逐頁轉成文字檔（每頁開頭「=== 第 N 頁 ===」，頁碼是 PDF 的頁序，不是課本印的頁碼），總表在 `source/_text/_索引.md`。沒有這個資料夾的電腦，在 repo 根目錄跑 `python -I tools/pdf2text.py .`（要先 `pip install pypdfium2`，Codex 不能安裝就回報）。
+  - 數學、自然、社會、英語是橫排，文字順序正常。**國語是直排，抽出來的行序常常前後顛倒**（一段話的句子倒著排），讀的時候要自己重組；課文原句、注音、字音字形這類一定要準的內容，把那一頁轉成圖片（pypdfium2）看過再用。
+  - 抽出來的文字有些字會缺或變亂碼（注音、特殊符號、部分國字）；看不清楚就轉圖片看。
 - **`verify-answers.mjs`**：
   - `expr`／`round` 的 `expected` 一定要出現在正解文字裡（正解是「乙班」這種就改用 `judge` 或 `max`）。
   - `min`／`max` 的鍵名和 `expected` 不可以帶 `{{ }}`，寫純文字（`"5/8 比較大"`）。
