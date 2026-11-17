@@ -1,0 +1,10 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>mk3 題目用圖總覽</title>
+<style>body{font-family:sans-serif;background:#eee;margin:8px}div{display:inline-block;margin:6px;background:#fff;padding:4px;vertical-align:top}img{display:block;max-width:440px;height:auto}p{margin:2px;font-size:13px}</style>
+<body>
+<script>
+// 用法：本機預覽開 /drafts/mk3/figs.html?10-a,10-b,11-c 看這幾張圖（寫出每張圖的「關卡-代號」）
+const list = (location.search.slice(1).split('&')[0] || '10-a,10-b,10-c,10-d,10-e,11-a,11-b,11-c').split(',');
+for (const n of list) document.body.insertAdjacentHTML('beforeend', `<div><p>mk3-${n}</p><img src="../../data/fig/mk3-${n}.svg"></div>`);
+</script>
