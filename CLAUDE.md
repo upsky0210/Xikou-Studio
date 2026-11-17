@@ -43,7 +43,7 @@
 ## 五年級題庫的分工（2026-11-16）
 - 規格和權限寫在 `docs/五年級題庫交接手冊-Codex.md`。11/16～17 先由 Claude Code 出題（Fable 5.2 做畫圖的幾何單元和國語、Opus 做其他、Sonnet 子代理做 PDF 轉文字和跑檢查），額度到了沒做完的整批交 Codex；分工表和狀態在手冊第 0.1 節，做完一批就更新狀態。
 - Claude Code 省額度：一個單元開一個新對話；課本先讀 `source/_text/` 的文字檔（不上傳；新電腦跑 `python -I tools/pdf2text.py .`，要先 `pip install pypdfium2`）。國語是直排，抽出來行序會顛倒。
-- 五上自然（ns5）：2026-11-17 做完單元一「太陽與光」5 關 35 題當樣板（草稿、待老師抽驗，`drafts/ns5/自檢報告-U1.md`），已登記到 `js/books.js`；題目改 `drafts/ns5/build-U1.mjs` 再重跑；其他單元的關用 `node drafts/ns5/add-levels.mjs <關號>` 在題目寫好後才加（書已上架，空關會出現在地圖上）。主題地名與地標還沒定。
+- 五上自然（ns5）：2026-11-17 做完單元一「太陽與光」5 關 35 題當樣板（草稿、待老師抽驗，`drafts/ns5/自檢報告-U1.md`），已登記到 `js/books.js`；題目改 `drafts/ns5/build-U1.mjs` 再重跑；其他單元的關用 `node drafts/ns5/add-levels.mjs <關號>` 在題目寫好後才加（書已上架，空關會出現在地圖上）。主題地名 2026-11-17 老師選定：日晷鐘塔、種子迷宮、酸鹼綠洲、疾速競技場（都用現有地形）。
 - 五上版本：國語、英語康軒；數學、自然、社會南一。書的代號 mn5（2026-11-16 全部 23 關 161 題做完，都是草稿、待老師抽驗）、ns5、ss5、ck5（2026-11-16 全部 12 關 84 題做完，都是草稿、待老師抽驗；第 1～3 課 Claude Code、第 4～12 課 Codex；題目改 `drafts/ck5/build-L*.mjs` 再重跑）、en5。
 - 四上數學（康軒，代號 mk4）：2026-11-16 規劃 21 關 147 題，JDPS 骨架＋題目重寫；各單元由哪個模型做寫在手冊第 0.2 節。課本文字檔用 `python -I tools/pdf2text-pypdf.py . 康軒四上數學`（pypdf）。2026-11-16 做完單元三、五、六、八、十共 10 關 70 題、圖 13 張（草稿、待老師抽驗，`drafts/mk4/自檢報告-U3-U6-U10.md`、`自檢報告-U5-U8.md`）；其餘 11 關（單元一、二、四、七、九）還沒出題，也還沒登記到 `js/books.js`。題目寫在 `drafts/mk4/mk4-questions-U*.json`，圖改 `tools/make-figures-mk4.mjs`。
 - 三上數學（康軒，代號 mk3）：2026-11-16 規劃 19 關 133 題，JDPS 骨架＋題目重寫，規劃和各模型分工寫在手冊第 0.3 節。課本文字檔：`python -I tools/pdf2text-pypdf.py . 康軒三上數學`。2026-11-17 做完資料檔骨架和單元三、五、六共 6 關 42 題、圖 16 張（草稿、待老師抽驗，`drafts/mk3/自檢報告-U5.md`、`自檢報告-U6-U3.md`）；其餘 13 關還沒出題，也還沒登記到 `js/books.js`。題目寫在 `drafts/mk3/mk3-questions-U*.json`，圖改 `tools/make-figures-mk3.mjs`。
