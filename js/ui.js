@@ -330,7 +330,7 @@
         </div>
         <div>
           <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>${pairs('更多課本')}</b><span class="prog"><em>敬請期待</em></span></span></div></div>
-          <p class="title-foot">題目為自編；五上數學部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0） · ${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
+          <p class="title-foot">題目為自編；五上數學、自然、社會部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0） · ${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
         </div>
       </section>`;
     $('#heroChip').onclick = () => openHeroPick();
