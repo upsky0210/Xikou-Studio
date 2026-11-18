@@ -46,6 +46,9 @@
 | 7 | 自然 單元一（ns5，先做一個單元當樣板） | CC-Opus | 11/17 完成 ns5-01～05 共 5 關 35 題，待老師抽驗（`drafts/ns5/自檢報告-U1.md`，報告前段有「樣板怎麼用」）；題目寫在產生器 `drafts/ns5/build-U1.mjs`；已登記書架；其餘 13 關的關卡名在 `drafts/ns5/add-levels.mjs`，題目寫好才加關 |
 | 8 | 自然其餘、社會、國語其餘、英語 | Codex | 自然單元二～四 11/17 完成 ns5-06～18 共 13 關 91 題，待老師抽驗（`drafts/ns5/自檢報告-U2.md`～`U4.md`，題目改 `build-U2.mjs`～`U4.mjs` 再重跑；Claude Code 11/18 重跑檢查、手機試玩、上線）；社會第一單元樣板由 CC-Opus 11/18 完成（見下一列），英語未開始 |
 | 8-1 | 社會 第一單元（ss5-01～03，先做一個單元當樣板） | CC-Opus | 11/18 完成 3 關 21 題，待老師抽驗（`drafts/ss5/自檢報告-U1.md`，報告前段有「樣板怎麼用」）；題目寫在產生器 `drafts/ss5/build-U1.mjs`（共用 `build-unit.mjs`）；已登記書架；其餘 7 關的課名在 `drafts/ss5/add-levels.mjs`，intro 出題時補，題目寫好才加關 |
+| 8-2 | 社會 第二單元（ss5-04、05） | Codex | 11/18 完成 2 關 14 題，待老師抽驗（`drafts/ss5/自檢報告-U2.md`）；Claude Code 11/18 重跑檢查、對照課本抽查、手機試玩 |
+| 8-3 | 社會 第三單元（ss5-06、07） | Codex | 11/18 完成 2 關 14 題，待老師抽驗（`drafts/ss5/自檢報告-U3.md`）；Claude Code 同上 |
+| 8-4 | 社會 第四單元（ss5-08～10） | Codex | 11/18 完成 3 關 21 題，待老師抽驗（`drafts/ss5/自檢報告-U4.md`）；Claude Code 同上，並把 L10-Q2、Q3 的證據提示頁碼縮到正解那一頁。全書 10 關 70 題做完 |
 
 - 換手時：做到一半的批次**整批重做或整批接手**，不要留半關。Claude Code 做的批次也要寫自檢報告，Codex 接手前先讀最新的自檢報告。
 - 狀態欄由做完的一方更新（Codex 不能改 `docs/`，就寫在自檢報告，Claude Code 收件時代為更新）。
@@ -297,6 +300,28 @@ node tools/review-sheet.mjs drafts/<id>/抽驗清單-<批次>.md drafts/<id>/<�
 - 干擾項的 `trap`：時代錯置、地點錯置、人物或族群張冠李戴、因果顛倒、以偏概全、把現在的情況套到過去、名詞混淆、過度推論。
 - 會過時的數字（人口、產量、排名）不出；法律與制度只出課本寫到的程度。
 - 詳解：「正確概念：……破誤：……證據提示：回課本第○課「○○」一段。」
+
+### 5.1 第二～四單元接手步驟（2026-11-18，照第一單元樣板做）
+
+第一單元（ss5-01～03）已由 Claude Code 做完當樣板，**題目樣板改看 `drafts/ss5/build-U1.mjs`**（上面提到的六上 `sk6` 只當規格參考）。一個單元一批，照 8-2 → 8-3 → 8-4 的順序，一批交一次。
+
+1. **先讀** `drafts/ss5/自檢報告-U1.md` 的「給接手的人（樣板怎麼用）」那一節：課本文字檔怎麼讀（課本正文和教師用書旁註混在一起、同一頁會重複兩次）、只出現在教師用書的知識怎麼改成資料題、手機上表格最多 3 欄。
+2. **課本**：`source/_text/南一五上社會/115國小社會5上教師專用課本PDF_第N單元.txt`（第二單元讀 `第2單元`，依此類推）。頁碼用課本印的頁碼，出題前先在檔案裡確認這一課的頁碼範圍。課名以 `課程說明+詞彙中英文對照表+探究方法使用說明書+目次.txt` 的目次為準。
+3. **JDPS 骨架**：`private/jdps/n5-base.json`，對照上表「JDPS 可參考的關」。干擾項一律重寫、提示第 3 段不可以是答案；改作的題目寫 `source`。
+4. **寫產生器**：複製 `build-U1.mjs` 成 `build-U2.mjs`（`buildUnit(2)`，輸出 `ss5-questions-U2.json`），**不要改 `build-unit.mjs`**（第一單元也在用；真的需要改就寫在自檢報告）。題號 `L04-Q1`…，每關題型 A×2、B×1、C×1、D×1、E×2，Q6、Q7 是 C／D／E。
+5. **加關**：在 `drafts/ss5/add-levels.mjs` 補那幾關的 intro（一兩句、照課本），再 `node drafts/ss5/add-levels.mjs 4 5`。已有的關不會被動到。
+6. **跑指令**（組裝和檢查都把已完成的全部題目檔一起給，這樣每一題都會和題目檔比對一次）：
+
+```bash
+node drafts/ss5/build-U2.mjs
+node tools/verify-answers.mjs drafts/ss5/ss5-questions-U2.json
+node tools/assemble.mjs data/ss5.js SS5 drafts/ss5/ss5-questions-U1.json drafts/ss5/ss5-questions-U2.json
+node tools/check-data.mjs data/ss5.js SS5 drafts/ss5/ss5-questions-U1.json drafts/ss5/ss5-questions-U2.json --long
+node tools/review-sheet.mjs drafts/ss5/抽驗清單-U2.md drafts/ss5/ss5-questions-U2.json
+```
+
+7. **交件**：`drafts/ss5/` 裡的 `build-U2.mjs`、`ss5-questions-U2.json`、`抽驗清單-U2.md`、`自檢報告-U2.md`（格式照第 2.5 節，第一行寫 `Codex`）。不要動 `js/`、`docs/`，不要 commit。
+8. **不用做**：主題地名與地標（`data/ss5.js` 的 `zones` 不要加 `terrain`）、書架登記（已登記）。這些由 Claude Code 收件時處理。
 
 ## 6. 國語（ck5）
 
