@@ -20,20 +20,24 @@ const CK5 = {
  "note": "題目依康軒五上國語各課的學習重點自行編寫；文意題所附短文為依課文大意改寫之原創文字，非課文原文。",
  "zones": [
   {
-   "name": "擁夢飛翔",
-   "unit": "擁夢飛翔"
+   "name": "空拍氣象台",
+   "unit": "擁夢飛翔",
+   "terrain": "weather"
   },
   {
-   "name": "生活中的藝術",
-   "unit": "生活中的藝術"
+   "name": "美術館",
+   "unit": "生活中的藝術",
+   "terrain": "gallery"
   },
   {
-   "name": "生命啟示錄",
-   "unit": "生命啟示錄"
+   "name": "成長花園",
+   "unit": "生命啟示錄",
+   "terrain": "garden"
   },
   {
-   "name": "與自然共舞",
-   "unit": "與自然共舞"
+   "name": "黑熊山林",
+   "unit": "與自然共舞",
+   "terrain": "forest"
   }
  ],
  "levels": [

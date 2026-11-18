@@ -11,6 +11,7 @@
    社會（sk6）：civic 民主議事城、lane 聚落文化巷、industry 產業轉型園、eco 永續城鄉谷
    英語（en6）：school 回憶校園、clocktower 時光鐘塔、isle 旅行湖島、street 問路街角、fest 節慶廣場
    五上社會（ss5）：isle 誕生之島、fest 祭典廣場、mill 糖廠磨坊、fort 大員古堡（新做）
+   五上國語（ck5）：weather 空拍氣象台、gallery 美術館（新做）、garden 成長花園、forest 黑熊山林（新做）
    每個地標的原點在地面中心，正面朝 +z（鏡頭那一邊）。
    回傳 { group, top（標籤放多高）, flag（徽章旗插在哪）, update(t, dt), setState? } */
 import { THREE, Kit, MAT, toonMat, waterMaterial, rng, matrixOf } from './kit.js';
@@ -1055,7 +1056,108 @@ function fort() {
   };
 }
 
-const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort };
+/* 美術館（五上國語 生活中的藝術）：白色美術館，牆上掛著金黃稻田的大畫（米勒）、
+   屋頂上是商標招牌，門口有畫架，旁邊的螢幕播著小球彈跳的動畫 */
+function gallery() {
+  const k = new Kit();
+  k.cyl(4.8, 5.1, 0.3, 16, '#d9d3c6', {});
+  k.box(7.4, 0.3, 4.4, C.stone2, { p: [-0.4, 0.3, -1.6] });
+  k.box(5.4, 3.6, 3.8, C.marble, { p: [-1.2, 0.6, -1.6] });
+  k.box(5.8, 0.35, 4.2, '#3a3f4c', { p: [-1.2, 4.2, -1.6] });
+  for (const x of [-3.5, -2.3, -0.1, 1.1]) k.cyl(0.18, 0.2, 3.6, 8, C.white, { p: [x, 0.6, 0.55] });   // 門廊柱
+  k.box(5.8, 0.3, 0.7, C.stone2, { p: [-1.2, 4.2, 0.6] });
+  k.box(1.1, 1.7, 0.1, C.window, { p: [-1.2, 0.6, 0.31] });               // 門
+  // 大畫：米勒的金黃稻田
+  k.box(1.9, 1.5, 0.1, C.gold2, { p: [-3.0, 1.7, 0.32] });
+  k.box(1.7, 0.6, 0.06, '#8fc8ef', { p: [-3.0, 2.3, 0.38] });
+  k.box(1.7, 0.65, 0.06, '#e8b93a', { p: [-3.0, 1.8, 0.38] });
+  k.box(0.12, 0.35, 0.06, '#7a4a2a', { p: [-3.3, 1.9, 0.42] });
+  k.box(0.12, 0.35, 0.06, '#7a4a2a', { p: [-2.8, 1.9, 0.42] });
+  // 動畫螢幕
+  k.box(1.9, 1.5, 0.1, C.dark, { p: [0.6, 1.7, 0.32] });
+  k.box(1.7, 1.3, 0.04, '#bfe6ff', { p: [0.6, 1.8, 0.38] });
+  // 屋頂商標招牌
+  k.cyl(0.06, 0.06, 0.8, 5, C.metal, { p: [-1.2, 4.55, -1.4] });
+  k.cyl(0.95, 0.95, 0.14, 24, '#e5493d', { c: true, r: [Math.PI / 2, 0, 0], p: [-1.2, 5.7, -1.4] });
+  k.cyl(0.65, 0.65, 0.16, 24, C.white, { c: true, r: [Math.PI / 2, 0, 0], p: [-1.2, 5.7, -1.4] });
+  k.oct(0.38, C.gold, { p: [-1.2, 5.7, -1.25], s: [1, 1, 0.3] });
+  // 側邊的彩色方塊展廳
+  [[2.9, 0.6, -2.4, 1.8, '#f26b5b'], [2.9, 2.4, -2.4, 1.2, '#ffc533'], [3.3, 0.6, -0.7, 1.3, '#3f87de']]
+    .forEach(([x, y, z, sz, c]) => k.box(sz, sz, sz, c, { p: [x, y, z] }));
+  // 畫架
+  for (const [x, rz] of [[-3.6, 0.15], [-2.8, -0.15]]) k.box(0.09, 2.0, 0.09, C.wood, { p: [x, 0.3, 2.4], r: [0, 0, rz] });
+  k.box(0.09, 1.8, 0.09, C.wood, { p: [-3.2, 0.3, 2.05], r: [0.25, 0, 0] });
+  k.box(1.25, 1.0, 0.06, C.white, { p: [-3.2, 1.15, 2.47] });
+  k.box(1.05, 0.35, 0.07, '#46a650', { p: [-3.2, 1.2, 2.5] });
+  k.box(1.05, 0.4, 0.07, '#8fc8ef', { p: [-3.2, 1.6, 2.5] });
+  // 雕塑（扭轉的方塊）
+  k.cyl(0.5, 0.55, 0.6, 8, C.stone2, { p: [2.4, 0.3, 2.3] });
+  k.box(0.6, 0.6, 0.6, '#9b75ef', { p: [2.4, 0.9, 2.3], r: [0, 0.4, 0] });
+  k.box(0.5, 0.5, 0.5, '#ff7be0', { p: [2.4, 1.5, 2.3], r: [0, 1.1, 0] });
+  // 調色盤
+  k.cyl(0.5, 0.5, 0.06, 12, C.wood, { p: [-0.8, 0.3, 2.8] });
+  ['#e5493d', '#ffc533', '#3f87de', '#46a650'].forEach((c, i) => k.ball(0.1, 0, c, { p: [-1.0 + (i % 2) * 0.4, 0.42, 2.65 + Math.floor(i / 2) * 0.32] }));
+  const group = k.build();
+  const ball = new THREE.Mesh(new THREE.SphereGeometry(0.16, 10, 8), new THREE.MeshBasicMaterial({ color: '#e5493d' }));
+  ball.raycast = () => {}; group.add(ball);
+  return {
+    group, top: 7.0, flag: [3.8, 0.3, 1.2],
+    update(t) {
+      const u = (t * 0.45) % 1;
+      ball.position.set(0.6 - 0.65 + u * 1.3, 1.33 + Math.abs(Math.sin(t * 4)) * 0.85, 0.44);
+    },
+  };
+}
+
+/* 黑熊山林（五上國語 與自然共舞）：松樹林、柴門小木屋、會點頭的臺灣黑熊（胸前白色 V 字）、松子 */
+function forest() {
+  const k = new Kit(), R = rng(43);
+  k.cyl(5.0, 5.4, 0.3, 16, '#7fae55', {});
+  k.cone(2.4, 3.2, 7, C.mtn2, { p: [1.8, 0.3, -3.2] });
+  k.cone(0.8, 0.8, 7, C.snow, { p: [1.8, 2.7, -3.2] });
+  [[-3.4, -2.0, 1.2], [-2.2, -3.1, 1.4], [-0.6, -3.6, 1.1], [3.6, -1.2, 1.0], [3.9, 0.6, 0.9], [-4.0, 0.2, 1.0], [-3.6, 2.2, 0.8], [3.2, 2.6, 0.8]]
+    .forEach(([x, z, s]) => {
+      k.cyl(0.12, 0.15, 0.6 * s, 5, C.wood2, { p: [x, 0.3, z] });
+      for (let i = 0; i < 3; i++) k.cone((0.95 - i * 0.22) * s, 1.0 * s, 7, [C.leaf3, '#2f7a3f', C.leaf3][i], { p: [x, 0.3 + 0.55 * s + i * 0.6 * s, z], r: [0, R() * 3, 0] });
+    });
+  // 柴門小木屋
+  k.box(2.0, 1.4, 1.6, C.wood, { p: [-1.2, 0.3, -1.3] });
+  k.cone(1.65, 1.1, 4, C.wood2, { p: [-1.2, 1.7, -1.3], r: [0, Math.PI / 4, 0] });
+  k.box(0.6, 0.9, 0.06, C.wood2, { p: [-1.2, 0.3, -0.48] });
+  k.box(0.4, 0.35, 0.06, '#ffd75e', { p: [-0.55, 0.95, -0.48], glow: true });
+  for (let i = 0; i < 6; i++) k.box(0.12, 0.7, 0.08, '#b98a55', { p: [-2.3 + i * 0.22, 0.3, 0.1] });   // 柴門籬笆
+  k.box(1.3, 0.08, 0.08, '#b98a55', { p: [-1.75, 0.75, 0.12] });
+  // 小路與松子
+  for (let i = 0; i < 5; i++) k.cyl(0.32, 0.34, 0.06, 7, C.stone2, { p: [-0.6 + i * 0.5, 0.3, 0.8 + i * 0.55] });
+  for (const [x, z] of [[2.0, 3.4], [2.3, 3.7], [1.7, 3.8]]) k.ball(0.16, 0, '#8a5a2b', { p: [x, 0.42, z], s: [0.8, 1.2, 0.8] });
+  const gm = new THREE.MeshBasicMaterial({ vertexColors: true });
+  const group = k.build({ glowMat: gm });
+  // 臺灣黑熊
+  const bear = new THREE.Group(); bear.position.set(1.6, 0.3, 1.2); bear.rotation.y = -0.5;
+  const bk = new Kit(), fur = '#2b2730';
+  bk.ball(0.75, 1, fur, { p: [0, 0.85, 0], s: [1, 1.05, 0.85] });
+  for (const x of [-0.42, 0.42]) bk.cyl(0.2, 0.22, 0.4, 7, fur, { p: [x, 0, 0.1] });
+  bk.box(0.42, 0.09, 0.05, C.white, { c: true, p: [-0.17, 1.12, 0.66], r: [0, 0, -0.6] });
+  bk.box(0.42, 0.09, 0.05, C.white, { c: true, p: [0.17, 1.12, 0.66], r: [0, 0, 0.6] });
+  bear.add(bk.build());
+  const head = new THREE.Group(); head.position.set(0, 1.75, 0.1);
+  const hk = new Kit();
+  hk.ball(0.45, 1, fur, {});
+  for (const x of [-0.32, 0.32]) hk.ball(0.15, 0, fur, { p: [x, 0.38, -0.02] });
+  hk.ball(0.2, 0, '#8a6a52', { p: [0, -0.08, 0.38], s: [1, 0.8, 0.9] });
+  hk.ball(0.07, 0, '#111', { p: [0, -0.02, 0.56] });
+  for (const x of [-0.17, 0.17]) hk.ball(0.05, 0, '#111', { p: [x, 0.12, 0.4] });
+  head.add(hk.build()); bear.add(head); group.add(bear);
+  return {
+    group, top: 6.4, flag: [3.8, 0.3, -0.6],
+    update(t) {
+      head.rotation.x = Math.sin(t * 1.4) * 0.12; head.rotation.y = Math.sin(t * 0.6) * 0.35;
+      const v = 0.8 + 0.2 * Math.sin(t * 2); gm.color.setRGB(v, v, v);
+    },
+  };
+}
+
+const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort, gallery, forest };
 export function buildLandmark(terrain) { return (BUILDERS[terrain] || generic)(); }
 export const LANDMARK_KEYS = Object.keys(BUILDERS);
 
