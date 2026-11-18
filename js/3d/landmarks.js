@@ -10,6 +10,7 @@
      castle 溪口王城：城堡；還沒開放時有鷹架和吊車（建造中）
    社會（sk6）：civic 民主議事城、lane 聚落文化巷、industry 產業轉型園、eco 永續城鄉谷
    英語（en6）：school 回憶校園、clocktower 時光鐘塔、isle 旅行湖島、street 問路街角、fest 節慶廣場
+   五上社會（ss5）：isle 誕生之島、fest 祭典廣場、mill 糖廠磨坊、fort 大員古堡（新做）
    每個地標的原點在地面中心，正面朝 +z（鏡頭那一邊）。
    回傳 { group, top（標籤放多高）, flag（徽章旗插在哪）, update(t, dt), setState? } */
 import { THREE, Kit, MAT, toonMat, waterMaterial, rng, matrixOf } from './kit.js';
@@ -993,7 +994,68 @@ function fest() {
   };
 }
 
-const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest };
+/* 大員古堡（五上社會 看見福爾摩沙）：仿熱蘭遮城的紅磚稜堡（兩層、四角突出的稜堡），
+   前面是潟湖，三桅帆船在水上搖、城上的旗子飄 */
+function fort() {
+  const k = new Kit();
+  const brick = '#b5523b', brick2 = '#97412f', top = '#c9a27a';
+  k.cyl(5.0, 5.4, 0.3, 16, C.sand2, {});
+  k.cyl(2.5, 2.6, 0.06, 16, C.sand, { p: [1.7, 0.3, 2.7] });            // 沙洲
+  // 下層城牆＋四角稜堡
+  const lw = 5.4, ld = 3.8, lz = -1.3;
+  k.box(lw, 1.6, ld, brick, { p: [0, 0.3, lz] });
+  k.box(lw + 0.2, 0.2, ld + 0.2, top, { p: [0, 1.9, lz] });
+  for (const x of [-lw / 2, lw / 2]) for (const z of [lz - ld / 2, lz + ld / 2]) {
+    k.box(1.5, 1.8, 1.5, brick2, { p: [x, 0.3, z], r: [0, Math.PI / 4, 0] });
+    k.box(1.6, 0.2, 1.6, top, { p: [x, 2.1, z], r: [0, Math.PI / 4, 0] });
+  }
+  for (let x = -2.2; x <= 2.2; x += 0.73) k.box(0.36, 0.34, 0.3, brick2, { p: [x, 2.1, lz + ld / 2 - 0.05] });   // 垛口
+  // 城門與砲口
+  k.box(1.1, 1.2, 0.1, C.dark, { p: [0, 0.3, lz + ld / 2 + 0.01] });
+  k.cyl(0.55, 0.55, 0.1, 12, C.dark, { c: true, r: [Math.PI / 2, 0, 0], p: [0, 1.5, lz + ld / 2 + 0.01] });
+  for (const x of [-1.6, 1.6]) k.cyl(0.13, 0.15, 0.9, 8, '#3a3f4c', { c: true, r: [Math.PI / 2, 0, 0], p: [x, 2.2, lz + ld / 2 + 0.35] });
+  // 上層城堡
+  const uw = 3.2, ud = 2.4, uz = -1.6;
+  k.box(uw, 1.4, ud, brick, { p: [0, 2.1, uz] });
+  k.box(uw + 0.2, 0.18, ud + 0.2, top, { p: [0, 3.5, uz] });
+  for (const x of [-uw / 2, uw / 2]) for (const z of [uz - ud / 2, uz + ud / 2]) k.box(0.9, 1.6, 0.9, brick2, { p: [x, 2.1, z], r: [0, Math.PI / 4, 0] });
+  for (const x of [-0.9, 0, 0.9]) k.box(0.36, 0.55, 0.08, C.window, { p: [x, 2.6, uz + ud / 2 + 0.01] });
+  // 城上的白色瞭望房
+  k.box(1.3, 1.0, 1.1, C.white, { p: [-0.6, 3.68, uz - 0.2] });
+  k.cone(1.05, 0.8, 4, C.roof, { p: [-0.6, 4.68, uz - 0.2], r: [0, Math.PI / 4, 0] });
+  k.cyl(0.05, 0.05, 2.6, 5, C.wood2, { p: [1.0, 3.68, uz] });            // 旗桿
+  // 小船碼頭
+  k.box(0.5, 0.12, 1.8, C.wood, { p: [-0.6, 0.38, 1.6] });
+  const group = k.build();
+  // 潟湖
+  const water = new THREE.Mesh(new THREE.CircleGeometry(2.25, 32).rotateX(-Math.PI / 2), waterMaterial());
+  water.position.set(1.7, 0.4, 2.7); water.receiveShadow = true; group.add(water);
+  // 旗子（紅白藍三色）
+  const flagG = new THREE.Group(); flagG.position.set(1.0, 5.85, uz);
+  const fk = new Kit();
+  ['#d6362f', C.white, '#2f55b5'].forEach((c, i) => fk.box(1.0, 0.18, 0.04, c, { p: [0.52, -i * 0.18, 0] }));
+  flagG.add(fk.build({ cast: false })); group.add(flagG);
+  // 三桅帆船
+  const ship = new THREE.Group();
+  const sk = new Kit();
+  sk.box(2.2, 0.45, 0.8, C.wood2, {});
+  sk.box(0.7, 0.35, 0.82, C.wood, { p: [-0.75, 0.45, 0] });
+  for (const [x, h] of [[-0.55, 1.6], [0.15, 2.0], [0.8, 1.4]]) {
+    sk.cyl(0.04, 0.05, h, 5, C.wood2, { p: [x, 0.45, 0] });
+    sk.box(0.08, h * 0.5, 0.75 * (h / 2), C.white, { p: [x + 0.07, 0.45 + h * 0.4, 0] });
+  }
+  ship.add(sk.build({ cast: false })); group.add(ship);
+  return {
+    group, top: 7.0, flag: [-3.8, 0.3, 1.6],
+    update(t) {
+      ship.position.set(2.0 + Math.sin(t * 0.3) * 0.5, 0.42 + Math.sin(t * 1.6) * 0.04, 2.9);
+      ship.rotation.set(Math.sin(t * 1.3) * 0.05, -0.5, Math.sin(t * 1.1) * 0.04);
+      flagG.rotation.y = Math.sin(t * 2.2) * 0.25;
+    },
+  };
+}
+
+const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort };
 export function buildLandmark(terrain) { return (BUILDERS[terrain] || generic)(); }
 export const LANDMARK_KEYS = Object.keys(BUILDERS);
 

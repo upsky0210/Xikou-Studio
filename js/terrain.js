@@ -26,6 +26,7 @@
     isle: { label: '湖島', color: '#2e8fc9' },
     street: { label: '街角', color: '#e07a2a' },
     fest: { label: '廣場', color: '#d63f6c' },
+    fort: { label: '古堡', color: '#b5523b' },
     generic: { label: '城鎮', color: '#6d7a99' },
   };
   function get(key) {

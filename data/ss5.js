@@ -13,20 +13,24 @@ const SS5 = {
  "note": "題目依南一五上社會各課的課本內容編寫，資料題的表格整理自課本；部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0）。",
  "zones": [
   {
-   "name": "臺灣！我來了",
-   "unit": "臺灣！我來了"
+   "name": "誕生之島",
+   "unit": "臺灣！我來了",
+   "terrain": "isle"
   },
   {
-   "name": "島嶼上的生活樣貌",
-   "unit": "島嶼上的生活樣貌"
+   "name": "祭典廣場",
+   "unit": "島嶼上的生活樣貌",
+   "terrain": "fest"
   },
   {
-   "name": "臺灣的物產資源",
-   "unit": "臺灣的物產資源"
+   "name": "糖廠磨坊",
+   "unit": "臺灣的物產資源",
+   "terrain": "mill"
   },
   {
-   "name": "看見福爾摩沙",
-   "unit": "看見福爾摩沙"
+   "name": "大員古堡",
+   "unit": "看見福爾摩沙",
+   "terrain": "fort"
   }
  ],
  "levels": [
