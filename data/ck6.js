@@ -22,16 +22,24 @@ const CK6 = {
  "note": "題目依康軒六上國語各課的學習重點自行編寫；文意題所附短文為依課文大意改寫之原創文字，非課文原文。",
  "zones": [
   {
-   "name": "擷取品格的珍寶"
+   "name": "品格寶石礦坑",
+   "unit": "擷取品格的珍寶",
+   "terrain": "mine"
   },
   {
-   "name": "品嘗美食的滋味"
+   "name": "夜市美食街",
+   "unit": "品嘗美食的滋味",
+   "terrain": "nightmarket"
   },
   {
-   "name": "展現思辨的智慧"
+   "name": "空城計城樓",
+   "unit": "展現思辨的智慧",
+   "terrain": "citygate"
   },
   {
-   "name": "擁抱經典的真情"
+   "name": "耶誕廣場",
+   "unit": "擁抱經典的真情",
+   "terrain": "fest"
   }
  ],
  "levels": [

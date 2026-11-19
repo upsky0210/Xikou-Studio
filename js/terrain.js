@@ -29,6 +29,8 @@
     fort: { label: '古堡', color: '#b5523b' },
     gallery: { label: '美術館', color: '#d9467a' },
     forest: { label: '山林', color: '#2f7a3f' },
+    nightmarket: { label: '美食街', color: '#e0912a' },
+    citygate: { label: '城樓', color: '#b8342d' },
     generic: { label: '城鎮', color: '#6d7a99' },
   };
   function get(key) {

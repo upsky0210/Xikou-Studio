@@ -12,6 +12,7 @@
    英語（en6）：school 回憶校園、clocktower 時光鐘塔、isle 旅行湖島、street 問路街角、fest 節慶廣場
    五上社會（ss5）：isle 誕生之島、fest 祭典廣場、mill 糖廠磨坊、fort 大員古堡（新做）
    五上國語（ck5）：weather 空拍氣象台、gallery 美術館（新做）、garden 成長花園、forest 黑熊山林（新做）
+   六上國語（ck6）：mine 品格寶石礦坑、nightmarket 夜市美食街（新做）、citygate 空城計城樓（新做）、fest 耶誕廣場
    每個地標的原點在地面中心，正面朝 +z（鏡頭那一邊）。
    回傳 { group, top（標籤放多高）, flag（徽章旗插在哪）, update(t, dt), setState? } */
 import { THREE, Kit, MAT, toonMat, waterMaterial, rng, matrixOf } from './kit.js';
@@ -1157,7 +1158,96 @@ function forest() {
   };
 }
 
-const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort, gallery, forest };
+/* 夜市美食街（六上國語 品嘗美食的滋味）：一排小吃攤（彩色雨棚、冒煙的鍋子）、一杯巨大的珍珠奶茶、會變色的燈串 */
+function nightmarket() {
+  const k = new Kit();
+  k.cyl(4.8, 5.1, 0.3, 16, '#d8cdb8', {});
+  const stalls = [[-3.0, '#e5493d'], [-0.9, '#ffc533'], [1.2, '#3f87de']];
+  for (const [x, c] of stalls) {
+    k.box(1.8, 1.0, 1.1, C.wood, { p: [x, 0.3, -1.8] });
+    k.box(1.9, 0.08, 1.2, C.wood2, { p: [x, 1.3, -1.8] });
+    for (const sx of [-0.85, 0.85]) k.cyl(0.05, 0.05, 1.6, 5, C.metal, { p: [x + sx, 1.3, -1.3] });
+    for (let i = 0; i < 4; i++) k.box(0.48, 0.12, 1.5, i % 2 ? C.white : c, { p: [x - 0.72 + i * 0.48, 2.85, -1.75], r: [0.25, 0, 0] });
+    k.box(1.4, 0.32, 0.06, c, { p: [x, 2.2, -1.22], glow: true });                // 招牌
+  }
+  // 冒煙的鍋（鼎邊趖）、蒸籠（肉圓）
+  k.cyl(0.4, 0.3, 0.3, 10, '#3a3f4c', { p: [-3.0, 1.38, -1.8] });
+  k.cyl(0.36, 0.36, 0.04, 10, '#f2e6c8', { p: [-3.0, 1.66, -1.8] });
+  for (const dz of [-0.2, 0.2]) k.cyl(0.32, 0.32, 0.24, 10, '#c9a36a', { p: [-0.9 + dz * 2, 1.38, -1.8] });
+  // 桌椅
+  for (const x of [-2.4, -0.4]) {
+    k.cyl(0.45, 0.45, 0.06, 10, C.white, { p: [x, 0.95, 1.2] });
+    k.cyl(0.06, 0.06, 0.65, 5, C.metal, { p: [x, 0.3, 1.2] });
+    for (const dx of [-0.65, 0.65]) k.cyl(0.18, 0.18, 0.4, 8, '#e5493d', { p: [x + dx, 0.3, 1.2] });
+    k.cyl(0.14, 0.12, 0.12, 8, C.white, { p: [x, 1.01, 1.2] });
+  }
+  // 巨大的珍珠奶茶
+  const bx = 2.9, bz = 1.4;
+  k.cyl(1.05, 0.85, 2.8, 16, '#d9b38c', { p: [bx, 0.3, bz] });
+  for (let i = 0; i < 9; i++) { const a = i * 0.7; k.ball(0.17, 0, '#2b2730', { p: [bx + Math.cos(a) * 0.62, 0.55 + (i % 3) * 0.22, bz + Math.sin(a) * 0.62] }); }
+  k.cyl(1.12, 1.12, 0.12, 16, C.white, { p: [bx, 3.1, bz] });
+  k.ball(1.0, 1, C.white, { p: [bx, 3.2, bz], s: [1.05, 0.3, 1.05] });
+  k.cyl(0.1, 0.1, 1.8, 6, '#ff7be0', { p: [bx + 0.3, 3.2, bz], r: [0, 0, -0.25] });
+  const gm = new THREE.MeshBasicMaterial({ vertexColors: true });
+  const group = k.build({ glowMat: gm });
+  const bulbs = [];
+  for (let i = 0; i < 8; i++) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6), new THREE.MeshBasicMaterial({ color: '#ffd75e' })); m.position.set(-3.8 + i * 0.85, 3.6 - Math.sin((i / 7) * Math.PI) * 0.4, -1.0); m.raycast = () => {}; group.add(m); bulbs.push(m); }
+  const steamMat = new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.7 });
+  const steam = [0, 1, 2].map(() => { const m = new THREE.Mesh(new THREE.IcosahedronGeometry(0.18, 0), steamMat); m.raycast = () => {}; group.add(m); return m; });
+  return {
+    group, top: 6.2, flag: [-3.8, 0.3, 2.4],
+    update(t) {
+      bulbs.forEach((b, i) => b.material.color.setHSL((0.05 + i * 0.12 + t * 0.05) % 1, 0.9, 0.6));
+      steam.forEach((m, i) => { const u = (t * 0.45 + i / 3) % 1; m.position.set(-3.0 + Math.sin(u * 6 + i) * 0.15, 1.7 + u * 1.0, -1.8); m.scale.setScalar(0.6 + u); });
+      const v = 0.85 + 0.15 * Math.sin(t * 2); gm.color.setRGB(v, v, v);
+    },
+  };
+}
+
+/* 空城計城樓（六上國語 展現思辨的智慧）：城門大開的古城牆，城樓上孔明坐著彈琴，音符往上飄 */
+function citygate() {
+  const k = new Kit();
+  const wall = '#b9a98f', wall2 = '#a2937a', red = '#b8342d', tile = '#3d4a5c';
+  k.cyl(4.8, 5.1, 0.3, 16, '#cfc2a3', {});
+  k.box(8.6, 2.6, 2.2, wall, { p: [0, 0.3, -1.6] });                    // 城牆
+  for (let x = -4.0; x <= 4.0; x += 0.8) if (Math.abs(x) > 1.3) k.box(0.42, 0.4, 0.3, wall2, { p: [x, 2.9, -0.6] });
+  k.box(1.6, 1.9, 0.1, C.dark, { p: [0, 0.3, -0.49] });                   // 大開的城門
+  k.cyl(0.8, 0.8, 0.1, 14, C.dark, { c: true, t0: -Math.PI / 2, tl: Math.PI, r: [Math.PI / 2, 0, 0], p: [0, 2.2, -0.49] });
+  for (const [x, ry] of [[-1.15, -0.9], [1.15, 0.9]]) k.box(0.8, 1.9, 0.12, '#8a4b2c', { p: [x, 0.3, -0.15], r: [0, ry, 0] });   // 門板往外開
+  // 城樓
+  k.box(3.6, 0.2, 1.8, wall2, { p: [0, 2.9, -1.7] });
+  for (const x of [-1.5, -0.5, 0.5, 1.5]) k.cyl(0.1, 0.1, 1.5, 6, red, { p: [x, 3.1, -1.0] });
+  k.box(3.2, 1.2, 1.0, '#e7dcc4', { p: [0, 3.1, -2.1] });
+  k.cone(3.3, 0.9, 4, tile, { p: [0, 4.55, -1.7], s: [1.0, 1, 0.62], r: [0, Math.PI / 4, 0] });       // 下層屋簷
+  k.box(2.4, 0.5, 1.0, '#e7dcc4', { p: [0, 5.1, -1.8] });
+  k.cone(2.2, 0.9, 4, tile, { p: [0, 5.55, -1.8], s: [1.0, 1, 0.6], r: [0, Math.PI / 4, 0] });       // 上層屋頂
+  k.box(1.8, 0.14, 0.14, tile, { p: [0, 6.38, -1.8] });
+  for (const x of [-0.95, 0.95]) k.cone(0.1, 0.4, 5, C.gold2, { p: [x, 6.38, -1.8] });
+  // 孔明和琴
+  k.box(1.4, 0.12, 0.4, C.wood2, { p: [0, 3.45, -0.5] });
+  for (const x of [-0.58, 0.58]) k.box(0.08, 0.35, 0.3, C.wood2, { p: [x, 3.1, -0.5] });
+  for (let i = 0; i < 5; i++) k.box(1.2, 0.02, 0.02, C.gold, { p: [0, 3.58, -0.62 + i * 0.06] });   // 琴弦
+  k.cone(0.5, 0.85, 8, C.white, { p: [0, 3.1, -1.05] });
+  k.ball(0.24, 1, '#f1c9a0', { p: [0, 4.1, -1.05] });
+  k.box(0.36, 0.26, 0.36, '#2b2730', { p: [0, 4.28, -1.05] });
+  k.box(0.08, 0.5, 0.36, '#f4efe4', { p: [0.48, 3.7, -0.95], r: [0, 0, -0.5] });   // 羽扇
+  // 旗子
+  for (const x of [-3.6, 3.6]) { k.cyl(0.04, 0.04, 1.6, 5, C.wood2, { p: [x, 2.9, -1.2] }); k.box(0.6, 0.45, 0.04, '#e5493d', { p: [x + 0.32, 4.0, -1.2] }); }
+  // 城外的路和柳樹
+  k.box(1.6, 0.04, 3.4, '#e4d6b4', { p: [0, 0.3, 1.5] });
+  for (const x of [-2.8, 2.8]) { k.cyl(0.12, 0.15, 1.0, 5, C.wood2, { p: [x, 0.3, 1.6] }); k.ball(0.75, 1, C.leaf2, { p: [x, 1.6, 1.6], s: [1, 1.2, 1] }); }
+  const group = k.build();
+  const noteMat = new THREE.MeshBasicMaterial({ color: '#2b2730' });
+  const notes = [0, 1, 2].map(() => { const g = new THREE.Group(); const head = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6), noteMat); head.scale.set(1.2, 0.9, 0.6); const stem = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.32, 0.03), noteMat); stem.position.set(0.1, 0.16, 0); g.add(head, stem); g.traverse((m) => { m.raycast = () => {}; }); group.add(g); return g; });
+  return {
+    group, top: 6.4, flag: [-3.8, 0.3, 1.6],
+    update(t) {
+      notes.forEach((g, i) => { const u = (t * 0.3 + i / 3) % 1; g.position.set(0.5 + Math.sin(u * 5 + i) * 0.4 + i * 0.3, 3.8 + u * 2.0, -0.2); g.visible = u < 0.9; });
+    },
+  };
+}
+
+const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort, gallery, forest, nightmarket, citygate };
 export function buildLandmark(terrain) { return (BUILDERS[terrain] || generic)(); }
 export const LANDMARK_KEYS = Object.keys(BUILDERS);
 
