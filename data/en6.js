@@ -42,7 +42,6 @@ const EN6 = {
    "z": 0,
    "name": "字彙與聽力",
    "lesson": "Unit 1",
-   "draft": true,
    "intro": "昨天做了什麼：played the recorder、cooked dinner、walked the dog 等動詞片語，聽音選字與聽短句。",
    "q": [
     [
@@ -177,7 +176,6 @@ const EN6 = {
    "z": 0,
    "name": "句型與文法",
    "lesson": "Unit 1",
-   "draft": true,
    "intro": "What did you do yesterday? Did you…? Yes, I did. / No, I didn't. 規則動詞過去式與時間詞。",
    "q": [
     [
@@ -313,7 +311,6 @@ const EN6 = {
    "z": 0,
    "name": "發音與閱讀",
    "lesson": "Unit 1",
-   "draft": true,
    "intro": "-ed 的三種讀音 [d] [t] [ɪd]；故事理解與推論（Make Inferences）。",
    "q": [
     [
@@ -445,7 +442,6 @@ const EN6 = {
    "z": 1,
    "name": "字彙與聽力",
    "lesson": "Unit 2",
-   "draft": true,
    "intro": "had breakfast、went shopping、did the dishes 等不規則動詞片語，聽音選字與聽時間。",
    "q": [
     [
@@ -580,7 +576,6 @@ const EN6 = {
    "z": 1,
    "name": "句型與文法",
    "lesson": "Unit 2",
-   "draft": true,
    "intro": "What time did you…? I … at six o'clock. 不規則動詞過去式（do→did、have→had、go→went）。",
    "q": [
     [
@@ -720,7 +715,6 @@ const EN6 = {
    "z": 1,
    "name": "發音與閱讀",
    "lesson": "Unit 2",
-   "draft": true,
    "intro": "-ing 與 -ong 的讀音；故事理解與對比（Contrast）。",
    "q": [
     [
@@ -852,7 +846,6 @@ const EN6 = {
    "z": 1,
    "name": "綜合複習",
    "lesson": "Review 1",
-   "draft": true,
    "intro": "Unit 1、Unit 2 的字彙、句型與發音綜合練習。",
    "q": [
     [
@@ -975,7 +968,6 @@ const EN6 = {
    "z": 2,
    "name": "字彙與聽力",
    "lesson": "Unit 3",
-   "draft": true,
    "intro": "island、forest、beach、hot spring、lake、river、mountain 等地點，聽音選字與聽旅遊對話。",
    "q": [
     [
@@ -1110,7 +1102,6 @@ const EN6 = {
    "z": 2,
    "name": "句型與文法",
    "lesson": "Unit 3",
-   "draft": true,
    "intro": "Where did you go last weekend? I went to the … Did you go to …? 過去時間詞。",
    "q": [
     [
@@ -1246,7 +1237,6 @@ const EN6 = {
    "z": 2,
    "name": "發音與閱讀",
    "lesson": "Unit 3",
-   "draft": true,
    "intro": "y 的三種讀音：y- [j]、-y [aɪ]、-y [ɪ]；故事理解與指稱（Reference）。",
    "q": [
     [
@@ -1378,7 +1368,6 @@ const EN6 = {
    "z": 3,
    "name": "字彙與聽力",
    "lesson": "Unit 4",
-   "draft": true,
    "intro": "tea shop、science museum、MRT station、convenience store 等場所，聽音選字與聽問路。",
    "q": [
     [
@@ -1513,7 +1502,6 @@ const EN6 = {
    "z": 3,
    "name": "句型與文法",
    "lesson": "Unit 4",
-   "draft": true,
    "intro": "Where is the …? It's next to / across from / between … and … / on … Street. Is the … next to …?",
    "q": [
     [
@@ -1690,7 +1678,6 @@ const EN6 = {
    "z": 3,
    "name": "發音與閱讀",
    "lesson": "Unit 4",
-   "draft": true,
    "intro": "al、au、aw 的讀音；故事理解與心智圖（Mind Map）。",
    "q": [
     [
@@ -1822,7 +1809,6 @@ const EN6 = {
    "z": 3,
    "name": "綜合複習",
    "lesson": "Review 2",
-   "draft": true,
    "intro": "Unit 3、Unit 4 的字彙、句型與發音綜合練習。",
    "q": [
     [
@@ -1962,7 +1948,6 @@ const EN6 = {
    "z": 4,
    "name": "世界節慶",
    "lesson": "Culture & Festivals",
-   "draft": true,
    "intro": "十二個月份與世界各地的節慶。",
    "q": [
     [

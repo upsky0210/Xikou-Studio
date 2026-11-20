@@ -39,7 +39,6 @@ const EN5 = {
    "z": 0,
    "name": "字彙與聽力",
    "lesson": "Unit 1",
-   "draft": true,
    "intro": "八個國家的英文：Australia、Canada、France、India、Japan、Taiwan、the UK、the USA，還有故事裡的 whale、dolphin。",
    "q": [
     [
@@ -174,7 +173,6 @@ const EN5 = {
    "z": 0,
    "name": "句型與文法",
    "lesson": "Unit 1",
-   "draft": true,
    "intro": "Where are you from? I'm from Japan. Is he from the USA? Yes, he is. / No, he's not. be 動詞要跟著主詞變，人名、國名要大寫。",
    "q": [
     [
@@ -314,7 +312,6 @@ const EN5 = {
    "z": 0,
    "name": "發音與閱讀",
    "lesson": "Unit 1",
-   "draft": true,
    "intro": "er、ir、ur 的念法一樣；讀短文找出細節（Find Details），再回想賞鯨的故事。",
    "q": [
     [
@@ -446,7 +443,6 @@ const EN5 = {
    "z": 1,
    "name": "字彙與聽力",
    "lesson": "Unit 2",
-   "draft": true,
    "intro": "生病的說法：cold、cough、fever、headache、toothache、stomachache、runny nose、sore throat。",
    "q": [
     [
@@ -581,7 +577,6 @@ const EN5 = {
    "z": 1,
    "name": "句型與文法",
    "lesson": "Unit 2",
-   "draft": true,
    "intro": "What's wrong? I have a headache. He has a fever. 用 Do you 或 Does he／she 提問時，後面用原形 have。",
    "q": [
     [
@@ -721,7 +716,6 @@ const EN5 = {
    "z": 1,
    "name": "發音與閱讀",
    "lesson": "Unit 2",
-   "draft": true,
    "intro": "分辨 car 的 ar 和 corn 的 or；用疑問詞（Question Words）讀懂短文，再回想 Joe 感冒的故事。",
    "q": [
     [
@@ -853,7 +847,6 @@ const EN5 = {
    "z": 1,
    "name": "綜合複習",
    "lesson": "Review 1",
-   "draft": true,
    "intro": "Unit 1～2 一起複習：國家、生病的說法、問從哪裡來和哪裡不舒服。",
    "q": [
     [
@@ -979,7 +972,6 @@ const EN5 = {
    "z": 2,
    "name": "字彙與聽力",
    "lesson": "Unit 3",
-   "draft": true,
    "intro": "食物的英文：pizza、rice、soup、steak、sandwiches、dumplings、French fries、noodles。",
    "q": [
     [
@@ -1114,7 +1106,6 @@ const EN5 = {
    "z": 2,
    "name": "句型與文法",
    "lesson": "Unit 3",
-   "draft": true,
    "intro": "What would you like to eat? I'd like some dumplings, please. Would you like some sandwiches? Yes, please. / No, thank you.",
    "q": [
     [
@@ -1253,7 +1244,6 @@ const EN5 = {
    "z": 2,
    "name": "發音與閱讀",
    "lesson": "Unit 3",
-   "draft": true,
    "intro": "oi、oy 的念法；照順序讀懂步驟（Sequence），再回想從農場到餐桌的故事。",
    "q": [
     [
@@ -1385,7 +1375,6 @@ const EN5 = {
    "z": 3,
    "name": "字彙與聽力",
    "lesson": "Unit 4",
-   "draft": true,
    "intro": "一天的作息：get up、have breakfast、go to school、have lunch、go home、do my homework、have dinner、go to bed。",
    "q": [
     [
@@ -1520,7 +1509,6 @@ const EN5 = {
    "z": 3,
    "name": "句型與文法",
    "lesson": "Unit 4",
-   "draft": true,
    "intro": "What time do you get up? I get up at six thirty. Do you have lunch at twelve? Yes, I do. / No, I don't.",
    "q": [
     [
@@ -1660,7 +1648,6 @@ const EN5 = {
    "z": 3,
    "name": "發音與閱讀",
    "lesson": "Unit 4",
-   "draft": true,
    "intro": "ou、ow 的念法；找出問題和解決方法（Problem and Solution），再回想早上那通電話的故事。",
    "q": [
     [
@@ -1792,7 +1779,6 @@ const EN5 = {
    "z": 3,
    "name": "綜合複習",
    "lesson": "Review 2",
-   "draft": true,
    "intro": "Unit 3～4 一起複習：食物、點餐的說法、一天的作息和時間。",
    "q": [
     [
