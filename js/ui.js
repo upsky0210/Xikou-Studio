@@ -117,6 +117,9 @@
         return w.length >= 3 ? w.map((x) => ({ who: t.who, text: x, word: true })) : [t];
       });
       if (btn) { lit = btn; btn.classList.add('on'); }
+      // opt.onstate('start'|'end'|'fail')：真的開始出聲、念完、沒出聲（4 秒內都沒開始念，或念到一半出錯）
+      let started = false;
+      const fire = (st) => { if (my === seq && opt.onstate) opt.onstate(st); };
       // 每一段都在按按鈕當下排進佇列（iPad 只准按按鈕時出聲，不能等上一段念完才 speak）
       keep = list.map((t, i) => {
         const st = styleFor(t.who);
@@ -124,33 +127,42 @@
         if (st.voice) { u.voice = st.voice; u.lang = st.voice.lang; } else u.lang = 'en-US';
         u.rate = t.word ? Math.max(rate || 0.85, 0.8) : rate || 0.85;   // 一字一字念時單字本身不用拖太慢
         u.pitch = st.pitch;
-        u.onend = () => { if (my === seq && i === list.length - 1) off(); };
+        u.onstart = () => { if (!started) { started = true; fire('start'); } };
+        u.onend = () => { if (my === seq && i === list.length - 1) { off(); fire('end'); } };
         u.onerror = (e) => {
           if (my !== seq || e.error === 'canceled' || e.error === 'interrupted') return;
           if (st.voice && !st.voice.localService && !opt.retry) { netBad = true; speak(text, rate, btn, { ...opt, retry: true }); return; }
-          off();
+          off(); fire('fail');
         };
         return u;
       });
       keep.forEach((u) => speechSynthesis.speak(u));
+      setTimeout(() => { if (my === seq && !started) { speechSynthesis.cancel(); off(); fire('fail'); } }, 4000);
     }
     // 只剩舊版或沒有清楚語音時，畫面提醒（語音還沒載入時先不判斷）
     const poor = () => ok && !!main && (LEGACY.test(main.name) || score(main) < 10);
-    return { ok, speak, stop, poor };
+    // 畫面上標出用的是哪一種英語（語音還沒載入時寫「瀏覽器預設」）
+    const accent = () => { if (ok && !main) pick(); return !main ? '瀏覽器預設英語' : /^en[-_]US/i.test(main.lang) ? '美式英語（en-US）' : /^en[-_]GB/i.test(main.lang) ? '英式英語（en-GB）' : '英語（' + main.lang + '）'; };
+    // 裝置上一個英語語音都沒有：有些瀏覽器照樣回報「念完了」，其實沒有聲音
+    const silent = () => ok && !speechSynthesis.getVoices().some((v) => /^en([-_]|$)/i.test(v.lang));
+    return { ok, speak, stop, poor, accent, silent };
   })();
   const isListen = (a) => !!a && (typeof a.listen === 'string' || a.speakOptions === true);
   // 聽力附件：播放、慢速播放；speakOptions 時每個選項 A～D 都能點來聽；答對後才顯示念的內容
-  function listenHTML(a, q, solved) {
+  function listenHTML(a, q, solved, plays = 0, shown = false) {
     const rate = a.rate || 0.85, slow = Math.max(0.5, Math.round(rate * 70) / 100);
     return `<div class="attach listen"><div class="attach-hd">${ICON.speaker} 聽力</div><div class="listen-body">
-      ${a.listen ? `<div class="say-row"><button class="btn gold say" type="button" data-say="main" data-rate="${rate}">${ICON.speaker} 播放</button>
-        <button class="btn say" type="button" data-say="main" data-rate="${slow}" data-words="1">慢速播放</button></div>
-        <p class="listen-tip">可以重複播放，聽清楚再作答。</p>` : ''}
+      ${a.listen ? `<div class="say-row"><button class="btn gold say" type="button" data-say="main" data-rate="${rate}">${ICON.speaker} <span class="lbl">播放</span></button>
+        <button class="btn say" type="button" data-say="main" data-rate="${slow}" data-words="1"><span class="lbl">慢速播放</span></button></div>
+        <p class="listen-tip">可以重複播放，聽清楚再作答。<span class="play-n">${plays ? `已播放 ${plays} 次。` : ''}</span></p>` : ''}
+      <p class="listen-meta">語音：<span class="accent">${Say.ok ? Say.accent() : '無'}</span>${a.listen ? `・播放 ${rate} 倍速・慢速 ${slow} 倍速（一個字一個字念）` : ''}</p>
       ${a.speakOptions ? `<div class="say-opts"><span>點選項聽聽看</span>${q.options.map((_, k) =>
         `<button class="say-k" type="button" data-say="opt" data-k="${k}" aria-label="念出選項 ${'ABCD'[k]}">${ICON.speaker}<b>${'ABCD'[k]}</b></button>`).join('')}</div>` : ''}
       ${Say.ok ? (Say.poor() ? '<p class="listen-warn">這台裝置的英語語音比較不清楚。聽不清楚可以按「慢速播放」，或換一台有網路的裝置。</p>' : '')
         : '<p class="listen-warn">這台裝置不能播放語音。請換一台裝置，或請老師念給你聽。</p>'}
-      ${solved && a.listen ? `<p class="listen-script"><b>剛剛念的是：</b><span lang="en">${esc(a.listen)}</span></p>` : ''}
+      <div class="listen-fail"${Say.ok && !(plays && Say.silent()) ? ' hidden' : ''}><p class="listen-warn">沒有聽到聲音嗎？這台裝置可能沒有英語語音，或是聲音被關掉了。先檢查音量；還是不行，可以看文字作答。</p>
+        ${a.listen && !solved && !shown ? '<button class="btn show-script" type="button">看文字</button>' : ''}</div>
+      ${(solved || shown) && a.listen ? `<p class="listen-script"><b>剛剛念的是：</b><span lang="en">${esc(a.listen)}</span></p>` : ''}
     </div></div>`;
   }
 
@@ -579,7 +591,7 @@
         <section class="win qcard">
           <div class="ribbon">第 ${i + 1} 題</div>
           <div class="qhd">${qTagOf(book, i) ? `<span class="tag lit">${esc(qTagOf(book, i))}</span>` : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
-          ${isListen(q.attach) ? listenHTML(q.attach, q, solved) : attachHTML(q.attach)}
+          ${isListen(q.attach) ? listenHTML(q.attach, q, solved, (run.plays || {})[i] || 0, !!(run.scriptShown || {})[i]) : attachHTML(q.attach)}
           <p class="stem">${rich(q.stem)}</p>
           <div class="opts${short ? ' two' : ''}">${opts}</div>
           <div aria-live="polite">${fb}</div>
@@ -614,10 +626,28 @@
         app.querySelectorAll('#waitTxt, .lockbar').forEach((el) => el.remove());
       }, wait + 30);
     }
+    // 播放：按鈕顯示「播放中…」（css 的 .say.on）、記播放次數、4 秒都沒出聲就跳出「沒有聽到聲音嗎？」和「看文字」
+    const r0 = run;
     app.querySelectorAll('[data-say]').forEach((b) => {
-      b.onclick = () => Say.speak(b.dataset.say === 'opt' ? plain(q.options[+b.dataset.k]) : q.attach.listen,
-        +b.dataset.rate || q.attach.rate, b, { words: b.dataset.words === '1' });
+      b.onclick = () => {
+        const main = b.dataset.say === 'main';
+        Say.speak(main ? q.attach.listen : plain(q.options[+b.dataset.k]), +b.dataset.rate || q.attach.rate, b, {
+          words: b.dataset.words === '1',
+          onstate: (st) => {
+            if (run !== r0 || r0.index !== i) return;
+            const ac = app.querySelector('.listen-meta .accent'); if (ac) ac.textContent = Say.accent();
+            if (st === 'start' && main) {
+              r0.plays = r0.plays || {}; r0.plays[i] = (r0.plays[i] || 0) + 1;
+              const n = app.querySelector('.play-n'); if (n) n.textContent = `已播放 ${r0.plays[i]} 次。`;
+            }
+            const f = app.querySelector('.listen-fail');
+            if (f) f.hidden = st !== 'fail' && !Say.silent() && f.hidden;
+          },
+        });
+      };
     });
+    const ss = app.querySelector('.show-script');
+    if (ss) ss.onclick = () => { run.scriptShown = run.scriptShown || {}; run.scriptShown[i] = true; renderQuestion(book, feedback && !feedback.ok ? feedback : null); };
     const hb = $('#hint');
     if (hb) hb.onclick = () => {
       Engine.revealHint(state, run);

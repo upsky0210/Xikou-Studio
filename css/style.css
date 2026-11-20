@@ -340,6 +340,11 @@ body.mode-play #app { min-height: 100vh; padding: 0 0 40px; }
 .say-k:active { transform: translateY(2px); }
 .say-k .i { width: 20px; height: 20px; }
 .listen-warn { color: var(--ruby-2); font-weight: 800; }
+.say.on .lbl { display: none; }
+.say.on::after { content: '播放中…'; }
+.listen-meta { font-size: 14px; color: var(--ink-2); font-weight: 700; }
+.listen-fail { display: grid; gap: 8px; justify-items: start; }
+.listen-fail[hidden] { display: none; }
 .listen-script { font-size: 18px; line-height: 1.5; background: #f1fff8; border-radius: 12px; padding: 8px 12px !important; }
 .listen-script span { font-weight: 800; }
 .attach.fig img { display: block; max-width: 100%; height: auto; margin: 12px auto; }
