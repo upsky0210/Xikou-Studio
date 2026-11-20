@@ -15,8 +15,8 @@ const plan = [
   lv(3, 0, '發音與閱讀', 'Unit 1', 'er、ir、ur 的念法一樣；讀短文找出細節（Find Details），再回想賞鯨的故事。'),
   // Unit 2 Having a Cold
   lv(4, 1, '字彙與聽力', 'Unit 2', '生病的說法：cold、cough、fever、headache、toothache、stomachache、runny nose、sore throat。'),
-  lv(5, 1, '句型與文法', 'Unit 2', 'What\'s wrong? I have a headache. Does he have a fever? Yes, he does. / No, he doesn\'t. 說別人時 have 要改成 has。'),
-  lv(6, 1, '發音與閱讀', 'Unit 2', 'ar、or 的念法；用疑問詞（Question Words）讀懂短文，再回想 Joe 感冒的故事。'),
+  lv(5, 1, '句型與文法', 'Unit 2', 'What\'s wrong? I have a headache. He has a fever. 用 Do you 或 Does he／she 提問時，後面用原形 have。'),
+  lv(6, 1, '發音與閱讀', 'Unit 2', '分辨 car 的 ar 和 corn 的 or；用疑問詞（Question Words）讀懂短文，再回想 Joe 感冒的故事。'),
   lv(7, 1, '綜合複習', 'Review 1', 'Unit 1～2 一起複習：國家、生病的說法、問從哪裡來和哪裡不舒服。'),
   // Unit 3 From Farm to Table
   lv(8, 2, '字彙與聽力', 'Unit 3', '食物的英文：pizza、rice、soup、steak、sandwiches、dumplings、French fries、noodles。'),

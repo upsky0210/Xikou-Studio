@@ -35,9 +35,9 @@
 | 關 | 區 z | 單元 | 關名 | 範圍（出題前回課本確認；括號是課本頁碼的大概範圍） | 批次 | 誰做 | 狀態 |
 |---|---|---|---|---|---|---|---|
 | en5-01～03 | 0 | Unit 1 Whale Watching | 字彙與聽力／句型與文法／發音與閱讀 | 國家、Where are you from?、Is he from…?、er ir ur、Find Details（pp.15–27） | U1 | CC-Opus | 2026-11-20 完成，待老師抽驗 |
-| en5-04 | 1 | Unit 2 Having a Cold | 字彙與聽力 | cold、cough、fever、headache、toothache、stomachache、runny nose、sore throat（Story pp.29–31、Vocabulary pp.32–33） | U2 | Codex | 未開始 |
-| en5-05 | 1 | Unit 2 | 句型與文法 | What's wrong? I have a headache. Does he/she have a fever? Yes, he does. / No, he doesn't. He has a cough. 第三人稱 has；Grammar Tips | U2 | Codex | 未開始 |
-| en5-06 | 1 | Unit 2 | 發音與閱讀 | Phonics ar、or（car、farm、party、corn、pork…）；Reading；Reading Skills：Question Words（p.10）；Story | U2 | Codex | 未開始 |
+| en5-04 | 1 | Unit 2 Having a Cold | 字彙與聽力 | cold、cough、fever、headache、toothache、stomachache、runny nose、sore throat（Story pp.29–31、Vocabulary pp.32–33） | U2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U2.md`） |
+| en5-05 | 1 | Unit 2 | 句型與文法 | What's wrong? I have a headache. Does he/she have a fever? Yes, he does. / No, he doesn't. He has a cough. 第三人稱 has；Grammar Tips | U2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U2.md`） |
+| en5-06 | 1 | Unit 2 | 發音與閱讀 | Phonics ar、or（car、farm、party、corn、pork…）；Reading；Reading Skills：Question Words（p.10）；Story | U2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U2.md`） |
 | en5-07 | 1 | Review 1 | 綜合複習 | Unit 1～2 的字彙、句型、發音；Find Details（pp.43–46） | R1 | Codex | 未開始 |
 | en5-08 | 2 | Unit 3 From Farm to Table | 字彙與聽力 | pizza、rice、soup、steak、sandwiches、dumplings、French fries、noodles；可數與不可數（pp.47–51） | U3 | Codex | 未開始 |
 | en5-09 | 2 | Unit 3 | 句型與文法 | What would you like to eat? I'd like some … , please. Would you like some …? Yes, please. / No, thank you.；Grammar Tips | U3 | Codex | 未開始 |
@@ -49,7 +49,9 @@
 
 - 表裡的字彙和句型是 Claude Code 從文字檔快速整理的，**出題前一定要回課本逐字核對**，不一樣就以課本為準，在自檢報告寫出差異。
 - 關名和 intro 已寫在 `drafts/en5/add-levels.mjs`，核對後可以改 intro。
-- 順序照「批次」欄：U2 → R1 → U3 → U4 → R2。一批交一次；換手時整批重做或整批接手，不留半關。
+- 順序照「批次」欄：U2 → R1 → U3 → U4 → R2。換手時整批重做或整批接手，不留半關。
+- **2026-11-20 起改成一次做完**（Unit 2 已抽查通過，老師不在位置上等）：R1、U3、U4、R2 連續做，**不用等 Claude Code 抽查**。但每一批照樣各自跑第 6 節的指令、各自寫自檢報告；做完一批才開始下一批。四批都做完再一起交。
+- 連續做的時候，Unit 2 抽查到的事一起照做：ar 和 or 念法不同，聽 ar／or 的字時，選項放另一組（聽 corn 可以放 ar）是好的對比；不要出「依課本寫法」這種英文本身有好幾種寫法都對的題（例：stomach ache 也算對的英文）。
 
 ## 3. 每關 7 題的配置（照 Unit 1 樣板）
 
@@ -85,7 +87,7 @@ save();
 
 1. **聽力（英語老師試聽六上後的教訓）**
    - 瀏覽器語音分不出 a／the、字尾 -s、-ed 讀 [t] 還是 [d]：**不要出「只差這一點」的聽音選字**。干擾項要差在聽得出來的地方（不同的字、開頭或結尾子音不同、音節數不同、明顯不同的母音）。
-   - **同音的拼法不能當成「聽得出來」的差別**：er、ir、ur 念法一樣，ar／or、oi／oy、ou／ow 也是各組同音。「聽音辨字母組合」的選項不可以同時放同音的兩組（例：聽 her 時選項不可以同時有 er 和 ir）。選項也不可以是正解拼法的一部分（聽 burn 時不可以放 u，因為 burn 裡就有 u）。
+   - **同音的拼法不能當成「聽得出來」的差別**：er、ir、ur 念法一樣，oi／oy 同音，ou／ow 同音；**ar 和 or 念法不同**（car／corn，Unit 2 已依課本修正，2026-11-20）。「聽音辨字母組合」的選項不可以同時放同音的兩組（例：聽 her 時選項不可以同時有 er 和 ir；聽 coin 時不可以同時有 oi 和 oy）。選項也不可以是正解拼法的一部分（聽 burn 時不可以放 u，因為 burn 裡就有 u）。
    - 題幹只寫指示，不寫要念的內容或正解（`check-data.mjs` 會擋）；提示也不能寫出要念的字。
    - 對話寫成 `Amy: …  Leo: …`，網站會用男女兩種聲音念。**男生名字要在 `js/ui.js` 的 `BOYS` 名單裡**才會用男聲（已加 Joe、Boka、Tommy、Ken、Nick、Luke、Tim、Mark、Josh、Raj、Dev、Ren，另有 Kevin、Tom、Ben、Leo、Sam、Peter 等）。要用名單外的男生名字，寫在自檢報告請 Claude Code 加。
    - 時間寫成念得自然的樣子：`six thirty`、`at seven o'clock`，不要寫 `6:30`。一題 `listen` 不超過 60 個字。
