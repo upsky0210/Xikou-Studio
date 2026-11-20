@@ -44,6 +44,7 @@
     book: svg('M5 3.5A2.5 2.5 0 0 1 7.5 1H20v17H7.5a1 1 0 0 0 0 2H20v2.6H7.5A2.5 2.5 0 0 1 5 20.1z'),
     gem: svg('M7 3h10l4.5 5.5L12 21.5 2.5 8.5zm1.1 2L5.7 8h3.6l1.2-3zm4.3 0l1.2 3h3.6l-2.4-3zM9.4 10H5.9l5 6.8zm5.2 0l-1.5 6.8 5-6.8zm-1 0h-3.2L12 17.2z'),
     speaker: svg('M3 9h4l5-4.5v15L7 15H3zm12.5-1.8a6 6 0 0 1 0 9.6l-1.4-1.5a4 4 0 0 0 0-6.6zm2.6-2.9a10 10 0 0 1 0 15.4l-1.4-1.5a8 8 0 0 0 0-12.4z'),
+    star: svg('M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2l-6.2 3.7 1.6-7L2 9.2l7.1-.6z'),
   };
 
   /* ---------- 英語聽力：用瀏覽器內建的英語語音朗讀（不錄音、不上網） ----------
@@ -345,8 +346,10 @@
           <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>${pairs('更多課本')}</b><span class="prog"><em>敬請期待</em></span></span></div></div>
           <p class="title-foot">題目為自編；五上數學、自然、社會部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0） · ${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
         </div>
+        <button class="credits-chip" id="creditsBtn" type="button" aria-label="製作資訊">${ICON.star}<b>CREDITS</b></button>
       </section>`;
     $('#heroChip').onclick = () => openHeroPick();
+    $('#creditsBtn').onclick = openCredits;
     // 沒登入的人：首頁就看得到登入的入口，不用去選單找
     if ($('#homeLogin')) $('#homeLogin').onclick = () => openLogin();
     // 一進站先選角色（共用的 iPad：每次打開網站，下一位同學都可以重選），選好了再問要不要登入
@@ -766,6 +769,27 @@
     $('#bbClose', modal).focus();
   }
 
+  /* ---------- 製作資訊（首頁右下角、選單） ---------- */
+  const CREDITS = [
+    ['設計者', 'Upsky（阿喵老師）'],
+    ['發想來源', 'JDPS-SS（陳煥文）'],
+    ['設計工具', 'Claude Code、Codex'],
+    ['校對工具', 'Muse、Hark Pro、Antigravity'],
+    ['聯絡資訊', '<a href="mailto:upsky@skps.tp.edu.tw">upsky@skps.tp.edu.tw</a>'],
+  ];
+  function openCredits() {
+    document.querySelectorAll('body > .modal').forEach((m) => m.remove());
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `<section class="win credits" role="dialog" aria-label="製作資訊"><div class="ribbon gold">${ICON.star} CREDITS</div>
+      <p class="credits-title">溪口練功王國<small>製作資訊</small></p>
+      <dl>${CREDITS.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+      <button class="btn gold wide" type="button" id="crClose">關閉</button></section>`;
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => { if (e.target === modal || e.target.closest('#crClose')) modal.remove(); });
+    $('#crClose', modal).focus();
+  }
+
   /* ---------- 路由 ---------- */
   async function route() {
     const seq = ++routeSeq;
@@ -843,6 +867,9 @@
     const hp = $('#heroPickBtn');
     hp.innerHTML = `${ICON.hero} 換角色（貓劍士／兔探險家）`;
     hp.onclick = () => { open(false); openHeroPick(); };
+    const cb = $('#creditsMenuBtn');
+    cb.innerHTML = `${ICON.star} 製作資訊（CREDITS）`;
+    cb.onclick = () => { open(false); openCredits(); };
     const tb = $('#threeBtn');
     tb.innerHTML = `${ICON.gem} 3D 地圖：${threeOff() ? '關（點一下打開）' : '開（點一下改成平面，比較省電）'}`;
     tb.onclick = () => {
