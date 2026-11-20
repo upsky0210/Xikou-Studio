@@ -1,7 +1,7 @@
 // 國小全科練習平台 — mk4（四上數學・康軒版）
 // 題目：依康軒四上數學教師專用課本各單元的教學目標編寫；部分題目改作自 JDPS-SS（作者陳煥文，CC BY-NC-SA 4.0，2026-11-08 授權改作），
 //   改作的題目在作者端題目檔（drafts/mk4/mk4-questions-*.json）用 source 欄位標示。本檔的題目同樣以 CC BY-NC-SA 4.0 分享。
-// zones：照課本 10 個單元各一區（主題地名和地標還沒加），最後是溪口王城。還沒寫好題目的關卡 q 是空的，地圖上顯示「尚未開放」。
+// zones：照課本 10 個單元各一區（主題地名 2026-11-20 老師選定），最後是溪口王城。
 // levels[].q 為位置陣列：[題幹, 正解, [干擾x3], [提示x3], 詳解, 附件?]；由 tools/assemble.mjs 從作者端題目檔組裝，不要手改。
 const MK4 = {
  "id": "mk4",
@@ -12,44 +12,54 @@ const MK4 = {
  "note": "題目依康軒四上數學各單元的學習重點編寫，數字和情境都是自編；部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0）。",
  "zones": [
   {
-   "name": "一億以內的數",
-   "unit": "一億以內的數"
+   "name": "大數湖島",
+   "unit": "一億以內的數",
+   "terrain": "isle"
   },
   {
-   "name": "整數的乘法",
-   "unit": "整數的乘法"
+   "name": "乘法夜市",
+   "unit": "整數的乘法",
+   "terrain": "nightmarket"
   },
   {
-   "name": "角度",
-   "unit": "角度"
+   "name": "旋轉鐘塔",
+   "unit": "角度",
+   "terrain": "clocktower"
   },
   {
-   "name": "整數的除法",
-   "unit": "整數的除法"
+   "name": "分糖磨坊",
+   "unit": "整數的除法",
+   "terrain": "mill"
   },
   {
-   "name": "公里",
-   "unit": "公里"
+   "name": "健行山林",
+   "unit": "公里",
+   "terrain": "forest"
   },
   {
-   "name": "三角形",
-   "unit": "三角形"
+   "name": "三角古堡",
+   "unit": "三角形",
+   "terrain": "fort"
   },
   {
-   "name": "小數",
-   "unit": "小數"
+   "name": "小數街角",
+   "unit": "小數",
+   "terrain": "street"
   },
   {
-   "name": "整數四則計算",
-   "unit": "整數四則計算"
+   "name": "併式鍛造坊",
+   "unit": "整數四則計算",
+   "terrain": "forge"
   },
   {
-   "name": "分數",
-   "unit": "分數"
+   "name": "分數廣場",
+   "unit": "分數",
+   "terrain": "fest"
   },
   {
-   "name": "統計圖",
-   "unit": "統計圖"
+   "name": "統計氣象台",
+   "unit": "統計圖",
+   "terrain": "weather"
   },
   {
    "name": "溪口王城",
