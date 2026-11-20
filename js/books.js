@@ -16,4 +16,5 @@ window.BOOKS = [
   { id: 'ck5', title: '五上國語', pub: '康軒版', file: 'data/ck5.js', global: 'CK5', color: '#be185d' },
   { id: 'ns5', title: '五上自然', pub: '南一版', file: 'data/ns5.js', global: 'NS5', color: '#15803d' },
   { id: 'ss5', title: '五上社會', pub: '南一版', file: 'data/ss5.js', global: 'SS5', color: '#b45309' },
+  { id: 'en5', title: '五上英語', pub: '康軒版', file: 'data/en5.js', global: 'EN5', color: '#6d28d9' },
 ];

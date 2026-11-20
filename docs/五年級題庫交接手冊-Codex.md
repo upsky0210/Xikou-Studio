@@ -44,11 +44,12 @@
 | 6 | 國語 第 1～3 課（ck5-01～03，先做三課當樣板） | CC-Fable | 11/16 完成，待老師抽驗（`drafts/ck5/自檢報告-L01-L03.md`）；題目寫在產生器 `drafts/ck5/build-L01-L03.mjs`，第 4～12 課照這個樣板做 |
 | 6-2 | 國語 第 4～12 課（ck5-04～12） | Codex | 11/16 完成，Claude Code 已對照課本檢驗（沒找到答案錯誤），待老師抽驗（`drafts/ck5/自檢報告-L04-L06.md`、`-L07-L09.md`、`-L10-L12.md`）；產生器 `drafts/ck5/build-L04-L06.mjs` 等三支，共用 `build-batch.mjs` |
 | 7 | 自然 單元一（ns5，先做一個單元當樣板） | CC-Opus | 11/17 完成 ns5-01～05 共 5 關 35 題，待老師抽驗（`drafts/ns5/自檢報告-U1.md`，報告前段有「樣板怎麼用」）；題目寫在產生器 `drafts/ns5/build-U1.mjs`；已登記書架；其餘 13 關的關卡名在 `drafts/ns5/add-levels.mjs`，題目寫好才加關 |
-| 8 | 自然其餘、社會、國語其餘、英語 | Codex | 自然單元二～四 11/17 完成 ns5-06～18 共 13 關 91 題，待老師抽驗（`drafts/ns5/自檢報告-U2.md`～`U4.md`，題目改 `build-U2.mjs`～`U4.mjs` 再重跑；Claude Code 11/18 重跑檢查、手機試玩、上線）；社會第一單元樣板由 CC-Opus 11/18 完成（見下一列），英語未開始 |
+| 8 | 自然其餘、社會、國語其餘、英語 | Codex | 自然單元二～四 11/17 完成 ns5-06～18 共 13 關 91 題，待老師抽驗（`drafts/ns5/自檢報告-U2.md`～`U4.md`，題目改 `build-U2.mjs`～`U4.mjs` 再重跑；Claude Code 11/18 重跑檢查、手機試玩、上線）；社會第一單元樣板由 CC-Opus 11/18 完成（見下一列）；英語 Unit 1 樣板由 CC-Opus 11/20 完成（見 8-5） |
 | 8-1 | 社會 第一單元（ss5-01～03，先做一個單元當樣板） | CC-Opus | 11/18 完成 3 關 21 題，待老師抽驗（`drafts/ss5/自檢報告-U1.md`，報告前段有「樣板怎麼用」）；題目寫在產生器 `drafts/ss5/build-U1.mjs`（共用 `build-unit.mjs`）；已登記書架；其餘 7 關的課名在 `drafts/ss5/add-levels.mjs`，intro 出題時補，題目寫好才加關 |
 | 8-2 | 社會 第二單元（ss5-04、05） | Codex | 11/18 完成 2 關 14 題，待老師抽驗（`drafts/ss5/自檢報告-U2.md`）；Claude Code 11/18 重跑檢查、對照課本抽查、手機試玩 |
 | 8-3 | 社會 第三單元（ss5-06、07） | Codex | 11/18 完成 2 關 14 題，待老師抽驗（`drafts/ss5/自檢報告-U3.md`）；Claude Code 同上 |
 | 8-4 | 社會 第四單元（ss5-08～10） | Codex | 11/18 完成 3 關 21 題，待老師抽驗（`drafts/ss5/自檢報告-U4.md`）；Claude Code 同上，並把 L10-Q2、Q3 的證據提示頁碼縮到正解那一頁。全書 10 關 70 題做完 |
+| 8-5 | 英語 Unit 1（en5-01～03，先做一個單元當樣板） | CC-Opus | 11/20 完成 3 關 21 題，待老師抽驗（`drafts/en5/自檢報告-U1.md`）；已登記書架。**其餘 11 關交 Codex，照 `docs/五上英語交接手冊-Codex.md`**（分工表和狀態在那份第 2 節） |
 
 - 換手時：做到一半的批次**整批重做或整批接手**，不要留半關。Claude Code 做的批次也要寫自檢報告，Codex 接手前先讀最新的自檢報告。
 - 狀態欄由做完的一方更新（Codex 不能改 `docs/`，就寫在自檢報告，Claude Code 收件時代為更新）。
@@ -336,6 +337,8 @@ node tools/review-sheet.mjs drafts/ss5/抽驗清單-U2.md drafts/ss5/ss5-questio
 - 詳解：「正確概念：……」最後「回頭讀：第○課……」，只能指向學生課本上有的地方（課文、注釋、語文天地），不指向教師手冊。
 
 ## 7. 英語（en5）
+
+> 2026-11-20：Unit 1 樣板已完成，接手請改讀 **`docs/五上英語交接手冊-Codex.md`**（比這一節詳細，兩邊不一樣時以那份為準；作法改成 `.mjs` 產生器，不用 Python）。
 
 - 教材：`source/康軒五上英語ww7`（Wonder World 7）。**規格完全比照 `docs/國小練習平台-英語題庫規劃書-Codex.md`**（六上那份），請整份讀完；作法比照 `drafts/en6/`（用產生器 `build-questions.py` 產生五份 JSON，再組裝）。
 - 關卡：四個 Unit 各三關（字彙與聽力／句型與文法／發音與閱讀）＋ Review 1、Review 2 各一關，共 14 關。Get Ready 和附錄不開關。各單元的字彙、句型、Phonics、Reading Skills 以課本為準，先整理成一張表放在自檢報告最前面。

@@ -60,7 +60,7 @@
     const NOVELTY = /\b(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Junior|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Ralph|Fred|Kathy|Princess|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley)\b/i;
     const LEGACY = /^Microsoft (Zira|David|Mark|Hazel|George|Susan|Catherine|James|Linda|Richard|Heera|Ravi|Sean)\b(?!.*(Online|Natural))/i;
     const MALE = /\b(male|david|mark|guy|davis|tony|andrew|brian|christopher|eric|roger|steffan|jason|daniel|alex|aaron|evan|nathan|tom|arthur|oliver|rishi|gordon|lee|ryan|thomas|liam)\b/i;
-    const BOYS = /^(Kevin|Tom|Ben|Tony|Mike|Jack|Sam|Peter|Bill|John|David|Eric|Andy|Leo|Max|Bob|Danny|Paul)$/i;
+    const BOYS = /^(Kevin|Tom|Ben|Tony|Mike|Jack|Sam|Peter|Bill|John|David|Eric|Andy|Leo|Max|Bob|Danny|Paul|Joe|Boka|Tommy|Ken|Nick|Luke|Tim|Mark|Josh|Raj|Dev|Ren)$/i;
     let netBad = false;   // 線上語音念失敗過（網路不通），這次開網頁改用本機語音
     let main = null, male = null, female = null;
     const score = (v) => {
