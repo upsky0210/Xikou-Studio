@@ -843,6 +843,1071 @@ const EN5 = {
      "正確概念：Boka 回答 No, I'm just hungry.，意思是他只是肚子餓。頭痛和發燒都是 Joe 說的症狀。\n破誤：「他真的肚子痛。」：把別人的猜測當成 Boka 的回答；「他覺得頭在痛。」：把 Joe 說的頭痛記成 Boka 的情況；「他說他在發燒。」：把 Joe 說的發燒記成 Boka 的情況。\n回頭讀：Unit 2 Story（課本 p.31）。"
     ]
    ]
+  },
+  {
+   "id": "en5-07",
+   "z": 1,
+   "name": "綜合複習",
+   "lesson": "Review 1",
+   "draft": true,
+   "intro": "Unit 1～2 一起複習：國家、生病的說法、問從哪裡來和哪裡不舒服。",
+   "q": [
+    [
+     "「英國」的英文是哪一個？",
+     "the UK",
+     [
+      "the USA",
+      "France",
+      "Canada"
+     ],
+     [
+      "先確認題目在問哪個國家。",
+      "回想課本中用大寫字母縮寫的國名。",
+      "在兩個縮寫中，留意字母數和最後一個字母。"
+     ],
+     "正確概念：英國是 the UK；美國是 the USA。\n破誤：「the USA」：知道要找縮寫，卻把英國和美國對調；「France」：把課本中兩個歐洲國家的英文記反；「Canada」：把英國和加拿大的國名混在一起。\n回頭讀：Unit 1 Vocabulary（課本 pp.18–19）、Review 1（課本 p.43）。"
+    ],
+    [
+     "Tessa 指著頭說痛。哪個英文詞表示這種症狀？",
+     "a headache",
+     [
+      "a stomachache",
+      "a toothache",
+      "a sore throat"
+     ],
+     [
+      "先找出 Tessa 指的是哪一個部位。",
+      "比較字裡表示身體部位的部分。",
+      "回想哪個英文字是從表示頭的字開始，再接表示疼痛的部分。"
+     ],
+     "正確概念：head 指頭，headache 是頭痛。\n破誤：「a stomachache」：認出字尾表示痛，卻選了肚子痛；「a toothache」：把頭痛和牙齒痛記混了；「a sore throat」：看到是在說痛就選了，沒有對照疼痛的位置。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）、Review 1（課本 p.43）。"
+    ],
+    [
+     "Megan 想知道眼前的同學來自哪裡。她可以怎麼問？",
+     "Where are you from?",
+     [
+      "Where is she from?",
+      "Where am I from?",
+      "Are you from India?"
+     ],
+     [
+      "先分清楚 Megan 在問誰。",
+      "對眼前的人說話，要用表示「你」的人稱。",
+      "她想讓對方說出一個地方，要用問地點的疑問詞。"
+     ],
+     "正確概念：直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?\n破誤：「Where is she from?」：用 she 問另一位女生，沒有用 you 問眼前的人；「Where am I from?」：用了 I，變成在問自己來自哪裡；「Are you from India?」：直接猜一個國家，只能確認是不是來自印度。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。"
+    ],
+    [
+     "依上面的短文，有人問：「Does Eric have a fever?」哪個回答正確？",
+     "No, he doesn't. He has a stomachache.",
+     [
+      "Yes, he does. He has a stomachache.",
+      "No, he doesn't. He has a runny nose.",
+      "No, he don't. He has a stomachache."
+     ],
+     [
+      "先圈出問句裡的人名和症狀。",
+      "到短文找到 Eric，看看哪一句說了他有沒有發燒。",
+      "再對照同一個人的另一項症狀，檢查回答有沒有配錯人。"
+     ],
+     "正確概念：文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn’t.，再補充他的症狀。\n破誤：「Yes, he does. He has a stomachache.」：找對肚子痛的資訊，卻把沒有發燒答成有發燒；「No, he doesn't. He has a runny nose.」：用對否定簡答，卻把 Leah 的症狀配給 Eric；「No, he don't. He has a stomachache.」：找對了症狀，但問句用 Does，否定簡答要用相配的形式。\n回頭讀：Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）。",
+     {
+      "passage": "I'm Leah. I'm from France and my friend Eric is from the USA. I have a runny nose, but I feel OK. Eric has a stomachache. He has no fever. We are at home today. Our friend Hana is from Japan. She feels fine. She calls us after school."
+     }
+    ],
+    [
+     "哪個字的母音和 bark 的母音相同？",
+     "hard",
+     [
+      "bird",
+      "horse",
+      "nurse"
+     ],
+     [
+      "先回想 bark 中間的母音。",
+      "這些字都有 r，再看緊接在 r 前面的字母。",
+      "找出母音字母和 bark 相同的選項，再念一次確認。"
+     ],
+     "正確概念：bark 和 hard 中間都是 ar；bird 的 ir、horse 的 or、nurse 的 ur 都有不同於 ar 的讀音。\n破誤：「bird」：看到 r 就歸在同一組，忽略了 r 前面的字母；「horse」：把 or 的母音和 ar 的母音當成同一個；「nurse」：聽到 r 的聲音，就把 ur 和 ar 歸在一起。\n回頭讀：Review 1 Four in a Row（課本 p.46）、Unit 2 Phonics（課本 pp.40–41）。"
+    ],
+    [
+     "請聽英文，選出符合內容的說法。",
+     "說話的人來自加拿大。",
+     [
+      "說話的人來自臺灣。",
+      "說話的人的朋友來自加拿大。",
+      "說話的人的朋友來自澳大利亞。"
+     ],
+     [
+      "比較兩句介紹的是不是同一個人。",
+      "句首有一次在說自己，另一次則提到朋友。",
+      "把每句末尾的國名配給該句的主詞，再對照選項。"
+     ],
+     "正確概念：第一句介紹自己來自加拿大，第二句才說朋友來自臺灣。\n破誤：「說話的人來自臺灣。」：把朋友來自的地方當成說話者自己的；「說話的人的朋友來自加拿大。」：聽到第一個國名，就配給後面提到的朋友；「說話的人的朋友來自澳大利亞。」：只聽出第二句介紹朋友，沒有比對那個國名的意思。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。",
+     {
+      "listen": "I'm from Canada. My friend is from Taiwan.",
+      "rate": 0.9
+     }
+    ],
+    [
+     "請聽對話，選出符合內容的說法。",
+     "Max 喉嚨痛。",
+     [
+      "Max 正在發燒。",
+      "Max 有在咳嗽。",
+      "Grace 喉嚨痛。"
+     ],
+     [
+      "先聽誰問問題、誰說自己不舒服。",
+      "第二個問句在確認某個症狀，聽回答是同意還是否定。",
+      "重聽回答者最後一句，核對最後提到的部位。"
+     ],
+     "正確概念：Max 說自己感冒，接著否認有發燒，最後補充自己喉嚨痛。\n破誤：「Max 正在發燒。」：聽見問句裡的症狀就選了，漏聽 Max 的否定回答；「Max 有在咳嗽。」：聽到感冒就猜他也咳嗽，但對話沒有交代；「Grace 喉嚨痛。」：聽對了最後說的症狀，卻配給發問的人。\n回頭讀：Unit 2 Sentence A、Grammar Tips（課本 pp.34、36）、Review 1（課本 p.43）。",
+     {
+      "listen": "Grace: What's wrong, Max? Max: I have a cold. Grace: Do you have a fever? Max: No, I don't. I have a sore throat.",
+      "rate": 0.9
+     }
+    ]
+   ]
+  },
+  {
+   "id": "en5-08",
+   "z": 2,
+   "name": "字彙與聽力",
+   "lesson": "Unit 3",
+   "draft": true,
+   "intro": "食物的英文：pizza、rice、soup、steak、sandwiches、dumplings、French fries、noodles。",
+   "q": [
+    [
+     "請聽英文，選出你聽到的食物。",
+     "soup",
+     [
+      "steak",
+      "rice",
+      "noodles"
+     ],
+     [
+      "先聽這個字有幾個音節。",
+      "注意開頭的聲音，再比對每個選項的結尾。",
+      "字尾是嘴唇先合起來再放開的 p 音。"
+     ],
+     "正確概念：念的是 soup（湯）。它以 s 的音開頭，以 p 的音收尾。\n破誤：「steak」：聽到 s 的音就選了，沒比對後面的母音和字尾；「rice」：把同一餐常一起出現的米飯和湯記混了；「noodles」：看到麵條常放在湯裡，就把兩個詞當成同一種食物。\n回頭讀：Unit 3 Vocabulary（課本 p.50）。",
+     {
+      "listen": "soup",
+      "rate": 0.8
+     }
+    ],
+    [
+     "請聽英文，選出你聽到的食物。",
+     "dumplings",
+     [
+      "noodles",
+      "sandwiches",
+      "French fries"
+     ],
+     [
+      "先聽這是一個字，還是兩個字組成的詞。",
+      "幾個選項的節奏相近，試著重聽第一個音節。",
+      "開頭是 d 的音，第二個音節裡聽得到 l 的音。"
+     ],
+     "正確概念：念的是 dumplings（水餃）。dumplings 有兩個音節，第一個音節從 d 的音開始。\n破誤：「noodles」：只依兩個音節的節奏作答，沒有聽清楚開頭；「sandwiches」：把兩種可以一個一個數的食物混在一起；「French fries」：把兩個課本裡常用複數說的食物名稱記混了。\n回頭讀：Unit 3 Vocabulary（課本 p.51）。",
+     {
+      "listen": "dumplings",
+      "rate": 0.8
+     }
+    ],
+    [
+     "請聽英文，選出最符合的中文意思。",
+     "牛排",
+     [
+      "披薩",
+      "米飯",
+      "濃湯"
+     ],
+     [
+      "重聽開頭，判斷第一個子音後面有沒有再接一個子音。",
+      "接著比對母音，是像 day 的母音，還是像 too 的母音。",
+      "這個字有 k 的尾音，想想菜單上哪道主餐的英文符合。"
+     ],
+     "正確概念：念的是 steak（牛排），開頭有 st 的音，中間的母音和 day 一樣，字尾是 k 的音。\n破誤：「披薩」：記得是菜單上的主餐，但把兩種食物的英文混在一起；「米飯」：把常和主餐搭配的米飯當成聽到的那一項；「濃湯」：只聽到開頭的 s，就以為是 soup。\n回頭讀：Unit 3 Vocabulary（課本 p.50）。",
+     {
+      "listen": "steak",
+      "rate": 0.8
+     }
+    ],
+    [
+     "菜單上哪個英文詞表示「薯條」？",
+     "French fries",
+     [
+      "sandwiches",
+      "dumplings",
+      "some noodles"
+     ],
+     [
+      "先想想薯條是用什麼食材做的。",
+      "這項食物的英文名稱由兩個字組成。",
+      "看看兩個字的選項中，哪一個第二個字和油炸有關。"
+     ],
+     "正確概念：薯條是 French fries。故事中也提到可以用馬鈴薯做薯條。\n破誤：「sandwiches」：把同一餐常出現的三明治和薯條混淆；「dumplings」：只記得是複數形式，把水餃和薯條的英文記反了；「some noodles」：把外形細長的麵條和薯條混在一起。\n回頭讀：Unit 3 Story（課本 p.47）、Vocabulary（課本 p.51）。"
+    ],
+    [
+     "食物袋裡要放米飯和湯。哪張標籤符合？",
+     "rice and soup",
+     [
+      "rice and steak",
+      "pizza and soup",
+      "rice and noodles"
+     ],
+     [
+      "先圈出題目要的兩樣食物。",
+      "每個選項用 and 連起兩樣食物，分開看。",
+      "含有米飯的選項有好幾張，再核對後面那樣是不是湯。"
+     ],
+     "正確概念：rice 是米飯，soup 是湯；標籤要同時有這兩樣食物。\n破誤：「rice and steak」：找對米飯，但把湯換成了牛排；「pizza and soup」：找對湯，但把米飯換成了披薩；「rice and noodles」：把麵條當成要裝的湯，忽略兩者是不同食物。\n回頭讀：Unit 3 Vocabulary（課本 pp.50–51）。"
+    ],
+    [
+     "請聽英文句子，選出符合內容的中文。",
+     "我想要一些披薩和麵條。",
+     [
+      "我想要一些披薩和水餃。",
+      "我想要一些三明治和麵條。",
+      "我想要一些牛排和米飯。"
+     ],
+     [
+      "先聽說話的人想要幾樣食物。",
+      "可以在連接兩樣食物的地方停一下，分別聽兩邊。",
+      "聽聽哪個詞在後面，它指的是長條狀的食物。"
+     ],
+     "正確概念：說話的人用 I’d like …, please. 點餐，and 前的 pizza 是披薩，後面的 noodles 是麵條。\n破誤：「我想要一些披薩和水餃。」：第一樣聽對，卻把第二樣食物記成水餃；「我想要一些三明治和麵條。」：第二樣聽對，卻把第一樣食物記成三明治；「我想要一些牛排和米飯。」：只聽懂是在點餐，就用自己熟悉的餐點猜測。\n回頭讀：Unit 3 Vocabulary（課本 pp.50–51）、Sentence A（課本 p.52）。",
+     {
+      "listen": "I'd like some pizza and noodles, please.",
+      "rate": 0.9
+     }
+    ],
+    [
+     "請聽對話，選出客人真正點的餐點。",
+     "米飯和牛排。",
+     [
+      "米飯和一碗湯。",
+      "牛排和一碗湯。",
+      "披薩和牛排。"
+     ],
+     [
+      "先聽誰在推薦、誰在點餐。",
+      "聽客人怎麼回答第一個問句，再聽他接下來說的內容。",
+      "客人另點了兩樣，找他表示自己想要的那一句。"
+     ],
+     "正確概念：Luke 先婉拒了湯，接著點 rice 和 steak，也就是米飯和牛排。\n破誤：「米飯和一碗湯。」：把被拒絕的湯和點到的米飯拼在一起；「牛排和一碗湯。」：聽到牛排就停了，沒有確認湯已被拒絕；「披薩和牛排。」：聽對牛排，但把 rice 記成披薩。\n回頭讀：Unit 3 Sentence A／B（課本 pp.52–53）。",
+     {
+      "listen": "Alma: Would you like some soup, Luke? Luke: No, thank you. I'd like some rice and steak. Alma: Here you are.",
+      "rate": 0.9
+     }
+    ]
+   ]
+  },
+  {
+   "id": "en5-09",
+   "z": 2,
+   "name": "句型與文法",
+   "lesson": "Unit 3",
+   "draft": true,
+   "intro": "What would you like to eat? I'd like some dumplings, please. Would you like some sandwiches? Yes, please. / No, thank you.",
+   "q": [
+    [
+     "選出正確的答案填入空格：「I would ____ some rice, please.」",
+     "like",
+     [
+      "likes",
+      "liked",
+      "liking"
+     ],
+     [
+      "先看空格前面是哪一個字。",
+      "把這句和課本點餐時的 I’d 開頭相比。",
+      "I’d 在這裡是 I would 的縮寫，想想後面的動詞需要變化嗎？"
+     ],
+     "正確概念：I’d 是 I would 的縮寫。would 後用 like 的原形，所以填 like。\n破誤：「likes」：把一般現在式常看到的 s 加在 would 後面的動詞上；「liked」：把 would 後面的動詞寫成了過去式；「liking」：把表示正在進行的動詞形式用在 would 後面。\n回頭讀：Unit 3 Sentence A（課本 p.52）。"
+    ],
+    [
+     "填入正確的疑問詞。\nA: ____ would you like to eat?\nB: I’d like some noodles, please.",
+     "What",
+     [
+      "Where",
+      "When",
+      "Who"
+     ],
+     [
+      "先看 B 回答的是哪一類資訊。",
+      "B 告訴對方自己想吃的餐點。",
+      "要問餐點是什麼，就挑能問事物的疑問詞。"
+     ],
+     "正確概念：B 說自己想吃麵條，因此 A 要用 What 問對方想吃什麼。\n破誤：「Where」：用了問地點的字，但回答說的是餐點；「When」：用了問時間的字，但回答沒有時間；「Who」：用了問人的字，但回答沒有提到任何人。\n回頭讀：Unit 3 Sentence A（課本 p.52）、Reading Skills（課本 p.10）。"
+    ],
+    [
+     "有人問 Isla：「Would you like some soup?」Isla 想婉拒，可以怎麼回答？",
+     "No, thank you.",
+     [
+      "Yes, please.",
+      "Yes, thank you.",
+      "I’d like some, please."
+     ],
+     [
+      "先確認 Isla 想接受還是婉拒。",
+      "留意每句開頭是在接受或拒絕，也看看完整句子的意思。",
+      "婉拒之後仍可以謝謝對方，檢查開頭和後半是否都符合。"
+     ],
+     "正確概念：No 表示婉拒，thank you 向對方道謝，所以 No, thank you. 符合 Isla 的意思。\n破誤：「Yes, please.」：這是在禮貌接受對方提供的湯；「Yes, thank you.」：只注意到 thank you，忽略 Yes 表示接受；「I’d like some, please.」：用了禮貌點餐的句子，表達的是想要喝湯。\n回頭讀：Unit 3 Sentence B（課本 p.53）。"
+    ],
+    [
+     "下面哪個英文問句寫得完全正確？",
+     "Would you like some steak?",
+     [
+      "Would you like eat some steak?",
+      "What you would like to eat?",
+      "Would you like some a steak?"
+     ],
+     [
+      "分別看每句的問句開頭和後面接的字。",
+      "問對方時，would 放在 you 前面。",
+      "再看 like 後面，直接接食物就可以表達想不想吃。"
+     ],
+     "正確概念：Would you like some steak? 用 Would you like 開頭，後面直接接 some steak。\n破誤：「Would you like eat some steak?」：在 like 後接 eat 時，漏掉了 to；「What you would like to eat?」：把問句的 would 放在 you 後面，沿用了直述句的順序；「Would you like some a steak?」：把 some 和 a 疊在同一個食物名稱之前。\n回頭讀：Unit 3 Sentence A／B（課本 pp.52–53）、Grammar Tips（課本 p.54）。"
+    ],
+    [
+     "Molly 說她想吃幾個三明治。選出正確的答案填入空格：「I’d like some ____, please.」",
+     "sandwiches",
+     [
+      "sandwich",
+      "a sandwich",
+      "sandwichs"
+     ],
+     [
+      "先看 Molly 想吃一個還是幾個。",
+      "課本用 some 加可數名詞的複數表示有幾個。",
+      "這個食物名稱以 ch 結尾，再想想要加 s 還是 es。"
+     ],
+     "正確概念：三明治可以一個一個數。sandwich 的複數是 sandwiches，所以用 some sandwiches。\n破誤：「sandwich」：用單數來表示題目中的幾個三明治；「a sandwich」：用了表示一個的 a，還和空格前的 some 重疊；「sandwichs」：知道要改複數，但在 ch 後只加了 s。\n回頭讀：Unit 3 Vocabulary（課本 p.51）、Grammar Tips（課本 p.54）。"
+    ],
+    [
+     "請聽英文問句，選出最合適的回答。",
+     "I’d like some dumplings, please.",
+     [
+      "Yes, I’d like to eat, thank you.",
+      "Would you like some dumplings?",
+      "She’d like some dumplings, please."
+     ],
+     [
+      "先聽這個問句是直接問人，還是在談不在場的人。",
+      "聽問句開頭，判斷要選餐點，還是只回答要或不要。",
+      "直接被問到的人用自己的角度回答，並說出想吃的餐點。"
+     ],
+     "正確概念：問句直接問 Iris 想吃什麼。Iris 要用 I’d like 加上食物回答。\n破誤：「Yes, I’d like to eat, thank you.」：只表示想吃東西，沒有回答想吃什麼；「Would you like some dumplings?」：反過來問別人要不要吃，沒有說自己想吃什麼；「She’d like some dumplings, please.」：Iris 被直接問到，回答自己想吃的東西時要用 I。\n回頭讀：Unit 3 Sentence A（課本 p.52）。",
+     {
+      "listen": "What would you like to eat, Iris?",
+      "rate": 0.9
+     }
+    ],
+    [
+     "依上表，問選項開頭的那位同學時，哪一組問答符合他的選擇？",
+     "Mira：Would you like some soup? — No, thank you.",
+     [
+      "Mira：Would you like some noodles? — No, thank you.",
+      "Hugo：Would you like some rice? — No, thank you.",
+      "Hugo：Would you like some pizza? — Yes, please."
+     ],
+     [
+      "先對照各選項指定要問的同學。",
+      "在同一列找問句中的食物，確認在哪一欄。",
+      "想吃就接受，不想吃就婉拒；再核對選項兩句有沒有配對。"
+     ],
+     "正確概念：Mira 不想吃的是湯，所以問她要不要湯時，回答 No, thank you.。每個選項前的人名標示被問的人。\n破誤：「Mira：Would you like some noodles? — No, thank you.」：Mira 想吃麵條，回答應該是接受；「Hugo：Would you like some rice? — No, thank you.」：Hugo 想吃米飯，卻被寫成婉拒；「Hugo：Would you like some pizza? — Yes, please.」：把 Hugo 不想吃的食物當成想吃的。\n回頭讀：Unit 3 Sentence B（課本 p.53）。",
+     {
+      "t": [
+       [
+        "姓名",
+        "想吃",
+        "不想吃"
+       ],
+       [
+        "Mira",
+        "noodles",
+        "soup"
+       ],
+       [
+        "Hugo",
+        "rice",
+        "pizza"
+       ]
+      ],
+      "cap": "兩位同學的選擇"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "en5-10",
+   "z": 2,
+   "name": "發音與閱讀",
+   "lesson": "Unit 3",
+   "draft": true,
+   "intro": "oi、oy 的念法；照順序讀懂步驟（Sequence），再回想從農場到餐桌的故事。",
+   "q": [
+    [
+     "請聽英文單字，選出這個字的拼法裡有哪一組字母。",
+     "oi",
+     [
+      "ai",
+      "ar",
+      "ee"
+     ],
+     [
+      "先聽這個字中間的母音。",
+      "它的聲音會滑動，和 sail 的母音比一比。",
+      "回想土壤那個拼讀字，兩個字的母音相同，也用同一組字母。"
+     ],
+     "正確概念：念的是 noise。它和 soil 的母音相同，都是用 oi 來拼。\n破誤：「ai」：把滑動的母音聽成 sail 裡的母音；「ar」：套用了前一單元 car 的母音；「ee」：只注意母音末端，誤以為整段都像長音 e。\n回頭讀：Unit 3 Phonics Sound It Out（課本 p.58）。",
+     {
+      "listen": "noise",
+      "rate": 0.8
+     }
+    ],
+    [
+     "哪一個字的母音念法和其他三個不同？可以點喇叭聽。",
+     "corn",
+     [
+      "soil",
+      "boy",
+      "toy"
+     ],
+     [
+      "把四個字各聽一次。",
+      "先不管開頭的子音，只聽後面的母音；oi 和 oy 的念法一樣。",
+      "有三個字的母音和「玩具」那個英文字相同，找出剩下的字。"
+     ],
+     "正確概念：soil 的 oi 和 boy、toy 的 oy 念法一樣；corn 的 or 是 Unit 2 學的另一個母音，和其他三個不同。\n破誤：「soil」：soil 拼 oi、boy 和 toy 拼 oy，看到拼法不同就以為念法不同；「boy」：把開頭的 b 當成判斷依據，沒比較母音；「toy」：只注意開頭的 t 和別的字不一樣，沒比較母音。\n回頭讀：Unit 3 Phonics（課本 pp.58–59）、Unit 2 Phonics（課本 pp.40–41）。",
+     {
+      "speakOptions": true
+     }
+    ],
+    [
+     "哪一個字的母音和 boy 的母音相同？",
+     "soil",
+     [
+      "sail",
+      "corn",
+      "paint"
+     ],
+     [
+      "先念一下 boy，再念選項。",
+      "找選項中用來表示母音的字母組合。",
+      "回想本課教了兩種拼法來表示 boy 的母音，比比哪個選項用了另一種。"
+     ],
+     "正確概念：soil 用 oi，boy 用 oy，這兩組在本課例字裡念法相同。\n破誤：「sail」：只看到 s 和 l 相同，就把 ai 和 oi 的母音混在一起；「corn」：看到中間有 o，就以為和 boy 相同，忽略了後面的 r；「paint」：把 ai 的念法當成 boy 裡 oy 的念法。\n回頭讀：Unit 3 Phonics（課本 pp.58–59）。"
+    ],
+    [
+     "請聽英文，選出你聽到的單字。",
+     "coin",
+     [
+      "point",
+      "soil",
+      "toy"
+     ],
+     [
+      "先聽母音在哪裡，再把注意力放到它前後。",
+      "這幾個字的母音相同，要靠開頭和結尾分辨。",
+      "再重聽結尾，辨認是 n 單獨收尾，還是另有一個子音。"
+     ],
+     "正確概念：念的是 coin。開頭是 k 的音，結尾是 n 的音。point 還有 t 的尾音；soil 用 l 收尾，toy 沒有子音收尾。\n破誤：「point」：聽出相同的母音，卻沒有辨認開頭及結尾的子音；「soil」：聽出 oi，就選了另一個帶同組母音的字；「toy」：母音相同，但聽漏了最後的子音。\n回頭讀：Unit 3 Phonics（課本 pp.58–59）。",
+     {
+      "listen": "coin",
+      "rate": 0.8
+     }
+    ],
+    [
+     "依上面的短文，Ava 切的是哪種水果？",
+     "她切的是蘋果。",
+     [
+      "她切的是葡萄。",
+      "她切的是香蕉。",
+      "她切的是番茄。"
+     ],
+     [
+      "先找 Ava 的名字。",
+      "兩人一起洗水果，但有一個動作是 Ava 自己做的。",
+      "找出表示切的動詞，讀出它後面那種水果。"
+     ],
+     "正確概念：Next, Ava cuts the apples. 表示 Ava 切了蘋果。葡萄也洗過，但文中沒有說她切了葡萄。\n破誤：「她切的是葡萄。」：兩種水果都洗了，誤以為葡萄是後來切的那種；「她切的是香蕉。」：依照自己做水果碗的習慣猜了文中沒提的水果；「她切的是番茄。」：把課本比薩短文的食材帶入了這篇文章。\n回頭讀：Unit 3 Reading（課本 pp.55–57）。",
+     {
+      "passage": "Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. They put the bowl on the table at last. Their friends are ready to eat. The fruit looks good!"
+     }
+    ],
+    [
+     "依上面的短文，水果放入碗裡之後，緊接著的下一個步驟是什麼？",
+     "她們把碗放到桌上。",
+     [
+      "她們一起洗兩種水果。",
+      "Ava 把蘋果切好。",
+      "Ava 的姊妹把水果裝進碗。"
+     ],
+     [
+      "找出 First、Next 和 Then，順著看每一步。",
+      "先定位「水果放入碗裡」是哪一步。",
+      "接著往後看，找出 at last 標示的最後一個步驟。"
+     ],
+     "正確概念：Then 標示把水果放入碗中。接著兩人把碗放上桌，句尾的 at last 表示這是最後一個步驟。\n破誤：「她們一起洗兩種水果。」：跳回 First，選了第一個步驟；「Ava 把蘋果切好。」：看見 Next 就選了，其實那是裝碗前的動作；「Ava 的姊妹把水果裝進碗。」：選到題目指定的步驟本身。\n回頭讀：Reading Skills：Sequence（課本 p.11）、Unit 3 Reading（課本 pp.55–57）。",
+     {
+      "passage": "Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. They put the bowl on the table at last. Their friends are ready to eat. The fruit looks good!"
+     }
+    ],
+    [
+     "Unit 3 故事一開始在農場時，有人說可以用馬鈴薯做成哪樣食物？",
+     "可以做成薯條。",
+     [
+      "可以做成披薩。",
+      "可以做成三明治。",
+      "可以做成牛排。"
+     ],
+     [
+      "回想剛到農場時，大家說到了哪些食材。",
+      "找出有提到馬鈴薯的那一格。",
+      "說話的人先說喜歡馬鈴薯，下一句才說能把它做成什麼。"
+     ],
+     "正確概念：故事在農場提到有人喜歡馬鈴薯，並說可以做成薯條。披薩和三明治在後面才提到。\n破誤：「可以做成披薩。」：披薩是另一個人接著說想做的食物；「可以做成三明治。」：三明治有出現在準備餐點時，但不是這句用馬鈴薯做的食物；「可以做成牛排。」：把本單元字彙表的另一種餐點當成農場裡說到的食物。\n回頭讀：Unit 3 Story（課本 pp.47–48）。"
+    ]
+   ]
+  },
+  {
+   "id": "en5-11",
+   "z": 3,
+   "name": "字彙與聽力",
+   "lesson": "Unit 4",
+   "draft": true,
+   "intro": "一天的作息：get up、have breakfast、go to school、have lunch、go home、do my homework、have dinner、go to bed。",
+   "q": [
+    [
+     "請聽英文，選出你聽到的作息。",
+     "go to bed",
+     [
+      "go to school",
+      "go home",
+      "get up"
+     ],
+     [
+      "先數一數聽見幾個字。",
+      "有些選項從相同的字開始，再聽最後一個字。",
+      "最後一個字以 b 的音開頭。"
+     ],
+     "正確概念：念的是 go to bed（上床睡覺）。前兩個字和 go to school 相同，最後一個字是 bed。\n破誤：「go to school」：開頭兩個字一樣，沒有聽清楚最後一個字；「go home」：只聽見 go，就猜是回家；「get up」：把睡前和起床的作息記反了。\n回頭讀：Unit 4 Vocabulary（課本 pp.64–65）。",
+     {
+      "listen": "go to bed",
+      "rate": 0.8
+     }
+    ],
+    [
+     "請聽英文，選出你聽到的作息。",
+     "do my homework",
+     [
+      "go home",
+      "have breakfast",
+      "go to school"
+     ],
+     [
+      "先比較開頭的動詞。",
+      "再聽有沒有表示「我的」的字。",
+      "最後一個字有兩個音節，第二個音節和「工作」的英文同音。"
+     ],
+     "正確概念：念的是 do my homework（做我的功課）。homework 是一個有兩個音節的字。\n破誤：「go home」：聽見 home 的聲音就作答，漏聽連在後面的部分；「have breakfast」：只認出這是在說自己的作息，就選了另一個常見詞；「go to school」：把和學校有關的兩種作息混在一起。\n回頭讀：Unit 4 Vocabulary（課本 pp.64–65）。",
+     {
+      "listen": "do my homework",
+      "rate": 0.8
+     }
+    ],
+    [
+     "請聽英文，選出最符合的中文意思。",
+     "吃晚餐",
+     [
+      "吃早餐",
+      "吃午餐",
+      "去上學"
+     ],
+     [
+      "先分辨是吃飯，還是要去某個地方。",
+      "分辨三餐要聽動詞後面是哪個字。",
+      "後面的字有兩個音節，第一個音節以 d 開頭。"
+     ],
+     "正確概念：念的是 have dinner（吃晚餐）。三餐都可以用 have，後面的 dinner 指晚餐。\n破誤：「吃早餐」：聽見 have 就套用了早餐的詞；「吃午餐」：三餐都用 have，沒有聽清楚是哪一餐；「去上學」：把吃飯的作息換成同一單元的另一種作息。\n回頭讀：Unit 4 Vocabulary（課本 pp.64–65）。",
+     {
+      "listen": "have dinner",
+      "rate": 0.8
+     }
+    ],
+    [
+     "「去上學」的英文是哪一個？",
+     "go to school",
+     [
+      "go to bed",
+      "go home",
+      "do my homework"
+     ],
+     [
+      "想想「去上學」描述的是什麼動作。",
+      "表示去的選項有好幾個，留意最後是哪個地方。",
+      "選一個詞，讓最後一個字指向上課的地方。"
+     ],
+     "正確概念：go to school 是去上學。school 指學校。\n破誤：「go to bed」：看到 go to 就選了，沒有比對要去的地方；「go home」：把去學校和從學校回家的方向弄反了；「do my homework」：把去上學和在家做功課當成同一件事。\n回頭讀：Unit 4 Vocabulary（課本 pp.64–65）。"
+    ],
+    [
+     "Luna 早上起床後準備吃今天的第一餐。她要做什麼？",
+     "She has breakfast.",
+     [
+      "She has lunch.",
+      "She has dinner.",
+      "She goes to school."
+     ],
+     [
+      "找出 Luna 現在要做的事。",
+      "她準備吃東西，留意是在說哪一餐。",
+      "回想通常在起床後吃的那一餐，和午餐、晚餐分開。"
+     ],
+     "正確概念：Luna 準備吃早餐。have breakfast 表示吃早餐，主詞是 she 時用 has。\n破誤：「She has lunch.」：知道是吃飯，卻把早餐選成午餐；「She has dinner.」：知道是吃飯，卻把第一餐和晚餐記反；「She goes to school.」：想到起床後也要上學，沒有注意她正在準備吃東西。\n回頭讀：Unit 4 Vocabulary（課本 pp.64–65）、Grammar Tips（課本 p.68）。"
+    ],
+    [
+     "請聽英文句子，選出符合內容的中文。",
+     "我四點二十分回家。",
+     [
+      "我四點十二分回家。",
+      "我四點二十分去上學。",
+      "我四點四十分回家。"
+     ],
+     [
+      "先找出句子提到的活動。",
+      "再聽表示時間的部分，分出小時和分鐘。",
+      "分鐘的英文有兩個音節，比對它的開頭和最後一拍。"
+     ],
+     "正確概念：go home 表示回家，four twenty 是四點二十分。twenty 是二十。\n破誤：「我四點十二分回家。」：辨認出回家，卻把 twenty 聽成 twelve；「我四點二十分去上學。」：時間聽對了，但把回家和去上學記反；「我四點四十分回家。」：聽對小時和作息，但把分鐘記成 forty。\n回頭讀：Unit 4 Vocabulary（課本 p.65）、Sentence A（課本 p.66）。",
+     {
+      "listen": "I go home at four twenty.",
+      "rate": 0.9
+     }
+    ],
+    [
+     "請聽對話，選出符合內容的說法。",
+     "Josh 十二點十分吃午餐。",
+     [
+      "Josh 十一點半吃午餐。",
+      "Josh 十二點十分吃晚餐。",
+      "Josh 六點四十分吃午餐。"
+     ],
+     [
+      "先聽提到了哪幾餐。",
+      "有人先問一個時間，留意回答有沒有同意。",
+      "重聽回答的人否定後的第一句，把時間和那一餐配在一起。"
+     ],
+     "正確概念：Josh 否認十一點半吃午餐，接著說十二點十分吃午餐、六點四十分吃晚餐。\n破誤：「Josh 十一點半吃午餐。」：把問句的時間當成回答，漏聽 Josh 的否定；「Josh 十二點十分吃晚餐。」：時間聽對了，卻配給另一餐；「Josh 六點四十分吃午餐。」：把晚餐時間記成午餐時間。\n回頭讀：Unit 4 Sentence A／B（課本 pp.66–67）。",
+     {
+      "listen": "Dora: Do you have lunch at eleven thirty, Josh? Josh: No, I don't. I have lunch at twelve ten. I have dinner at six forty.",
+      "rate": 0.9
+     }
+    ]
+   ]
+  },
+  {
+   "id": "en5-12",
+   "z": 3,
+   "name": "句型與文法",
+   "lesson": "Unit 4",
+   "draft": true,
+   "intro": "What time do you get up? I get up at six thirty. Do you have lunch at twelve? Yes, I do. / No, I don't.",
+   "q": [
+    [
+     "選出正確的答案填入空格：「Gianna ____ to school at seven forty.」",
+     "goes",
+     [
+      "go",
+      "gos",
+      "going"
+     ],
+     [
+      "先圈出主詞，看看是幾個人。",
+      "把 Gianna 換成 she，再看空格後面的 to school。",
+      "回想 go 在課本的動詞表中，接在 she 後面是哪個形式。"
+     ],
+     "正確概念：Gianna 是單數主詞。go to school 接在她後面時，go 要變成 goes。\n破誤：「go」：把 I go to school 的 go 原封不動地用在人名後面；「gos」：知道第三人稱動詞要變，卻只在 go 後加 s；「going」：把表示正在進行的動詞形式直接放到主詞後面。\n回頭讀：Unit 4 Vocabulary（課本 p.64）、Grammar Tips（課本 p.68）。"
+    ],
+    [
+     "選出正確的答案填入空格。\nA: What ____ do they get up?\nB: They get up at six forty-five.",
+     "time",
+     [
+      "day",
+      "place",
+      "month"
+     ],
+     [
+      "先看 B 回答什麼。",
+      "B 用 at 加上鐘面上的時間。",
+      "挑出能和 What 合起來問「幾點」的字。"
+     ],
+     "正確概念：回答是六點四十五分，問句要用 What time，詢問做這件事的時間。\n破誤：「day」：把問幾點當成問哪一天；「place」：把精確到幾點的回答當成在問地點；「month」：知道是在問時間，卻用了問月份的字。\n回頭讀：Unit 4 Sentence A（課本 p.66）、Grammar Tips（課本 p.68）。"
+    ],
+    [
+     "Serena 早餐是七點二十分吃的。有人直接問她：「Do you have breakfast at seven?」她怎麼回答最合適？",
+     "No, I don’t. I have breakfast at seven twenty.",
+     [
+      "Yes, I do. I have breakfast at seven twenty.",
+      "No, I don’t. I have breakfast at seven o’clock.",
+      "No, she doesn’t. She has breakfast at seven twenty."
+     ],
+     [
+      "先比較題目給的時間和問句裡的時間。",
+      "問的是不是同一個時間？先決定要肯定還是否定。",
+      "如果是回答自己的作息，還要檢查人稱和補充的時間。"
+     ],
+     "正確概念：兩個時間不同，所以 Serena 要用 No, I don’t. 回答，再說自己七點二十分吃早餐。\n破誤：「Yes, I do. I have breakfast at seven twenty.」：時間寫對了，前面卻答 Yes，等於先說自己七點吃早餐；「No, I don’t. I have breakfast at seven o’clock.」：知道要否定，但把問句的時間搬到補充說明；「No, she doesn’t. She has breakfast at seven twenty.」：Serena 在回答自己的作息，要用 I，不能用 she 來代替自己。\n回頭讀：Unit 4 Sentence A／B（課本 pp.66–67）。"
+    ],
+    [
+     "下面哪一個英文問句寫得完全正確？",
+     "What time does Adrian have dinner?",
+     [
+      "What time do Adrian have dinner?",
+      "What time does Adrian has dinner?",
+      "What time Adrian does have dinner?"
+     ],
+     [
+      "每句都先看疑問詞後面接了什麼。",
+      "Adrian 是單數人名，回想他要和哪個助動詞一起用。",
+      "再檢查助動詞放在哪裡，以及後面的主要動詞是不是原形。"
+     ],
+     "正確概念：What time 後先接 does，再接 Adrian 和原形 have，才能問 Adrian 幾點吃晚餐。\n破誤：「What time do Adrian have dinner?」：把問 you 時用的 do 套到單數人名上；「What time does Adrian has dinner?」：動詞已經用 does 配合主詞，卻又把 have 改成了 has；「What time Adrian does have dinner?」：把主詞放在 does 前面，沒有用問句的順序。\n回頭讀：Unit 4 Grammar Tips（課本 p.68）。"
+    ],
+    [
+     "兩個空格應依序填什麼？\nTheo ____ his homework at five.\nWe ____ our homework at four.",
+     "does／do",
+     [
+      "do／does",
+      "does／does",
+      "do／do"
+     ],
+     [
+      "找出每句各自在說誰。",
+      "Theo 是另一個人，We 是「我們」。",
+      "分別想一想課本裡 he 和 we 要用哪一種動詞形式。"
+     ],
+     "正確概念：Theo 是單數人名，用 does；we 表示我們，用 do。兩個空格都指「做」功課。\n破誤：「do／does」：把跟人名配對和跟 we 配對的動詞形式互換了；「does／does」：第一句用對了，第二句卻跟著用同一個動詞形式；「do／do」：把 do 原形直接用在兩個不同的主詞後面。\n回頭讀：Unit 4 Vocabulary（課本 p.65）、Grammar Tips（課本 p.68）。"
+    ],
+    [
+     "請聽英文問句，選出最合適的回答。",
+     "I go to bed at nine fifteen.",
+     [
+      "I get up at nine fifteen.",
+      "She goes to bed at nine fifteen.",
+      "I go to bed in my room."
+     ],
+     [
+      "先聽這是在直接問誰。",
+      "聽問句是在確認某件事，還是在問做那件事的時間。",
+      "被問到的人要用自己的角度回答，並核對回答的是同一項作息。"
+     ],
+     "正確概念：問句直接問 Celia 幾點上床睡覺。Celia 用 I go to bed 加上時間回答。\n破誤：「I get up at nine fifteen.」：聽出是在問時間，卻把睡覺時間和起床時間混在一起；「She goes to bed at nine fifteen.」：聽見人名後就用 she，沒有注意 Celia 是被直接問的人；「I go to bed in my room.」：回答了睡覺的地點，沒說幾點睡。\n回頭讀：Unit 4 Vocabulary（課本 p.65）、Sentence A（課本 p.66）。",
+     {
+      "listen": "What time do you go to bed, Celia?",
+      "rate": 0.9
+     }
+    ],
+    [
+     "依上表，向 Erin 問她自己的作息，哪一組問答符合紀錄？",
+     "Do you go home at four twenty-five? — Yes, I do.",
+     [
+      "Do you get up at six fifteen? — No, I don’t.",
+      "Do you have dinner at six thirty? — Yes, I do.",
+      "Do you go home at four twenty-five? — Yes, she does."
+     ],
+     [
+      "先把每一題問的作息對到表格左欄。",
+      "再看右欄的時間和問句是否一致。",
+      "時間相符要肯定，最後檢查回答是誰在說自己的作息。"
+     ],
+     "正確概念：表上 Erin 四點二十五分回家。問她是不是這個時間時，她用 Yes, I do. 回答。\n破誤：「Do you get up at six fifteen? — No, I don’t.」：起床時間和表格相同，卻用了否定簡答；「Do you have dinner at six thirty? — Yes, I do.」：把晚餐時間六點十分看成六點半；「Do you go home at four twenty-five? — Yes, she does.」：問句直接問 Erin，她應用 I 回答自己的作息。\n回頭讀：Unit 4 Sentence B（課本 p.67）。",
+     {
+      "t": [
+       [
+        "活動",
+        "時間"
+       ],
+       [
+        "get up",
+        "6:15 AM"
+       ],
+       [
+        "go home",
+        "4:25 PM"
+       ],
+       [
+        "have dinner",
+        "6:10 PM"
+       ]
+      ],
+      "cap": "Erin 的作息表"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "en5-13",
+   "z": 3,
+   "name": "發音與閱讀",
+   "lesson": "Unit 4",
+   "draft": true,
+   "intro": "ou、ow 的念法；找出問題和解決方法（Problem and Solution），再回想早上那通電話的故事。",
+   "q": [
+    [
+     "請聽英文單字，選出這個字的拼法裡有哪一組字母。",
+     "ou",
+     [
+      "oi",
+      "oa",
+      "ar"
+     ],
+     [
+      "先把注意力放在單字中間的母音。",
+      "比較它和 coin 中間的聲音如何滑動。",
+      "回想表示房子的拼讀字，母音和這個字相同，也用同一組字母。"
+     ],
+     "正確概念：念的是 shout。它和 house 中間的母音相同，都用 ou 拼。\n破誤：「oi」：聽到滑動的母音就認作上一課 coin 的母音；「oa」：把聲音聽成 coach 裡的母音；「ar」：只注意起頭較開的母音，忽略聲音後面的變化。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
+     {
+      "listen": "shout",
+      "rate": 0.8
+     }
+    ],
+    [
+     "哪一個字的母音念法和其他三個不同？可以點喇叭聽。",
+     "horse",
+     [
+      "house",
+      "mouse",
+      "clown"
+     ],
+     [
+      "輪流點播，注意每個字的母音。",
+      "有些字即使拼法不同，中間母音還是相同。",
+      "先把母音和「老鼠」的英文字相同的放一起，再找剩下的字。"
+     ],
+     "正確概念：house、mouse 的 ou 和 clown 的 ow 念法一樣；horse 的 or 是 Unit 2 學的另一個母音，和其他三個不同。\n破誤：「house」：house 和 horse 拼法只差一個字母，看起來很像，就以為念法也一樣；「mouse」：注意到開頭是 m，卻把子音的差異當成母音不同；「clown」：因為它有 ow，就以為它的母音一定和有 ou 的字不同。\n回頭讀：Unit 4 Phonics（課本 pp.72–73）、Unit 2 Phonics（課本 pp.40–41）。",
+     {
+      "speakOptions": true
+     }
+    ],
+    [
+     "哪個字的母音和 mouse 的母音相同？",
+     "owl",
+     [
+      "coach",
+      "coin",
+      "load"
+     ],
+     [
+      "先念 mouse，注意母音怎麼滑動。",
+      "找出選項裡可能代表母音的兩個字母。",
+      "回想本課哪一組拼法和 mouse 裡的 ou 念法相同。"
+     ],
+     "正確概念：owl 的 ow 和 mouse 的 ou 在本課念法相同。coach 和 load 的 oa、coin 的 oi 都是不同的母音。\n破誤：「coach」：只注意拼法有 o，沒分辨 oa 和 ou；「coin」：把前一單元的 oi 聲音混成 ou；「load」：看到 oa 的第一個字母和 ou 一樣，就當成同音。\n回頭讀：Unit 4 Phonics（課本 pp.72–73）、Unit 3 Phonics（課本 p.58）。"
+    ],
+    [
+     "請聽英文，選出你聽到的單字。",
+     "shower",
+     [
+      "shout",
+      "house",
+      "clown"
+     ],
+     [
+      "先聽有幾個音節。",
+      "辨認開頭有沒有像 sh 的聲音。",
+      "重聽後半，聽完第一個母音後還接了一個較輕的音節。"
+     ],
+     "正確概念：念的是 shower，有兩個音節。shout 有相同的開頭和第一個母音，但只有一個音節。\n破誤：「shout」：開頭和第一個母音相同，但沒有留意音節數和結尾；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
+     {
+      "listen": "shower",
+      "rate": 0.8
+     }
+    ],
+    [
+     "依上面的短文，Lydia 希望幾點上床睡覺？",
+     "她希望九點半上床。",
+     [
+      "她希望八點半上床。",
+      "她希望九點整上床。",
+      "她希望十點半上床。"
+     ],
+     [
+      "先定位短文在說什麼作息。",
+      "找出說 Lydia 自己希望怎麼做的句子。",
+      "讀出那句 at 後面的兩個數字，注意小時和分鐘。"
+     ],
+     "正確概念：短文說 She wants to go to bed at nine thirty.。nine thirty 是九點三十分。\n破誤：「她希望八點半上床。」：讀到分鐘是三十分，卻把小時看錯了；「她希望九點整上床。」：看見 nine 就作答，漏讀後面的分鐘；「她希望十點半上床。」：把課本課文裡的目標時間帶入這篇短文。\n回頭讀：Unit 4 Reading（課本 pp.69–71）、Sentence A（課本 p.66）。",
+     {
+      "passage": "Lydia goes to bed late. She wants to go to bed at nine thirty. She plays with her toys after dinner, so she starts her homework late. Now she does her homework before dinner. After dinner, she puts her books in her bag and gets ready for bed. Her new plan helps her go to bed on time."
+     }
+    ],
+    [
+     "依上面的短文，為了解決太晚開始寫功課的問題，Lydia 改成怎麼做？",
+     "改在晚餐前寫功課。",
+     [
+      "改在晚餐後玩玩具。",
+      "改在晚餐後寫功課。",
+      "晚餐前先把書放進書包。"
+     ],
+     [
+      "找出她原先太晚寫功課的原因。",
+      "接著找 Now，它帶出和原先不同的做法。",
+      "看新計畫裡寫功課和吃晚餐的先後順序。"
+     ],
+     "正確概念：Lydia 原先晚餐後玩玩具，所以很晚才開始寫功課。她的新辦法是把寫功課移到晚餐前。\n破誤：「改在晚餐後玩玩具。」：把使她晚寫功課的舊習慣當成新方法；「改在晚餐後寫功課。」：知道計畫改了寫功課的時段，卻看反 before 和 after；「晚餐前先把書放進書包。」：把整理書包的安排當成處理功課的辦法，還把它放錯時間。\n回頭讀：Reading Skills：Problem and Solution（課本 p.11）、Unit 4 Reading（課本 pp.69–71）。",
+     {
+      "passage": "Lydia goes to bed late. She wants to go to bed at nine thirty. She plays with her toys after dinner, so she starts her homework late. Now she does her homework before dinner. After dinner, she puts her books in her bag and gets ready for bed. Her new plan helps her go to bed on time."
+     }
+    ],
+    [
+     "Unit 4 的故事裡，Amy 和 Boka 約好幾點在公園見？",
+     "早上七點半。",
+     [
+      "早上六點半。",
+      "早上八點整。",
+      "早上六點整。"
+     ],
+     [
+      "故事提到好幾個時間，先分開起床、打電話和見面的時間。",
+      "找出 Amy 接完電話後答應見面的那一格。",
+      "留意她在提到公園之後說的時間。"
+     ],
+     "正確概念：Amy 在掛電話前約 Boka 七點半到公園。六點半是通話時的時間；八點和六點分別是兩人提到的起床時間。\n破誤：「早上六點半。」：把 Boka 打電話時的時間當成約見面的時間；「早上八點整。」：把 Amy 平常週末起床的時間當成約見面的時間；「早上六點整。」：把 Boka 平常起床的時間當成約見面的時間。\n回頭讀：Unit 4 Story（課本 pp.61–63）。"
+    ]
+   ]
+  },
+  {
+   "id": "en5-14",
+   "z": 3,
+   "name": "綜合複習",
+   "lesson": "Review 2",
+   "draft": true,
+   "intro": "Unit 3～4 一起複習：食物、點餐的說法、一天的作息和時間。",
+   "q": [
+    [
+     "餐牌上哪一項是「麵條」？",
+     "noodles",
+     [
+      "French fries",
+      "dumplings",
+      "sandwiches"
+     ],
+     [
+      "先想想麵條是哪一類食物。",
+      "把每個選項和課本的食物圖片配對。",
+      "先刪掉油炸的、包餡的和夾麵包的，剩下的就是一碗一碗吃的那一種。"
+     ],
+     "正確概念：noodles 是麵條；French fries 是薯條、dumplings 是水餃、sandwiches 是三明治。\n破誤：「French fries」：把兩種細長的食物名稱記反了；「dumplings」：認出是菜單上的複數食物名稱，卻把麵條認成水餃；「sandwiches」：把三明治和麵條的英文記混了。\n回頭讀：Unit 3 Vocabulary（課本 p.51）、Review 2（課本 p.75）。"
+    ],
+    [
+     "Gwen 說她晚餐後會完成老師布置的功課。選出符合她意思的片語填入空格：「I ____ after dinner.」",
+     "do my homework",
+     [
+      "go to bed",
+      "go to school",
+      "have breakfast"
+     ],
+     [
+      "先圈出 Gwen 要做的事。",
+      "有些作息也在晚間，還要看她那時要完成什麼。",
+      "找一個表示「完成自己的作業」的作息片語。"
+     ],
+     "正確概念：do my homework 是做我的功課。after dinner 說的是她做功課的時間。\n破誤：「go to bed」：想到晚餐過後也會睡覺，卻忽略她說要完成老師布置的事；「go to school」：把在學校上課和在家完成作業當成同一件事；「have breakfast」：只依同一單元的作息選了吃早餐，沒有比對活動內容。\n回頭讀：Unit 4 Vocabulary（課本 p.65）、Review 2（課本 pp.75、77）。"
+    ],
+    [
+     "店員想請客人自己說想吃什麼。哪一句問法符合店員的意思？",
+     "What would you like to eat?",
+     [
+      "Would you like some noodles?",
+      "What time do you have dinner?",
+      "What would you like to drink?"
+     ],
+     [
+      "先看店員要客人說的是食物、飲料，還是時間。",
+      "他想聽客人自己說出餐點，可以用疑問詞提問。",
+      "再讀問句的最後一個動詞，分清楚是要吃還是要喝。"
+     ],
+     "正確概念：What would you like to eat? 可以讓客人自己說想吃什麼。用 Would you like some noodles? 則是詢問要不要吃指定的食物。\n破誤：「Would you like some noodles?」：特別問要不要吃麵條，沒有讓客人說出想點的餐點；「What time do you have dinner?」：問的是幾點吃晚餐，沒有問要吃什麼；「What would you like to drink?」：問的是想喝什麼，沒有問要點什麼食物。\n回頭讀：Unit 3 Sentence A／B（課本 pp.52–53）、Review 2（課本 p.75）。"
+    ],
+    [
+     "依上面的短文，哪一句正確說出 Adele 寫功課前的上一項作息和時間？英文也要寫對。",
+     "She has dinner at six fifteen.",
+     [
+      "She have dinner at six fifteen.",
+      "She has dinner at seven ten.",
+      "She goes to bed at nine o’clock."
+     ],
+     [
+      "先在短文裡圈出 Adele 做功課的那一句。",
+      "把短文的時間按先後排列，找出做功課之前最近的時間。",
+      "看那個時間屬於哪一項作息，再選使用第三人稱的句子。"
+     ],
+     "正確概念：Adele 七點十分寫功課。再往前一項有標明時間的作息是六點十五分吃晚餐，所以選 She has dinner at six fifteen.。\n破誤：「She have dinner at six fifteen.」：找對作息和時間，卻忘了 she 後面的 have 要改成 has；「She has dinner at seven ten.」：找對上一項作息，卻把寫功課的時間配給晚餐；「She goes to bed at nine o’clock.」：上床時間讀對了，但那是寫完功課以後的作息。\n回頭讀：Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）。",
+     {
+      "passage": "I'm Adele. On Fridays, I go home at four forty. I put my bag on a chair when I get home. I have dinner at six fifteen. At seven ten, I do my homework. I go to bed at nine. I like to read a book before I go to bed."
+     }
+    ],
+    [
+     "哪個字的母音和 clown 的母音相同？",
+     "loud",
+     [
+      "soil",
+      "coin",
+      "joy"
+     ],
+     [
+      "先念 clown，留意中間的母音。",
+      "把選項的母音和上一單元的 oi／oy 比一比。",
+      "想想本課哪組字母雖然和 clown 的拼法不同，卻有相同的母音。"
+     ],
+     "正確概念：loud 的 ou 和 clown 的 ow 在這兩個字裡同音。soil、coin 的 oi 和 joy 的 oy 讀的是另一個母音。\n破誤：「soil」：把 oi 的滑動方向聽成和 clown 裡的母音一樣；「coin」：看到有 o，就把 oi 當成 clown 的 ow；「joy」：看到字母 o，沒有分辨 oy 和 ow 的讀音。\n回頭讀：Review 2 Play and Say（課本 p.78）、Unit 4 Phonics（課本 pp.72–73）。"
+    ],
+    [
+     "請聽英文，選出意思最符合的中文。",
+     "你想吃一些三明治和薯條嗎？",
+     [
+      "你想吃一些三明治和水餃嗎？",
+      "你想吃一些麵條和薯條嗎？",
+      "我想吃一些三明治和薯條。"
+     ],
+     [
+      "聽句子開頭，是在問人，還是在說自己的選擇？",
+      "再聽後半提了幾項食物。",
+      "利用連接兩項食物的地方分開聽，核對兩樣食物和問句的用途。"
+     ],
+     "正確概念：Would you like …? 是問對方要不要。sandwiches 和 French fries 指三明治和薯條。\n破誤：「你想吃一些三明治和水餃嗎？」：聽對第一項食物，把第二項記成水餃；「你想吃一些麵條和薯條嗎？」：聽對第二項食物，把第一項記成麵條；「我想吃一些三明治和薯條。」：聽對兩樣食物，卻把詢問對方意願聽成自己點餐。\n回頭讀：Unit 3 Vocabulary（課本 p.51）、Sentence B（課本 p.53）、Review 2（課本 p.75）。",
+     {
+      "listen": "Would you like some sandwiches and French fries?",
+      "rate": 0.9
+     }
+    ],
+    [
+     "請聽對話，選出符合內容的說法。",
+     "Andy 六點二十分吃晚餐，想吃披薩和湯。",
+     [
+      "Andy 七點整吃晚餐，想吃披薩和湯。",
+      "Andy 六點二十分吃晚餐，想吃水餃和湯。",
+      "Andy 六點二十分吃午餐，想吃披薩和湯。"
+     ],
+     [
+      "先聽兩個問句各在問什麼。",
+      "第一個回答有否定，後面才補上真正的時間。",
+      "再把最後一句的兩樣食物和實際用餐時間放在一起。"
+     ],
+     "正確概念：Andy 否認七點吃晚餐，說自己六點二十分吃晚餐，最後選了披薩和湯。\n破誤：「Andy 七點整吃晚餐，想吃披薩和湯。」：餐點聽對了，但把問句提到的時間當成實際時間；「Andy 六點二十分吃晚餐，想吃水餃和湯。」：時間和湯都聽對了，把披薩記成水餃；「Andy 六點二十分吃午餐，想吃披薩和湯。」：聽對時間和餐點，但把晚餐記成午餐。\n回頭讀：Unit 3 Sentence A（課本 p.52）、Unit 4 Sentence B（課本 p.67）、Review 2（課本 p.75）。",
+     {
+      "listen": "Sonia: Do you have dinner at seven, Andy? Andy: No, I don't. I have dinner at six twenty. Sonia: What would you like to eat? Andy: I'd like some pizza and soup, please.",
+      "rate": 0.9
+     }
+    ]
+   ]
   }
  ]
 };

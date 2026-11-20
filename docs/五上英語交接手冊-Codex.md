@@ -1,6 +1,6 @@
 # 五上英語（en5）交接手冊（給 Codex）
 
-> 2026-11-20 Claude Code 撰寫。Unit 1（en5-01～03，21 題）已由 Claude Code 做完當樣板；**Unit 2 → Review 1 → Unit 3 → Unit 4 → Review 2 由 Codex 接手**，一批交一次。
+> 2026-11-20 Claude Code 撰寫。Unit 1（en5-01～03，21 題）已由 Claude Code 做完當樣板；**Unit 2 → Review 1 → Unit 3 → Unit 4 → Review 2 由 Codex 接手**。2026-11-20 全書 14 關 98 題做完（都是草稿，待老師抽驗）。
 > 開工前依序讀：`CLAUDE.md` → `docs/五年級題庫交接手冊-Codex.md` 第 0、2、7、8 節（共同權限與規格）→ 這份 → `drafts/en5/build-U1.mjs`（樣板）→ `drafts/en5/自檢報告-U1.md`。
 > 六上那份 `docs/國小練習平台-英語題庫規劃書-Codex.md` 是同一套題型的原始規格，**這份沒寫到的，照那份**；兩份衝突時以這份為準。
 
@@ -38,14 +38,14 @@
 | en5-04 | 1 | Unit 2 Having a Cold | 字彙與聽力 | cold、cough、fever、headache、toothache、stomachache、runny nose、sore throat（Story pp.29–31、Vocabulary pp.32–33） | U2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U2.md`） |
 | en5-05 | 1 | Unit 2 | 句型與文法 | What's wrong? I have a headache. Does he/she have a fever? Yes, he does. / No, he doesn't. He has a cough. 第三人稱 has；Grammar Tips | U2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U2.md`） |
 | en5-06 | 1 | Unit 2 | 發音與閱讀 | Phonics ar、or（car、farm、party、corn、pork…）；Reading；Reading Skills：Question Words（p.10）；Story | U2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U2.md`） |
-| en5-07 | 1 | Review 1 | 綜合複習 | Unit 1～2 的字彙、句型、發音；Find Details（pp.43–46） | R1 | Codex | 未開始 |
-| en5-08 | 2 | Unit 3 From Farm to Table | 字彙與聽力 | pizza、rice、soup、steak、sandwiches、dumplings、French fries、noodles；可數與不可數（pp.47–51） | U3 | Codex | 未開始 |
-| en5-09 | 2 | Unit 3 | 句型與文法 | What would you like to eat? I'd like some … , please. Would you like some …? Yes, please. / No, thank you.；Grammar Tips | U3 | Codex | 未開始 |
-| en5-10 | 2 | Unit 3 | 發音與閱讀 | Phonics oi、oy（coin、noise、soil、boy、joy、toy）；Reading；Reading Skills：Sequence（p.11）；Story | U3 | Codex | 未開始 |
-| en5-11 | 3 | Unit 4 A Call in the Morning | 字彙與聽力 | get up、have breakfast、go to school、have lunch、go home、do my homework、have dinner、go to bed（pp.61–65） | U4 | Codex | 未開始 |
-| en5-12 | 3 | Unit 4 | 句型與文法 | What time do you get up? I get up at six thirty. Do you have lunch at twelve? Yes, I do. / No, I don't.；Grammar Tips；作息表 | U4 | Codex | 未開始 |
-| en5-13 | 3 | Unit 4 | 發音與閱讀 | Phonics ou、ow（house、mouse、shout、clown、owl、shower）；Reading；Reading Skills：Problem and Solution（p.11）；Story | U4 | Codex | 未開始 |
-| en5-14 | 3 | Review 2 | 綜合複習 | Unit 3～4 的字彙、句型、發音；Sequence（pp.75–78） | R2 | Codex | 未開始 |
+| en5-07 | 1 | Review 1 | 綜合複習 | Unit 1～2 的字彙、句型、發音；Find Details（pp.43–46） | R1 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-R1.md`） |
+| en5-08 | 2 | Unit 3 From Farm to Table | 字彙與聽力 | pizza、rice、soup、steak、sandwiches、dumplings、French fries、noodles；可數與不可數（pp.47–51） | U3 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U3.md`） |
+| en5-09 | 2 | Unit 3 | 句型與文法 | What would you like to eat? I'd like some … , please. Would you like some …? Yes, please. / No, thank you.；Grammar Tips | U3 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U3.md`） |
+| en5-10 | 2 | Unit 3 | 發音與閱讀 | Phonics oi、oy（coin、noise、soil、boy、joy、toy）；Reading；Reading Skills：Sequence（p.11）；Story | U3 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U3.md`） |
+| en5-11 | 3 | Unit 4 A Call in the Morning | 字彙與聽力 | get up、have breakfast、go to school、have lunch、go home、do my homework、have dinner、go to bed（pp.61–65） | U4 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U4.md`） |
+| en5-12 | 3 | Unit 4 | 句型與文法 | What time do you get up? I get up at six thirty. Do you have lunch at twelve? Yes, I do. / No, I don't.；Grammar Tips；作息表 | U4 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U4.md`） |
+| en5-13 | 3 | Unit 4 | 發音與閱讀 | Phonics ou、ow（house、mouse、shout、clown、owl、shower）；Reading；Reading Skills：Problem and Solution（p.11）；Story | U4 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-U4.md`） |
+| en5-14 | 3 | Review 2 | 綜合複習 | Unit 3～4 的字彙、句型、發音；Sequence（pp.75–78） | R2 | Codex | 2026-11-20 完成，Claude Code 已抽查，待老師抽驗（`drafts/en5/自檢報告-R2.md`） |
 
 - 表裡的字彙和句型是 Claude Code 從文字檔快速整理的，**出題前一定要回課本逐字核對**，不一樣就以課本為準，在自檢報告寫出差異。
 - 關名和 intro 已寫在 `drafts/en5/add-levels.mjs`，核對後可以改 intro。
@@ -92,7 +92,7 @@ save();
    - 對話寫成 `Amy: …  Leo: …`，網站會用男女兩種聲音念。**男生名字要在 `js/ui.js` 的 `BOYS` 名單裡**才會用男聲（已加 Joe、Boka、Tommy、Ken、Nick、Luke、Tim、Mark、Josh、Raj、Dev、Ren，另有 Kevin、Tom、Ben、Leo、Sam、Peter 等）。要用名單外的男生名字，寫在自檢報告請 Claude Code 加。
    - 時間寫成念得自然的樣子：`six thirty`、`at seven o'clock`，不要寫 `6:30`。一題 `listen` 不超過 60 個字。
    - 問句的回答選項寫完整句（`He's from Canada.`，不是只寫 `Canada`）。
-2. **前提只來自課本正文**（第 1 節）。補充單字只能放在干擾項或短文的次要位置。
+2. **前提只來自課本正文**（第 1 節）。補充單字只能放在干擾項或短文的次要位置；**正解一定要是課本教過的字**（抽查時 L10-Q2 的 bay、L13-Q2 的 tone 是正解卻不在課本，已改成 Unit 2 的 corn、horse）。
 3. **短文和對話自己寫**：可以用課本人物和本課句型，但不能是課本 Reading 或錄音腳本改幾個字。人名換新的（Unit 1 用了 Nina、Leo、Lucy、Lily、Ben、Anna、Sam、Nick、Tom；別的單元換別的名字，不要重複用同一組人和國家）。
 4. **正解唯一**：干擾項不能也算對。例：「Whales and dolphins are ____」不能放 animals（也對）。寫完每題自己問一次「這個干擾項有沒有可能也對？」。
 5. **提示三段漸進，第 3 段是「差一步」，不能等於答案**。Unit 1 有 5 題第一版的提示太接近答案，改過了（見自檢報告）。

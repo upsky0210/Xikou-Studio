@@ -1,0 +1,255 @@
+[
+ {
+  "id": "L07-Q1",
+  "level": "L07",
+  "type": "字彙：國家",
+  "stem": "「英國」的英文是哪一個？",
+  "attachment": null,
+  "answer": "the UK",
+  "distractors": [
+   {
+    "text": "the USA",
+    "misconception": "知道要找縮寫，卻把英國和美國對調",
+    "trap": "中文意思混淆"
+   },
+   {
+    "text": "France",
+    "misconception": "把課本中兩個歐洲國家的英文記反",
+    "trap": "中文意思混淆"
+   },
+   {
+    "text": "Canada",
+    "misconception": "把英國和加拿大的國名混在一起",
+    "trap": "中文意思混淆"
+   }
+  ],
+  "hints": [
+   "先確認題目在問哪個國家。",
+   "回想課本中用大寫字母縮寫的國名。",
+   "在兩個縮寫中，留意字母數和最後一個字母。"
+  ],
+  "explanation": "正確概念：英國是 the UK；美國是 the USA。\n破誤：「the USA」：知道要找縮寫，卻把英國和美國對調；「France」：把課本中兩個歐洲國家的英文記反；「Canada」：把英國和加拿大的國名混在一起。\n回頭讀：Unit 1 Vocabulary（課本 pp.18–19）、Review 1（課本 p.43）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 1 Vocabulary（課本 pp.18–19）、Review 1（課本 p.43）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q2",
+  "level": "L07",
+  "type": "字彙：症狀情境",
+  "stem": "Tessa 指著頭說痛。哪個英文詞表示這種症狀？",
+  "attachment": null,
+  "answer": "a headache",
+  "distractors": [
+   {
+    "text": "a stomachache",
+    "misconception": "認出字尾表示痛，卻選了肚子痛",
+    "trap": "中文意思混淆"
+   },
+   {
+    "text": "a toothache",
+    "misconception": "把頭痛和牙齒痛記混了",
+    "trap": "中文意思混淆"
+   },
+   {
+    "text": "a sore throat",
+    "misconception": "看到是在說痛就選了，沒有對照疼痛的位置",
+    "trap": "中文意思混淆"
+   }
+  ],
+  "hints": [
+   "先找出 Tessa 指的是哪一個部位。",
+   "比較字裡表示身體部位的部分。",
+   "回想哪個英文字是從表示頭的字開始，再接表示疼痛的部分。"
+  ],
+  "explanation": "正確概念：head 指頭，headache 是頭痛。\n破誤：「a stomachache」：認出字尾表示痛，卻選了肚子痛；「a toothache」：把頭痛和牙齒痛記混了；「a sore throat」：看到是在說痛就選了，沒有對照疼痛的位置。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）、Review 1（課本 p.43）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 2 Vocabulary（課本 pp.32–33）、Review 1（課本 p.43）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q3",
+  "level": "L07",
+  "type": "句型：問答配對",
+  "stem": "Megan 想知道眼前的同學來自哪裡。她可以怎麼問？",
+  "attachment": null,
+  "answer": "Where are you from?",
+  "distractors": [
+   {
+    "text": "Where is she from?",
+    "misconception": "用 she 問另一位女生，沒有用 you 問眼前的人",
+    "trap": "人稱代名詞混淆"
+   },
+   {
+    "text": "Where am I from?",
+    "misconception": "用了 I，變成在問自己來自哪裡",
+    "trap": "人稱代名詞混淆"
+   },
+   {
+    "text": "Are you from India?",
+    "misconception": "直接猜一個國家，只能確認是不是來自印度",
+    "trap": "疑問詞混淆"
+   }
+  ],
+  "hints": [
+   "先分清楚 Megan 在問誰。",
+   "對眼前的人說話，要用表示「你」的人稱。",
+   "她想讓對方說出一個地方，要用問地點的疑問詞。"
+  ],
+  "explanation": "正確概念：直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?\n破誤：「Where is she from?」：用 she 問另一位女生，沒有用 you 問眼前的人；「Where am I from?」：用了 I，變成在問自己來自哪裡；「Are you from India?」：直接猜一個國家，只能確認是不是來自印度。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q4",
+  "level": "L07",
+  "type": "句型與閱讀：找出細節",
+  "stem": "依上面的短文，有人問：「Does Eric have a fever?」哪個回答正確？",
+  "attachment": {
+   "passage": "I'm Leah. I'm from France and my friend Eric is from the USA. I have a runny nose, but I feel OK. Eric has a stomachache. He has no fever. We are at home today. Our friend Hana is from Japan. She feels fine. She calls us after school."
+  },
+  "answer": "No, he doesn't. He has a stomachache.",
+  "distractors": [
+   {
+    "text": "Yes, he does. He has a stomachache.",
+    "misconception": "找對肚子痛的資訊，卻把沒有發燒答成有發燒",
+    "trap": "簡答不一致"
+   },
+   {
+    "text": "No, he doesn't. He has a runny nose.",
+    "misconception": "用對否定簡答，卻把 Leah 的症狀配給 Eric",
+    "trap": "資訊錯置"
+   },
+   {
+    "text": "No, he don't. He has a stomachache.",
+    "misconception": "找對了症狀，但問句用 Does，否定簡答要用相配的形式",
+    "trap": "第三人稱混淆"
+   }
+  ],
+  "hints": [
+   "先圈出問句裡的人名和症狀。",
+   "到短文找到 Eric，看看哪一句說了他有沒有發燒。",
+   "再對照同一個人的另一項症狀，檢查回答有沒有配錯人。"
+  ],
+  "explanation": "正確概念：文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn’t.，再補充他的症狀。\n破誤：「Yes, he does. He has a stomachache.」：找對肚子痛的資訊，卻把沒有發燒答成有發燒；「No, he doesn't. He has a runny nose.」：用對否定簡答，卻把 Leah 的症狀配給 Eric；「No, he don't. He has a stomachache.」：找對了症狀，但問句用 Does，否定簡答要用相配的形式。\n回頭讀：Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q5",
+  "level": "L07",
+  "type": "發音：辨別字母組合",
+  "stem": "哪個字的母音和 bark 的母音相同？",
+  "attachment": null,
+  "answer": "hard",
+  "distractors": [
+   {
+    "text": "bird",
+    "misconception": "看到 r 就歸在同一組，忽略了 r 前面的字母",
+    "trap": "拼字組合混淆"
+   },
+   {
+    "text": "horse",
+    "misconception": "把 or 的母音和 ar 的母音當成同一個",
+    "trap": "母音混淆"
+   },
+   {
+    "text": "nurse",
+    "misconception": "聽到 r 的聲音，就把 ur 和 ar 歸在一起",
+    "trap": "母音混淆"
+   }
+  ],
+  "hints": [
+   "先回想 bark 中間的母音。",
+   "這些字都有 r，再看緊接在 r 前面的字母。",
+   "找出母音字母和 bark 相同的選項，再念一次確認。"
+  ],
+  "explanation": "正確概念：bark 和 hard 中間都是 ar；bird 的 ir、horse 的 or、nurse 的 ur 都有不同於 ar 的讀音。\n破誤：「bird」：看到 r 就歸在同一組，忽略了 r 前面的字母；「horse」：把 or 的母音和 ar 的母音當成同一個；「nurse」：聽到 r 的聲音，就把 ur 和 ar 歸在一起。\n回頭讀：Review 1 Four in a Row（課本 p.46）、Unit 2 Phonics（課本 pp.40–41）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Review 1 Four in a Row（課本 p.46）、Unit 2 Phonics（課本 pp.40–41）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q6",
+  "level": "L07",
+  "type": "聽力：聽句子選意思",
+  "stem": "請聽英文，選出符合內容的說法。",
+  "attachment": {
+   "listen": "I'm from Canada. My friend is from Taiwan.",
+   "rate": 0.9
+  },
+  "answer": "說話的人來自加拿大。",
+  "distractors": [
+   {
+    "text": "說話的人來自臺灣。",
+    "misconception": "把朋友來自的地方當成說話者自己的",
+    "trap": "資訊錯置"
+   },
+   {
+    "text": "說話的人的朋友來自加拿大。",
+    "misconception": "聽到第一個國名，就配給後面提到的朋友",
+    "trap": "資訊錯置"
+   },
+   {
+    "text": "說話的人的朋友來自澳大利亞。",
+    "misconception": "只聽出第二句介紹朋友，沒有比對那個國名的意思",
+    "trap": "中文意思混淆"
+   }
+  ],
+  "hints": [
+   "比較兩句介紹的是不是同一個人。",
+   "句首有一次在說自己，另一次則提到朋友。",
+   "把每句末尾的國名配給該句的主詞，再對照選項。"
+  ],
+  "explanation": "正確概念：第一句介紹自己來自加拿大，第二句才說朋友來自臺灣。\n破誤：「說話的人來自臺灣。」：把朋友來自的地方當成說話者自己的；「說話的人的朋友來自加拿大。」：聽到第一個國名，就配給後面提到的朋友；「說話的人的朋友來自澳大利亞。」：只聽出第二句介紹朋友，沒有比對那個國名的意思。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q7",
+  "level": "L07",
+  "type": "聽力：聽短對話",
+  "stem": "請聽對話，選出符合內容的說法。",
+  "attachment": {
+   "listen": "Grace: What's wrong, Max? Max: I have a cold. Grace: Do you have a fever? Max: No, I don't. I have a sore throat.",
+   "rate": 0.9
+  },
+  "answer": "Max 喉嚨痛。",
+  "distractors": [
+   {
+    "text": "Max 正在發燒。",
+    "misconception": "聽見問句裡的症狀就選了，漏聽 Max 的否定回答",
+    "trap": "對話資訊錯置"
+   },
+   {
+    "text": "Max 有在咳嗽。",
+    "misconception": "聽到感冒就猜他也咳嗽，但對話沒有交代",
+    "trap": "文意推論過度"
+   },
+   {
+    "text": "Grace 喉嚨痛。",
+    "misconception": "聽對了最後說的症狀，卻配給發問的人",
+    "trap": "對話資訊錯置"
+   }
+  ],
+  "hints": [
+   "先聽誰問問題、誰說自己不舒服。",
+   "第二個問句在確認某個症狀，聽回答是同意還是否定。",
+   "重聽回答者最後一句，核對最後提到的部位。"
+  ],
+  "explanation": "正確概念：Max 說自己感冒，接著否認有發燒，最後補充自己喉嚨痛。\n破誤：「Max 正在發燒。」：聽見問句裡的症狀就選了，漏聽 Max 的否定回答；「Max 有在咳嗽。」：聽到感冒就猜他也咳嗽，但對話沒有交代；「Grace 喉嚨痛。」：聽對了最後說的症狀，卻配給發問的人。\n回頭讀：Unit 2 Sentence A、Grammar Tips（課本 pp.34、36）、Review 1（課本 p.43）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 2 Sentence A、Grammar Tips（課本 pp.34、36）、Review 1（課本 p.43）；聽力對話與閱讀短文為自行編寫"
+  }
+ }
+]
