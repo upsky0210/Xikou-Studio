@@ -194,13 +194,18 @@
   }
 
   /* ---------- 上方列 ---------- */
+  /* EXP：在某一本書裡（地圖、關卡、答題）只算這本書，和書架書卡上的數字一樣；首頁才顯示全部的書加起來。
+     徽章按鈕打開的是整本徽章冊（每本書都列），所以一直算全部。 */
   function updateTop(book) {
     let exp = 0, badges = 0;
     for (const b of Object.values(state.books)) { exp += b.exp || 0; badges += Object.keys(b.badges || {}).length; }
-    $('#expNum').textContent = exp;
+    const bookExp = book ? (state.books[book.id] ? state.books[book.id].exp || 0 : 0) : exp;
+    $('#expNum').textContent = bookExp;
+    const pill = $('#expNum').closest('.pill');
+    if (pill) pill.title = book ? '這本書的 EXP' : '全部的書加起來的 EXP';
     $('#badgeNum').textContent = badges;
     const q = $('#qExp');
-    if (q) q.textContent = book && state.books[book.id] ? state.books[book.id].exp : exp;
+    if (q) q.textContent = bookExp;
     document.title = book ? book.subj + book.sem + '・' + book.pub + '｜溪口練功王國' : '溪口練功王國';
   }
 
@@ -224,15 +229,16 @@
        亮寶石 bright＝第一次作答就答對（first === true）
        暗寶石 dim＝曾經答錯、重試後答對（first === false 且 ok）
        空位＝還沒答對；正在作答的那一題外框會閃 */
-  function gemsHTML(book, level, nowIndex = -1) {
+  // order：闖關時照這次的出題順序排（重練會洗牌），寶石才會從左到右一顆一顆亮
+  function gemsHTML(book, level, nowIndex = -1, order = null) {
     const saved = state.books[book.id] && state.books[book.id].levels[level.id];
     const marks = level.q.map((_, i) => {
       const q = saved && saved.q[i];
       return q && q.ok ? (q.first === true ? 'bright' : 'dim') : '';
     });
     const n = (k) => marks.filter((m) => m === k).length;
-    return `<span class="gems" role="img" aria-label="亮寶石 ${n('bright')} 顆、暗寶石 ${n('dim')} 顆、空位 ${n('')} 個">${marks.map((m, i) =>
-      `<i class="${m}${i === nowIndex ? ' now' : ''}"></i>`).join('')}</span>`;
+    return `<span class="gems" role="img" aria-label="亮寶石 ${n('bright')} 顆、暗寶石 ${n('dim')} 顆、空位 ${n('')} 個">${(order || marks.map((_, i) => i)).map((i) =>
+      `<i class="${marks[i]}${i === nowIndex ? ' now' : ''}"></i>`).join('')}</span>`;
   }
   const gemLegend = '<p class="gem-legend"><i class="g bright"></i>第一次就答對 <i class="g dim"></i>重試才答對 <i class="g"></i>還沒答對</p>';
 
@@ -518,7 +524,7 @@
         <p class="lesson">${esc(level.lesson)}</p>
         <p class="lead">${esc(level.intro)}</p>
         <ul class="rules">
-          <li><span class="ico shield">${ICON.gem}</span>共 ${level.q.length} 題，${qTagRule(book)}。</li>
+          <li><span class="ico shield">${ICON.gem}</span>共 ${level.q.length} 題，${sum.done ? '再練一次時題目順序會打亂' : qTagRule(book)}。</li>
           <li><span class="ico gold">${ICON.jewel}</span>第一次作答就答對 +${Engine.EXP_PER_Q} EXP；答錯不扣分，等 ${Engine.LOCK_MS / 1000} 秒可以再選。</li>
           <li><span class="ico jade">${ICON.bulb}</span>每題有 3 段提示，看提示不扣 EXP。同一題錯兩次，要先看提示才能再選。</li>
           <li><span class="ico gold">${ICON.trophy}</span>第一次就答對 ${Engine.masterNeed(level.q.length)} 題以上就是「精熟」。這一區每一關都精熟，才拿得到徽章。</li>
@@ -551,6 +557,20 @@
     const left = Engine.HINTS_PER_Q - shown;
     return `<button class="btn hintbtn${must ? ' must' : ''}" id="hint" type="button">${ICON.bulb} 看提示 ${shown + 1}／${Engine.HINTS_PER_Q}
       <span class="dots">${Array.from({ length: Engine.HINTS_PER_Q }, (_, k) => `<i class="${k < shown ? 'used' : ''}"></i>`).join('')}</span><span class="sr" hidden>還有 ${left} 段</span></button>`;
+  }
+
+  /* 答對後的回饋、新打開的提示在畫面下面看不到時，才往下捲一點，讓它的開頭露出來；
+     而且不把題目的圖捲到上方列底下（以前用 scrollIntoView 會把詳解整段捲進來，圖的上半部跑出畫面，
+     學生會以為圖壞了）。圖比畫面還高時就不捲，讓學生自己往下滑。 */
+  function showBelow(el) {
+    if (!el) return;
+    const vh = window.innerHeight, r = el.getBoundingClientRect();
+    const need = Math.min(r.bottom, r.top + 140) - (vh - 12);     // 露出回饋的開頭（約 140px）就好
+    if (need <= 0) return;
+    const fig = $('.qcard .attach.fig'), bar = $('.qbar');
+    const room = fig ? fig.getBoundingClientRect().top - (bar ? bar.getBoundingClientRect().bottom : 0) - 8 : Infinity;
+    const dy = Math.min(need, room);
+    if (dy > 0) window.scrollBy({ top: dy, behavior: 'smooth' });
   }
 
   function renderQuestion(book, feedback, picked) {
@@ -588,11 +608,11 @@
         <div class="qbar">
           <button class="btn" id="quit" type="button">${ICON.back} 離開</button>
           <div class="qtitle"><img src="${t.img}" alt=""><span><small>${esc(zi.name)} · 第 ${no} 關${run.review ? ' · 複習' : ''}</small><b>${esc(level.name)}</b></span></div>
-          ${gemsHTML(book, level, i)}
+          ${gemsHTML(book, level, i, run.order)}
           <span class="pill exp" id="qExpPill" title="這本書的 EXP"><i class="ico gold" aria-hidden="true">${ICON.jewel}</i><b id="qExp">${bookExp}</b><small>EXP</small></span>
         </div>
         <section class="win qcard">
-          <div class="ribbon">第 ${i + 1} 題</div>
+          <div class="ribbon">第 ${Engine.position(run)} 題</div>
           <div class="qhd">${qTagOf(book, i) ? `<span class="tag lit">${esc(qTagOf(book, i))}</span>` : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
           ${isListen(q.attach) ? listenHTML(q.attach, q, solved, (run.plays || {})[i] || 0, !!(run.scriptShown || {})[i]) : attachHTML(q.attach)}
           <p class="stem">${rich(q.stem)}</p>
@@ -617,7 +637,7 @@
         renderQuestion(book, res, text);
         updateTop(book);
         if (res.gained) flyExp(rect, '+' + res.gained);
-        if (res.ok) { const el = $('.explain'); if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150); }
+        if (res.ok) setTimeout(() => showBelow($('.explain') || $('.fb.ok')), 150);
       };
     });
     if (wait > 0) {
@@ -657,7 +677,7 @@
       persist();
       renderQuestion(book, feedback && !feedback.ok ? feedback : null);
       const items = app.querySelectorAll('.hints li');
-      if (items.length) items[items.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (items.length) showBelow(items[items.length - 1]);
     };
     const nb = $('#next');
     if (nb) nb.onclick = () => {

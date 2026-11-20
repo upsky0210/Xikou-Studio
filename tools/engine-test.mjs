@@ -136,5 +136,43 @@ function play(state, level, plan) {
   assert.equal(r.firstNow, 5); assert.equal(r.star, true);
   console.log('6 ok  分兩次做完也算得出精熟');
 }
+// 7. 答錯之前先看過提示也一樣：錯第 2 次起，每錯一次都要再打開一段「新的」提示；3 段都打開了就不擋
+{
+  const s = fresh(), run = E.startRun(s, book.id, book.levels[0]);
+  E.enterQuestion(run);
+  E.revealHint(s, run);                                        // 一開始就先看第 1 段
+  E.answer(s, run, '錯1'); wait();
+  assert.equal(E.needHint(run), false);
+  E.answer(s, run, '錯2'); wait();
+  assert.equal(E.needHint(run), true);                         // 以前這裡不會擋（看過 1 段就算）
+  E.revealHint(s, run);
+  assert.equal(E.needHint(run), false);
+  E.revealHint(s, run);                                        // 3 段全開
+  E.answer(s, run, '錯3'); wait();
+  assert.equal(E.needHint(run), false);                        // 沒有新的提示可以開：不擋
+  assert.equal(E.answer(s, run, '對').ok, true);
+  console.log('7 ok  先看過提示再答錯，一樣要再看新的一段');
+}
+// 8. 題目順序：第一次闖關照資料檔順序；重練（複習）洗牌，而且每題都會出到
+{
+  const s = fresh(), level = book.levels[0];
+  let run = E.startRun(s, book.id, level);
+  assert.deepEqual([...run.order], [0, 1, 2, 3, 4, 5, 6]);
+  play(s, level, [0, 0, 0, 0, 0, 0, 0]);
+  let shuffled = false;
+  for (let t = 0; t < 20; t++) {
+    run = E.startRun(s, book.id, level);
+    assert.equal(run.review, true);
+    E.enterQuestion(run);
+    const seen = [run.index];
+    assert.equal(E.position(run), 1);
+    for (;;) { E.answer(s, run, '對'); if (!E.next(run)) break; seen.push(run.index); E.enterQuestion(run); }
+    assert.deepEqual([...seen].sort(), [0, 1, 2, 3, 4, 5, 6]);
+    assert.deepEqual(seen, [...run.order]);
+    if (seen.join() !== '0,1,2,3,4,5,6') shuffled = true;
+  }
+  assert.equal(shuffled, true);
+  console.log('8 ok  重練時題目順序會洗牌');
+}
 assert.equal(E.masterNeed(7), 5);
 console.log('規則測試全部通過');

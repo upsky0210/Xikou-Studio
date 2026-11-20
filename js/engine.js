@@ -5,8 +5,10 @@
    - 過關：7 題都答對過。
    - 精熟：一次闖關裡「第一次作答就答對」5 題以上（7 題的關；題數不同照比例）。
      第一次闖關沒達到，可以「再練一次」：複習那一次第一次就答對 5 題以上也算。精熟不影響 EXP。
-   - 防亂點：答錯後 2 秒內不能再選；同一題錯第 2 次起，要先打開提示才能再選
-     （錯 2 次要看過 1 段、錯 3 次要看過 2 段）。
+   - 防亂點：答錯後 2 秒內不能再選；同一題錯第 2 次起，每錯一次都要「再打開一段新的提示」才能再選
+     （答錯之前就先看過的提示不算；3 段都打開了就不用再看）。2026-11-21 統一：以前是「錯 2 次要看過 1 段」，
+     答錯前先看過提示的話就不會擋，看起來像有的書有規則、有的書沒有。
+   - 題目順序：第一次闖關照資料檔的順序（由淺到深、素養題在最後）；過了的關重練（複習、再練一次）每次洗牌。
    - 徽章：一個區域（＝一個單元）「資料裡有題目的關」全部精熟就頒發；已經拿到的徽章不會收回。
      （目前質數礦坑只有 2 關資料；之後補關卡，這裡自然就變成整區的判定，不用改程式。）
      程式裡的變數還叫 island／badges，是 P1 留下的名字，意思就是「區域」和「徽章」。
@@ -73,13 +75,17 @@
     const saved = levelState(state, bookId, level);
     const review = saved.done;
     const ok = review ? level.q.map(() => false) : saved.q.map((x) => x.ok);
-    const first = ok.indexOf(false);
+    const idx = level.q.map((_, k) => k);
+    const order = review ? shuffle(idx) : idx;   // 出題順序（存的是資料檔裡的題號）
+    const first = order.find((k) => !ok[k]);
     return {
       bookId, level, review,
       ok,                                   // 這次闖關中，每題是否已答對
-      index: first === -1 ? 0 : first,      // 目前題號（0 起算）
+      order,
+      index: first === undefined ? order[0] : first,   // 目前題號（資料檔裡的第幾題，0 起算）
       shown: level.q.map(() => 0),          // 這次每題打開了幾段提示
       wrongPicks: level.q.map(() => []),    // 這次每題選錯過的選項（畫面上變灰）
+      shownAtWrong: level.q.map(() => 0),   // 這次每題最後一次答錯時，已經打開幾段提示
       tries: level.q.map(() => null),       // 這次每題第一次作答對不對（null＝這次還沒答；複習時用來算精熟）
       lockUntil: 0,                         // 答錯後，到這個時間之前不能再選
       expGained: 0,
@@ -93,14 +99,17 @@
     return run.current;
   }
 
-  // 同一題錯了兩次以上：要先打開提示才能再選（錯 2 次要看過 1 段、錯 3 次要看過 2 段）
+  // 同一題錯了兩次以上：最後一次答錯之後，要再打開一段新的提示才能再選（提示都打開了就不擋）
   function needHint(run) {
     const i = run.index;
     if (run.ok[i]) return false;
     const wrong = run.wrongPicks[i].length;
     const have = Math.min(HINTS_PER_Q, (run.level.q[i][3] || []).length);
-    return wrong >= 2 && run.shown[i] < Math.min(have, wrong - 1);
+    return wrong >= 2 && run.shown[i] < have && run.shown[i] <= run.shownAtWrong[i];
   }
+
+  // 目前這題是這次闖關的第幾題（1 起算，照出題順序）
+  const position = (run) => run.order.indexOf(run.index) + 1;
 
   // 作答：回傳 { ok, gained }；還在鎖定、或要先看提示時回傳 { blocked: true }，不算作答
   function answer(state, run, text) {
@@ -118,6 +127,7 @@
       run.ok[run.index] = true;
     } else {
       if (!run.wrongPicks[run.index].includes(text)) run.wrongPicks[run.index].push(text);
+      run.shownAtWrong[run.index] = run.shown[run.index];
       run.lockUntil = Date.now() + LOCK_MS;
     }
     run.expGained += gained;
@@ -137,9 +147,9 @@
 
   // 下一題：回傳 false 表示這關已經全部答對
   function next(run) {
-    const n = run.ok.length;
+    const n = run.order.length, at = run.order.indexOf(run.index);
     for (let step = 1; step <= n; step++) {
-      const j = (run.index + step) % n;
+      const j = run.order[(at + step) % n];
       if (!run.ok[j]) { run.index = j; return true; }
     }
     return false;
@@ -225,7 +235,7 @@
 
   window.Engine = {
     EXP_PER_Q, HINTS_PER_Q, LOCK_MS,
-    shuffle, view, playable, startRun, enterQuestion, answer, needHint, masterNeed, revealHint, next, finish,
+    shuffle, view, playable, startRun, enterQuestion, answer, needHint, position, masterNeed, revealHint, next, finish,
     zoneInfo, regularZones, islandLevels, islandComplete, syncBadges, levelSummary, recalcExp,
   };
 })();
