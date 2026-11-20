@@ -13,6 +13,7 @@
    五上社會（ss5）：isle 誕生之島、fest 祭典廣場、mill 糖廠磨坊、fort 大員古堡（新做）
    五上國語（ck5）：weather 空拍氣象台、gallery 美術館（新做）、garden 成長花園、forest 黑熊山林（新做）
    六上國語（ck6）：mine 品格寶石礦坑、nightmarket 夜市美食街（新做）、citygate 空城計城樓（新做）、fest 耶誕廣場
+   五上英語（en5）：isle 賞鯨港灣、clinic 感冒診所（新做）、garden 開心農場、school 早安校園
    每個地標的原點在地面中心，正面朝 +z（鏡頭那一邊）。
    回傳 { group, top（標籤放多高）, flag（徽章旗插在哪）, update(t, dt), setState? } */
 import { THREE, Kit, MAT, toonMat, waterMaterial, rng, matrixOf } from './kit.js';
@@ -1247,7 +1248,58 @@ function citygate() {
   };
 }
 
-const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort, gallery, forest, nightmarket, citygate };
+/* 感冒診所（五上英語 Unit 2 Having a Cold）：白色小診所、屋頂會一閃一閃的綠十字、門口一盒大面紙和藥罐、
+   一支巨大的溫度計（紅色水銀會上上下下，像在量體溫） */
+function clinic() {
+  const k = new Kit();
+  const mint = '#7fd1c1', mint2 = '#4fb3a3', green = '#2fae5b';
+  k.cyl(4.8, 5.1, 0.3, 16, '#d6e4de', {});
+  k.box(5.6, 0.25, 3.6, C.stone2, { p: [-0.6, 0.3, -1.6] });
+  k.box(5.0, 3.2, 3.0, C.white, { p: [-0.6, 0.55, -1.7] });                 // 診所主體
+  k.box(5.4, 0.3, 3.4, mint2, { p: [-0.6, 3.75, -1.7] });                    // 屋頂
+  k.box(5.0, 0.35, 0.08, mint, { p: [-0.6, 3.2, -0.16] });                   // 招牌色帶
+  k.box(1.2, 1.9, 0.08, '#bfe6ff', { p: [-0.6, 0.55, -0.16] });             // 玻璃門
+  k.box(0.06, 1.9, 0.1, C.metal, { p: [-0.6, 0.55, -0.14] });
+  for (const x of [-2.4, 1.2]) {                                             // 窗戶和窗簾
+    k.box(1.1, 0.9, 0.08, C.window, { p: [x, 1.6, -0.16] });
+    k.box(1.1, 0.25, 0.1, '#f7b6c2', { p: [x, 2.25, -0.14] });
+  }
+  k.box(1.6, 0.12, 0.9, mint2, { p: [-0.6, 2.6, 0.2] });                     // 門口雨遮
+  // 門口的大面紙盒（抽出一張面紙）和藥罐
+  k.box(1.3, 0.75, 0.8, '#ffc533', { p: [-3.0, 0.3, 1.5] });
+  k.box(0.9, 0.04, 0.4, '#ff7be0', { p: [-3.0, 1.05, 1.5] });
+  k.box(0.5, 0.55, 0.05, C.white, { p: [-3.0, 1.05, 1.5], r: [0.15, 0, 0.08] });
+  k.cyl(0.38, 0.38, 0.8, 12, '#e5493d', { p: [-1.6, 0.3, 2.3] });
+  k.cyl(0.4, 0.4, 0.22, 12, C.white, { p: [-1.6, 1.1, 2.3] });
+  k.box(0.6, 0.3, 0.04, C.white, { p: [-1.6, 0.55, 2.68] });
+  // 長椅
+  k.box(1.6, 0.12, 0.5, C.wood, { p: [0.9, 0.75, 0.9] });
+  for (const x of [0.25, 1.55]) k.box(0.1, 0.45, 0.45, C.wood2, { p: [x, 0.3, 0.9] });
+  // 巨大的溫度計
+  const tx = 3.2, tz = 0.9;
+  k.box(0.9, 3.4, 0.25, C.white, { p: [tx, 0.3, tz] });
+  k.cyl(0.18, 0.18, 2.6, 10, '#e9eef3', { p: [tx, 0.9, tz + 0.14] });
+  k.ball(0.32, 1, '#e5493d', { p: [tx, 0.85, tz + 0.16] });
+  for (let i = 0; i < 6; i++) k.box(0.25, 0.04, 0.04, C.dark, { p: [tx - 0.3, 1.2 + i * 0.4, tz + 0.15] });
+  const gm = new THREE.MeshBasicMaterial({ vertexColors: true });
+  // 屋頂的綠十字（發光）
+  k.cyl(0.06, 0.06, 0.7, 5, C.metal, { p: [-0.6, 3.9, -1.2] });
+  k.box(1.3, 0.42, 0.14, green, { p: [-0.6, 4.75, -1.2], glow: true });
+  k.box(0.42, 1.3, 0.14, green, { p: [-0.6, 4.31, -1.2], glow: true });
+  const group = k.build({ glowMat: gm });
+  // 溫度計的水銀柱（會上下）
+  const mercury = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 1, 8).translate(0, 0.5, 0), new THREE.MeshBasicMaterial({ color: '#e5493d' }));
+  mercury.position.set(tx, 1.05, tz + 0.2); mercury.raycast = () => {}; group.add(mercury);
+  return {
+    group, top: 5.9, flag: [3.6, 0.3, -2.4],
+    update(t) {
+      mercury.scale.y = 1.1 + 0.9 * (0.5 + 0.5 * Math.sin(t * 0.9));
+      const v = 0.75 + 0.25 * Math.sin(t * 3); gm.color.setRGB(v, v, v);
+    },
+  };
+}
+
+const BUILDERS = { mine, mill, oasis, arena, palace, garden, mountain, maze, castle, weather, forge, volcano, magnet, civic, lane, industry, eco, school, clocktower, isle, street, fest, fort, gallery, forest, nightmarket, citygate, clinic };
 export function buildLandmark(terrain) { return (BUILDERS[terrain] || generic)(); }
 export const LANDMARK_KEYS = Object.keys(BUILDERS);
 

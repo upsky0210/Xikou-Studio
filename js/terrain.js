@@ -31,6 +31,7 @@
     forest: { label: '山林', color: '#2f7a3f' },
     nightmarket: { label: '美食街', color: '#e0912a' },
     citygate: { label: '城樓', color: '#b8342d' },
+    clinic: { label: '診所', color: '#2fae5b' },
     generic: { label: '城鎮', color: '#6d7a99' },
   };
   function get(key) {

@@ -1,7 +1,7 @@
 // 國小全科練習平台 — en5（五上英語・康軒 Wonder World 7）
 // 題目：依康軒五上英語教師手冊（教學篇）各單元的學習重點自行編寫；聽力對話與閱讀短文皆為原創。Unit 1 由 Claude Code 做樣板（2026-11-20），其餘照 docs/五上英語交接手冊-Codex.md 接手。
 // 四個 Unit 各三關（字彙與聽力／句型與文法／發音與閱讀）＋ Review 1、Review 2 各一關，共 14 關；Get Ready、附錄、More to Learn 不出題。
-// zones：一個 Unit 一區，Review 1 放在 Unit 2 那區、Review 2 放在 Unit 4 那區；主題地名與地標還沒定，先用單元名。還沒寫好題目的關先不放，地圖上顯示「尚未開放」。
+// zones：一個 Unit 一區，Review 1 放在 Unit 2 那區、Review 2 放在 Unit 4 那區；主題地名 2026-11-20 老師選定：賞鯨港灣、感冒診所（新做 clinic 地標）、開心農場、早安校園。還沒寫好題目的關先不放，地圖上顯示「尚未開放」。
 // levels[].q 為位置陣列：[題幹, 正解, [干擾x3], [提示x3], 詳解, 附件?]；由 tools/assemble.mjs 從作者端題目檔（drafts/en5/en5-questions-*.json）組裝，不要手改。
 // 聽力附件 {listen, rate?, speakOptions?} 由瀏覽器英語語音朗讀（js/ui.js 的 Say）。
 const EN5 = {
@@ -13,20 +13,24 @@ const EN5 = {
  "note": "題目依康軒五上英語（Wonder World 7）各單元的學習重點自行編寫；聽力由瀏覽器英語語音朗讀，情境、對話與短文皆為原創。",
  "zones": [
   {
-   "name": "Unit 1 Whale Watching",
-   "unit": "Unit 1 Whale Watching"
+   "name": "賞鯨港灣",
+   "unit": "Unit 1 Whale Watching",
+   "terrain": "isle"
   },
   {
-   "name": "Unit 2 Having a Cold",
-   "unit": "Unit 2 Having a Cold"
+   "name": "感冒診所",
+   "unit": "Unit 2 Having a Cold",
+   "terrain": "clinic"
   },
   {
-   "name": "Unit 3 From Farm to Table",
-   "unit": "Unit 3 From Farm to Table"
+   "name": "開心農場",
+   "unit": "Unit 3 From Farm to Table",
+   "terrain": "garden"
   },
   {
-   "name": "Unit 4 A Call in the Morning",
-   "unit": "Unit 4 A Call in the Morning"
+   "name": "早安校園",
+   "unit": "Unit 4 A Call in the Morning",
+   "terrain": "school"
   }
  ],
  "levels": [
