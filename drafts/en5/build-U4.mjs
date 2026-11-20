@@ -81,12 +81,12 @@ q('L12-Q2', '句型：詢問幾點',
 
 q('L12-Q3', '句型：問答配對',
   'Serena 早餐是七點二十分吃的。有人直接問她：「Do you have breakfast at seven?」她怎麼回答最合適？', null,
-  'No, I don’t. I have breakfast at seven twenty.',
+  'No, I don\'t. I have breakfast at seven twenty.',
   [['Yes, I do. I have breakfast at seven twenty.', '簡答不一致', '時間寫對了，前面卻答 Yes，等於先說自己七點吃早餐'],
-   ['No, I don’t. I have breakfast at seven o’clock.', '時間錯置', '知道要否定，但把問句的時間搬到補充說明'],
-   ['No, she doesn’t. She has breakfast at seven twenty.', '人稱代名詞混淆', 'Serena 在回答自己的作息，要用 I，不能用 she 來代替自己']],
+   ['No, I don\'t. I have breakfast at seven o\'clock.', '時間錯置', '知道要否定，但把問句的時間搬到補充說明'],
+   ['No, she doesn\'t. She has breakfast at seven twenty.', '人稱代名詞混淆', 'Serena 在回答自己的作息，要用 I，不能用 she 來代替自己']],
   ['先比較題目給的時間和問句裡的時間。', '問的是不是同一個時間？先決定要肯定還是否定。', '如果是回答自己的作息，還要檢查人稱和補充的時間。'],
-  { concept: '兩個時間不同，所以 Serena 要用 No, I don’t. 回答，再說自己七點二十分吃早餐。', ref: 'Unit 4 Sentence A／B（課本 pp.66–67）' });
+  { concept: '兩個時間不同，所以 Serena 要用 No, I don\'t. 回答，再說自己七點二十分吃早餐。', ref: 'Unit 4 Sentence A／B（課本 pp.66–67）' });
 
 q('L12-Q4', '文法：選出正確的問句',
   '下面哪一個英文問句寫得完全正確？', null, 'What time does Adrian have dinner?',
@@ -117,7 +117,7 @@ q('L12-Q7', '情境應用：依表格問答',
   '依上表，向 Erin 問她自己的作息，哪一組問答符合紀錄？',
   table(['活動', '時間'], [['get up', '6:15 AM'], ['go home', '4:25 PM'], ['have dinner', '6:10 PM']], 'Erin 的作息表'),
   'Do you go home at four twenty-five? — Yes, I do.',
-  [['Do you get up at six fifteen? — No, I don’t.', '簡答不一致', '起床時間和表格相同，卻用了否定簡答'],
+  [['Do you get up at six fifteen? — No, I don\'t.', '簡答不一致', '起床時間和表格相同，卻用了否定簡答'],
    ['Do you have dinner at six thirty? — Yes, I do.', '時間錯置', '把晚餐時間六點十分看成六點半'],
    ['Do you go home at four twenty-five? — Yes, she does.', '人稱代名詞混淆', '問句直接問 Erin，她應用 I 回答自己的作息']],
   ['先把每一題問的作息對到表格左欄。', '再看右欄的時間和問句是否一致。', '時間相符要肯定，最後檢查回答是誰在說自己的作息。'],
@@ -150,11 +150,11 @@ q('L13-Q3', '發音：拼讀規則',
 
 q('L13-Q4', '聽力：聽音選字',
   '請聽英文，選出你聽到的單字。', listen('shower', 0.8), 'shower',
-  [['shout', '音近字', '開頭和第一個母音相同，但沒有留意音節數和結尾'],
+  [['shout', '音近字', '開頭和母音相同，但沒有留意結尾的音'],
    ['house', '音近字', '只聽到相同的母音，沒比對開頭和結尾'],
    ['clown', '音近字', '抓到相同的母音，就選了另一個帶 ow 的字']],
-  ['先聽有幾個音節。', '辨認開頭有沒有像 sh 的聲音。', '重聽後半，聽完第一個母音後還接了一個較輕的音節。'],
-  { concept: '念的是 shower，有兩個音節。shout 有相同的開頭和第一個母音，但只有一個音節。', ref: 'Unit 4 Phonics Sound It Out（課本 p.72）' });
+  ['先聽開頭有沒有像 sh 的聲音。', '再聽母音和 clown 的 ow 一不一樣。', '比一比開頭相同的字，重聽結尾是 t 的音，還是像 her 的 er 音。'],
+  { concept: '念的是 shower，開頭是 sh，結尾是像 her 的 er 音。shout 有相同的開頭和母音，但結尾是 t 的音。', ref: 'Unit 4 Phonics Sound It Out（課本 p.72）' });
 
 const eveningPlan = passage(
   'Lydia goes to bed late. She wants to go to bed at nine thirty. She plays with her toys after dinner, so she starts her homework late. Now she does her homework before dinner. After dinner, she puts her books in her bag and gets ready for bed. Her new plan helps her go to bed on time.'

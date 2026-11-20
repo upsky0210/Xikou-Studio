@@ -50,6 +50,7 @@
      題目附件 {listen: '要念的英文', rate?: 0.6～1, speakOptions?: true}
      iPad Safari 規定要使用者按了按鈕才能出聲，所以不自動播放，一律按「播放」
      選語音：各裝置列出的英語語音品質差很多，用評分挑最清楚的
+       - 一律用美式英語（en-US）：發音題的 er／ir／ur、ar、or 要靠美式的捲舌音分辨；裝置完全沒有美式語音才用別的英語
        - 線上的高品質語音優先（Chrome 的 Google US English、Edge 的 Natural、Apple 的 Enhanced／Premium）
        - Windows 舊版語音（Microsoft Zira／David／Mark Desktop）字尾子音會被吃掉，只在沒有別的語音時才用
        - iPad／Mac 的特效語音（Albert、Bubbles、Zarvox…）一律排除
@@ -77,7 +78,7 @@
       const en = speechSynthesis.getVoices()
         .filter((v) => /^en([-_]|$)/i.test(v.lang) && !NOVELTY.test(v.name) && (online || v.localService))
         .sort((a, b) => score(b) - score(a));
-      main = en[0] || null;
+      main = en.find((v) => /^en[-_]US/i.test(v.lang)) || en[0] || null;   // 有美式就用美式（英式的高品質語音也不搶先）
       const us = en.filter((v) => /^en[-_]US/i.test(v.lang) && !LEGACY.test(v.name));
       male = us.find((v) => MALE.test(v.name)) || null;
       female = us.find((v) => !MALE.test(v.name)) || null;

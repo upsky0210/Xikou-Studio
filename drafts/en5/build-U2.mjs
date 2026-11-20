@@ -13,7 +13,7 @@ q('L04-Q1', '聽力：聽音選字',
    ['a cold', '中文意思混淆', '把一個症狀當成整個感冒的英文']],
   ['重聽 a 後面的字，注意有幾個音節。',
    '有兩個音節的選項還要再比開頭的音。',
-   '重聽第一個音節，它開頭有輕輕送氣的 f 音。'],
+   '重聽第一個音節，開頭是上排牙齒輕碰下唇、往外吹氣的 f 音。'],
   { concept: '念的是 a fever（發燒）。fever 有兩個音節，開頭是 f 的音。',
     ref: 'Unit 2 Vocabulary（課本 p.32）' });
 
@@ -54,15 +54,15 @@ q('L04-Q4', '字彙：看中文選英文',
     ref: 'Unit 2 Vocabulary（課本 pp.32–33）' });
 
 q('L04-Q5', '字彙：症狀的寫法',
-  'Maya 要寫「肚子痛」的英文。依課本，哪一個是本課字彙表的寫法？', null,
+  'Maya 要寫「肚子痛」的英文。哪一個拼法正確？', null,
   'a stomachache',
   [['a stomacheache', '拼字組合混淆', '誤把 stomach 的尾端拼成 che，再接疼痛的字'],
-   ['a stomach ache', '拼字組合混淆', '把兩個部分分開寫'],
-   ['a stomach-ache', '拼字組合混淆', '以為兩部分之間需要連字號']],
+   ['a stomacache', '拼字組合混淆', '照念的音拼，漏掉了 stomach 結尾 ch 裡的 h'],
+   ['a stomachake', '拼字組合混淆', '照念的音把 ache 拼成 ake']],
   ['回想課本怎麼把身體部位和疼痛寫在一起。',
-   '比一比各選項是直接合起來、分開，還是加了符號。',
-   '課本把兩部分直接寫成一個字，前半表示肚子，結尾是 ch。'],
-  { concept: '課本把 stomach 和 ache 直接合成 stomachache。',
+   '把每個選項拆成「肚子」和「疼痛」兩半，看哪一半多了或少了字母。',
+   '前半的「肚子」以 ch 結尾，後面不多加字母；後半的「疼痛」和 headache 結尾的寫法一樣。'],
+  { concept: '課本把 stomach（肚子）和 ache（疼痛）直接合成 stomachache。stomacheache 多了 e、stomacache 少了 h、stomachake 把 ache 拼成了 ake。',
     ref: 'Unit 2 Vocabulary（課本 pp.32–33）' });
 
 q('L04-Q6', '聽力：聽句子選意思',
@@ -108,7 +108,7 @@ q('L05-Q2', '句型：問句開頭',
   'Does',
   [['Do', '第三人稱混淆', '把 Do you 的 Do 用在 he 前面'],
    ['Is', '助動詞混淆', '記得 Is he 的問句開頭，卻沒看到後面已有 have'],
-   ['Has', '助動詞混淆', '把直述句裡的 has 放到句首，忘了題目要用助動詞來問']],
+   ['Are', '助動詞混淆', '記得 Are you 這類問句開頭，卻沒看到後面已有 have']],
   ['看空格後面是誰，以及句子已經有哪個動詞。',
    '句子已經有 have，回想課本用哪一類字加在句首來提問。',
    '如果主詞是 you，可以用 Do。這題的主詞換成了 he。'],
@@ -226,7 +226,7 @@ q('L06-Q4', '聽力：聽音選字',
     ref: 'Unit 2 Phonics Sound It Out（課本 p.40）、Phonics（課本 p.41）' });
 
 const phoneCall = passage(
-  "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. Today I draw a whale for him. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
+  "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. I'm drawing a whale for him today. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
 );
 
 q('L06-Q5', '閱讀：短文擷取',
@@ -238,7 +238,7 @@ q('L06-Q5', '閱讀：短文擷取',
   ['先找出短文是誰在說話。',
    '分辨說話的人在哪一句說自己，在哪一句說朋友。',
    '找出 I have 開頭的句子，看看後面接的是哪個症狀。'],
-  { concept: '開頭介紹說話的人是 Ruby。她用 I have a fever today. 說自己今天發燒。',
+  { concept: '開頭介紹說話的人是 Ruby。她用 I have a fever, so I stay at home. 說自己發燒，所以待在家裡。',
     ref: 'Unit 2 Reading（課本 pp.37–39）、Sentence A（課本 p.34）' });
 
 q('L06-Q6', '閱讀技巧：疑問詞（Question Words）',

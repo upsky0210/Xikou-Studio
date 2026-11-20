@@ -24,7 +24,7 @@ q('L08-Q3', '聽力：聽音選意思',
   '請聽英文，選出最符合的中文意思。', listen('steak', 0.8), '牛排',
   [['披薩', '中文意思混淆', '記得是菜單上的主餐，但把兩種食物的英文混在一起'],
    ['米飯', '中文意思混淆', '把常和主餐搭配的米飯當成聽到的那一項'],
-   ['濃湯', '音近字', '只聽到開頭的 s，就以為是 soup']],
+   ['湯', '音近字', '只聽到開頭的 s，就以為是 soup']],
   ['重聽開頭，判斷第一個子音後面有沒有再接一個子音。', '接著比對母音，是像 day 的母音，還是像 too 的母音。', '這個字有 k 的尾音，想想菜單上哪道主餐的英文符合。'],
   { concept: '念的是 steak（牛排），開頭有 st 的音，中間的母音和 day 一樣，字尾是 k 的音。', ref: 'Unit 3 Vocabulary（課本 p.50）' });
 
@@ -32,7 +32,7 @@ q('L08-Q4', '字彙：看中文選英文',
   '菜單上哪個英文詞表示「薯條」？', null, 'French fries',
   [['sandwiches', '中文意思混淆', '把同一餐常出現的三明治和薯條混淆'],
    ['dumplings', '中文意思混淆', '只記得是複數形式，把水餃和薯條的英文記反了'],
-   ['some noodles', '中文意思混淆', '把外形細長的麵條和薯條混在一起']],
+   ['noodles', '中文意思混淆', '把外形細長的麵條和薯條混在一起']],
   ['先想想薯條是用什麼食材做的。', '這項食物的英文名稱由兩個字組成。', '看看兩個字的選項中，哪一個第二個字和油炸有關。'],
   { concept: '薯條是 French fries。故事中也提到可以用馬鈴薯做薯條。', ref: 'Unit 3 Story（課本 p.47）、Vocabulary（課本 p.51）' });
 
@@ -51,7 +51,7 @@ q('L08-Q6', '聽力：聽句子選意思',
    ['我想要一些三明治和麵條。', '中文意思混淆', '第二樣聽對，卻把第一樣食物記成三明治'],
    ['我想要一些牛排和米飯。', '資訊錯置', '只聽懂是在點餐，就用自己熟悉的餐點猜測']],
   ['先聽說話的人想要幾樣食物。', '可以在連接兩樣食物的地方停一下，分別聽兩邊。', '聽聽哪個詞在後面，它指的是長條狀的食物。'],
-  { concept: '說話的人用 I’d like …, please. 點餐，and 前的 pizza 是披薩，後面的 noodles 是麵條。', ref: 'Unit 3 Vocabulary（課本 pp.50–51）、Sentence A（課本 p.52）' });
+  { concept: '說話的人用 I\'d like …, please. 點餐，and 前的 pizza 是披薩，後面的 noodles 是麵條。', ref: 'Unit 3 Vocabulary（課本 pp.50–51）、Sentence A（課本 p.52）' });
 
 q('L08-Q7', '聽力：聽短對話',
   '請聽對話，選出客人真正點的餐點。',
@@ -69,11 +69,11 @@ q('L09-Q1', '文法：would 後的動詞',
   [['likes', '第三人稱混淆', '把一般現在式常看到的 s 加在 would 後面的動詞上'],
    ['liked', '動詞形式混淆', '把 would 後面的動詞寫成了過去式'],
    ['liking', '動詞形式混淆', '把表示正在進行的動詞形式用在 would 後面']],
-  ['先看空格前面是哪一個字。', '把這句和課本點餐時的 I’d 開頭相比。', 'I’d 在這裡是 I would 的縮寫，想想後面的動詞需要變化嗎？'],
-  { concept: 'I’d 是 I would 的縮寫。would 後用 like 的原形，所以填 like。', ref: 'Unit 3 Sentence A（課本 p.52）' });
+  ['先看空格前面是哪一個字。', '把這句和課本點餐時的 I\'d 開頭相比。', 'I\'d 在這裡是 I would 的縮寫，想想後面的動詞需要變化嗎？'],
+  { concept: 'I\'d 是 I would 的縮寫。would 後用 like 的原形，所以填 like。', ref: 'Unit 3 Sentence A（課本 p.52）' });
 
 q('L09-Q2', '句型：選疑問詞',
-  '填入正確的疑問詞。\nA: ____ would you like to eat?\nB: I’d like some noodles, please.', null, 'What',
+  '填入正確的疑問詞。\nA: ____ would you like to eat?\nB: I\'d like some noodles, please.', null, 'What',
   [['Where', '疑問詞混淆', '用了問地點的字，但回答說的是餐點'],
    ['When', '疑問詞混淆', '用了問時間的字，但回答沒有時間'],
    ['Who', '疑問詞混淆', '用了問人的字，但回答沒有提到任何人']],
@@ -84,7 +84,7 @@ q('L09-Q3', '句型：問答配對',
   '有人問 Isla：「Would you like some soup?」Isla 想婉拒，可以怎麼回答？', null, 'No, thank you.',
   [['Yes, please.', '簡答不一致', '這是在禮貌接受對方提供的湯'],
    ['Yes, thank you.', '簡答不一致', '只注意到 thank you，忽略 Yes 表示接受'],
-   ['I’d like some, please.', '句型混淆', '用了禮貌點餐的句子，表達的是想要喝湯']],
+   ['I\'d like some, please.', '句型混淆', '用了禮貌點餐的句子，表達的是想要喝湯']],
   ['先確認 Isla 想接受還是婉拒。', '留意每句開頭是在接受或拒絕，也看看完整句子的意思。', '婉拒之後仍可以謝謝對方，檢查開頭和後半是否都符合。'],
   { concept: 'No 表示婉拒，thank you 向對方道謝，所以 No, thank you. 符合 Isla 的意思。', ref: 'Unit 3 Sentence B（課本 p.53）' });
 
@@ -97,7 +97,7 @@ q('L09-Q4', '文法：選出正確的句子',
   { concept: 'Would you like some steak? 用 Would you like 開頭，後面直接接 some steak。', ref: 'Unit 3 Sentence A／B（課本 pp.52–53）、Grammar Tips（課本 p.54）' });
 
 q('L09-Q5', '文法：some 後的可數名詞',
-  'Molly 說她想吃幾個三明治。選出正確的答案填入空格：「I’d like some ____, please.」', null, 'sandwiches',
+  'Molly 說她想吃幾個三明治。選出正確的答案填入空格：「I\'d like some ____, please.」', null, 'sandwiches',
   [['sandwich', '可數與不可數混淆', '用單數來表示題目中的幾個三明治'],
    ['a sandwich', '可數與不可數混淆', '用了表示一個的 a，還和空格前的 some 重疊'],
    ['sandwichs', '複數字尾混淆', '知道要改複數，但在 ch 後只加了 s']],
@@ -106,12 +106,12 @@ q('L09-Q5', '文法：some 後的可數名詞',
 
 q('L09-Q6', '聽力：聽問句選回答',
   '請聽英文問句，選出最合適的回答。', listen('What would you like to eat, Iris?', 0.9),
-  'I’d like some dumplings, please.',
-  [['Yes, I’d like to eat, thank you.', '疑問詞混淆', '只表示想吃東西，沒有回答想吃什麼'],
+  'I\'d like some dumplings, please.',
+  [['Yes, I\'d like to eat, thank you.', '疑問詞混淆', '只表示想吃東西，沒有回答想吃什麼'],
    ['Would you like some dumplings?', '句型混淆', '反過來問別人要不要吃，沒有說自己想吃什麼'],
-   ['She’d like some dumplings, please.', '人稱代名詞混淆', 'Iris 被直接問到，回答自己想吃的東西時要用 I']],
+   ['She\'d like some dumplings, please.', '人稱代名詞混淆', 'Iris 被直接問到，回答自己想吃的東西時要用 I']],
   ['先聽這個問句是直接問人，還是在談不在場的人。', '聽問句開頭，判斷要選餐點，還是只回答要或不要。', '直接被問到的人用自己的角度回答，並說出想吃的餐點。'],
-  { concept: '問句直接問 Iris 想吃什麼。Iris 要用 I’d like 加上食物回答。', ref: 'Unit 3 Sentence A（課本 p.52）' });
+  { concept: '問句直接問 Iris 想吃什麼。Iris 要用 I\'d like 加上食物回答。', ref: 'Unit 3 Sentence A（課本 p.52）' });
 
 q('L09-Q7', '情境應用：依表格問答',
   '依上表，問選項開頭的那位同學時，哪一組問答符合他的選擇？',
@@ -157,7 +157,7 @@ q('L10-Q4', '聽力：聽音選字',
   { concept: '念的是 coin。開頭是 k 的音，結尾是 n 的音。point 還有 t 的尾音；soil 用 l 收尾，toy 沒有子音收尾。', ref: 'Unit 3 Phonics（課本 pp.58–59）' });
 
 const fruitBowl = passage(
-  'Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. They put the bowl on the table at last. Their friends are ready to eat. The fruit looks good!'
+  'Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. Finally, they put the bowl on the table. Their friends are ready to eat. The fruit looks good!'
 );
 
 q('L10-Q5', '閱讀：短文擷取',
@@ -173,8 +173,8 @@ q('L10-Q6', '閱讀技巧：排序（Sequence）',
   [['她們一起洗兩種水果。', '順序錯置', '跳回 First，選了第一個步驟'],
    ['Ava 把蘋果切好。', '順序錯置', '看見 Next 就選了，其實那是裝碗前的動作'],
    ['Ava 的姊妹把水果裝進碗。', '順序錯置', '選到題目指定的步驟本身']],
-  ['找出 First、Next 和 Then，順著看每一步。', '先定位「水果放入碗裡」是哪一步。', '接著往後看，找出 at last 標示的最後一個步驟。'],
-  { concept: 'Then 標示把水果放入碗中。接著兩人把碗放上桌，句尾的 at last 表示這是最後一個步驟。', ref: 'Reading Skills：Sequence（課本 p.11）、Unit 3 Reading（課本 pp.55–57）' });
+  ['找出 First、Next 和 Then，順著看每一步。', '先定位「水果放入碗裡」是哪一步。', '接著往後看，找出 Finally 標示的最後一個步驟。'],
+  { concept: 'Then 標示把水果放入碗中。接著 Finally 標示最後一個步驟：兩人把碗放上桌。', ref: 'Reading Skills：Sequence（課本 p.11）、Unit 3 Reading（課本 pp.55–57）' });
 
 q('L10-Q7', '故事理解',
   'Unit 3 故事一開始在農場時，有人說可以用馬鈴薯做成哪樣食物？', null, '可以做成薯條。',

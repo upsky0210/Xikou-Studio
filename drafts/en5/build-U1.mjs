@@ -198,11 +198,11 @@ q('L03-Q2', '發音：選出母音念法不同的字',
   'fist',
   [['bird', '拼字組合混淆', '看到 ir 和 ur、er 的字母不同，就以為念法也不同'],
    ['nurse', '拼字組合混淆', '看到 ur 和 ir、er 的字母不同，就以為念法也不同'],
-   ['clerk', '拼字組合混淆', '看到 er 和 ir、ur 的字母不同，就以為念法也不同']],
+   ['her', '拼字組合混淆', '看到 er 和 ir、ur 的字母不同，就以為念法也不同']],
   ['先聽每個字的母音，不要只看拼法。',
    'er、ir、ur 這三組字母的念法是一樣的。',
    '找一找哪一個字沒有 er、ir 或 ur。'],
-  { concept: 'bird 的 ir、nurse 的 ur、clerk 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。',
+  { concept: 'bird 的 ir、nurse 的 ur、her 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。',
     ref: 'Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）' });
 
 q('L03-Q3', '發音：拼讀規則',

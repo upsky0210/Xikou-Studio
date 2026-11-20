@@ -135,7 +135,7 @@
    "到短文找到 Eric，看看哪一句說了他有沒有發燒。",
    "再對照同一個人的另一項症狀，檢查回答有沒有配錯人。"
   ],
-  "explanation": "正確概念：文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn’t.，再補充他的症狀。\n破誤：「Yes, he does. He has a stomachache.」：找對肚子痛的資訊，卻把沒有發燒答成有發燒；「No, he doesn't. He has a runny nose.」：用對否定簡答，卻把 Leah 的症狀配給 Eric；「No, he don't. He has a stomachache.」：找對了症狀，但問句用 Does，否定簡答要用相配的形式。\n回頭讀：Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）。",
+  "explanation": "正確概念：文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn't.，再補充他的症狀。\n破誤：「Yes, he does. He has a stomachache.」：找對肚子痛的資訊，卻把沒有發燒答成有發燒；「No, he doesn't. He has a runny nose.」：用對否定簡答，卻把 Leah 的症狀配給 Eric；「No, he don't. He has a stomachache.」：找對了症狀，但問句用 Does，否定簡答要用相配的形式。\n回頭讀：Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）。",
   "verify": {
    "kind": "judge",
    "basis": "Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）；聽力對話與閱讀短文為自行編寫"

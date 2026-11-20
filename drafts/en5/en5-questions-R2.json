@@ -3,7 +3,7 @@
   "id": "L14-Q1",
   "level": "L14",
   "type": "字彙：食物名稱",
-  "stem": "餐牌上哪一項是「麵條」？",
+  "stem": "菜單上哪一項是「麵條」？",
   "attachment": null,
   "answer": "noodles",
   "distractors": [
@@ -125,7 +125,7 @@
     "trap": "時間錯置"
    },
    {
-    "text": "She goes to bed at nine o’clock.",
+    "text": "She goes to bed at nine o'clock.",
     "misconception": "上床時間讀對了，但那是寫完功課以後的作息",
     "trap": "順序錯置"
    }
@@ -135,7 +135,7 @@
    "把短文的時間按先後排列，找出做功課之前最近的時間。",
    "看那個時間屬於哪一項作息，再選使用第三人稱的句子。"
   ],
-  "explanation": "正確概念：Adele 七點十分寫功課。再往前一項有標明時間的作息是六點十五分吃晚餐，所以選 She has dinner at six fifteen.。\n破誤：「She have dinner at six fifteen.」：找對作息和時間，卻忘了 she 後面的 have 要改成 has；「She has dinner at seven ten.」：找對上一項作息，卻把寫功課的時間配給晚餐；「She goes to bed at nine o’clock.」：上床時間讀對了，但那是寫完功課以後的作息。\n回頭讀：Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）。",
+  "explanation": "正確概念：Adele 七點十分寫功課。再往前一項有標明時間的作息是六點十五分吃晚餐，所以選 She has dinner at six fifteen.。\n破誤：「She have dinner at six fifteen.」：找對作息和時間，卻忘了 she 後面的 have 要改成 has；「She has dinner at seven ten.」：找對上一項作息，卻把寫功課的時間配給晚餐；「She goes to bed at nine o'clock.」：上床時間讀對了，但那是寫完功課以後的作息。\n回頭讀：Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）。",
   "verify": {
    "kind": "judge",
    "basis": "Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）；聽力對話與閱讀短文為自行編寫"

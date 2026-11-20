@@ -342,14 +342,14 @@ const EN5 = {
      [
       "bird",
       "nurse",
-      "clerk"
+      "her"
      ],
      [
       "先聽每個字的母音，不要只看拼法。",
       "er、ir、ur 這三組字母的念法是一樣的。",
       "找一找哪一個字沒有 er、ir 或 ur。"
      ],
-     "正確概念：bird 的 ir、nurse 的 ur、clerk 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。\n破誤：「bird」：看到 ir 和 ur、er 的字母不同，就以為念法也不同；「nurse」：看到 ur 和 ir、er 的字母不同，就以為念法也不同；「clerk」：看到 er 和 ir、ur 的字母不同，就以為念法也不同。\n回頭讀：Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）。",
+     "正確概念：bird 的 ir、nurse 的 ur、her 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。\n破誤：「bird」：看到 ir 和 ur、er 的字母不同，就以為念法也不同；「nurse」：看到 ur 和 ir、er 的字母不同，就以為念法也不同；「her」：看到 er 和 ir、ur 的字母不同，就以為念法也不同。\n回頭讀：Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）。",
      {
       "speakOptions": true
      }
@@ -460,7 +460,7 @@ const EN5 = {
      [
       "重聽 a 後面的字，注意有幾個音節。",
       "有兩個音節的選項還要再比開頭的音。",
-      "重聽第一個音節，它開頭有輕輕送氣的 f 音。"
+      "重聽第一個音節，開頭是上排牙齒輕碰下唇、往外吹氣的 f 音。"
      ],
      "正確概念：念的是 a fever（發燒）。fever 有兩個音節，開頭是 f 的音。\n破誤：「a headache」：聽到兩個音節就選了 headache，沒再比對開頭的音；「a cough」：把發燒和咳嗽兩個常一起提到的症狀記反了；「a cold」：把一個症狀當成整個感冒的英文。\n回頭讀：Unit 2 Vocabulary（課本 p.32）。",
      {
@@ -522,19 +522,19 @@ const EN5 = {
      "正確概念：喉嚨痛是 a sore throat。sore 說明不舒服，throat 指喉嚨。\n破誤：「a runny nose」：把喉嚨不舒服記成鼻子流鼻水；「a stomachache」：知道在說疼痛，卻選了肚子痛；「a toothache」：把喉嚨痛和牙痛的部位記反了。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）。"
     ],
     [
-     "Maya 要寫「肚子痛」的英文。依課本，哪一個是本課字彙表的寫法？",
+     "Maya 要寫「肚子痛」的英文。哪一個拼法正確？",
      "a stomachache",
      [
       "a stomacheache",
-      "a stomach ache",
-      "a stomach-ache"
+      "a stomacache",
+      "a stomachake"
      ],
      [
       "回想課本怎麼把身體部位和疼痛寫在一起。",
-      "比一比各選項是直接合起來、分開，還是加了符號。",
-      "課本把兩部分直接寫成一個字，前半表示肚子，結尾是 ch。"
+      "把每個選項拆成「肚子」和「疼痛」兩半，看哪一半多了或少了字母。",
+      "前半的「肚子」以 ch 結尾，後面不多加字母；後半的「疼痛」和 headache 結尾的寫法一樣。"
      ],
-     "正確概念：課本把 stomach 和 ache 直接合成 stomachache。\n破誤：「a stomacheache」：誤把 stomach 的尾端拼成 che，再接疼痛的字；「a stomach ache」：把兩個部分分開寫；「a stomach-ache」：以為兩部分之間需要連字號。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）。"
+     "正確概念：課本把 stomach（肚子）和 ache（疼痛）直接合成 stomachache。stomacheache 多了 e、stomacache 少了 h、stomachake 把 ache 拼成了 ake。\n破誤：「a stomacheache」：誤把 stomach 的尾端拼成 che，再接疼痛的字；「a stomacache」：照念的音拼，漏掉了 stomach 結尾 ch 裡的 h；「a stomachake」：照念的音把 ache 拼成 ake。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）。"
     ],
     [
      "請聽英文句子，選出意思最符合的中文。",
@@ -605,14 +605,14 @@ const EN5 = {
      [
       "Do",
       "Is",
-      "Has"
+      "Are"
      ],
      [
       "看空格後面是誰，以及句子已經有哪個動詞。",
       "句子已經有 have，回想課本用哪一類字加在句首來提問。",
       "如果主詞是 you，可以用 Do。這題的主詞換成了 he。"
      ],
-     "正確概念：問他有沒有某個症狀，用 Does he have …?。主詞是 he，句首用 Does。\n破誤：「Do」：把 Do you 的 Do 用在 he 前面；「Is」：記得 Is he 的問句開頭，卻沒看到後面已有 have；「Has」：把直述句裡的 has 放到句首，忘了題目要用助動詞來問。\n回頭讀：Unit 2 Sentence B（課本 p.35）、Grammar Tips（課本 p.36）。"
+     "正確概念：問他有沒有某個症狀，用 Does he have …?。主詞是 he，句首用 Does。\n破誤：「Do」：把 Do you 的 Do 用在 he 前面；「Is」：記得 Is he 的問句開頭，卻沒看到後面已有 have；「Are」：記得 Are you 這類問句開頭，卻沒看到後面已有 have。\n回頭讀：Unit 2 Sentence B（課本 p.35）、Grammar Tips（課本 p.36）。"
     ],
     [
      "Lena 鼻子流鼻水，牙齒沒有痛。有人問：「Does Lena have a toothache?」怎麼回答最合適？",
@@ -808,9 +808,9 @@ const EN5 = {
       "分辨說話的人在哪一句說自己，在哪一句說朋友。",
       "找出 I have 開頭的句子，看看後面接的是哪個症狀。"
      ],
-     "正確概念：開頭介紹說話的人是 Ruby。她用 I have a fever today. 說自己今天發燒。\n破誤：「She has a cold.」：把 Ivan 的症狀當成 Ruby 的症狀；「She has a headache.」：看到 Ruby 不舒服，就自行猜她頭痛；「She has a sore throat.」：看到文中有人感冒，就自行加上喉嚨痛，也弄錯了人。\n回頭讀：Unit 2 Reading（課本 pp.37–39）、Sentence A（課本 p.34）。",
+     "正確概念：開頭介紹說話的人是 Ruby。她用 I have a fever, so I stay at home. 說自己發燒，所以待在家裡。\n破誤：「She has a cold.」：把 Ivan 的症狀當成 Ruby 的症狀；「She has a headache.」：看到 Ruby 不舒服，就自行猜她頭痛；「She has a sore throat.」：看到文中有人感冒，就自行加上喉嚨痛，也弄錯了人。\n回頭讀：Unit 2 Reading（課本 pp.37–39）、Sentence A（課本 p.34）。",
      {
-      "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. Today I draw a whale for him. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
+      "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. I'm drawing a whale for him today. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
      }
     ],
     [
@@ -828,7 +828,7 @@ const EN5 = {
      ],
      "正確概念：In the UK. 指一個地點，要用 Where 問。短文說在英國的是 Ivan，所以要問 Where is Ivan?。\n破誤：「Where is Ruby?」：看出 Where 問地點，但把 Ruby 和 Ivan 所在的地方對調；「Who has a cold?」：把問哪個人有感冒的問句當成問地點；「What does Ivan have?」：只看到 Ivan 就選了，沒注意 What does Ivan have? 在問症狀。\n回頭讀：Reading Skills：Question Words（課本 p.10）、Unit 2 Reading（課本 pp.37–39）。",
      {
-      "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. Today I draw a whale for him. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
+      "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. I'm drawing a whale for him today. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
      }
     ],
     [
@@ -914,7 +914,7 @@ const EN5 = {
       "到短文找到 Eric，看看哪一句說了他有沒有發燒。",
       "再對照同一個人的另一項症狀，檢查回答有沒有配錯人。"
      ],
-     "正確概念：文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn’t.，再補充他的症狀。\n破誤：「Yes, he does. He has a stomachache.」：找對肚子痛的資訊，卻把沒有發燒答成有發燒；「No, he doesn't. He has a runny nose.」：用對否定簡答，卻把 Leah 的症狀配給 Eric；「No, he don't. He has a stomachache.」：找對了症狀，但問句用 Does，否定簡答要用相配的形式。\n回頭讀：Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）。",
+     "正確概念：文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn't.，再補充他的症狀。\n破誤：「Yes, he does. He has a stomachache.」：找對肚子痛的資訊，卻把沒有發燒答成有發燒；「No, he doesn't. He has a runny nose.」：用對否定簡答，卻把 Leah 的症狀配給 Eric；「No, he don't. He has a stomachache.」：找對了症狀，但問句用 Does，否定簡答要用相配的形式。\n回頭讀：Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）。",
      {
       "passage": "I'm Leah. I'm from France and my friend Eric is from the USA. I have a runny nose, but I feel OK. Eric has a stomachache. He has no fever. We are at home today. Our friend Hana is from Japan. She feels fine. She calls us after school."
      }
@@ -1026,14 +1026,14 @@ const EN5 = {
      [
       "披薩",
       "米飯",
-      "濃湯"
+      "湯"
      ],
      [
       "重聽開頭，判斷第一個子音後面有沒有再接一個子音。",
       "接著比對母音，是像 day 的母音，還是像 too 的母音。",
       "這個字有 k 的尾音，想想菜單上哪道主餐的英文符合。"
      ],
-     "正確概念：念的是 steak（牛排），開頭有 st 的音，中間的母音和 day 一樣，字尾是 k 的音。\n破誤：「披薩」：記得是菜單上的主餐，但把兩種食物的英文混在一起；「米飯」：把常和主餐搭配的米飯當成聽到的那一項；「濃湯」：只聽到開頭的 s，就以為是 soup。\n回頭讀：Unit 3 Vocabulary（課本 p.50）。",
+     "正確概念：念的是 steak（牛排），開頭有 st 的音，中間的母音和 day 一樣，字尾是 k 的音。\n破誤：「披薩」：記得是菜單上的主餐，但把兩種食物的英文混在一起；「米飯」：把常和主餐搭配的米飯當成聽到的那一項；「湯」：只聽到開頭的 s，就以為是 soup。\n回頭讀：Unit 3 Vocabulary（課本 p.50）。",
      {
       "listen": "steak",
       "rate": 0.8
@@ -1045,14 +1045,14 @@ const EN5 = {
      [
       "sandwiches",
       "dumplings",
-      "some noodles"
+      "noodles"
      ],
      [
       "先想想薯條是用什麼食材做的。",
       "這項食物的英文名稱由兩個字組成。",
       "看看兩個字的選項中，哪一個第二個字和油炸有關。"
      ],
-     "正確概念：薯條是 French fries。故事中也提到可以用馬鈴薯做薯條。\n破誤：「sandwiches」：把同一餐常出現的三明治和薯條混淆；「dumplings」：只記得是複數形式，把水餃和薯條的英文記反了；「some noodles」：把外形細長的麵條和薯條混在一起。\n回頭讀：Unit 3 Story（課本 p.47）、Vocabulary（課本 p.51）。"
+     "正確概念：薯條是 French fries。故事中也提到可以用馬鈴薯做薯條。\n破誤：「sandwiches」：把同一餐常出現的三明治和薯條混淆；「dumplings」：只記得是複數形式，把水餃和薯條的英文記反了；「noodles」：把外形細長的麵條和薯條混在一起。\n回頭讀：Unit 3 Story（課本 p.47）、Vocabulary（課本 p.51）。"
     ],
     [
      "食物袋裡要放米飯和湯。哪張標籤符合？",
@@ -1082,7 +1082,7 @@ const EN5 = {
       "可以在連接兩樣食物的地方停一下，分別聽兩邊。",
       "聽聽哪個詞在後面，它指的是長條狀的食物。"
      ],
-     "正確概念：說話的人用 I’d like …, please. 點餐，and 前的 pizza 是披薩，後面的 noodles 是麵條。\n破誤：「我想要一些披薩和水餃。」：第一樣聽對，卻把第二樣食物記成水餃；「我想要一些三明治和麵條。」：第二樣聽對，卻把第一樣食物記成三明治；「我想要一些牛排和米飯。」：只聽懂是在點餐，就用自己熟悉的餐點猜測。\n回頭讀：Unit 3 Vocabulary（課本 pp.50–51）、Sentence A（課本 p.52）。",
+     "正確概念：說話的人用 I'd like …, please. 點餐，and 前的 pizza 是披薩，後面的 noodles 是麵條。\n破誤：「我想要一些披薩和水餃。」：第一樣聽對，卻把第二樣食物記成水餃；「我想要一些三明治和麵條。」：第二樣聽對，卻把第一樣食物記成三明治；「我想要一些牛排和米飯。」：只聽懂是在點餐，就用自己熟悉的餐點猜測。\n回頭讀：Unit 3 Vocabulary（課本 pp.50–51）、Sentence A（課本 p.52）。",
      {
       "listen": "I'd like some pizza and noodles, please.",
       "rate": 0.9
@@ -1127,13 +1127,13 @@ const EN5 = {
      ],
      [
       "先看空格前面是哪一個字。",
-      "把這句和課本點餐時的 I’d 開頭相比。",
-      "I’d 在這裡是 I would 的縮寫，想想後面的動詞需要變化嗎？"
+      "把這句和課本點餐時的 I'd 開頭相比。",
+      "I'd 在這裡是 I would 的縮寫，想想後面的動詞需要變化嗎？"
      ],
-     "正確概念：I’d 是 I would 的縮寫。would 後用 like 的原形，所以填 like。\n破誤：「likes」：把一般現在式常看到的 s 加在 would 後面的動詞上；「liked」：把 would 後面的動詞寫成了過去式；「liking」：把表示正在進行的動詞形式用在 would 後面。\n回頭讀：Unit 3 Sentence A（課本 p.52）。"
+     "正確概念：I'd 是 I would 的縮寫。would 後用 like 的原形，所以填 like。\n破誤：「likes」：把一般現在式常看到的 s 加在 would 後面的動詞上；「liked」：把 would 後面的動詞寫成了過去式；「liking」：把表示正在進行的動詞形式用在 would 後面。\n回頭讀：Unit 3 Sentence A（課本 p.52）。"
     ],
     [
-     "填入正確的疑問詞。\nA: ____ would you like to eat?\nB: I’d like some noodles, please.",
+     "填入正確的疑問詞。\nA: ____ would you like to eat?\nB: I'd like some noodles, please.",
      "What",
      [
       "Where",
@@ -1153,14 +1153,14 @@ const EN5 = {
      [
       "Yes, please.",
       "Yes, thank you.",
-      "I’d like some, please."
+      "I'd like some, please."
      ],
      [
       "先確認 Isla 想接受還是婉拒。",
       "留意每句開頭是在接受或拒絕，也看看完整句子的意思。",
       "婉拒之後仍可以謝謝對方，檢查開頭和後半是否都符合。"
      ],
-     "正確概念：No 表示婉拒，thank you 向對方道謝，所以 No, thank you. 符合 Isla 的意思。\n破誤：「Yes, please.」：這是在禮貌接受對方提供的湯；「Yes, thank you.」：只注意到 thank you，忽略 Yes 表示接受；「I’d like some, please.」：用了禮貌點餐的句子，表達的是想要喝湯。\n回頭讀：Unit 3 Sentence B（課本 p.53）。"
+     "正確概念：No 表示婉拒，thank you 向對方道謝，所以 No, thank you. 符合 Isla 的意思。\n破誤：「Yes, please.」：這是在禮貌接受對方提供的湯；「Yes, thank you.」：只注意到 thank you，忽略 Yes 表示接受；「I'd like some, please.」：用了禮貌點餐的句子，表達的是想要喝湯。\n回頭讀：Unit 3 Sentence B（課本 p.53）。"
     ],
     [
      "下面哪個英文問句寫得完全正確？",
@@ -1178,7 +1178,7 @@ const EN5 = {
      "正確概念：Would you like some steak? 用 Would you like 開頭，後面直接接 some steak。\n破誤：「Would you like eat some steak?」：在 like 後接 eat 時，漏掉了 to；「What you would like to eat?」：把問句的 would 放在 you 後面，沿用了直述句的順序；「Would you like some a steak?」：把 some 和 a 疊在同一個食物名稱之前。\n回頭讀：Unit 3 Sentence A／B（課本 pp.52–53）、Grammar Tips（課本 p.54）。"
     ],
     [
-     "Molly 說她想吃幾個三明治。選出正確的答案填入空格：「I’d like some ____, please.」",
+     "Molly 說她想吃幾個三明治。選出正確的答案填入空格：「I'd like some ____, please.」",
      "sandwiches",
      [
       "sandwich",
@@ -1194,18 +1194,18 @@ const EN5 = {
     ],
     [
      "請聽英文問句，選出最合適的回答。",
-     "I’d like some dumplings, please.",
+     "I'd like some dumplings, please.",
      [
-      "Yes, I’d like to eat, thank you.",
+      "Yes, I'd like to eat, thank you.",
       "Would you like some dumplings?",
-      "She’d like some dumplings, please."
+      "She'd like some dumplings, please."
      ],
      [
       "先聽這個問句是直接問人，還是在談不在場的人。",
       "聽問句開頭，判斷要選餐點，還是只回答要或不要。",
       "直接被問到的人用自己的角度回答，並說出想吃的餐點。"
      ],
-     "正確概念：問句直接問 Iris 想吃什麼。Iris 要用 I’d like 加上食物回答。\n破誤：「Yes, I’d like to eat, thank you.」：只表示想吃東西，沒有回答想吃什麼；「Would you like some dumplings?」：反過來問別人要不要吃，沒有說自己想吃什麼；「She’d like some dumplings, please.」：Iris 被直接問到，回答自己想吃的東西時要用 I。\n回頭讀：Unit 3 Sentence A（課本 p.52）。",
+     "正確概念：問句直接問 Iris 想吃什麼。Iris 要用 I'd like 加上食物回答。\n破誤：「Yes, I'd like to eat, thank you.」：只表示想吃東西，沒有回答想吃什麼；「Would you like some dumplings?」：反過來問別人要不要吃，沒有說自己想吃什麼；「She'd like some dumplings, please.」：Iris 被直接問到，回答自己想吃的東西時要用 I。\n回頭讀：Unit 3 Sentence A（課本 p.52）。",
      {
       "listen": "What would you like to eat, Iris?",
       "rate": 0.9
@@ -1342,7 +1342,7 @@ const EN5 = {
      ],
      "正確概念：Next, Ava cuts the apples. 表示 Ava 切了蘋果。葡萄也洗過，但文中沒有說她切了葡萄。\n破誤：「她切的是葡萄。」：兩種水果都洗了，誤以為葡萄是後來切的那種；「她切的是香蕉。」：依照自己做水果碗的習慣猜了文中沒提的水果；「她切的是番茄。」：把課本比薩短文的食材帶入了這篇文章。\n回頭讀：Unit 3 Reading（課本 pp.55–57）。",
      {
-      "passage": "Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. They put the bowl on the table at last. Their friends are ready to eat. The fruit looks good!"
+      "passage": "Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. Finally, they put the bowl on the table. Their friends are ready to eat. The fruit looks good!"
      }
     ],
     [
@@ -1356,11 +1356,11 @@ const EN5 = {
      [
       "找出 First、Next 和 Then，順著看每一步。",
       "先定位「水果放入碗裡」是哪一步。",
-      "接著往後看，找出 at last 標示的最後一個步驟。"
+      "接著往後看，找出 Finally 標示的最後一個步驟。"
      ],
-     "正確概念：Then 標示把水果放入碗中。接著兩人把碗放上桌，句尾的 at last 表示這是最後一個步驟。\n破誤：「她們一起洗兩種水果。」：跳回 First，選了第一個步驟；「Ava 把蘋果切好。」：看見 Next 就選了，其實那是裝碗前的動作；「Ava 的姊妹把水果裝進碗。」：選到題目指定的步驟本身。\n回頭讀：Reading Skills：Sequence（課本 p.11）、Unit 3 Reading（課本 pp.55–57）。",
+     "正確概念：Then 標示把水果放入碗中。接著 Finally 標示最後一個步驟：兩人把碗放上桌。\n破誤：「她們一起洗兩種水果。」：跳回 First，選了第一個步驟；「Ava 把蘋果切好。」：看見 Next 就選了，其實那是裝碗前的動作；「Ava 的姊妹把水果裝進碗。」：選到題目指定的步驟本身。\n回頭讀：Reading Skills：Sequence（課本 p.11）、Unit 3 Reading（課本 pp.55–57）。",
      {
-      "passage": "Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. They put the bowl on the table at last. Their friends are ready to eat. The fruit looks good!"
+      "passage": "Ava and her sister want to make a fruit bowl. First, they wash the apples and grapes. Next, Ava cuts the apples. Then, her sister puts the apples and grapes in a big bowl. Finally, they put the bowl on the table. Their friends are ready to eat. The fruit looks good!"
      }
     ],
     [
@@ -1555,18 +1555,18 @@ const EN5 = {
     ],
     [
      "Serena 早餐是七點二十分吃的。有人直接問她：「Do you have breakfast at seven?」她怎麼回答最合適？",
-     "No, I don’t. I have breakfast at seven twenty.",
+     "No, I don't. I have breakfast at seven twenty.",
      [
       "Yes, I do. I have breakfast at seven twenty.",
-      "No, I don’t. I have breakfast at seven o’clock.",
-      "No, she doesn’t. She has breakfast at seven twenty."
+      "No, I don't. I have breakfast at seven o'clock.",
+      "No, she doesn't. She has breakfast at seven twenty."
      ],
      [
       "先比較題目給的時間和問句裡的時間。",
       "問的是不是同一個時間？先決定要肯定還是否定。",
       "如果是回答自己的作息，還要檢查人稱和補充的時間。"
      ],
-     "正確概念：兩個時間不同，所以 Serena 要用 No, I don’t. 回答，再說自己七點二十分吃早餐。\n破誤：「Yes, I do. I have breakfast at seven twenty.」：時間寫對了，前面卻答 Yes，等於先說自己七點吃早餐；「No, I don’t. I have breakfast at seven o’clock.」：知道要否定，但把問句的時間搬到補充說明；「No, she doesn’t. She has breakfast at seven twenty.」：Serena 在回答自己的作息，要用 I，不能用 she 來代替自己。\n回頭讀：Unit 4 Sentence A／B（課本 pp.66–67）。"
+     "正確概念：兩個時間不同，所以 Serena 要用 No, I don't. 回答，再說自己七點二十分吃早餐。\n破誤：「Yes, I do. I have breakfast at seven twenty.」：時間寫對了，前面卻答 Yes，等於先說自己七點吃早餐；「No, I don't. I have breakfast at seven o'clock.」：知道要否定，但把問句的時間搬到補充說明；「No, she doesn't. She has breakfast at seven twenty.」：Serena 在回答自己的作息，要用 I，不能用 she 來代替自己。\n回頭讀：Unit 4 Sentence A／B（課本 pp.66–67）。"
     ],
     [
      "下面哪一個英文問句寫得完全正確？",
@@ -1621,7 +1621,7 @@ const EN5 = {
      "依上表，向 Erin 問她自己的作息，哪一組問答符合紀錄？",
      "Do you go home at four twenty-five? — Yes, I do.",
      [
-      "Do you get up at six fifteen? — No, I don’t.",
+      "Do you get up at six fifteen? — No, I don't.",
       "Do you have dinner at six thirty? — Yes, I do.",
       "Do you go home at four twenty-five? — Yes, she does."
      ],
@@ -1630,7 +1630,7 @@ const EN5 = {
       "再看右欄的時間和問句是否一致。",
       "時間相符要肯定，最後檢查回答是誰在說自己的作息。"
      ],
-     "正確概念：表上 Erin 四點二十五分回家。問她是不是這個時間時，她用 Yes, I do. 回答。\n破誤：「Do you get up at six fifteen? — No, I don’t.」：起床時間和表格相同，卻用了否定簡答；「Do you have dinner at six thirty? — Yes, I do.」：把晚餐時間六點十分看成六點半；「Do you go home at four twenty-five? — Yes, she does.」：問句直接問 Erin，她應用 I 回答自己的作息。\n回頭讀：Unit 4 Sentence B（課本 p.67）。",
+     "正確概念：表上 Erin 四點二十五分回家。問她是不是這個時間時，她用 Yes, I do. 回答。\n破誤：「Do you get up at six fifteen? — No, I don't.」：起床時間和表格相同，卻用了否定簡答；「Do you have dinner at six thirty? — Yes, I do.」：把晚餐時間六點十分看成六點半；「Do you go home at four twenty-five? — Yes, she does.」：問句直接問 Erin，她應用 I 回答自己的作息。\n回頭讀：Unit 4 Sentence B（課本 p.67）。",
      {
       "t": [
        [
@@ -1724,11 +1724,11 @@ const EN5 = {
       "clown"
      ],
      [
-      "先聽有幾個音節。",
-      "辨認開頭有沒有像 sh 的聲音。",
-      "重聽後半，聽完第一個母音後還接了一個較輕的音節。"
+      "先聽開頭有沒有像 sh 的聲音。",
+      "再聽母音和 clown 的 ow 一不一樣。",
+      "比一比開頭相同的字，重聽結尾是 t 的音，還是像 her 的 er 音。"
      ],
-     "正確概念：念的是 shower，有兩個音節。shout 有相同的開頭和第一個母音，但只有一個音節。\n破誤：「shout」：開頭和第一個母音相同，但沒有留意音節數和結尾；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
+     "正確概念：念的是 shower，開頭是 sh，結尾是像 her 的 er 音。shout 有相同的開頭和母音，但結尾是 t 的音。\n破誤：「shout」：開頭和母音相同，但沒有留意結尾的音；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
      {
       "listen": "shower",
       "rate": 0.8
@@ -1796,7 +1796,7 @@ const EN5 = {
    "intro": "Unit 3～4 一起複習：食物、點餐的說法、一天的作息和時間。",
    "q": [
     [
-     "餐牌上哪一項是「麵條」？",
+     "菜單上哪一項是「麵條」？",
      "noodles",
      [
       "French fries",
@@ -1846,14 +1846,14 @@ const EN5 = {
      [
       "She have dinner at six fifteen.",
       "She has dinner at seven ten.",
-      "She goes to bed at nine o’clock."
+      "She goes to bed at nine o'clock."
      ],
      [
       "先在短文裡圈出 Adele 做功課的那一句。",
       "把短文的時間按先後排列，找出做功課之前最近的時間。",
       "看那個時間屬於哪一項作息，再選使用第三人稱的句子。"
      ],
-     "正確概念：Adele 七點十分寫功課。再往前一項有標明時間的作息是六點十五分吃晚餐，所以選 She has dinner at six fifteen.。\n破誤：「She have dinner at six fifteen.」：找對作息和時間，卻忘了 she 後面的 have 要改成 has；「She has dinner at seven ten.」：找對上一項作息，卻把寫功課的時間配給晚餐；「She goes to bed at nine o’clock.」：上床時間讀對了，但那是寫完功課以後的作息。\n回頭讀：Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）。",
+     "正確概念：Adele 七點十分寫功課。再往前一項有標明時間的作息是六點十五分吃晚餐，所以選 She has dinner at six fifteen.。\n破誤：「She have dinner at six fifteen.」：找對作息和時間，卻忘了 she 後面的 have 要改成 has；「She has dinner at seven ten.」：找對上一項作息，卻把寫功課的時間配給晚餐；「She goes to bed at nine o'clock.」：上床時間讀對了，但那是寫完功課以後的作息。\n回頭讀：Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）。",
      {
       "passage": "I'm Adele. On Fridays, I go home at four forty. I put my bag on a chair when I get home. I have dinner at six fifteen. At seven ten, I do my homework. I go to bed at nine. I like to read a book before I go to bed."
      }

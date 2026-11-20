@@ -29,7 +29,7 @@
   "hints": [
    "重聽 a 後面的字，注意有幾個音節。",
    "有兩個音節的選項還要再比開頭的音。",
-   "重聽第一個音節，它開頭有輕輕送氣的 f 音。"
+   "重聽第一個音節，開頭是上排牙齒輕碰下唇、往外吹氣的 f 音。"
   ],
   "explanation": "正確概念：念的是 a fever（發燒）。fever 有兩個音節，開頭是 f 的音。\n破誤：「a headache」：聽到兩個音節就選了 headache，沒再比對開頭的音；「a cough」：把發燒和咳嗽兩個常一起提到的症狀記反了；「a cold」：把一個症狀當成整個感冒的英文。\n回頭讀：Unit 2 Vocabulary（課本 p.32）。",
   "verify": {
@@ -152,7 +152,7 @@
   "id": "L04-Q5",
   "level": "L04",
   "type": "字彙：症狀的寫法",
-  "stem": "Maya 要寫「肚子痛」的英文。依課本，哪一個是本課字彙表的寫法？",
+  "stem": "Maya 要寫「肚子痛」的英文。哪一個拼法正確？",
   "attachment": null,
   "answer": "a stomachache",
   "distractors": [
@@ -162,22 +162,22 @@
     "trap": "拼字組合混淆"
    },
    {
-    "text": "a stomach ache",
-    "misconception": "把兩個部分分開寫",
+    "text": "a stomacache",
+    "misconception": "照念的音拼，漏掉了 stomach 結尾 ch 裡的 h",
     "trap": "拼字組合混淆"
    },
    {
-    "text": "a stomach-ache",
-    "misconception": "以為兩部分之間需要連字號",
+    "text": "a stomachake",
+    "misconception": "照念的音把 ache 拼成 ake",
     "trap": "拼字組合混淆"
    }
   ],
   "hints": [
    "回想課本怎麼把身體部位和疼痛寫在一起。",
-   "比一比各選項是直接合起來、分開，還是加了符號。",
-   "課本把兩部分直接寫成一個字，前半表示肚子，結尾是 ch。"
+   "把每個選項拆成「肚子」和「疼痛」兩半，看哪一半多了或少了字母。",
+   "前半的「肚子」以 ch 結尾，後面不多加字母；後半的「疼痛」和 headache 結尾的寫法一樣。"
   ],
-  "explanation": "正確概念：課本把 stomach 和 ache 直接合成 stomachache。\n破誤：「a stomacheache」：誤把 stomach 的尾端拼成 che，再接疼痛的字；「a stomach ache」：把兩個部分分開寫；「a stomach-ache」：以為兩部分之間需要連字號。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）。",
+  "explanation": "正確概念：課本把 stomach（肚子）和 ache（疼痛）直接合成 stomachache。stomacheache 多了 e、stomacache 少了 h、stomachake 把 ache 拼成了 ake。\n破誤：「a stomacheache」：誤把 stomach 的尾端拼成 che，再接疼痛的字；「a stomacache」：照念的音拼，漏掉了 stomach 結尾 ch 裡的 h；「a stomachake」：照念的音把 ache 拼成 ake。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 2 Vocabulary（課本 pp.32–33）；聽力對話與閱讀短文為自行編寫"
@@ -313,8 +313,8 @@
     "trap": "助動詞混淆"
    },
    {
-    "text": "Has",
-    "misconception": "把直述句裡的 has 放到句首，忘了題目要用助動詞來問",
+    "text": "Are",
+    "misconception": "記得 Are you 這類問句開頭，卻沒看到後面已有 have",
     "trap": "助動詞混淆"
    }
   ],
@@ -323,7 +323,7 @@
    "句子已經有 have，回想課本用哪一類字加在句首來提問。",
    "如果主詞是 you，可以用 Do。這題的主詞換成了 he。"
   ],
-  "explanation": "正確概念：問他有沒有某個症狀，用 Does he have …?。主詞是 he，句首用 Does。\n破誤：「Do」：把 Do you 的 Do 用在 he 前面；「Is」：記得 Is he 的問句開頭，卻沒看到後面已有 have；「Has」：把直述句裡的 has 放到句首，忘了題目要用助動詞來問。\n回頭讀：Unit 2 Sentence B（課本 p.35）、Grammar Tips（課本 p.36）。",
+  "explanation": "正確概念：問他有沒有某個症狀，用 Does he have …?。主詞是 he，句首用 Does。\n破誤：「Do」：把 Do you 的 Do 用在 he 前面；「Is」：記得 Is he 的問句開頭，卻沒看到後面已有 have；「Are」：記得 Are you 這類問句開頭，卻沒看到後面已有 have。\n回頭讀：Unit 2 Sentence B（課本 p.35）、Grammar Tips（課本 p.36）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 2 Sentence B（課本 p.35）、Grammar Tips（課本 p.36）；聽力對話與閱讀短文為自行編寫"
@@ -681,7 +681,7 @@
   "type": "閱讀：短文擷取",
   "stem": "依上面的短文回答：What does Ruby have?",
   "attachment": {
-   "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. Today I draw a whale for him. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
+   "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. I'm drawing a whale for him today. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
   },
   "answer": "She has a fever.",
   "distractors": [
@@ -706,7 +706,7 @@
    "分辨說話的人在哪一句說自己，在哪一句說朋友。",
    "找出 I have 開頭的句子，看看後面接的是哪個症狀。"
   ],
-  "explanation": "正確概念：開頭介紹說話的人是 Ruby。她用 I have a fever today. 說自己今天發燒。\n破誤：「She has a cold.」：把 Ivan 的症狀當成 Ruby 的症狀；「She has a headache.」：看到 Ruby 不舒服，就自行猜她頭痛；「She has a sore throat.」：看到文中有人感冒，就自行加上喉嚨痛，也弄錯了人。\n回頭讀：Unit 2 Reading（課本 pp.37–39）、Sentence A（課本 p.34）。",
+  "explanation": "正確概念：開頭介紹說話的人是 Ruby。她用 I have a fever, so I stay at home. 說自己發燒，所以待在家裡。\n破誤：「She has a cold.」：把 Ivan 的症狀當成 Ruby 的症狀；「She has a headache.」：看到 Ruby 不舒服，就自行猜她頭痛；「She has a sore throat.」：看到文中有人感冒，就自行加上喉嚨痛，也弄錯了人。\n回頭讀：Unit 2 Reading（課本 pp.37–39）、Sentence A（課本 p.34）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 2 Reading（課本 pp.37–39）、Sentence A（課本 p.34）；聽力對話與閱讀短文為自行編寫"
@@ -718,7 +718,7 @@
   "type": "閱讀技巧：疑問詞（Question Words）",
   "stem": "依上面的短文，哪個問題可以用「In the UK.」來回答？",
   "attachment": {
-   "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. Today I draw a whale for him. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
+   "passage": "I'm Ruby. I'm in Taiwan. My friend Ivan is in the UK. We like to draw pictures of animals. I'm drawing a whale for him today. I have a fever, so I stay at home. Ivan has a cold. He's at home, too. We talk on the phone. I tell him about my picture."
   },
   "answer": "Where is Ivan?",
   "distractors": [

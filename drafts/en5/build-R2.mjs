@@ -4,7 +4,7 @@ import { buildUnit, listen, passage } from './build-unit.mjs';
 const { q, save } = buildUnit('R2');
 
 q('L14-Q1', '字彙：食物名稱',
-  '餐牌上哪一項是「麵條」？', null, 'noodles',
+  '菜單上哪一項是「麵條」？', null, 'noodles',
   [['French fries', '中文意思混淆', '把兩種細長的食物名稱記反了'],
    ['dumplings', '中文意思混淆', '認出是菜單上的複數食物名稱，卻把麵條認成水餃'],
    ['sandwiches', '中文意思混淆', '把三明治和麵條的英文記混了']],
@@ -35,7 +35,7 @@ q('L14-Q4', '句型與閱讀：依序找作息',
   '依上面的短文，哪一句正確說出 Adele 寫功課前的上一項作息和時間？英文也要寫對。', friday, 'She has dinner at six fifteen.',
   [['She have dinner at six fifteen.', '第三人稱混淆', '找對作息和時間，卻忘了 she 後面的 have 要改成 has'],
    ['She has dinner at seven ten.', '時間錯置', '找對上一項作息，卻把寫功課的時間配給晚餐'],
-   ['She goes to bed at nine o’clock.', '順序錯置', '上床時間讀對了，但那是寫完功課以後的作息']],
+   ['She goes to bed at nine o\'clock.', '順序錯置', '上床時間讀對了，但那是寫完功課以後的作息']],
   ['先在短文裡圈出 Adele 做功課的那一句。', '把短文的時間按先後排列，找出做功課之前最近的時間。', '看那個時間屬於哪一項作息，再選使用第三人稱的句子。'],
   { concept: 'Adele 七點十分寫功課。再往前一項有標明時間的作息是六點十五分吃晚餐，所以選 She has dinner at six fifteen.。', ref: 'Review 2 Sequence（課本 pp.76–77）、Unit 4 Grammar Tips（課本 p.68）' });
 

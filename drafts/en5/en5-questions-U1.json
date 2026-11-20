@@ -586,7 +586,7 @@
     "trap": "拼字組合混淆"
    },
    {
-    "text": "clerk",
+    "text": "her",
     "misconception": "看到 er 和 ir、ur 的字母不同，就以為念法也不同",
     "trap": "拼字組合混淆"
    }
@@ -596,7 +596,7 @@
    "er、ir、ur 這三組字母的念法是一樣的。",
    "找一找哪一個字沒有 er、ir 或 ur。"
   ],
-  "explanation": "正確概念：bird 的 ir、nurse 的 ur、clerk 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。\n破誤：「bird」：看到 ir 和 ur、er 的字母不同，就以為念法也不同；「nurse」：看到 ur 和 ir、er 的字母不同，就以為念法也不同；「clerk」：看到 er 和 ir、ur 的字母不同，就以為念法也不同。\n回頭讀：Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）。",
+  "explanation": "正確概念：bird 的 ir、nurse 的 ur、her 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。\n破誤：「bird」：看到 ir 和 ur、er 的字母不同，就以為念法也不同；「nurse」：看到 ur 和 ir、er 的字母不同，就以為念法也不同；「her」：看到 er 和 ir、ur 的字母不同，就以為念法也不同。\n回頭讀：Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）；聽力對話與閱讀短文為自行編寫"

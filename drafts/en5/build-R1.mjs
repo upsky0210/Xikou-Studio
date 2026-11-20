@@ -36,7 +36,7 @@ q('L07-Q4', '句型與閱讀：找出細節',
    ["No, he doesn't. He has a runny nose.", '資訊錯置', '用對否定簡答，卻把 Leah 的症狀配給 Eric'],
    ["No, he don't. He has a stomachache.", '第三人稱混淆', '找對了症狀，但問句用 Does，否定簡答要用相配的形式']],
   ['先圈出問句裡的人名和症狀。', '到短文找到 Eric，看看哪一句說了他有沒有發燒。', '再對照同一個人的另一項症狀，檢查回答有沒有配錯人。'],
-  { concept: '文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn’t.，再補充他的症狀。', ref: 'Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）' });
+  { concept: '文中 Eric 肚子痛，沒有發燒。用 Does 問、答案是否定時，簡答用 No, he doesn\'t.，再補充他的症狀。', ref: 'Review 1 Find Details（課本 pp.44–45）、Unit 2 Sentence B（課本 p.35）' });
 
 q('L07-Q5', '發音：辨別字母組合',
   '哪個字的母音和 bark 的母音相同？', null, 'hard',

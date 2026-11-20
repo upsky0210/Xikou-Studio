@@ -335,7 +335,7 @@
   "type": "句型：問答配對",
   "stem": "Serena 早餐是七點二十分吃的。有人直接問她：「Do you have breakfast at seven?」她怎麼回答最合適？",
   "attachment": null,
-  "answer": "No, I don’t. I have breakfast at seven twenty.",
+  "answer": "No, I don't. I have breakfast at seven twenty.",
   "distractors": [
    {
     "text": "Yes, I do. I have breakfast at seven twenty.",
@@ -343,12 +343,12 @@
     "trap": "簡答不一致"
    },
    {
-    "text": "No, I don’t. I have breakfast at seven o’clock.",
+    "text": "No, I don't. I have breakfast at seven o'clock.",
     "misconception": "知道要否定，但把問句的時間搬到補充說明",
     "trap": "時間錯置"
    },
    {
-    "text": "No, she doesn’t. She has breakfast at seven twenty.",
+    "text": "No, she doesn't. She has breakfast at seven twenty.",
     "misconception": "Serena 在回答自己的作息，要用 I，不能用 she 來代替自己",
     "trap": "人稱代名詞混淆"
    }
@@ -358,7 +358,7 @@
    "問的是不是同一個時間？先決定要肯定還是否定。",
    "如果是回答自己的作息，還要檢查人稱和補充的時間。"
   ],
-  "explanation": "正確概念：兩個時間不同，所以 Serena 要用 No, I don’t. 回答，再說自己七點二十分吃早餐。\n破誤：「Yes, I do. I have breakfast at seven twenty.」：時間寫對了，前面卻答 Yes，等於先說自己七點吃早餐；「No, I don’t. I have breakfast at seven o’clock.」：知道要否定，但把問句的時間搬到補充說明；「No, she doesn’t. She has breakfast at seven twenty.」：Serena 在回答自己的作息，要用 I，不能用 she 來代替自己。\n回頭讀：Unit 4 Sentence A／B（課本 pp.66–67）。",
+  "explanation": "正確概念：兩個時間不同，所以 Serena 要用 No, I don't. 回答，再說自己七點二十分吃早餐。\n破誤：「Yes, I do. I have breakfast at seven twenty.」：時間寫對了，前面卻答 Yes，等於先說自己七點吃早餐；「No, I don't. I have breakfast at seven o'clock.」：知道要否定，但把問句的時間搬到補充說明；「No, she doesn't. She has breakfast at seven twenty.」：Serena 在回答自己的作息，要用 I，不能用 she 來代替自己。\n回頭讀：Unit 4 Sentence A／B（課本 pp.66–67）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Sentence A／B（課本 pp.66–67）；聽力對話與閱讀短文為自行編寫"
@@ -501,7 +501,7 @@
   "answer": "Do you go home at four twenty-five? — Yes, I do.",
   "distractors": [
    {
-    "text": "Do you get up at six fifteen? — No, I don’t.",
+    "text": "Do you get up at six fifteen? — No, I don't.",
     "misconception": "起床時間和表格相同，卻用了否定簡答",
     "trap": "簡答不一致"
    },
@@ -521,7 +521,7 @@
    "再看右欄的時間和問句是否一致。",
    "時間相符要肯定，最後檢查回答是誰在說自己的作息。"
   ],
-  "explanation": "正確概念：表上 Erin 四點二十五分回家。問她是不是這個時間時，她用 Yes, I do. 回答。\n破誤：「Do you get up at six fifteen? — No, I don’t.」：起床時間和表格相同，卻用了否定簡答；「Do you have dinner at six thirty? — Yes, I do.」：把晚餐時間六點十分看成六點半；「Do you go home at four twenty-five? — Yes, she does.」：問句直接問 Erin，她應用 I 回答自己的作息。\n回頭讀：Unit 4 Sentence B（課本 p.67）。",
+  "explanation": "正確概念：表上 Erin 四點二十五分回家。問她是不是這個時間時，她用 Yes, I do. 回答。\n破誤：「Do you get up at six fifteen? — No, I don't.」：起床時間和表格相同，卻用了否定簡答；「Do you have dinner at six thirty? — Yes, I do.」：把晚餐時間六點十分看成六點半；「Do you go home at four twenty-five? — Yes, she does.」：問句直接問 Erin，她應用 I 回答自己的作息。\n回頭讀：Unit 4 Sentence B（課本 p.67）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Sentence B（課本 p.67）；聽力對話與閱讀短文為自行編寫"
@@ -650,7 +650,7 @@
   "distractors": [
    {
     "text": "shout",
-    "misconception": "開頭和第一個母音相同，但沒有留意音節數和結尾",
+    "misconception": "開頭和母音相同，但沒有留意結尾的音",
     "trap": "音近字"
    },
    {
@@ -665,11 +665,11 @@
    }
   ],
   "hints": [
-   "先聽有幾個音節。",
-   "辨認開頭有沒有像 sh 的聲音。",
-   "重聽後半，聽完第一個母音後還接了一個較輕的音節。"
+   "先聽開頭有沒有像 sh 的聲音。",
+   "再聽母音和 clown 的 ow 一不一樣。",
+   "比一比開頭相同的字，重聽結尾是 t 的音，還是像 her 的 er 音。"
   ],
-  "explanation": "正確概念：念的是 shower，有兩個音節。shout 有相同的開頭和第一個母音，但只有一個音節。\n破誤：「shout」：開頭和第一個母音相同，但沒有留意音節數和結尾；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
+  "explanation": "正確概念：念的是 shower，開頭是 sh，結尾是像 her 的 er 音。shout 有相同的開頭和母音，但結尾是 t 的音。\n破誤：「shout」：開頭和母音相同，但沒有留意結尾的音；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Phonics Sound It Out（課本 p.72）；聽力對話與閱讀短文為自行編寫"
