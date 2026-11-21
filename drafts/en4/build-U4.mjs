@@ -12,8 +12,8 @@ q('L11-Q1', '聽力：聽音選字',
   '請聽英文，選出你聽到的科目。', listen('science', 0.8),
   'science',
   [['social studies', '音近字', '開頭都是 s 的音，只聽開頭就作答'],
-   ['music', '音近字', '結尾都有 s 的音，只聽結尾就作答'],
-   ['Chinese', '音近字', '結尾有相似的音，沒聽清楚開頭']],
+   ['music', '音近字', 'music 和 science 都是兩個音節，只聽節奏就作答'],
+   ['Chinese', '音近字', 'Chinese 和 science 第一個音節的母音一樣，只聽母音就作答']],
   ['先聽開頭的音。', '開頭是 s 的有兩個選項，再聽它是一個字還是兩個字。', '這個科目只有一個字，母音和 night 一樣。'],
   { concept: '念的是 science（自然科學）。science 只有一個字，開頭的 sc 念 s 的音；social studies 是兩個字。',
     ref: 'Unit 4 Vocabulary（課本 p.67）' });
@@ -23,7 +23,7 @@ q('L11-Q2', '聽力：聽音選意思',
   '社會',
   [['自然科學', '音近字', 'social 和 science 開頭都是 s 的音，只聽開頭就作答'],
    ['音樂', '中文意思混淆', '沒聽清楚，就選了課本上排在旁邊的科目'],
-   ['體育', '中文意思混淆', '只記得這個科目的英文很長，和體育記混了']],
+   ['體育', '中文意思混淆', 'social studies 和 Physical Education 都是兩個字，把兩科記混了']],
   ['先聽一共念了幾個字。', '這個科目有兩個字，第二個字是 studies。', '想想課本上學地方、歷史和生活的那一科。'],
   { concept: '念的是 social studies（社會），有兩個字；science 是自然科學，只有一個字。',
     ref: 'Unit 4 Vocabulary（課本 p.67）' });
@@ -87,7 +87,7 @@ q('L12-Q1', '句型：問對方最喜歡的科目',
    ["you're", '所有格混淆', "you're 是 you are 的縮寫，不是「你的」"],
    ['my', '人稱混淆', '用了「我的」，變成問自己']],
   ['這句是在問「你的」最喜歡的科目。', '「你」是 you，「你的」要怎麼說？', '回想 Learn with Boka：你的、我的、他的……'],
-  { concept: '問對方：What\'s your favorite subject?。your 是「你的」。',
+  { concept: '問對方：What\'s your favorite subject? your 是「你的」。',
     ref: 'Unit 4 Sentence A（課本 p.68）、Learn with Boka（課本 p.70）' });
 
 q('L12-Q2', '句型：說別人最喜歡的科目',
@@ -111,7 +111,7 @@ q('L12-Q3', '文法：his 或 her',
     ref: 'Unit 4 Sentence B（課本 p.69）、Learn with Boka（課本 p.70）' });
 
 q('L12-Q4', '文法：our',
-  'Tom 和我都最喜歡體育。選出正確的字填入空格：「____ favorite subject is PE.」', null,
+  'Tom 和我都最喜歡體育。請用一句話說出「我們兩人共同」最喜歡的科目，選出正確的字填入空格：「____ favorite subject is PE.」', null,
   'Our',
   [['We', '所有格混淆', '用了「我們」，沒有用「我們的」'],
    ['Their', '人稱混淆', '用了「他們的」，但說話的人自己也在裡面'],
@@ -121,12 +121,12 @@ q('L12-Q4', '文法：our',
     ref: 'Unit 4 Learn with Boka（課本 p.70）' });
 
 q('L12-Q5', '文法：their',
-  'Boka 和 Jello 都最喜歡國語。選出正確的字填入空格：「____ favorite subject is Chinese.」', null,
+  'Ben 和 Kay 都最喜歡國語。選出正確的字填入空格：「____ favorite subject is Chinese.」', null,
   'Their',
   [['They', '所有格混淆', '用了「他們」，沒有用「他們的」'],
    ['Our', '人稱混淆', '說話的人不在裡面，不能用「我們的」'],
    ['His', '人稱混淆', '兩個人要用「他們的」，不能只用一個人的 his']],
-  ['Boka 和 Jello 是兩個人，可以用 they 代替。', '空格要填「他們的」。', '「他們的」和 they 開頭一樣都是 the，但寫法不同。'],
+  ['Ben 和 Kay 是兩個人，可以用 they 代替。', '空格要填「他們的」。', '「他們的」和 they 開頭一樣都是 the，但寫法不同。'],
   { concept: '兩個別人是「他們」，「他們的」是 their：Their favorite subject is Chinese.',
     ref: 'Unit 4 Learn with Boka（課本 p.70）、Grammar Tips（課本 p.71）' });
 
@@ -145,9 +145,9 @@ q('L12-Q7', '文法：選出正確的句子',
   "What's her favorite subject?",
   [["What's she favorite subject?", '所有格混淆', '用了「她」，沒有用「她的」'],
    ['What her favorite subject?', '句型混淆', '漏了 is，What\'s 是 What is 的縮寫'],
-   ["What's her favorite subjects?", '單複數混淆', '最喜歡的只有一個科目，不能用複數']],
-  ['先看 What 後面有沒有 is。', '再看「她的」寫對了沒有。', '最後看「最喜歡的科目」是一個還是很多個。'],
-  { concept: 'What\'s 是 What is；「她的」是 her；最喜歡的科目只有一個：What\'s her favorite subject?',
+   ["What's her favorite subjects?", '單複數混淆', 'What\'s 裡的 is 要配單數 subject；說好幾科時，is 要改成 are，subject 也要加 s']],
+  ['先看 What 後面有沒有 is。', '再看「她的」寫對了沒有。', '最後看 What\'s 裡的 is 和後面的 subject 單複數有沒有配合。'],
+  { concept: 'What\'s 是 What is；「她的」是 her；is 配單數 subject：What\'s her favorite subject?（問好幾科要說 What are her favorite subjects?）',
     ref: 'Unit 4 Sentence B（課本 p.69）' });
 
 // ───────── en4-13 發音與閱讀（Phonics pp.74–75、Reading pp.72–73）─────────

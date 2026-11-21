@@ -11,7 +11,7 @@ const { q, save } = buildUnit('U3');
 q('L08-Q1', '聽力：聽音選字',
   '請聽英文，選出你聽到的星期。', listen('Thursday', 0.8),
   'Thursday',
-  [['Tuesday', '音近字', 'Tuesday 和 Thursday 開頭都是 T，只看第一個字母就作答'],
+  [['Tuesday', '音近字', '沒分清楚開頭是 t 還是 th 的音'],
    ['Wednesday', '音近字', '記得是一週中間的日子，沒聽清楚開頭'],
    ['Saturday', '音近字', '結尾都是 day，只聽結尾就作答']],
   ['所有星期的結尾都是 day，要聽前面。', '開頭是 T 的有兩個，再分清楚開頭是 Tues 還是 Thurs。', '這個字開頭要把舌頭放在牙齒中間，像 three 的開頭。'],
@@ -24,7 +24,7 @@ q('L08-Q2', '聽力：聽音選意思',
   [['星期二', '中文意思混淆', '記得 Wednesday 在一週中間，但和前一天記混了'],
    ['星期四', '中文意思混淆', '記得 Wednesday 在一週中間，但和後一天記混了'],
    ['星期日', '中文意思混淆', '只聽到 day，沒聽清楚前面']],
-  ['先聽開頭的音，是 W、T、S 還是 F？', '開頭是 W 的星期只有一個。', '它排在 Tuesday 和 Thursday 中間。'],
+  ['先聽開頭的音，是 W、T 還是 S？', '開頭是 W 的星期只有一個。', '它排在 Tuesday 和 Thursday 中間。'],
   { concept: '念的是 Wednesday（星期三），開頭是 w 的音；中間的 d 不發音。',
     ref: 'Unit 3 Vocabulary（課本 p.53）' });
 
@@ -34,7 +34,7 @@ q('L08-Q3', '字彙：看中文選英文',
   [['Sunday', '中文意思混淆', 'Saturday 和 Sunday 開頭都是 S，把週末的兩天記反了'],
    ['Thursday', '中文意思混淆', 'Saturday 和 Thursday 都有 ur 的音，把兩天記混了'],
    ['Friday', '中文意思混淆', '記得是週末前後的日子，和星期五記混了']],
-  ['先想想星期六的英文開頭是什麼字母。', '開頭是 S 的有兩天，都在週末。', '一週的最後一天是星期六，它的英文比 Sunday 長。'],
+  ['先想想星期六的英文開頭是什麼字母。', '開頭是 S 的有兩天，都在週末。', '它是 Friday 的隔天。'],
   { concept: '星期六是 Saturday，星期日是 Sunday。兩個都是 S 開頭，Saturday 比較長。',
     ref: 'Unit 3 Vocabulary（課本 pp.52–53）' });
 
@@ -54,7 +54,7 @@ q('L08-Q5', '故事：動物園的開放時間',
   [['星期一到星期五', '故事細節混淆', '以為動物園和學校一樣，週末休息'],
    ['星期一到星期日', '故事細節混淆', '以為動物園每天都開，忘了大家去的那天它沒開'],
    ['星期二到星期六', '故事細節混淆', '記得從星期二開始，但記錯了最後一天']],
-  ['回想故事裡大家是星期幾去動物園的。', '那天動物園沒開，門口的牌子寫了 Opening Hours。', '牌子上寫的是從大家去的那一天的下一天開始，一直到週末的最後一天。'],
+  ['回想故事裡大家是星期幾去動物園的。', '那天動物園沒開，門口的牌子寫了 Opening Hours。', '牌子上寫的是從 Monday 的隔天開始，一直到 Monday 的前一天。'],
   { concept: '故事那天是 Monday，動物園沒開；牌子上寫 Opening Hours: Tuesday – Sunday，動物園星期二到星期日開。',
     ref: 'Unit 3 Story（課本 p.50）' });
 
@@ -87,7 +87,7 @@ q('L09-Q1', '句型：問今天星期幾',
    ['Sunday', '句型混淆', '把回答的星期放進了問句裡'],
    ['today', '句型混淆', '句子後面已經有 today，又重複了一次']],
   ['這句是在問今天是星期幾。', '問「星期幾」要用 What 加上哪一個字？', '今天只有一天，用一天的寫法。'],
-  { concept: '問今天星期幾：What day is today?。回答：It\'s Sunday.',
+  { concept: '問今天星期幾：What day is today? 回答：It\'s Sunday.',
     ref: 'Unit 3 Sentence A（課本 p.54）' });
 
 q('L09-Q2', '句型：回答今天星期幾',
@@ -134,7 +134,7 @@ q('L09-Q6', '字彙：星期的順序',
   '今天是 Wednesday，明天是星期幾？', null,
   'Thursday',
   [['Tuesday', '順序錯置', '選了 Wednesday 的前一天'],
-   ['Friday', '順序錯置', '多數了一天'],
+   ['Friday', '順序錯置', '多算了一天'],
    ['Monday', '順序錯置', '只記得一週的開頭，沒有往後數']],
   ['先想想 Wednesday 是星期幾。', '明天要往後數一天。', '星期三的下一天，英文開頭是 Th。'],
   { concept: 'Wednesday 是星期三，明天是星期四 Thursday。順序：Sunday、Monday、Tuesday、Wednesday、Thursday、Friday、Saturday。',
@@ -182,31 +182,31 @@ q('L10-Q3', '發音：長音 o',
     ref: 'Unit 3 Phonics Sound It Out（課本 p.60）、Listen and Circle（課本 p.61）' });
 
 const maxWeek = passage(
-  "Max is busy every week. He swims on Monday and Thursday. He rides a bike on Tuesday and Friday. He cleans his bedroom on Wednesday and Saturday. On Sunday, he takes a rest."
+  "Max is busy every week. He swims on Monday and Thursday. He rides a bike on Tuesday and Friday. He reads books on Wednesday and Saturday. On Sunday, he takes a rest."
 );
 
 q('L10-Q4', '閱讀：做筆記（Take Notes）',
   '幫上面的短文做筆記：Max 星期二和星期五做什麼？', maxWeek,
   '騎腳踏車',
   [['游泳', '細節讀錯', '把星期一和星期四做的事記到星期二和星期五'],
-   ['打掃房間', '細節讀錯', '把星期三和星期六做的事記錯了'],
+   ['看書', '細節讀錯', '把星期三和星期六做的事記錯了'],
    ['休息', '細節讀錯', '把星期日做的事當成星期二的']],
   ['先在短文裡找到 Tuesday。', '看 Tuesday 和 Friday 在同一句，那一句的動作是什麼？', 'rides a bike 的 bike 是什麼？'],
   { concept: '短文說 He rides a bike on Tuesday and Friday.，Max 星期二和星期五騎腳踏車。',
     ref: 'Unit 3 Reading（課本 pp.58–59）、Reading Skills：Take Notes' });
 
 q('L10-Q5', '閱讀：做筆記（Take Notes）',
-  '依上面的短文，Max 哪兩天打掃房間？', maxWeek,
+  '依上面的短文，Max 哪兩天看書？', maxWeek,
   '星期三和星期六',
   [['星期一和星期四', '細節讀錯', '把游泳的日子當成打掃的日子'],
    ['星期二和星期五', '細節讀錯', '把騎腳踏車的日子當成打掃的日子'],
-   ['星期日', '細節讀錯', '以為週末才打掃，但 Max 星期日休息']],
-  ['先在短文裡找到 cleans 這個字。', '看那一句後面是哪兩天。', '把兩個星期翻成中文。'],
-  { concept: '短文說 He cleans his bedroom on Wednesday and Saturday.，Max 星期三和星期六打掃房間。',
+   ['星期日', '細節讀錯', '以為週末才有空看書，但 Max 星期日休息']],
+  ['先在短文裡找到 reads books。', '看那一句後面是哪兩天。', '把兩個星期翻成中文。'],
+  { concept: '短文說 He reads books on Wednesday and Saturday.，Max 星期三和星期六看書。',
     ref: 'Unit 3 Reading（課本 pp.58–59）、Reading Skills：Take Notes' });
 
 q('L10-Q6', '閱讀：課本短文',
-  '課本 Reading「A Busy Week」裡，大家星期一和星期四打掃哪裡？', null,
+  '這題問的是課本，不是上面 Max 的短文。課本 Reading「A Busy Week」裡，大家星期一和星期四打掃哪裡？', null,
   '臥室（bedroom）',
   [['浴室（bathroom）', '細節讀錯', '浴室是星期二和星期五打掃的'],
    ['客廳（living room）', '細節讀錯', '客廳是星期三和星期六打掃的'],

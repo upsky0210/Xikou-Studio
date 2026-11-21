@@ -101,7 +101,7 @@
    "問星期幾，就要回答星期；問科目，就要回答科目。",
    "再檢查 Yes 或 No 後面的簡答有沒有配對。"
   ],
-  "explanation": "正確概念：Is it Tuesday today? 回答 Yes, it is.，再補充 I have PE class.。問句和回答要配合：問星期回答星期，問科目回答科目。\n破誤：「Is it Tuesday today? — Yes, it isn't. I have PE class.」：Yes 後面要用 it is，不能用 isn't；「What day is today? — My favorite subject is PE.」：問的是星期幾，卻回答最喜歡的科目；「What's your favorite subject? — It's Tuesday.」：問的是最喜歡的科目，卻回答星期幾。\n回頭讀：Unit 3 Sentence B（課本 p.55）、Unit 4 Sentence A（課本 p.68）。",
+  "explanation": "正確概念：Is it Tuesday today? 回答 Yes, it is.，再補充 I have PE class. 問句和回答要配合：問星期回答星期，問科目回答科目。\n破誤：「Is it Tuesday today? — Yes, it isn't. I have PE class.」：Yes 後面要用 it is，不能用 isn't；「What day is today? — My favorite subject is PE.」：問的是星期幾，卻回答最喜歡的科目；「What's your favorite subject? — It's Tuesday.」：問的是最喜歡的科目，卻回答星期幾。\n回頭讀：Unit 3 Sentence B（課本 p.55）、Unit 4 Sentence A（課本 p.68）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 3 Sentence B（課本 p.55）、Unit 4 Sentence A（課本 p.68）；聽力對話與閱讀短文為自行編寫"

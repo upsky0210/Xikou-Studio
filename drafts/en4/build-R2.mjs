@@ -32,7 +32,7 @@ q('L14-Q3', '句型：選出正確的問答',
    ["What day is today? — My favorite subject is PE.", '答非所問', '問的是星期幾，卻回答最喜歡的科目'],
    ["What's your favorite subject? — It's Tuesday.", '答非所問', '問的是最喜歡的科目，卻回答星期幾']],
   ['先看每一組的問句在問什麼。', '問星期幾，就要回答星期；問科目，就要回答科目。', '再檢查 Yes 或 No 後面的簡答有沒有配對。'],
-  { concept: 'Is it Tuesday today? 回答 Yes, it is.，再補充 I have PE class.。問句和回答要配合：問星期回答星期，問科目回答科目。',
+  { concept: 'Is it Tuesday today? 回答 Yes, it is.，再補充 I have PE class. 問句和回答要配合：問星期回答星期，問科目回答科目。',
     ref: 'Unit 3 Sentence B（課本 p.55）、Unit 4 Sentence A（課本 p.68）' });
 
 const notes = passage(

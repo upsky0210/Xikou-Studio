@@ -60,16 +60,16 @@
    },
    {
     "text": "熱巧克力",
-    "misconception": "聽到結尾有 d 的音，就想成 chocolate 的結尾",
+    "misconception": "lemonade 的 -ade 和 chocolate 的 -ate 聽起來很像",
     "trap": "音近字"
    }
   ],
   "hints": [
    "先聽這個字有幾個音節。",
    "這個字開頭的音和 lemon 很像。",
-   "先刪掉顏色很深、你確定念法的飲料，再想想剩下的字和 lemon 有什麼關係。"
+   "想想 cola、soy milk、hot chocolate 念起來是什麼樣子，再和聽到的字比一比。"
   ],
-  "explanation": "正確概念：念的是 lemonade（檸檬水）。lemonade 有三個音節，開頭的音和 lemon 很像。\n破誤：「可樂」：課本把 cola 和 lemonade 畫在一起，兩種冷飲的英文記反了；「豆漿」：聽到不熟的字，就選了印象最深的飲料；「熱巧克力」：聽到結尾有 d 的音，就想成 chocolate 的結尾。\n回頭讀：Unit 1 Vocabulary（課本 p.20）。",
+  "explanation": "正確概念：念的是 lemonade（檸檬水）。lemonade 有三個音節，開頭的音和 lemon 很像。\n破誤：「可樂」：課本把 cola 和 lemonade 畫在一起，兩種冷飲的英文記反了；「豆漿」：聽到不熟的字，就選了印象最深的飲料；「熱巧克力」：lemonade 的 -ade 和 chocolate 的 -ate 聽起來很像。\n回頭讀：Unit 1 Vocabulary（課本 p.20）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Vocabulary（課本 p.20）；聽力對話與閱讀短文為自行編寫"
@@ -285,7 +285,7 @@
    "句子已經有動詞 like，要用 do 或 does 來問。",
    "I、you、we、they 用同一個字，he、she 用另一個字。"
   ],
-  "explanation": "正確概念：you 要用 Do 來問：Do you like tea?。he、she 和人名才用 Does。\n破誤：「Does」：記得問別人喜不喜歡要用 Does，沒看空格後面是 you；「Are」：記得 Are you…? 的問句，沒注意句子已經有動詞 like；「Is」：用了問 he、she 的 Is，又沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。",
+  "explanation": "正確概念：you 要用 Do 來問：Do you like tea? he、she 和人名才用 Does。\n破誤：「Does」：記得問別人喜不喜歡要用 Does，沒看空格後面是 you；「Are」：記得 Are you…? 的問句，沒注意句子已經有動詞 like；「Is」：用了問 he、she 的 Is，又沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）；聽力對話與閱讀短文為自行編寫"
@@ -320,7 +320,7 @@
    "Mia 是一個人，可以用 she 代替她。",
    "回想 Learn with Boka：he、she、it 用哪一個字來問？"
   ],
-  "explanation": "正確概念：Mia 是一個人（she），要用 Does 來問：Does Mia like lemonade?。\n破誤：「Do」：把 Do you…? 的 Do 用在人名前面；「Is」：記得 Is she…? 的問句，沒注意句子已經有動詞 like；「Are」：用了 be 動詞來問，沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence B（課本 p.23）、Learn with Boka（課本 p.24）。",
+  "explanation": "正確概念：Mia 是一個人（she），要用 Does 來問：Does Mia like lemonade?\n破誤：「Do」：把 Do you…? 的 Do 用在人名前面；「Is」：記得 Is she…? 的問句，沒注意句子已經有動詞 like；「Are」：用了 be 動詞來問，沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence B（課本 p.23）、Learn with Boka（課本 p.24）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Sentence B（課本 p.23）、Learn with Boka（課本 p.24）；聽力對話與閱讀短文為自行編寫"
@@ -514,7 +514,7 @@
    "想好要用 you 以後，再選前面要用 Do 還是 Does。",
    "回想課本 Sentence A 問同學的句子。"
   ],
-  "explanation": "正確概念：直接問對方要用 you，you 配 Do：Do you like lemonade?。\n破誤：「Does she like lemonade?」：直接問 Amy 本人時要說 you，she 是跟別人說 Amy 的時候才用；「Does you like lemonade?」：you 前面用了 Does；「Do she like lemonade?」：用了 she，前面又配 Do。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。",
+  "explanation": "正確概念：直接問對方要用 you，you 配 Do：Do you like lemonade?\n破誤：「Does she like lemonade?」：直接問 Amy 本人時要說 you，she 是跟別人說 Amy 的時候才用；「Does you like lemonade?」：you 前面用了 Does；「Do she like lemonade?」：用了 she，前面又配 Do。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）；聽力對話與閱讀短文為自行編寫"
@@ -617,8 +617,8 @@
     "trap": "長短音混淆"
    },
    {
-    "text": "wed",
-    "misconception": "和 weed 長得很像，少了一個 e 就念短音",
+    "text": "bed",
+    "misconception": "bed 只有一個 e，後面沒有不發音的 e，念短音",
     "trap": "長短音混淆"
    }
   ],
@@ -627,7 +627,7 @@
    "長音 e 可以拼成 e_e、ea 或 ee。",
    "找字尾有一個不發音的 e 的字。"
   ],
-  "explanation": "正確概念：these 是 e_e 的拼法：字尾的 e 不發音，前面的 e 念長音，和 Eve 一樣。red、bet、wed 的 e 念短音。\n破誤：「red」：看到字裡有 e，就以為都念長音；「bet」：看到 e 就選了，沒注意後面沒有不發音的 e；「wed」：和 weed 長得很像，少了一個 e 就念短音。\n回頭讀：Unit 1 Phonics Sound It Out（課本 p.28）、Listen and Circle（課本 p.29）。",
+  "explanation": "正確概念：these 是 e_e 的拼法：字尾的 e 不發音，前面的 e 念長音，和 Eve 一樣。red、bet、bed 的 e 念短音。\n破誤：「red」：看到字裡有 e，就以為都念長音；「bet」：看到 e 就選了，沒注意後面沒有不發音的 e；「bed」：bed 只有一個 e，後面沒有不發音的 e，念短音。\n回頭讀：Unit 1 Phonics Sound It Out（課本 p.28）、Listen and Circle（課本 p.29）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Phonics Sound It Out（課本 p.28）、Listen and Circle（課本 p.29）；聽力對話與閱讀短文為自行編寫"
@@ -641,10 +641,10 @@
   "attachment": {
    "passage": "Tim plays basketball. Now he is thirsty. He has three drinks. The cola has thirty grams of sugar. The soy milk has five grams of sugar. Water has no sugar. Tim likes cola, but he drinks water. Water is good for him."
   },
-  "answer": "the cola",
+  "answer": "cola",
   "distractors": [
    {
-    "text": "the soy milk",
+    "text": "soy milk",
     "misconception": "看到豆漿有糖，就沒和可樂的數字比一比",
     "trap": "細節讀錯"
    },
@@ -654,7 +654,7 @@
     "trap": "細節讀錯"
    },
    {
-    "text": "the juice",
+    "text": "juice",
     "misconception": "想到果汁也很甜，但短文沒有提到果汁",
     "trap": "文意推論過度"
    }
@@ -664,7 +664,7 @@
    "把每種飲料的糖有幾公克圈出來。",
    "比一比數字，thirty 和 five 哪一個比較大？"
   ],
-  "explanation": "正確概念：可樂有 thirty grams（30 公克）糖，豆漿 5 公克，水沒有糖，所以可樂的糖最多。\n破誤：「the soy milk」：看到豆漿有糖，就沒和可樂的數字比一比；「water」：Tim 最後喝的是水，就以為題目問的是他喝了什麼；「the juice」：想到果汁也很甜，但短文沒有提到果汁。\n回頭讀：Unit 1 Reading（課本 pp.26–27）、Reading Skills：Find Details。",
+  "explanation": "正確概念：可樂有 thirty grams（30 公克）糖，豆漿 5 公克，水沒有糖，所以可樂的糖最多。\n破誤：「soy milk」：看到豆漿有糖，就沒和可樂的數字比一比；「water」：Tim 最後喝的是水，就以為題目問的是他喝了什麼；「juice」：想到果汁也很甜，但短文沒有提到果汁。\n回頭讀：Unit 1 Reading（課本 pp.26–27）、Reading Skills：Find Details。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Reading（課本 pp.26–27）、Reading Skills：Find Details；聽力對話與閱讀短文為自行編寫"

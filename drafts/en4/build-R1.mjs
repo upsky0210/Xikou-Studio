@@ -51,12 +51,12 @@ q('L07-Q4', '閱讀：排序（Sequence）',
     ref: 'Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence' });
 
 q('L07-Q5', '閱讀：排序（Sequence）',
-  '依上面的短文，Ella 要了四個芭樂之後，接著發生什麼事？', shop,
-  '她看到檸檬水，買了一瓶。',
-  [['店員拿芭樂給她看。', '順序錯置', '這是她要芭樂之前發生的事'],
-   ['她問店裡有沒有木瓜。', '順序錯置', '跳回了 First 的第一件事'],
-   ['她說謝謝然後回家。', '順序錯置', '跳過了 Then，直接選了最後一件事']],
-  ['先找到 Ella needs four guavas. 這一句。', '它後面接的是 Then 還是 Finally？', '讀 Then 後面那兩句，她看到什麼、做了什麼？'],
+  '短文提到 Ella 需要四個芭樂（Ella needs four guavas.），下一句說她看到了什麼？', shop,
+  '檸檬水',
+  [['芭樂', '順序錯置', '這是店員在前一句拿給她看的水果'],
+   ['木瓜', '順序錯置', '跳回了 First：她一開始問的是木瓜，但店裡沒有'],
+   ['葡萄', '文意推論過度', '短文沒有提到葡萄']],
+  ['先找到 Ella needs four guavas. 這一句。', '它的下一句用 Then 開頭。', '讀 Then she sees … 後面是什麼？她喜歡它，所以買了一瓶。'],
   { concept: '順序是：問木瓜 → 店員拿芭樂 → 要四個芭樂 → Then 看到檸檬水買一瓶 → Finally 說謝謝回家。',
     ref: 'Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence' });
 

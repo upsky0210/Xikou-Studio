@@ -17,12 +17,12 @@
    },
    {
     "text": "music",
-    "misconception": "結尾都有 s 的音，只聽結尾就作答",
+    "misconception": "music 和 science 都是兩個音節，只聽節奏就作答",
     "trap": "音近字"
    },
    {
     "text": "Chinese",
-    "misconception": "結尾有相似的音，沒聽清楚開頭",
+    "misconception": "Chinese 和 science 第一個音節的母音一樣，只聽母音就作答",
     "trap": "音近字"
    }
   ],
@@ -31,7 +31,7 @@
    "開頭是 s 的有兩個選項，再聽它是一個字還是兩個字。",
    "這個科目只有一個字，母音和 night 一樣。"
   ],
-  "explanation": "正確概念：念的是 science（自然科學）。science 只有一個字，開頭的 sc 念 s 的音；social studies 是兩個字。\n破誤：「social studies」：開頭都是 s 的音，只聽開頭就作答；「music」：結尾都有 s 的音，只聽結尾就作答；「Chinese」：結尾有相似的音，沒聽清楚開頭。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
+  "explanation": "正確概念：念的是 science（自然科學）。science 只有一個字，開頭的 sc 念 s 的音；social studies 是兩個字。\n破誤：「social studies」：開頭都是 s 的音，只聽開頭就作答；「music」：music 和 science 都是兩個音節，只聽節奏就作答；「Chinese」：Chinese 和 science 第一個音節的母音一樣，只聽母音就作答。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Vocabulary（課本 p.67）；聽力對話與閱讀短文為自行編寫"
@@ -60,7 +60,7 @@
    },
    {
     "text": "體育",
-    "misconception": "只記得這個科目的英文很長，和體育記混了",
+    "misconception": "social studies 和 Physical Education 都是兩個字，把兩科記混了",
     "trap": "中文意思混淆"
    }
   ],
@@ -69,7 +69,7 @@
    "這個科目有兩個字，第二個字是 studies。",
    "想想課本上學地方、歷史和生活的那一科。"
   ],
-  "explanation": "正確概念：念的是 social studies（社會），有兩個字；science 是自然科學，只有一個字。\n破誤：「自然科學」：social 和 science 開頭都是 s 的音，只聽開頭就作答；「音樂」：沒聽清楚，就選了課本上排在旁邊的科目；「體育」：只記得這個科目的英文很長，和體育記混了。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
+  "explanation": "正確概念：念的是 social studies（社會），有兩個字；science 是自然科學，只有一個字。\n破誤：「自然科學」：social 和 science 開頭都是 s 的音，只聽開頭就作答；「音樂」：沒聽清楚，就選了課本上排在旁邊的科目；「體育」：social studies 和 Physical Education 都是兩個字，把兩科記混了。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Vocabulary（課本 p.67）；聽力對話與閱讀短文為自行編寫"
@@ -285,7 +285,7 @@
    "「你」是 you，「你的」要怎麼說？",
    "回想 Learn with Boka：你的、我的、他的……"
   ],
-  "explanation": "正確概念：問對方：What's your favorite subject?。your 是「你的」。\n破誤：「you」：用了「你」，沒有用「你的」；「you're」：you're 是 you are 的縮寫，不是「你的」；「my」：用了「我的」，變成問自己。\n回頭讀：Unit 4 Sentence A（課本 p.68）、Learn with Boka（課本 p.70）。",
+  "explanation": "正確概念：問對方：What's your favorite subject? your 是「你的」。\n破誤：「you」：用了「你」，沒有用「你的」；「you're」：you're 是 you are 的縮寫，不是「你的」；「my」：用了「我的」，變成問自己。\n回頭讀：Unit 4 Sentence A（課本 p.68）、Learn with Boka（課本 p.70）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Sentence A（課本 p.68）、Learn with Boka（課本 p.70）；聽力對話與閱讀短文為自行編寫"
@@ -365,7 +365,7 @@
   "id": "L12-Q4",
   "level": "L12",
   "type": "文法：our",
-  "stem": "Tom 和我都最喜歡體育。選出正確的字填入空格：「____ favorite subject is PE.」",
+  "stem": "Tom 和我都最喜歡體育。請用一句話說出「我們兩人共同」最喜歡的科目，選出正確的字填入空格：「____ favorite subject is PE.」",
   "attachment": null,
   "answer": "Our",
   "distractors": [
@@ -400,7 +400,7 @@
   "id": "L12-Q5",
   "level": "L12",
   "type": "文法：their",
-  "stem": "Boka 和 Jello 都最喜歡國語。選出正確的字填入空格：「____ favorite subject is Chinese.」",
+  "stem": "Ben 和 Kay 都最喜歡國語。選出正確的字填入空格：「____ favorite subject is Chinese.」",
   "attachment": null,
   "answer": "Their",
   "distractors": [
@@ -421,7 +421,7 @@
    }
   ],
   "hints": [
-   "Boka 和 Jello 是兩個人，可以用 they 代替。",
+   "Ben 和 Kay 是兩個人，可以用 they 代替。",
    "空格要填「他們的」。",
    "「他們的」和 they 開頭一樣都是 the，但寫法不同。"
   ],
@@ -502,16 +502,16 @@
    },
    {
     "text": "What's her favorite subjects?",
-    "misconception": "最喜歡的只有一個科目，不能用複數",
+    "misconception": "What's 裡的 is 要配單數 subject；說好幾科時，is 要改成 are，subject 也要加 s",
     "trap": "單複數混淆"
    }
   ],
   "hints": [
    "先看 What 後面有沒有 is。",
    "再看「她的」寫對了沒有。",
-   "最後看「最喜歡的科目」是一個還是很多個。"
+   "最後看 What's 裡的 is 和後面的 subject 單複數有沒有配合。"
   ],
-  "explanation": "正確概念：What's 是 What is；「她的」是 her；最喜歡的科目只有一個：What's her favorite subject?\n破誤：「What's she favorite subject?」：用了「她」，沒有用「她的」；「What her favorite subject?」：漏了 is，What's 是 What is 的縮寫；「What's her favorite subjects?」：最喜歡的只有一個科目，不能用複數。\n回頭讀：Unit 4 Sentence B（課本 p.69）。",
+  "explanation": "正確概念：What's 是 What is；「她的」是 her；is 配單數 subject：What's her favorite subject?（問好幾科要說 What are her favorite subjects?）\n破誤：「What's she favorite subject?」：用了「她」，沒有用「她的」；「What her favorite subject?」：漏了 is，What's 是 What is 的縮寫；「What's her favorite subjects?」：What's 裡的 is 要配單數 subject；說好幾科時，is 要改成 are，subject 也要加 s。\n回頭讀：Unit 4 Sentence B（課本 p.69）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Sentence B（課本 p.69）；聽力對話與閱讀短文為自行編寫"

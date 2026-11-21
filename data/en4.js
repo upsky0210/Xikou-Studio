@@ -72,9 +72,9 @@ const EN4 = {
      [
       "先聽這個字有幾個音節。",
       "這個字開頭的音和 lemon 很像。",
-      "先刪掉顏色很深、你確定念法的飲料，再想想剩下的字和 lemon 有什麼關係。"
+      "想想 cola、soy milk、hot chocolate 念起來是什麼樣子，再和聽到的字比一比。"
      ],
-     "正確概念：念的是 lemonade（檸檬水）。lemonade 有三個音節，開頭的音和 lemon 很像。\n破誤：「可樂」：課本把 cola 和 lemonade 畫在一起，兩種冷飲的英文記反了；「豆漿」：聽到不熟的字，就選了印象最深的飲料；「熱巧克力」：聽到結尾有 d 的音，就想成 chocolate 的結尾。\n回頭讀：Unit 1 Vocabulary（課本 p.20）。",
+     "正確概念：念的是 lemonade（檸檬水）。lemonade 有三個音節，開頭的音和 lemon 很像。\n破誤：「可樂」：課本把 cola 和 lemonade 畫在一起，兩種冷飲的英文記反了；「豆漿」：聽到不熟的字，就選了印象最深的飲料；「熱巧克力」：lemonade 的 -ade 和 chocolate 的 -ate 聽起來很像。\n回頭讀：Unit 1 Vocabulary（課本 p.20）。",
      {
       "listen": "lemonade",
       "rate": 0.8
@@ -186,7 +186,7 @@ const EN4 = {
       "句子已經有動詞 like，要用 do 或 does 來問。",
       "I、you、we、they 用同一個字，he、she 用另一個字。"
      ],
-     "正確概念：you 要用 Do 來問：Do you like tea?。he、she 和人名才用 Does。\n破誤：「Does」：記得問別人喜不喜歡要用 Does，沒看空格後面是 you；「Are」：記得 Are you…? 的問句，沒注意句子已經有動詞 like；「Is」：用了問 he、she 的 Is，又沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。"
+     "正確概念：you 要用 Do 來問：Do you like tea? he、she 和人名才用 Does。\n破誤：「Does」：記得問別人喜不喜歡要用 Does，沒看空格後面是 you；「Are」：記得 Are you…? 的問句，沒注意句子已經有動詞 like；「Is」：用了問 he、she 的 Is，又沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。"
     ],
     [
      "選出正確的字填入空格：「____ Mia like lemonade?」",
@@ -201,7 +201,7 @@ const EN4 = {
       "Mia 是一個人，可以用 she 代替她。",
       "回想 Learn with Boka：he、she、it 用哪一個字來問？"
      ],
-     "正確概念：Mia 是一個人（she），要用 Does 來問：Does Mia like lemonade?。\n破誤：「Do」：把 Do you…? 的 Do 用在人名前面；「Is」：記得 Is she…? 的問句，沒注意句子已經有動詞 like；「Are」：用了 be 動詞來問，沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence B（課本 p.23）、Learn with Boka（課本 p.24）。"
+     "正確概念：Mia 是一個人（she），要用 Does 來問：Does Mia like lemonade?\n破誤：「Do」：把 Do you…? 的 Do 用在人名前面；「Is」：記得 Is she…? 的問句，沒注意句子已經有動詞 like；「Are」：用了 be 動詞來問，沒注意句子已經有動詞 like。\n回頭讀：Unit 1 Sentence B（課本 p.23）、Learn with Boka（課本 p.24）。"
     ],
     [
      "「Do you like cola?」如果你不喜歡可樂、喜歡茶，要怎麼回答？",
@@ -296,7 +296,7 @@ const EN4 = {
       "想好要用 you 以後，再選前面要用 Do 還是 Does。",
       "回想課本 Sentence A 問同學的句子。"
      ],
-     "正確概念：直接問對方要用 you，you 配 Do：Do you like lemonade?。\n破誤：「Does she like lemonade?」：直接問 Amy 本人時要說 you，she 是跟別人說 Amy 的時候才用；「Does you like lemonade?」：you 前面用了 Does；「Do she like lemonade?」：用了 she，前面又配 Do。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。"
+     "正確概念：直接問對方要用 you，you 配 Do：Do you like lemonade?\n破誤：「Does she like lemonade?」：直接問 Amy 本人時要說 you，she 是跟別人說 Amy 的時候才用；「Does you like lemonade?」：you 前面用了 Does；「Do she like lemonade?」：用了 she，前面又配 Do。\n回頭讀：Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）。"
     ]
    ]
   },
@@ -352,32 +352,32 @@ const EN4 = {
      [
       "red",
       "bet",
-      "wed"
+      "bed"
      ],
      [
       "先聽每個字的母音是長音還是短音。",
       "長音 e 可以拼成 e_e、ea 或 ee。",
       "找字尾有一個不發音的 e 的字。"
      ],
-     "正確概念：these 是 e_e 的拼法：字尾的 e 不發音，前面的 e 念長音，和 Eve 一樣。red、bet、wed 的 e 念短音。\n破誤：「red」：看到字裡有 e，就以為都念長音；「bet」：看到 e 就選了，沒注意後面沒有不發音的 e；「wed」：和 weed 長得很像，少了一個 e 就念短音。\n回頭讀：Unit 1 Phonics Sound It Out（課本 p.28）、Listen and Circle（課本 p.29）。",
+     "正確概念：these 是 e_e 的拼法：字尾的 e 不發音，前面的 e 念長音，和 Eve 一樣。red、bet、bed 的 e 念短音。\n破誤：「red」：看到字裡有 e，就以為都念長音；「bet」：看到 e 就選了，沒注意後面沒有不發音的 e；「bed」：bed 只有一個 e，後面沒有不發音的 e，念短音。\n回頭讀：Unit 1 Phonics Sound It Out（課本 p.28）、Listen and Circle（課本 p.29）。",
      {
       "speakOptions": true
      }
     ],
     [
      "依上面的短文，哪一種飲料的糖最多？",
-     "the cola",
+     "cola",
      [
-      "the soy milk",
+      "soy milk",
       "water",
-      "the juice"
+      "juice"
      ],
      [
       "先在短文裡找到有 sugar 的句子。",
       "把每種飲料的糖有幾公克圈出來。",
       "比一比數字，thirty 和 five 哪一個比較大？"
      ],
-     "正確概念：可樂有 thirty grams（30 公克）糖，豆漿 5 公克，水沒有糖，所以可樂的糖最多。\n破誤：「the soy milk」：看到豆漿有糖，就沒和可樂的數字比一比；「water」：Tim 最後喝的是水，就以為題目問的是他喝了什麼；「the juice」：想到果汁也很甜，但短文沒有提到果汁。\n回頭讀：Unit 1 Reading（課本 pp.26–27）、Reading Skills：Find Details。",
+     "正確概念：可樂有 thirty grams（30 公克）糖，豆漿 5 公克，水沒有糖，所以可樂的糖最多。\n破誤：「soy milk」：看到豆漿有糖，就沒和可樂的數字比一比；「water」：Tim 最後喝的是水，就以為題目問的是他喝了什麼；「juice」：想到果汁也很甜，但短文沒有提到果汁。\n回頭讀：Unit 1 Reading（課本 pp.26–27）、Reading Skills：Find Details。",
      {
       "passage": "Tim plays basketball. Now he is thirsty. He has three drinks. The cola has thirty grams of sugar. The soy milk has five grams of sugar. Water has no sugar. Tim likes cola, but he drinks water. Water is good for him."
      }
@@ -457,7 +457,7 @@ const EN4 = {
       "開頭是 g 的有兩個選項，再聽這個字有幾個音節。",
       "這個字有兩個音節，不是一個音節。"
      ],
-     "正確概念：念的是 guavas（芭樂）。guavas 和 grapes 開頭都是 g，但 guavas 有兩個音節，grapes 只有一個。\n破誤：「grapes」：開頭都是 g 的音，只聽開頭就作答；「papayas」：結尾的音很像，只聽後半就作答；「bananas」：結尾都是 s 的音，沒有比對開頭。\n回頭讀：Unit 2 Vocabulary（課本 p.34）。",
+     "正確概念：念的是 guavas（芭樂）。guavas 和 grapes 開頭都是 g，但 guavas 有兩個音節，grapes 只有一個。\n破誤：「grapes」：開頭都是 g 的音，只聽開頭就作答；「papayas」：結尾的音很像，只聽後半就作答；「bananas」：結尾都是複數的 z 音，沒有比對開頭。\n回頭讀：Unit 2 Vocabulary（課本 p.34）。",
      {
       "listen": "guavas",
       "rate": 0.8
@@ -476,7 +476,7 @@ const EN4 = {
       "這個字的後半和 apples 一樣，前面還多了一段。",
       "前面多了 pine 這一段，所以它不是蘋果，是課本上另一種比較大的水果。"
      ],
-     "正確概念：念的是 pineapples（鳳梨）。它的後半是 apples，但整個字是鳳梨，不是蘋果。\n破誤：「蘋果」：聽到後半的 apples，就選了蘋果；「木瓜」：只記得是有好幾個音節的水果，沒聽清楚開頭；「葡萄」：聽到開頭的 p，就選了也是 p 開頭的葡萄。\n回頭讀：Unit 2 Vocabulary（課本 p.34）。",
+     "正確概念：念的是 pineapples（鳳梨）。它的後半是 apples，但整個字是鳳梨，不是蘋果。\n破誤：「蘋果」：聽到後半的 apples，就選了蘋果；「木瓜」：只記得是有好幾個音節的水果，沒聽清楚開頭；「葡萄」：grapes 和 pineapples 結尾的音很像，只聽結尾就作答。\n回頭讀：Unit 2 Vocabulary（課本 p.34）。",
      {
       "listen": "pineapples",
       "rate": 0.8
@@ -633,7 +633,7 @@ const EN4 = {
       "說自己需要，用 I need。",
       "最後檢查兩個以上的蘋果要怎麼寫。"
      ],
-     "正確概念：問 How many … do you need? 要說出數量：I need two apples.。I 後面用 need，兩個以上用複數 apples。\n破誤：「I need two apple.」：兩個以上的東西忘了加 s；「I needs two apples.」：把 he、she 才用的 needs 用在 I 後面；「Yes, I do.」：別人問的是幾個，卻只回答 Yes。\n回頭讀：Unit 2 Sentence A（課本 p.36）。"
+     "正確概念：問 How many … do you need? 要說出數量：I need two apples. I 後面用 need，兩個以上用複數 apples。\n破誤：「I need two apple.」：兩個以上的東西忘了加 s；「I needs two apples.」：把 he、she 才用的 needs 用在 I 後面；「Yes, I do.」：別人問的是幾個，卻只回答 Yes。\n回頭讀：Unit 2 Sentence A（課本 p.36）。"
     ],
     [
      "下面哪一句英文是正確的？",
@@ -754,14 +754,14 @@ const EN4 = {
      [
       "bit",
       "sit",
-      "Brit"
+      "hit"
      ],
      [
       "先聽每個字的母音是長音還是短音。",
       "長音 i 可以拼成 i_e、ie 或 igh。",
       "找字尾有一個不發音的 e 的字。"
      ],
-     "正確概念：time 是 i_e 的拼法：字尾的 e 不發音，前面的 i 念長音，和 bite 一樣。bit、sit、Brit 的 i 都念短音。\n破誤：「bit」：和 bite 長得很像，但少了字尾的 e，就念短音；「sit」：看到 i 就選了，沒注意後面沒有不發音的 e；「Brit」：看到 i 就選了，沒注意它念短音。\n回頭讀：Unit 2 Phonics Sound It Out（課本 p.42）、Listen and Circle（課本 p.43）。",
+     "正確概念：time 是 i_e 的拼法：字尾的 e 不發音，前面的 i 念長音，和 bite 一樣。bit、sit、hit 的 i 都念短音。\n破誤：「bit」：和 bite 長得很像，但少了字尾的 e，就念短音；「sit」：看到 i 就選了，沒注意後面沒有不發音的 e；「hit」：看到 i 就選了，沒注意後面沒有不發音的 e。\n回頭讀：Unit 2 Phonics Sound It Out（課本 p.42）、Listen and Circle（課本 p.43）。",
      {
       "speakOptions": true
      }
@@ -779,13 +779,13 @@ const EN4 = {
       "把 Lily 吃的水果一個一個圈出來。",
       "想像 Lily 的盤子：香蕉、芭樂、柳橙……一共幾種不同的水果？"
      ],
-     "正確概念：Lily 每天吃一根香蕉、一個芭樂、一個柳橙，一共三種水果。\n破誤：「一種」：看到每樣水果都是 one，就以為只有一種；「兩種」：把 Ray 吃的 two apples 當成 Lily 的；「四種」：數水果時把 and 也算成一種。\n回頭讀：Unit 2 Reading（課本 pp.40–41）、Reading Skills：Visualize。",
+     "正確概念：Lily 每天吃一根香蕉、一個芭樂、一個柳橙，一共三種水果。\n破誤：「一種」：看到每樣水果都是 one，就以為只有一種；「兩種」：把 Ray 吃的 two apples 當成 Lily 的；「四種」：把 Ray 的蘋果也算進 Lily 的盤子。\n回頭讀：Unit 2 Reading（課本 pp.40–41）、Reading Skills：Visualize。",
      {
-      "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Close your eyes. Can you see their fruit plates?"
+      "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
      }
     ],
     [
-     "依上面的短文和課本說的，誰吃水果吃得最聰明（a smart eater）？",
+     "依上面的短文和課本說的（一天要吃三份、要吃不同種類），誰吃水果吃得最聰明（a smart eater）？",
      "Lily",
      [
       "Ray",
@@ -797,9 +797,9 @@ const EN4 = {
       "除了份量夠，課本還說要吃不同的什麼？",
       "想像三個人的盤子，誰的盤子份量夠、顏色也不一樣？"
      ],
-     "正確概念：課本說一天要吃三份水果，而且要吃不同種類。Lily 吃三份、三種不同的水果，所以她吃得最聰明。\n破誤：「Ray」：Ray 每天只吃兩個蘋果，份量不夠三份，也只有一種；「Sam」：Sam 吃了三份，但都是香蕉，沒有吃不同種類；「三個人都一樣」：只看到三個人都有吃水果，沒有比份量和種類。\n回頭讀：Unit 2 Reading（課本 p.41）。",
+     "正確概念：課本說一天要吃三份水果，而且要吃不同種類。短文說一個香蕉、芭樂或柳橙就是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。\n破誤：「Ray」：Ray 每天只吃兩個蘋果，只有兩份，也只有一種；「Sam」：Sam 吃了三份，但都是香蕉，沒有吃不同種類；「三個人都一樣」：只看到三個人都有吃水果，沒有比份量和種類。\n回頭讀：Unit 2 Reading（課本 p.41）。",
      {
-      "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Close your eyes. Can you see their fruit plates?"
+      "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
      }
     ],
     [
@@ -914,19 +914,19 @@ const EN4 = {
      }
     ],
     [
-     "依上面的短文，Ella 要了四個芭樂之後，接著發生什麼事？",
-     "她看到檸檬水，買了一瓶。",
+     "短文提到 Ella 需要四個芭樂（Ella needs four guavas.），下一句說她看到了什麼？",
+     "檸檬水",
      [
-      "店員拿芭樂給她看。",
-      "她問店裡有沒有木瓜。",
-      "她說謝謝然後回家。"
+      "芭樂",
+      "木瓜",
+      "葡萄"
      ],
      [
       "先找到 Ella needs four guavas. 這一句。",
-      "它後面接的是 Then 還是 Finally？",
-      "讀 Then 後面那兩句，她看到什麼、做了什麼？"
+      "它的下一句用 Then 開頭。",
+      "讀 Then she sees … 後面是什麼？她喜歡它，所以買了一瓶。"
      ],
-     "正確概念：順序是：問木瓜 → 店員拿芭樂 → 要四個芭樂 → Then 看到檸檬水買一瓶 → Finally 說謝謝回家。\n破誤：「店員拿芭樂給她看。」：這是她要芭樂之前發生的事；「她問店裡有沒有木瓜。」：跳回了 First 的第一件事；「她說謝謝然後回家。」：跳過了 Then，直接選了最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
+     "正確概念：順序是：問木瓜 → 店員拿芭樂 → 要四個芭樂 → Then 看到檸檬水買一瓶 → Finally 說謝謝回家。\n破誤：「芭樂」：這是店員在前一句拿給她看的水果；「木瓜」：跳回了 First：她一開始問的是木瓜，但店裡沒有；「葡萄」：短文沒有提到葡萄。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
      {
       "passage": "Ella goes to a fruit store. First, she asks for papayas, but the store doesn't have papayas. Next, the clerk shows her some guavas. Ella needs four guavas. Then she sees lemonade. She likes lemonade, so she buys one bottle. Finally, she says thank you and goes home."
      }
@@ -991,7 +991,7 @@ const EN4 = {
       "開頭是 T 的有兩個，再分清楚開頭是 Tues 還是 Thurs。",
       "這個字開頭要把舌頭放在牙齒中間，像 three 的開頭。"
      ],
-     "正確概念：念的是 Thursday（星期四）。Thursday 開頭的 th 和 three 一樣；Tuesday（星期二）開頭是 t 的音。\n破誤：「Tuesday」：Tuesday 和 Thursday 開頭都是 T，只看第一個字母就作答；「Wednesday」：記得是一週中間的日子，沒聽清楚開頭；「Saturday」：結尾都是 day，只聽結尾就作答。\n回頭讀：Unit 3 Vocabulary（課本 pp.52–53）。",
+     "正確概念：念的是 Thursday（星期四）。Thursday 開頭的 th 和 three 一樣；Tuesday（星期二）開頭是 t 的音。\n破誤：「Tuesday」：沒分清楚開頭是 t 還是 th 的音；「Wednesday」：記得是一週中間的日子，沒聽清楚開頭；「Saturday」：結尾都是 day，只聽結尾就作答。\n回頭讀：Unit 3 Vocabulary（課本 pp.52–53）。",
      {
       "listen": "Thursday",
       "rate": 0.8
@@ -1006,7 +1006,7 @@ const EN4 = {
       "星期日"
      ],
      [
-      "先聽開頭的音，是 W、T、S 還是 F？",
+      "先聽開頭的音，是 W、T 還是 S？",
       "開頭是 W 的星期只有一個。",
       "它排在 Tuesday 和 Thursday 中間。"
      ],
@@ -1027,7 +1027,7 @@ const EN4 = {
      [
       "先想想星期六的英文開頭是什麼字母。",
       "開頭是 S 的有兩天，都在週末。",
-      "一週的最後一天是星期六，它的英文比 Sunday 長。"
+      "它是 Friday 的隔天。"
      ],
      "正確概念：星期六是 Saturday，星期日是 Sunday。兩個都是 S 開頭，Saturday 比較長。\n破誤：「Sunday」：Saturday 和 Sunday 開頭都是 S，把週末的兩天記反了；「Thursday」：Saturday 和 Thursday 都有 ur 的音，把兩天記混了；「Friday」：記得是週末前後的日子，和星期五記混了。\n回頭讀：Unit 3 Vocabulary（課本 pp.52–53）。"
     ],
@@ -1057,7 +1057,7 @@ const EN4 = {
      [
       "回想故事裡大家是星期幾去動物園的。",
       "那天動物園沒開，門口的牌子寫了 Opening Hours。",
-      "牌子上寫的是從大家去的那一天的下一天開始，一直到週末的最後一天。"
+      "牌子上寫的是從 Monday 的隔天開始，一直到 Monday 的前一天。"
      ],
      "正確概念：故事那天是 Monday，動物園沒開；牌子上寫 Opening Hours: Tuesday – Sunday，動物園星期二到星期日開。\n破誤：「星期一到星期五」：以為動物園和學校一樣，週末休息；「星期一到星期日」：以為動物園每天都開，忘了大家去的那天它沒開；「星期二到星期六」：記得從星期二開始，但記錯了最後一天。\n回頭讀：Unit 3 Story（課本 p.50）。"
     ],
@@ -1122,7 +1122,7 @@ const EN4 = {
       "問「星期幾」要用 What 加上哪一個字？",
       "今天只有一天，用一天的寫法。"
      ],
-     "正確概念：問今天星期幾：What day is today?。回答：It's Sunday.\n破誤：「days」：只問今天這一天，卻用了複數；「Sunday」：把回答的星期放進了問句裡；「today」：句子後面已經有 today，又重複了一次。\n回頭讀：Unit 3 Sentence A（課本 p.54）。"
+     "正確概念：問今天星期幾：What day is today? 回答：It's Sunday.\n破誤：「days」：只問今天這一天，卻用了複數；「Sunday」：把回答的星期放進了問句裡；「today」：句子後面已經有 today，又重複了一次。\n回頭讀：Unit 3 Sentence A（課本 p.54）。"
     ],
     [
      "「What day is today?」今天是星期一，要怎麼回答？",
@@ -1197,7 +1197,7 @@ const EN4 = {
       "明天要往後數一天。",
       "星期三的下一天，英文開頭是 Th。"
      ],
-     "正確概念：Wednesday 是星期三，明天是星期四 Thursday。順序：Sunday、Monday、Tuesday、Wednesday、Thursday、Friday、Saturday。\n破誤：「Tuesday」：選了 Wednesday 的前一天；「Friday」：多數了一天；「Monday」：只記得一週的開頭，沒有往後數。\n回頭讀：Unit 3 Vocabulary（課本 pp.52–53）。"
+     "正確概念：Wednesday 是星期三，明天是星期四 Thursday。順序：Sunday、Monday、Tuesday、Wednesday、Thursday、Friday、Saturday。\n破誤：「Tuesday」：選了 Wednesday 的前一天；「Friday」：多算了一天；「Monday」：只記得一週的開頭，沒有往後數。\n回頭讀：Unit 3 Vocabulary（課本 pp.52–53）。"
     ],
     [
      "你不確定今天是不是星期五，想問同學，要怎麼問？",
@@ -1285,7 +1285,7 @@ const EN4 = {
      "騎腳踏車",
      [
       "游泳",
-      "打掃房間",
+      "看書",
       "休息"
      ],
      [
@@ -1293,13 +1293,13 @@ const EN4 = {
       "看 Tuesday 和 Friday 在同一句，那一句的動作是什麼？",
       "rides a bike 的 bike 是什麼？"
      ],
-     "正確概念：短文說 He rides a bike on Tuesday and Friday.，Max 星期二和星期五騎腳踏車。\n破誤：「游泳」：把星期一和星期四做的事記到星期二和星期五；「打掃房間」：把星期三和星期六做的事記錯了；「休息」：把星期日做的事當成星期二的。\n回頭讀：Unit 3 Reading（課本 pp.58–59）、Reading Skills：Take Notes。",
+     "正確概念：短文說 He rides a bike on Tuesday and Friday.，Max 星期二和星期五騎腳踏車。\n破誤：「游泳」：把星期一和星期四做的事記到星期二和星期五；「看書」：把星期三和星期六做的事記錯了；「休息」：把星期日做的事當成星期二的。\n回頭讀：Unit 3 Reading（課本 pp.58–59）、Reading Skills：Take Notes。",
      {
-      "passage": "Max is busy every week. He swims on Monday and Thursday. He rides a bike on Tuesday and Friday. He cleans his bedroom on Wednesday and Saturday. On Sunday, he takes a rest."
+      "passage": "Max is busy every week. He swims on Monday and Thursday. He rides a bike on Tuesday and Friday. He reads books on Wednesday and Saturday. On Sunday, he takes a rest."
      }
     ],
     [
-     "依上面的短文，Max 哪兩天打掃房間？",
+     "依上面的短文，Max 哪兩天看書？",
      "星期三和星期六",
      [
       "星期一和星期四",
@@ -1307,17 +1307,17 @@ const EN4 = {
       "星期日"
      ],
      [
-      "先在短文裡找到 cleans 這個字。",
+      "先在短文裡找到 reads books。",
       "看那一句後面是哪兩天。",
       "把兩個星期翻成中文。"
      ],
-     "正確概念：短文說 He cleans his bedroom on Wednesday and Saturday.，Max 星期三和星期六打掃房間。\n破誤：「星期一和星期四」：把游泳的日子當成打掃的日子；「星期二和星期五」：把騎腳踏車的日子當成打掃的日子；「星期日」：以為週末才打掃，但 Max 星期日休息。\n回頭讀：Unit 3 Reading（課本 pp.58–59）、Reading Skills：Take Notes。",
+     "正確概念：短文說 He reads books on Wednesday and Saturday.，Max 星期三和星期六看書。\n破誤：「星期一和星期四」：把游泳的日子當成打掃的日子；「星期二和星期五」：把騎腳踏車的日子當成打掃的日子；「星期日」：以為週末才有空看書，但 Max 星期日休息。\n回頭讀：Unit 3 Reading（課本 pp.58–59）、Reading Skills：Take Notes。",
      {
-      "passage": "Max is busy every week. He swims on Monday and Thursday. He rides a bike on Tuesday and Friday. He cleans his bedroom on Wednesday and Saturday. On Sunday, he takes a rest."
+      "passage": "Max is busy every week. He swims on Monday and Thursday. He rides a bike on Tuesday and Friday. He reads books on Wednesday and Saturday. On Sunday, he takes a rest."
      }
     ],
     [
-     "課本 Reading「A Busy Week」裡，大家星期一和星期四打掃哪裡？",
+     "這題問的是課本，不是上面 Max 的短文。課本 Reading「A Busy Week」裡，大家星期一和星期四打掃哪裡？",
      "臥室（bedroom）",
      [
       "浴室（bathroom）",
@@ -1373,7 +1373,7 @@ const EN4 = {
       "開頭是 s 的有兩個選項，再聽它是一個字還是兩個字。",
       "這個科目只有一個字，母音和 night 一樣。"
      ],
-     "正確概念：念的是 science（自然科學）。science 只有一個字，開頭的 sc 念 s 的音；social studies 是兩個字。\n破誤：「social studies」：開頭都是 s 的音，只聽開頭就作答；「music」：結尾都有 s 的音，只聽結尾就作答；「Chinese」：結尾有相似的音，沒聽清楚開頭。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
+     "正確概念：念的是 science（自然科學）。science 只有一個字，開頭的 sc 念 s 的音；social studies 是兩個字。\n破誤：「social studies」：開頭都是 s 的音，只聽開頭就作答；「music」：music 和 science 都是兩個音節，只聽節奏就作答；「Chinese」：Chinese 和 science 第一個音節的母音一樣，只聽母音就作答。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
      {
       "listen": "science",
       "rate": 0.8
@@ -1392,7 +1392,7 @@ const EN4 = {
       "這個科目有兩個字，第二個字是 studies。",
       "想想課本上學地方、歷史和生活的那一科。"
      ],
-     "正確概念：念的是 social studies（社會），有兩個字；science 是自然科學，只有一個字。\n破誤：「自然科學」：social 和 science 開頭都是 s 的音，只聽開頭就作答；「音樂」：沒聽清楚，就選了課本上排在旁邊的科目；「體育」：只記得這個科目的英文很長，和體育記混了。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
+     "正確概念：念的是 social studies（社會），有兩個字；science 是自然科學，只有一個字。\n破誤：「自然科學」：social 和 science 開頭都是 s 的音，只聽開頭就作答；「音樂」：沒聽清楚，就選了課本上排在旁邊的科目；「體育」：social studies 和 Physical Education 都是兩個字，把兩科記混了。\n回頭讀：Unit 4 Vocabulary（課本 p.67）。",
      {
       "listen": "social studies",
       "rate": 0.8
@@ -1504,7 +1504,7 @@ const EN4 = {
       "「你」是 you，「你的」要怎麼說？",
       "回想 Learn with Boka：你的、我的、他的……"
      ],
-     "正確概念：問對方：What's your favorite subject?。your 是「你的」。\n破誤：「you」：用了「你」，沒有用「你的」；「you're」：you're 是 you are 的縮寫，不是「你的」；「my」：用了「我的」，變成問自己。\n回頭讀：Unit 4 Sentence A（課本 p.68）、Learn with Boka（課本 p.70）。"
+     "正確概念：問對方：What's your favorite subject? your 是「你的」。\n破誤：「you」：用了「你」，沒有用「你的」；「you're」：you're 是 you are 的縮寫，不是「你的」；「my」：用了「我的」，變成問自己。\n回頭讀：Unit 4 Sentence A（課本 p.68）、Learn with Boka（課本 p.70）。"
     ],
     [
      "「What's Kevin's favorite subject?」Kevin 最喜歡英語，要怎麼回答？",
@@ -1537,7 +1537,7 @@ const EN4 = {
      "正確概念：Amy 是女生，「她的」是 her：Her favorite subject is science.\n破誤：「She」：用了「她」，沒有用「她的」；「His」：Amy 是女生，不能用 his；「Amy」：用人名時要加 's，寫成 Amy's。\n回頭讀：Unit 4 Sentence B（課本 p.69）、Learn with Boka（課本 p.70）。"
     ],
     [
-     "Tom 和我都最喜歡體育。選出正確的字填入空格：「____ favorite subject is PE.」",
+     "Tom 和我都最喜歡體育。請用一句話說出「我們兩人共同」最喜歡的科目，選出正確的字填入空格：「____ favorite subject is PE.」",
      "Our",
      [
       "We",
@@ -1552,7 +1552,7 @@ const EN4 = {
      "正確概念：Tom 和我是「我們」，「我們的」是 our：Our favorite subject is PE.\n破誤：「We」：用了「我們」，沒有用「我們的」；「Their」：用了「他們的」，但說話的人自己也在裡面；「My」：只說了自己，漏掉了 Tom。\n回頭讀：Unit 4 Learn with Boka（課本 p.70）。"
     ],
     [
-     "Boka 和 Jello 都最喜歡國語。選出正確的字填入空格：「____ favorite subject is Chinese.」",
+     "Ben 和 Kay 都最喜歡國語。選出正確的字填入空格：「____ favorite subject is Chinese.」",
      "Their",
      [
       "They",
@@ -1560,7 +1560,7 @@ const EN4 = {
       "His"
      ],
      [
-      "Boka 和 Jello 是兩個人，可以用 they 代替。",
+      "Ben 和 Kay 是兩個人，可以用 they 代替。",
       "空格要填「他們的」。",
       "「他們的」和 they 開頭一樣都是 the，但寫法不同。"
      ],
@@ -1609,9 +1609,9 @@ const EN4 = {
      [
       "先看 What 後面有沒有 is。",
       "再看「她的」寫對了沒有。",
-      "最後看「最喜歡的科目」是一個還是很多個。"
+      "最後看 What's 裡的 is 和後面的 subject 單複數有沒有配合。"
      ],
-     "正確概念：What's 是 What is；「她的」是 her；最喜歡的科目只有一個：What's her favorite subject?\n破誤：「What's she favorite subject?」：用了「她」，沒有用「她的」；「What her favorite subject?」：漏了 is，What's 是 What is 的縮寫；「What's her favorite subjects?」：最喜歡的只有一個科目，不能用複數。\n回頭讀：Unit 4 Sentence B（課本 p.69）。"
+     "正確概念：What's 是 What is；「她的」是 her；is 配單數 subject：What's her favorite subject?（問好幾科要說 What are her favorite subjects?）\n破誤：「What's she favorite subject?」：用了「她」，沒有用「她的」；「What her favorite subject?」：漏了 is，What's 是 What is 的縮寫；「What's her favorite subjects?」：What's 裡的 is 要配單數 subject；說好幾科時，is 要改成 are，subject 也要加 s。\n回頭讀：Unit 4 Sentence B（課本 p.69）。"
     ]
    ]
   },
@@ -1806,7 +1806,7 @@ const EN4 = {
       "問星期幾，就要回答星期；問科目，就要回答科目。",
       "再檢查 Yes 或 No 後面的簡答有沒有配對。"
      ],
-     "正確概念：Is it Tuesday today? 回答 Yes, it is.，再補充 I have PE class.。問句和回答要配合：問星期回答星期，問科目回答科目。\n破誤：「Is it Tuesday today? — Yes, it isn't. I have PE class.」：Yes 後面要用 it is，不能用 isn't；「What day is today? — My favorite subject is PE.」：問的是星期幾，卻回答最喜歡的科目；「What's your favorite subject? — It's Tuesday.」：問的是最喜歡的科目，卻回答星期幾。\n回頭讀：Unit 3 Sentence B（課本 p.55）、Unit 4 Sentence A（課本 p.68）。"
+     "正確概念：Is it Tuesday today? 回答 Yes, it is.，再補充 I have PE class. 問句和回答要配合：問星期回答星期，問科目回答科目。\n破誤：「Is it Tuesday today? — Yes, it isn't. I have PE class.」：Yes 後面要用 it is，不能用 isn't；「What day is today? — My favorite subject is PE.」：問的是星期幾，卻回答最喜歡的科目；「What's your favorite subject? — It's Tuesday.」：問的是最喜歡的科目，卻回答星期幾。\n回頭讀：Unit 3 Sentence B（課本 p.55）、Unit 4 Sentence A（課本 p.68）。"
     ],
     [
      "上面是 Ruby 和 Josh 寫的兩段話。他們兩個都喜歡哪一科？",

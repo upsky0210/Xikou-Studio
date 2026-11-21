@@ -24,8 +24,8 @@ q('L01-Q2', '聽力：聽音選意思',
   '檸檬水',
   [['可樂', '中文意思混淆', '課本把 cola 和 lemonade 畫在一起，兩種冷飲的英文記反了'],
    ['豆漿', '中文意思混淆', '聽到不熟的字，就選了印象最深的飲料'],
-   ['熱巧克力', '音近字', '聽到結尾有 d 的音，就想成 chocolate 的結尾']],
-  ['先聽這個字有幾個音節。', '這個字開頭的音和 lemon 很像。', '先刪掉顏色很深、你確定念法的飲料，再想想剩下的字和 lemon 有什麼關係。'],
+   ['熱巧克力', '音近字', 'lemonade 的 -ade 和 chocolate 的 -ate 聽起來很像']],
+  ['先聽這個字有幾個音節。', '這個字開頭的音和 lemon 很像。', '想想 cola、soy milk、hot chocolate 念起來是什麼樣子，再和聽到的字比一比。'],
   { concept: '念的是 lemonade（檸檬水）。lemonade 有三個音節，開頭的音和 lemon 很像。',
     ref: 'Unit 1 Vocabulary（課本 p.20）' });
 
@@ -88,7 +88,7 @@ q('L02-Q1', '句型：Do 或 Does',
    ['Are', 'be 動詞混淆', '記得 Are you…? 的問句，沒注意句子已經有動詞 like'],
    ['Is', 'be 動詞混淆', '用了問 he、she 的 Is，又沒注意句子已經有動詞 like']],
   ['先看空格後面是誰。', '句子已經有動詞 like，要用 do 或 does 來問。', 'I、you、we、they 用同一個字，he、she 用另一個字。'],
-  { concept: 'you 要用 Do 來問：Do you like tea?。he、she 和人名才用 Does。',
+  { concept: 'you 要用 Do 來問：Do you like tea? he、she 和人名才用 Does。',
     ref: 'Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）' });
 
 q('L02-Q2', '句型：Do 或 Does',
@@ -98,7 +98,7 @@ q('L02-Q2', '句型：Do 或 Does',
    ['Is', 'be 動詞混淆', '記得 Is she…? 的問句，沒注意句子已經有動詞 like'],
    ['Are', 'be 動詞混淆', '用了 be 動詞來問，沒注意句子已經有動詞 like']],
   ['先看空格後面是誰。', 'Mia 是一個人，可以用 she 代替她。', '回想 Learn with Boka：he、she、it 用哪一個字來問？'],
-  { concept: 'Mia 是一個人（she），要用 Does 來問：Does Mia like lemonade?。',
+  { concept: 'Mia 是一個人（she），要用 Does 來問：Does Mia like lemonade?',
     ref: 'Unit 1 Sentence B（課本 p.23）、Learn with Boka（課本 p.24）' });
 
 q('L02-Q3', '句型：回答喜不喜歡',
@@ -148,7 +148,7 @@ q('L02-Q7', '句型：依情境提問',
    ['Does you like lemonade?', '助動詞混淆', 'you 前面用了 Does'],
    ['Do she like lemonade?', '助動詞混淆', '用了 she，前面又配 Do']],
   ['你是直接問 Amy 本人，要叫她 you 還是 she？', '想好要用 you 以後，再選前面要用 Do 還是 Does。', '回想課本 Sentence A 問同學的句子。'],
-  { concept: '直接問對方要用 you，you 配 Do：Do you like lemonade?。',
+  { concept: '直接問對方要用 you，you 配 Do：Do you like lemonade?',
     ref: 'Unit 1 Sentence A（課本 p.22）、Learn with Boka（課本 p.24）' });
 
 // ───────── en4-03 發音與閱讀（Phonics pp.28–29、Reading pp.26–27）─────────
@@ -177,9 +177,9 @@ q('L03-Q3', '發音：長音 e',
   'these',
   [['red', '長短音混淆', '看到字裡有 e，就以為都念長音'],
    ['bet', '長短音混淆', '看到 e 就選了，沒注意後面沒有不發音的 e'],
-   ['wed', '長短音混淆', '和 weed 長得很像，少了一個 e 就念短音']],
+   ['bed', '長短音混淆', 'bed 只有一個 e，後面沒有不發音的 e，念短音']],
   ['先聽每個字的母音是長音還是短音。', '長音 e 可以拼成 e_e、ea 或 ee。', '找字尾有一個不發音的 e 的字。'],
-  { concept: 'these 是 e_e 的拼法：字尾的 e 不發音，前面的 e 念長音，和 Eve 一樣。red、bet、wed 的 e 念短音。',
+  { concept: 'these 是 e_e 的拼法：字尾的 e 不發音，前面的 e 念長音，和 Eve 一樣。red、bet、bed 的 e 念短音。',
     ref: 'Unit 1 Phonics Sound It Out（課本 p.28）、Listen and Circle（課本 p.29）' });
 
 const drinks = passage(
@@ -188,10 +188,10 @@ const drinks = passage(
 
 q('L03-Q4', '閱讀：找出細節（Find Details）',
   '依上面的短文，哪一種飲料的糖最多？', drinks,
-  'the cola',
-  [['the soy milk', '細節讀錯', '看到豆漿有糖，就沒和可樂的數字比一比'],
+  'cola',
+  [['soy milk', '細節讀錯', '看到豆漿有糖，就沒和可樂的數字比一比'],
    ['water', '細節讀錯', 'Tim 最後喝的是水，就以為題目問的是他喝了什麼'],
-   ['the juice', '文意推論過度', '想到果汁也很甜，但短文沒有提到果汁']],
+   ['juice', '文意推論過度', '想到果汁也很甜，但短文沒有提到果汁']],
   ['先在短文裡找到有 sugar 的句子。', '把每種飲料的糖有幾公克圈出來。', '比一比數字，thirty 和 five 哪一個比較大？'],
   { concept: '可樂有 thirty grams（30 公克）糖，豆漿 5 公克，水沒有糖，所以可樂的糖最多。',
     ref: 'Unit 1 Reading（課本 pp.26–27）、Reading Skills：Find Details' });

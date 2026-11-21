@@ -13,7 +13,7 @@ q('L04-Q1', '聽力：聽音選字',
   'guavas',
   [['grapes', '音近字', '開頭都是 g 的音，只聽開頭就作答'],
    ['papayas', '音近字', '結尾的音很像，只聽後半就作答'],
-   ['bananas', '音近字', '結尾都是 s 的音，沒有比對開頭']],
+   ['bananas', '音近字', '結尾都是複數的 z 音，沒有比對開頭']],
   ['先聽開頭的音，是 g、p 還是 b？', '開頭是 g 的有兩個選項，再聽這個字有幾個音節。', '這個字有兩個音節，不是一個音節。'],
   { concept: '念的是 guavas（芭樂）。guavas 和 grapes 開頭都是 g，但 guavas 有兩個音節，grapes 只有一個。',
     ref: 'Unit 2 Vocabulary（課本 p.34）' });
@@ -23,7 +23,7 @@ q('L04-Q2', '聽力：聽音選意思',
   '鳳梨',
   [['蘋果', '音近字', '聽到後半的 apples，就選了蘋果'],
    ['木瓜', '音近字', '只記得是有好幾個音節的水果，沒聽清楚開頭'],
-   ['葡萄', '中文意思混淆', '聽到開頭的 p，就選了也是 p 開頭的葡萄']],
+   ['葡萄', '音近字', 'grapes 和 pineapples 結尾的音很像，只聽結尾就作答']],
   ['先聽這個字有幾個音節。', '這個字的後半和 apples 一樣，前面還多了一段。', '前面多了 pine 這一段，所以它不是蘋果，是課本上另一種比較大的水果。'],
   { concept: '念的是 pineapples（鳳梨）。它的後半是 apples，但整個字是鳳梨，不是蘋果。',
     ref: 'Unit 2 Vocabulary（課本 p.34）' });
@@ -117,7 +117,7 @@ q('L05-Q4', '句型：回答需要幾個',
    ['I needs two apples.', '第三人稱混淆', '把 he、she 才用的 needs 用在 I 後面'],
    ['Yes, I do.', '句型混淆', '別人問的是幾個，卻只回答 Yes']],
   ['別人問的是「幾個」，回答要說出數字。', '說自己需要，用 I need。', '最後檢查兩個以上的蘋果要怎麼寫。'],
-  { concept: '問 How many … do you need? 要說出數量：I need two apples.。I 後面用 need，兩個以上用複數 apples。',
+  { concept: '問 How many … do you need? 要說出數量：I need two apples. I 後面用 need，兩個以上用複數 apples。',
     ref: 'Unit 2 Sentence A（課本 p.36）' });
 
 q('L05-Q5', '文法：選出正確的句子',
@@ -176,13 +176,13 @@ q('L06-Q3', '發音：長音 i',
   'time',
   [['bit', '長短音混淆', '和 bite 長得很像，但少了字尾的 e，就念短音'],
    ['sit', '長短音混淆', '看到 i 就選了，沒注意後面沒有不發音的 e'],
-   ['Brit', '長短音混淆', '看到 i 就選了，沒注意它念短音']],
+   ['hit', '長短音混淆', '看到 i 就選了，沒注意後面沒有不發音的 e']],
   ['先聽每個字的母音是長音還是短音。', '長音 i 可以拼成 i_e、ie 或 igh。', '找字尾有一個不發音的 e 的字。'],
-  { concept: 'time 是 i_e 的拼法：字尾的 e 不發音，前面的 i 念長音，和 bite 一樣。bit、sit、Brit 的 i 都念短音。',
+  { concept: 'time 是 i_e 的拼法：字尾的 e 不發音，前面的 i 念長音，和 bite 一樣。bit、sit、hit 的 i 都念短音。',
     ref: 'Unit 2 Phonics Sound It Out（課本 p.42）、Listen and Circle（課本 p.43）' });
 
 const fruitKids = passage(
-  "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Close your eyes. Can you see their fruit plates?"
+  "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
 );
 
 q('L06-Q4', '閱讀：想像（Visualize）',
@@ -190,19 +190,19 @@ q('L06-Q4', '閱讀：想像（Visualize）',
   '三種',
   [['一種', '細節讀錯', '看到每樣水果都是 one，就以為只有一種'],
    ['兩種', '細節讀錯', '把 Ray 吃的 two apples 當成 Lily 的'],
-   ['四種', '文意推論過度', '數水果時把 and 也算成一種']],
+   ['四種', '細節讀錯', '把 Ray 的蘋果也算進 Lily 的盤子']],
   ['先在短文裡找到 Lily 那一句。', '把 Lily 吃的水果一個一個圈出來。', '想像 Lily 的盤子：香蕉、芭樂、柳橙……一共幾種不同的水果？'],
   { concept: 'Lily 每天吃一根香蕉、一個芭樂、一個柳橙，一共三種水果。',
     ref: 'Unit 2 Reading（課本 pp.40–41）、Reading Skills：Visualize' });
 
 q('L06-Q5', '閱讀：想像（Visualize）',
-  '依上面的短文和課本說的，誰吃水果吃得最聰明（a smart eater）？', fruitKids,
+  '依上面的短文和課本說的（一天要吃三份、要吃不同種類），誰吃水果吃得最聰明（a smart eater）？', fruitKids,
   'Lily',
-  [['Ray', '文意推論不足', 'Ray 每天只吃兩個蘋果，份量不夠三份，也只有一種'],
+  [['Ray', '文意推論不足', 'Ray 每天只吃兩個蘋果，只有兩份，也只有一種'],
    ['Sam', '文意推論不足', 'Sam 吃了三份，但都是香蕉，沒有吃不同種類'],
    ['三個人都一樣', '文意推論不足', '只看到三個人都有吃水果，沒有比份量和種類']],
   ['回想課本：一天要吃幾份水果？', '除了份量夠，課本還說要吃不同的什麼？', '想像三個人的盤子，誰的盤子份量夠、顏色也不一樣？'],
-  { concept: '課本說一天要吃三份水果，而且要吃不同種類。Lily 吃三份、三種不同的水果，所以她吃得最聰明。',
+  { concept: '課本說一天要吃三份水果，而且要吃不同種類。短文說一個香蕉、芭樂或柳橙就是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。',
     ref: 'Unit 2 Reading（課本 p.41）' });
 
 q('L06-Q6', '閱讀：一份水果有多大',
