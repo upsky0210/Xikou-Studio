@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 230" width="610" height="230" font-family="PingFang TC, 'Microsoft JhengHei', 'Noto Sans TC', sans-serif" font-size="16" font-weight="700">
+<rect width="610" height="230" fill="#fff"/>
+<g transform="translate(0,0)"><rect x="1" y="1" width="298" height="228" rx="10" fill="none" stroke="#d9d9d9" stroke-width="2"/><text x="22" y="22" text-anchor="middle" dominant-baseline="middle" font-size="18" fill="#2b2b2b">甲</text><rect x="42" y="170" width="90" height="34" rx="5" fill="#f2c14e" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="114" y="170" width="18" height="34" fill="#5b5b5b" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="132" y="180" width="7" height="14" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="2"/>
+<text x="123" y="188" text-anchor="middle" dominant-baseline="middle" font-size="18" fill="#fff">+</text><text x="56" y="188" text-anchor="middle" dominant-baseline="middle" font-size="16" fill="#2b2b2b">－</text><rect x="139" y="170" width="90" height="34" rx="5" fill="#f2c14e" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="211" y="170" width="18" height="34" fill="#5b5b5b" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="229" y="180" width="7" height="14" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="2"/>
+<text x="220" y="188" text-anchor="middle" dominant-baseline="middle" font-size="18" fill="#fff">+</text><text x="153" y="188" text-anchor="middle" dominant-baseline="middle" font-size="16" fill="#2b2b2b">－</text><circle cx="150" cy="40" r="20" fill="#eef5fb" stroke="#2b2b2b" stroke-width="2"/>
+<path d="M 144 58 L 144 42 L 147 34 L 150 42 L 153 34 L 156 42 L 156 58" fill="none" stroke="#777" stroke-width="1.5"/>
+<rect x="139" y="57" width="22" height="9" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="120" y="66" width="60" height="16" rx="4" fill="#7a8fa6" stroke="#2b2b2b" stroke-width="2"/>
+<circle cx="126" cy="74" r="4" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="1.5"/><circle cx="174" cy="74" r="4" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="1.5"/><polyline points="42,187 24,187 24,74 126,74" fill="none" stroke="#2f6fd0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="236,187 276,187 276,74 174,74" fill="none" stroke="#d6452f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(310,0)"><g transform="translate(0,0)"><rect x="1" y="1" width="298" height="228" rx="10" fill="none" stroke="#d9d9d9" stroke-width="2"/><text x="22" y="22" text-anchor="middle" dominant-baseline="middle" font-size="18" fill="#2b2b2b">乙</text><rect x="105" y="128" width="90" height="34" rx="5" fill="#f2c14e" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="177" y="128" width="18" height="34" fill="#5b5b5b" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="195" y="138" width="7" height="14" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="2"/>
+<text x="186" y="146" text-anchor="middle" dominant-baseline="middle" font-size="18" fill="#fff">+</text><text x="119" y="146" text-anchor="middle" dominant-baseline="middle" font-size="16" fill="#2b2b2b">－</text><rect x="105" y="178" width="90" height="34" rx="5" fill="#f2c14e" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="177" y="178" width="18" height="34" fill="#5b5b5b" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="195" y="188" width="7" height="14" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="2"/>
+<text x="186" y="196" text-anchor="middle" dominant-baseline="middle" font-size="18" fill="#fff">+</text><text x="119" y="196" text-anchor="middle" dominant-baseline="middle" font-size="16" fill="#2b2b2b">－</text><circle cx="150" cy="32" r="20" fill="#eef5fb" stroke="#2b2b2b" stroke-width="2"/>
+<path d="M 144 50 L 144 34 L 147 26 L 150 34 L 153 26 L 156 34 L 156 50" fill="none" stroke="#777" stroke-width="1.5"/>
+<rect x="139" y="49" width="22" height="9" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="2"/>
+<rect x="120" y="58" width="60" height="16" rx="4" fill="#7a8fa6" stroke="#2b2b2b" stroke-width="2"/>
+<circle cx="126" cy="66" r="4" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="1.5"/><circle cx="174" cy="66" r="4" fill="#b8b8b8" stroke="#2b2b2b" stroke-width="1.5"/><polyline points="105,195 60,195 60,145" fill="none" stroke="#2f6fd0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="105,145 60,145 60,66 126,66" fill="none" stroke="#2f6fd0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="202,195 240,195 240,145" fill="none" stroke="#d6452f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="202,145 240,145 240,66 174,66" fill="none" stroke="#d6452f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="145" r="4.5" fill="#2f6fd0"/><circle cx="240" cy="145" r="4.5" fill="#d6452f"/></g></g>
+</svg>
