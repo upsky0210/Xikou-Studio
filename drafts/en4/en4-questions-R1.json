@@ -1,0 +1,259 @@
+[
+ {
+  "id": "L07-Q1",
+  "level": "L07",
+  "type": "字彙：分辨飲料和水果",
+  "stem": "下面哪一個不是水果？",
+  "attachment": null,
+  "answer": "lemonade",
+  "distractors": [
+   {
+    "text": "guavas",
+    "misconception": "不熟芭樂的英文，就以為它不是水果",
+    "trap": "字彙分類混淆"
+   },
+   {
+    "text": "papayas",
+    "misconception": "不熟木瓜的英文，就以為它不是水果",
+    "trap": "字彙分類混淆"
+   },
+   {
+    "text": "grapes",
+    "misconception": "把葡萄和用葡萄做的飲料記混了",
+    "trap": "字彙分類混淆"
+   }
+  ],
+  "hints": [
+   "先把每個字翻成中文。",
+   "這四個字裡有三個是 Unit 2 的水果。",
+   "剩下的那一個是 Unit 1 學過、用來喝的。"
+  ],
+  "explanation": "正確概念：lemonade 是檸檬水，是 Unit 1 的飲料；guavas（芭樂）、papayas（木瓜）、grapes（葡萄）都是 Unit 2 的水果。\n破誤：「guavas」：不熟芭樂的英文，就以為它不是水果；「papayas」：不熟木瓜的英文，就以為它不是水果；「grapes」：把葡萄和用葡萄做的飲料記混了。\n回頭讀：Unit 1 Vocabulary（課本 p.20）、Unit 2 Vocabulary（課本 p.34）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 1 Vocabulary（課本 p.20）、Unit 2 Vocabulary（課本 p.34）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q2",
+  "level": "L07",
+  "type": "聽力：聽短對話",
+  "stem": "請聽對話，選出正確的說法。",
+  "attachment": {
+   "listen": "Tom: Does Lily like soy milk? Ann: Yes, she does. She likes milk, too.",
+   "rate": 0.9
+  },
+  "answer": "Lily 喜歡豆漿，也喜歡牛奶。",
+  "distractors": [
+   {
+    "text": "Lily 喜歡豆漿，不喜歡牛奶。",
+    "misconception": "沒聽懂句尾 too 是「也」的意思",
+    "trap": "對話資訊錯置"
+   },
+   {
+    "text": "Lily 不喜歡豆漿，她喜歡牛奶。",
+    "misconception": "沒聽清楚 Ann 的回答是 Yes",
+    "trap": "對話資訊錯置"
+   },
+   {
+    "text": "Ann 喜歡豆漿和牛奶。",
+    "misconception": "把回答的人 Ann 當成喜歡飲料的人",
+    "trap": "人稱混淆"
+   }
+  ],
+  "hints": [
+   "先聽 Tom 問的是誰。",
+   "Ann 回答 Yes 還是 No？",
+   "最後一句的 too 是「也」，她還喜歡什麼？"
+  ],
+  "explanation": "正確概念：Tom 問 Lily 喜不喜歡豆漿，Ann 說 Yes, she does. She likes milk, too.：Lily 喜歡豆漿，也喜歡牛奶。\n破誤：「Lily 喜歡豆漿，不喜歡牛奶。」：沒聽懂句尾 too 是「也」的意思；「Lily 不喜歡豆漿，她喜歡牛奶。」：沒聽清楚 Ann 的回答是 Yes；「Ann 喜歡豆漿和牛奶。」：把回答的人 Ann 當成喜歡飲料的人。\n回頭讀：Unit 1 Sentence B（課本 p.23）、Review 1 Listen and Number（課本 p.45）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 1 Sentence B（課本 p.23）、Review 1 Listen and Number（課本 p.45）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q3",
+  "level": "L07",
+  "type": "句型：綜合回答",
+  "stem": "「Does your mom need guavas?」媽媽需要三個芭樂，要怎麼回答？",
+  "attachment": null,
+  "answer": "Yes, she does. She needs three guavas.",
+  "distractors": [
+   {
+    "text": "Yes, she do. She needs three guavas.",
+    "misconception": "用 does 問，回答卻用了 do",
+    "trap": "助動詞混淆"
+   },
+   {
+    "text": "Yes, she does. She need three guavas.",
+    "misconception": "she 後面的 need 忘了加 s",
+    "trap": "第三人稱混淆"
+   },
+   {
+    "text": "Yes, he does. He needs three guavas.",
+    "misconception": "媽媽是女生，要用 she",
+    "trap": "人稱混淆"
+   }
+  ],
+  "hints": [
+   "媽媽是女生，要用 he 還是 she？",
+   "用 does 問，簡答也用 does。",
+   "最後檢查 she 後面的 need 要不要加 s。"
+  ],
+  "explanation": "正確概念：媽媽用 she；用 Does 問就用 she does 回答；she 後面用 needs：Yes, she does. She needs three guavas.\n破誤：「Yes, she do. She needs three guavas.」：用 does 問，回答卻用了 do；「Yes, she does. She need three guavas.」：she 後面的 need 忘了加 s；「Yes, he does. He needs three guavas.」：媽媽是女生，要用 she。\n回頭讀：Unit 1 Sentence B（課本 p.23）、Unit 2 Sentence B（課本 p.37）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 1 Sentence B（課本 p.23）、Unit 2 Sentence B（課本 p.37）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q4",
+  "level": "L07",
+  "type": "閱讀：排序（Sequence）",
+  "stem": "依上面的短文，Ella 到水果店做的第一件事是什麼？",
+  "attachment": {
+   "passage": "Ella goes to a fruit store. First, she asks for papayas, but the store doesn't have papayas. Next, the clerk shows her some guavas. Ella needs four guavas. Then she sees lemonade. She likes lemonade, so she buys one bottle. Finally, she says thank you and goes home."
+  },
+  "answer": "問店裡有沒有木瓜。",
+  "distractors": [
+   {
+    "text": "買四個芭樂。",
+    "misconception": "芭樂是店員後來才拿給她看的",
+    "trap": "順序錯置"
+   },
+   {
+    "text": "買一瓶檸檬水。",
+    "misconception": "買檸檬水是 Then 之後的事",
+    "trap": "順序錯置"
+   },
+   {
+    "text": "說謝謝然後回家。",
+    "misconception": "這是 Finally 後面的最後一件事",
+    "trap": "順序錯置"
+   }
+  ],
+  "hints": [
+   "找出短文裡的 First、Next、Then、Finally。",
+   "First 標示的是第一件事。",
+   "讀 First 後面那一句，她問的是哪一種水果？"
+  ],
+  "explanation": "正確概念：First, she asks for papayas：Ella 第一件事是問有沒有木瓜，可是店裡沒有。\n破誤：「買四個芭樂。」：芭樂是店員後來才拿給她看的；「買一瓶檸檬水。」：買檸檬水是 Then 之後的事；「說謝謝然後回家。」：這是 Finally 後面的最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q5",
+  "level": "L07",
+  "type": "閱讀：排序（Sequence）",
+  "stem": "依上面的短文，Ella 要了四個芭樂之後，接著發生什麼事？",
+  "attachment": {
+   "passage": "Ella goes to a fruit store. First, she asks for papayas, but the store doesn't have papayas. Next, the clerk shows her some guavas. Ella needs four guavas. Then she sees lemonade. She likes lemonade, so she buys one bottle. Finally, she says thank you and goes home."
+  },
+  "answer": "她看到檸檬水，買了一瓶。",
+  "distractors": [
+   {
+    "text": "店員拿芭樂給她看。",
+    "misconception": "這是她要芭樂之前發生的事",
+    "trap": "順序錯置"
+   },
+   {
+    "text": "她問店裡有沒有木瓜。",
+    "misconception": "跳回了 First 的第一件事",
+    "trap": "順序錯置"
+   },
+   {
+    "text": "她說謝謝然後回家。",
+    "misconception": "跳過了 Then，直接選了最後一件事",
+    "trap": "順序錯置"
+   }
+  ],
+  "hints": [
+   "先找到 Ella needs four guavas. 這一句。",
+   "它後面接的是 Then 還是 Finally？",
+   "讀 Then 後面那兩句，她看到什麼、做了什麼？"
+  ],
+  "explanation": "正確概念：順序是：問木瓜 → 店員拿芭樂 → 要四個芭樂 → Then 看到檸檬水買一瓶 → Finally 說謝謝回家。\n破誤：「店員拿芭樂給她看。」：這是她要芭樂之前發生的事；「她問店裡有沒有木瓜。」：跳回了 First 的第一件事；「她說謝謝然後回家。」：跳過了 Then，直接選了最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q6",
+  "level": "L07",
+  "type": "發音：比較母音",
+  "stem": "哪一個字的母音和 night 的母音相同？可以按喇叭聽每個字。",
+  "attachment": {
+   "speakOptions": true
+  },
+  "answer": "pie",
+  "distractors": [
+   {
+    "text": "tea",
+    "misconception": "把長音 e 和長音 i 聽混了",
+    "trap": "母音混淆"
+   },
+   {
+    "text": "tree",
+    "misconception": "看到字裡有長音，就以為和 night 一樣",
+    "trap": "母音混淆"
+   },
+   {
+    "text": "bit",
+    "misconception": "看到有 i 就選了，沒注意 bit 的 i 是短音",
+    "trap": "長短音混淆"
+   }
+  ],
+  "hints": [
+   "先念 night，它的 igh 念什麼音？",
+   "把選項分成長音 e、長音 i 和短音。",
+   "長音 i 還可以拼成 i_e 或 ie。"
+  ],
+  "explanation": "正確概念：night 的 igh 和 pie 的 ie 都念長音 i；tea、tree 念長音 e，bit 念短音 i。\n破誤：「tea」：把長音 e 和長音 i 聽混了；「tree」：看到字裡有長音，就以為和 night 一樣；「bit」：看到有 i 就選了，沒注意 bit 的 i 是短音。\n回頭讀：Unit 2 Phonics（課本 p.42）、Review 1 Three in a Row（課本 p.48）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 2 Phonics（課本 p.42）、Review 1 Three in a Row（課本 p.48）；聽力對話與閱讀短文為自行編寫"
+  }
+ },
+ {
+  "id": "L07-Q7",
+  "level": "L07",
+  "type": "聽力：聽句子選意思",
+  "stem": "請聽英文，選出意思正確的中文。",
+  "attachment": {
+   "listen": "She needs two pineapples and one bottle of juice.",
+   "rate": 0.9
+  },
+  "answer": "她需要兩個鳳梨和一瓶果汁。",
+  "distractors": [
+   {
+    "text": "她需要兩個蘋果和一瓶果汁。",
+    "misconception": "聽到 pineapples 的後半 apples，就以為是蘋果",
+    "trap": "音近字"
+   },
+   {
+    "text": "她需要兩個鳳梨和一瓶檸檬水。",
+    "misconception": "鳳梨聽對了，但把 juice 聽成檸檬水",
+    "trap": "中文意思混淆"
+   },
+   {
+    "text": "他需要兩個鳳梨和一瓶果汁。",
+    "misconception": "把開頭的 she 聽成 he",
+    "trap": "人稱混淆"
+   }
+  ],
+  "hints": [
+   "先聽句子開頭是 He 還是 She。",
+   "再聽 and 前面的水果是哪一個。",
+   "最後聽 one bottle of 後面是什麼飲料。"
+  ],
+  "explanation": "正確概念：She needs two pineapples and one bottle of juice. 是「她需要兩個鳳梨和一瓶果汁」。\n破誤：「她需要兩個蘋果和一瓶果汁。」：聽到 pineapples 的後半 apples，就以為是蘋果；「她需要兩個鳳梨和一瓶檸檬水。」：鳳梨聽對了，但把 juice 聽成檸檬水；「他需要兩個鳳梨和一瓶果汁。」：把開頭的 she 聽成 he。\n回頭讀：Unit 2 Sentence B（課本 p.37）、Review 1 Read and Number（課本 p.46）。",
+  "verify": {
+   "kind": "judge",
+   "basis": "Unit 2 Sentence B（課本 p.37）、Review 1 Read and Number（課本 p.46）；聽力對話與閱讀短文為自行編寫"
+  }
+ }
+]

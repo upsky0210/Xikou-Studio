@@ -17,5 +17,6 @@ window.BOOKS = [
   { id: 'ns5', title: '五上自然', pub: '南一版', file: 'data/ns5.js', global: 'NS5', color: '#15803d' },
   { id: 'ss5', title: '五上社會', pub: '南一版', file: 'data/ss5.js', global: 'SS5', color: '#b45309' },
   { id: 'en5', title: '五上英語', pub: '康軒版', file: 'data/en5.js', global: 'EN5', color: '#6d28d9' },
+  { id: 'en4', title: '四上英語', pub: '康軒版', file: 'data/en4.js', global: 'EN4', color: '#4f46e5' },
   { id: 'mk4', title: '四上數學', pub: '康軒版', file: 'data/mk4.js', global: 'MK4', color: '#0369a1' },
 ];
