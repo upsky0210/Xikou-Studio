@@ -21,4 +21,5 @@ window.BOOKS = [
   { id: 'mk4', title: '四上數學', pub: '康軒版', file: 'data/mk4.js', global: 'MK4', color: '#0369a1' },
   { id: 'ns4', title: '四上自然', pub: '南一版', file: 'data/ns4.js', global: 'NS4', color: '#65a30d' },
   { id: 'cn4', title: '四上國語', pub: '南一版', file: 'data/cn4.js', global: 'CN4', color: '#e11d48' },
+  { id: 'ss4', title: '四上社會', pub: '翰林版', file: 'data/ss4.js', global: 'SS4', color: '#c2410c' },
 ];
