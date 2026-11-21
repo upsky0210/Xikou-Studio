@@ -19,4 +19,5 @@ window.BOOKS = [
   { id: 'en5', title: '五上英語', pub: '康軒版', file: 'data/en5.js', global: 'EN5', color: '#6d28d9' },
   { id: 'en4', title: '四上英語', pub: '康軒版', file: 'data/en4.js', global: 'EN4', color: '#4f46e5' },
   { id: 'mk4', title: '四上數學', pub: '康軒版', file: 'data/mk4.js', global: 'MK4', color: '#0369a1' },
+  { id: 'cn4', title: '四上國語', pub: '南一版', file: 'data/cn4.js', global: 'CN4', color: '#e11d48' },
 ];
