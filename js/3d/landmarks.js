@@ -14,6 +14,7 @@
    五上國語（ck5）：weather 空拍氣象台、gallery 美術館（新做）、garden 成長花園、forest 黑熊山林（新做）
    六上國語（ck6）：mine 品格寶石礦坑、nightmarket 夜市美食街（新做）、citygate 空城計城樓（新做）、fest 耶誕廣場
    五上英語（en5）：isle 賞鯨港灣、clinic 感冒診所（新做）、garden 開心農場、school 早安校園
+   四上國語（cn4）：nightmarket 好滋味美食街、mountain 玉山山脈、gallery 傳藝美術館、isle 故事湖島
    每個地標的原點在地面中心，正面朝 +z（鏡頭那一邊）。
    回傳 { group, top（標籤放多高）, flag（徽章旗插在哪）, update(t, dt), setState? } */
 import { THREE, Kit, MAT, toonMat, waterMaterial, rng, matrixOf } from './kit.js';
