@@ -717,14 +717,14 @@
     "type": "閱讀：短文擷取",
     "stem": "依短文，Emma 家的對面是哪個場所？",
     "attachment": {
-      "passage": "Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
+      "passage": "Emma made a map for Amy. Emma’s house is on Green Street. The tea shop is next to Emma’s house. Amy can buy tea there. The bookstore is across from Emma’s house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
     },
     "answer": "書店",
     "distractors": [
       {
         "text": "茶店",
         "trap": "介系詞混淆",
-        "misconception": "茶店在她家旁邊，不是對面"
+        "misconception": "茶店在 Emma 家旁邊，不是對面"
       },
       {
         "text": "公園",
@@ -742,7 +742,7 @@
       "不要把 next to 和 across from 混淆。",
       "對面是可以買書的場所。"
     ],
-    "explanation": "正確概念：短文寫 The bookstore is across from her house.，所以對面是書店。\n破誤：「茶店」：茶店在她家旁邊，不是對面；「公園」：公園在書店旁邊，文中沒有說它正對 Emma 家；「科學博物館」：文中沒有提到科學博物館。\n回頭讀：Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）。",
+    "explanation": "正確概念：短文寫 The bookstore is across from Emma’s house.，所以對面是書店。\n破誤：「茶店」：茶店在 Emma 家旁邊，不是對面；「公園」：公園在書店旁邊，文中沒有說它正對 Emma 家；「科學博物館」：文中沒有提到科學博物館。\n回頭讀：Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
@@ -754,7 +754,7 @@
     "type": "閱讀技巧：心智圖",
     "stem": "依短文製作「Emma 家附近的場所與活動」心智圖，哪個分支配對正確？",
     "attachment": {
-      "passage": "Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
+      "passage": "Emma made a map for Amy. Emma’s house is on Green Street. The tea shop is next to Emma’s house. Amy can buy tea there. The bookstore is across from Emma’s house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
     },
     "answer": "書店 → 買書",
     "distractors": [

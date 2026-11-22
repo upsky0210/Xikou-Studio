@@ -372,7 +372,7 @@ const EN6 = {
       "這些字很相近，不能只靠母音判斷。",
       "開頭沒有多加一個 t 音，意思與下雨有關。"
      ],
-     "正確概念：念的是 rained，字首是 r，字尾 -ed 讀 [d]。\n破誤：「stayed」：兩字母音和 -ed 讀音相近，但字首、結尾不同；「played」：母音相近，但沒有聽清楚字首；「trained」：多聽了開頭的 t 音。\n回頭讀：Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）。",
+     "正確概念：念的是 rained，字首是 r，字尾 -ed 讀 [d]。\n破誤：「stayed」：兩字的 -ed 都讀 [d]，但字首不同；rained 的尾端是 [n] 再接 [d]，stayed 是母音後直接接 [d]；「played」：母音相近，但沒有聽清楚字首；「trained」：多聽了開頭的 t 音。\n回頭讀：Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）。",
      {
       "listen": "rained",
       "rate": 0.8
@@ -393,7 +393,7 @@ const EN6 = {
      ],
      "正確概念：Kevin 和妹妹一起看電影；短文的 watched a movie with his sister 直接提供答案。\n破誤：「一起打籃球」：把 Amy 原先想做的活動當成 Kevin 已做的事；「一起吹直笛」：吹直笛的是 Amy，不是 Kevin 和妹妹；「一起探望祖父母」：短文沒有寫探望祖父母。\n回頭讀：Unit 1 Vocabulary、More Words（課本 pp.10–11、15）；Reading Skills：Make Inferences（課本 p.4）。",
      {
-      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
+      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music. Then he watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
      }
     ],
     [
@@ -411,7 +411,7 @@ const EN6 = {
      ],
      "正確概念：昨天想打球卻下雨，今天帶著球、看到藍天微笑，可推論她期待天晴後打球。這是可能原因，不是已發生的比賽結果。\n破誤：「妹妹送她一顆新籃球」：文中沒有說妹妹送球，妹妹屬於 Kevin 的家庭資訊；「爺爺帶她出去看電影」：文中沒有爺爺或出門看電影的線索；「她已經打贏籃球比賽」：有籃球不代表已參加或贏得比賽。\n回頭讀：Unit 1 Reading Skills：Make Inferences（課本 p.4）；Reading／Make Inferences（課本 p.17）。",
      {
-      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
+      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music. Then he watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
      }
     ],
     [
@@ -1270,9 +1270,9 @@ const EN6 = {
      [
       "只比較最後的 y。",
       "先找出三個同組的字。",
-      "有一個 y 讀 [aɪ]，其餘讀 [ɪ]。"
+      "有一個 y 讀 [aɪ]，其餘三個是 baby 這一組的字尾音。"
      ],
-     "正確概念：sky 的 y 讀 [aɪ]；baby、puppy、sunny 的 y 依本課標示讀 [ɪ]。\n破誤：「baby」：baby 的字尾 y 讀 [ɪ]，與 puppy、sunny 同組；「puppy」：puppy 的字尾 y 讀 [ɪ]，與 baby、sunny 同組；「sunny」：sunny 的字尾 y 讀 [ɪ]，與 baby、puppy 同組。\n回頭讀：Unit 3 Phonics／Sound It Out（課本 p.46）。",
+     "正確概念：sky 的 y 讀 [aɪ]；baby、puppy、sunny 是同一組字尾音，本課標成 [ɪ]（有些字典標成 [i]，用的音標系統和口音不同，聽起來都接近「伊」）。\n破誤：「baby」：baby 的字尾 y 依本課標示讀 [ɪ]，與 puppy、sunny 同組；「puppy」：puppy 的字尾 y 依本課標示讀 [ɪ]，與 baby、sunny 同組；「sunny」：sunny 的字尾 y 依本課標示讀 [ɪ]，與 baby、puppy 同組。\n回頭讀：Unit 3 Phonics／Sound It Out（課本 p.46）。",
      {
       "speakOptions": true
      }
@@ -1768,9 +1768,9 @@ const EN6 = {
       "不要把 next to 和 across from 混淆。",
       "對面是可以買書的場所。"
      ],
-     "正確概念：短文寫 The bookstore is across from her house.，所以對面是書店。\n破誤：「茶店」：茶店在她家旁邊，不是對面；「公園」：公園在書店旁邊，文中沒有說它正對 Emma 家；「科學博物館」：文中沒有提到科學博物館。\n回頭讀：Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）。",
+     "正確概念：短文寫 The bookstore is across from Emma’s house.，所以對面是書店。\n破誤：「茶店」：茶店在 Emma 家旁邊，不是對面；「公園」：公園在書店旁邊，文中沒有說它正對 Emma 家；「科學博物館」：文中沒有提到科學博物館。\n回頭讀：Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）。",
      {
-      "passage": "Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
+      "passage": "Emma made a map for Amy. Emma’s house is on Green Street. The tea shop is next to Emma’s house. Amy can buy tea there. The bookstore is across from Emma’s house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
      }
     ],
     [
@@ -1788,7 +1788,7 @@ const EN6 = {
      ],
      "正確概念：書店分支對應買書；茶店對應買茶，公園對應遊玩。心智圖要保留正確的分類關係。\n破誤：「茶店 → 買書」：把書店的活動放到茶店分支；「公園 → 買茶」：把茶店的活動放到公園分支；「書店 → 遊玩」：把文中公園的活動放到書店分支。\n回頭讀：Unit 4 Reading Skills：Mind Map（課本 p.5）；Reading／Mind Map（課本 pp.56–57）。",
      {
-      "passage": "Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
+      "passage": "Emma made a map for Amy. Emma’s house is on Green Street. The tea shop is next to Emma’s house. Amy can buy tea there. The bookstore is across from Emma’s house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map."
      }
     ],
     [
@@ -2069,9 +2069,9 @@ const EN6 = {
       "把月份和代表食物一起對照課本。",
       "課本十一月的節慶介紹火雞和南瓜派。"
      ],
-     "正確概念：原創聽力：In November, we have turkey and pumpkin pie on this day. 依課本 November 欄，這是 Thanksgiving Day。題目限定課本介紹，不將其他地區日期當成前提。\n破誤：「Saint Patrick’s Day」：課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派；「Dragon Boat Festival」：課本端午節談龍舟與粽子，不是火雞和南瓜派；「Boryeong Mud Festival」：課本保寧泥漿節談泥漿遊戲，不是這兩種食物。\n回頭讀：Culture & Festivals：November／Thanksgiving Day（課本 p.67）。",
+     "正確概念：原創聽力：In the United States, we have turkey and pumpkin pie on this day in November. 依課本 November 欄，這是美國的 Thanksgiving Day（加拿大的感恩節在十月）。\n破誤：「Saint Patrick’s Day」：課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派；「Dragon Boat Festival」：課本端午節談龍舟與粽子，不是火雞和南瓜派；「Boryeong Mud Festival」：課本保寧泥漿節談泥漿遊戲，不是這兩種食物。\n回頭讀：Culture & Festivals：November／Thanksgiving Day（課本 p.67）。",
      {
-      "listen": "In November, we have turkey and pumpkin pie on this day.",
+      "listen": "In the United States, we have turkey and pumpkin pie on this day in November.",
       "rate": 0.9
      }
     ]

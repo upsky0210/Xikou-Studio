@@ -574,25 +574,25 @@
       {
         "text": "baby",
         "trap": "y 讀音混淆",
-        "misconception": "baby 的字尾 y 讀 [ɪ]，與 puppy、sunny 同組"
+        "misconception": "baby 的字尾 y 依本課標示讀 [ɪ]，與 puppy、sunny 同組"
       },
       {
         "text": "puppy",
         "trap": "y 讀音混淆",
-        "misconception": "puppy 的字尾 y 讀 [ɪ]，與 baby、sunny 同組"
+        "misconception": "puppy 的字尾 y 依本課標示讀 [ɪ]，與 baby、sunny 同組"
       },
       {
         "text": "sunny",
         "trap": "y 讀音混淆",
-        "misconception": "sunny 的字尾 y 讀 [ɪ]，與 baby、puppy 同組"
+        "misconception": "sunny 的字尾 y 依本課標示讀 [ɪ]，與 baby、puppy 同組"
       }
     ],
     "hints": [
       "只比較最後的 y。",
       "先找出三個同組的字。",
-      "有一個 y 讀 [aɪ]，其餘讀 [ɪ]。"
+      "有一個 y 讀 [aɪ]，其餘三個是 baby 這一組的字尾音。"
     ],
-    "explanation": "正確概念：sky 的 y 讀 [aɪ]；baby、puppy、sunny 的 y 依本課標示讀 [ɪ]。\n破誤：「baby」：baby 的字尾 y 讀 [ɪ]，與 puppy、sunny 同組；「puppy」：puppy 的字尾 y 讀 [ɪ]，與 baby、sunny 同組；「sunny」：sunny 的字尾 y 讀 [ɪ]，與 baby、puppy 同組。\n回頭讀：Unit 3 Phonics／Sound It Out（課本 p.46）。",
+    "explanation": "正確概念：sky 的 y 讀 [aɪ]；baby、puppy、sunny 是同一組字尾音，本課標成 [ɪ]（有些字典標成 [i]，用的音標系統和口音不同，聽起來都接近「伊」）。\n破誤：「baby」：baby 的字尾 y 依本課標示讀 [ɪ]，與 puppy、sunny 同組；「puppy」：puppy 的字尾 y 依本課標示讀 [ɪ]，與 baby、sunny 同組；「sunny」：sunny 的字尾 y 依本課標示讀 [ɪ]，與 baby、puppy 同組。\n回頭讀：Unit 3 Phonics／Sound It Out（課本 p.46）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 3 Phonics／Sound It Out（課本 p.46）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"

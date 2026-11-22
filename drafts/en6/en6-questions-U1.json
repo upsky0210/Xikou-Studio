@@ -647,7 +647,7 @@
       {
         "text": "stayed",
         "trap": "音近字",
-        "misconception": "兩字母音和 -ed 讀音相近，但字首、結尾不同"
+        "misconception": "兩字的 -ed 都讀 [d]，但字首不同；rained 的尾端是 [n] 再接 [d]，stayed 是母音後直接接 [d]"
       },
       {
         "text": "played",
@@ -665,7 +665,7 @@
       "這些字很相近，不能只靠母音判斷。",
       "開頭沒有多加一個 t 音，意思與下雨有關。"
     ],
-    "explanation": "正確概念：念的是 rained，字首是 r，字尾 -ed 讀 [d]。\n破誤：「stayed」：兩字母音和 -ed 讀音相近，但字首、結尾不同；「played」：母音相近，但沒有聽清楚字首；「trained」：多聽了開頭的 t 音。\n回頭讀：Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）。",
+    "explanation": "正確概念：念的是 rained，字首是 r，字尾 -ed 讀 [d]。\n破誤：「stayed」：兩字的 -ed 都讀 [d]，但字首不同；rained 的尾端是 [n] 再接 [d]，stayed 是母音後直接接 [d]；「played」：母音相近，但沒有聽清楚字首；「trained」：多聽了開頭的 t 音。\n回頭讀：Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）。",
     "verify": {
       "kind": "judge",
       "basis": "Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"
@@ -677,7 +677,7 @@
     "type": "閱讀：短文擷取",
     "stem": "閱讀短文，Kevin 昨天和妹妹做了什麼？",
     "attachment": {
-      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
+      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music. Then he watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
     },
     "answer": "一起看電影",
     "distractors": [
@@ -714,7 +714,7 @@
     "type": "閱讀技巧：推論",
     "stem": "依短文，Amy 今天望向窗外微笑，最可能是什麼原因？",
     "attachment": {
-      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
+      "passage": "Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music. Then he watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue."
     },
     "answer": "天晴了，可以去打球",
     "distractors": [

@@ -222,7 +222,7 @@
     "type": "聽力：聽句子選節慶",
     "stem": "請聽英文，依課本介紹選出最符合的節慶。",
     "attachment": {
-      "listen": "In November, we have turkey and pumpkin pie on this day.",
+      "listen": "In the United States, we have turkey and pumpkin pie on this day in November.",
       "rate": 0.9
     },
     "answer": "Thanksgiving Day",
@@ -248,7 +248,7 @@
       "把月份和代表食物一起對照課本。",
       "課本十一月的節慶介紹火雞和南瓜派。"
     ],
-    "explanation": "正確概念：原創聽力：In November, we have turkey and pumpkin pie on this day. 依課本 November 欄，這是 Thanksgiving Day。題目限定課本介紹，不將其他地區日期當成前提。\n破誤：「Saint Patrick’s Day」：課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派；「Dragon Boat Festival」：課本端午節談龍舟與粽子，不是火雞和南瓜派；「Boryeong Mud Festival」：課本保寧泥漿節談泥漿遊戲，不是這兩種食物。\n回頭讀：Culture & Festivals：November／Thanksgiving Day（課本 p.67）。",
+    "explanation": "正確概念：原創聽力：In the United States, we have turkey and pumpkin pie on this day in November. 依課本 November 欄，這是美國的 Thanksgiving Day（加拿大的感恩節在十月）。\n破誤：「Saint Patrick’s Day」：課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派；「Dragon Boat Festival」：課本端午節談龍舟與粽子，不是火雞和南瓜派；「Boryeong Mud Festival」：課本保寧泥漿節談泥漿遊戲，不是這兩種食物。\n回頭讀：Culture & Festivals：November／Thanksgiving Day（課本 p.67）。",
     "verify": {
       "kind": "judge",
       "basis": "Culture & Festivals：November／Thanksgiving Day（課本 p.67）；題幹情境、聽力對話與閱讀短文為自行編寫；故事題依正文情節。"

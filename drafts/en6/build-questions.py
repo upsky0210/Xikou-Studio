@@ -51,8 +51,8 @@ D('listened','-ed 讀音混淆','listened 的 -ed 讀 [d]，與 played、rained 
 add(3,3,'發音：拼讀規則','哪個單字的 -ed 讀 [ɪd]？','visited',[
 D('listened','-ed 讀音混淆','listen 結尾不是 t 或 d，listened 的 -ed 讀 [d]'),D('watched','-ed 讀音混淆','watched 的 -ed 讀 [t]，不多一個音節'),D('played','-ed 讀音混淆','played 的 -ed 讀 [d]，不是 [ɪd]')],['先看原形動詞最後的聲音。','原形以 t 或 d 結尾，加 -ed 後會多一個音節。','visit 的最後一個音符合這個條件。'],'visited 的 -ed 讀 [ɪd]，與 landed、shouted 同組。','Unit 1 Phonics（課本 p.18）')
 add(3,4,'聽力：聽音選字','請聽單字，選出正確的拼字。','rained',[
-D('stayed','音近字','兩字母音和 -ed 讀音相近，但字首、結尾不同'),D('played','音近字','母音相近，但沒有聽清楚字首'),D('trained','音近字','多聽了開頭的 t 音')],['先聽開頭，再聽字尾。','這些字很相近，不能只靠母音判斷。','開頭沒有多加一個 t 音，意思與下雨有關。'],'念的是 rained，字首是 r，字尾 -ed 讀 [d]。','Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）',audio('rained',.8))
-P1={'passage':'Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music and watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue.'}
+D('stayed','音近字','兩字的 -ed 都讀 [d]，但字首不同；rained 的尾端是 [n] 再接 [d]，stayed 是母音後直接接 [d]'),D('played','音近字','母音相近，但沒有聽清楚字首'),D('trained','音近字','多聽了開頭的 t 音')],['先聽開頭，再聽字尾。','這些字很相近，不能只靠母音判斷。','開頭沒有多加一個 t 音，意思與下雨有關。'],'念的是 rained，字首是 r，字尾 -ed 讀 [d]。','Unit 1 Phonics／Sound It Out、Word Bank（課本 p.18）',audio('rained',.8))
+P1={'passage':'Amy wanted to play basketball with Kevin yesterday. She looked out of the window. It rained all afternoon. Amy stayed at home and played the recorder. Kevin stayed at his home, too. He listened to music. Then he watched a movie with his little sister. Today, Amy has her basketball in her bag. She looks out of the window and smiles. The sky is blue.'}
 add(3,5,'閱讀：短文擷取','閱讀短文，Kevin 昨天和妹妹做了什麼？','一起看電影',[
 D('一起打籃球','文意線索誤讀','把 Amy 原先想做的活動當成 Kevin 已做的事'),D('一起吹直笛','人物資訊錯置','吹直笛的是 Amy，不是 Kevin 和妹妹'),D('一起探望祖父母','文意推論過度','短文沒有寫探望祖父母')],['先找 Kevin 出現的句子。','注意 with his sister 接在哪個活動後。','答案是兩個人在家一起看的內容。'],'Kevin 和妹妹一起看電影；短文的 watched a movie with his sister 直接提供答案。','Unit 1 Vocabulary、More Words（課本 pp.10–11、15）；Reading Skills：Make Inferences（課本 p.4）',P1)
 add(3,6,'閱讀技巧：推論','依短文，Amy 今天望向窗外微笑，最可能是什麼原因？','天晴了，可以去打球',[
@@ -151,7 +151,7 @@ D('She went to the beach last Sunday.','時間資訊錯置','海灘是上週六�
 add(10,1,'聽力：辨認字母讀音','請聽單字，選出其中 y 的讀音。','y 讀 [j]',[
 D('y 讀 [aɪ]','y 讀音混淆','把字首 y 當成 sky 的字尾 y'),D('y 讀 [ɪ]','y 讀音混淆','把字首 y 當成 baby 的字尾 y'),D('y 不發音','漏聽字尾','漏掉字首實際發出的聲音')],['注意 y 在單字開頭還是結尾。','本課將 y 分成三種讀音。','這個 y 位在字首，和 yellow 同組。'],'念的是 yard，字首 y 讀 [j]。','Unit 3 Phonics／Sound It Out（課本 p.46）',audio('yard',.8))
 add(10,2,'發音：選出讀音不同的字','哪個字的字尾 y 讀音和另外三個不同？可點播選項比較。','sky',[
-D('baby','y 讀音混淆','baby 的字尾 y 讀 [ɪ]，與 puppy、sunny 同組'),D('puppy','y 讀音混淆','puppy 的字尾 y 讀 [ɪ]，與 baby、sunny 同組'),D('sunny','y 讀音混淆','sunny 的字尾 y 讀 [ɪ]，與 baby、puppy 同組')],['只比較最後的 y。','先找出三個同組的字。','有一個 y 讀 [aɪ]，其餘讀 [ɪ]。'],'sky 的 y 讀 [aɪ]；baby、puppy、sunny 的 y 依本課標示讀 [ɪ]。','Unit 3 Phonics／Sound It Out（課本 p.46）',{'speakOptions':True})
+D('baby','y 讀音混淆','baby 的字尾 y 依本課標示讀 [ɪ]，與 puppy、sunny 同組'),D('puppy','y 讀音混淆','puppy 的字尾 y 依本課標示讀 [ɪ]，與 baby、sunny 同組'),D('sunny','y 讀音混淆','sunny 的字尾 y 依本課標示讀 [ɪ]，與 baby、puppy 同組')],['只比較最後的 y。','先找出三個同組的字。','有一個 y 讀 [aɪ]，其餘三個是 baby 這一組的字尾音。'],'sky 的 y 讀 [aɪ]；baby、puppy、sunny 是同一組字尾音，本課標成 [ɪ]（有些字典標成 [i]，用的音標系統和口音不同，聽起來都接近「伊」）。','Unit 3 Phonics／Sound It Out（課本 p.46）',{'speakOptions':True})
 add(10,3,'發音：拼讀規則','哪個字的 y 讀 [aɪ]？','cry',[
 D('yellow','y 讀音混淆','yellow 的字首 y 讀 [j]'),D('puppy','y 讀音混淆','puppy 的字尾 y 依本課標示讀 [ɪ]'),D('sunny','y 讀音混淆','sunny 的字尾 y 依本課標示讀 [ɪ]')],['先看 y 在哪個位置。','本題要找與 fly、sky 同組的字。','單音節 cry 的結尾 y 符合這組。'],'cry 的 y 讀 [aɪ]，與 fly、sky 同組。','Unit 3 Phonics／Sound It Out（課本 p.46）')
 add(10,4,'聽力：聽音選字','請聽單字，選出正確的拼字。','sky',[
@@ -202,9 +202,9 @@ add(13,3,'發音：拼讀規則','哪個字的母音和 "walk" 中 al 的讀音�
 D('sunny','拼字組合混淆','sunny 的 u 及字尾 y 都不是本課 al 的母音'),D('ring','拼字組合混淆','ring 的母音屬於 -ing 組，不同於 walk'),D('sky','拼字組合混淆','sky 的 y 讀 [aɪ]，與 walk 的母音不同')],['字母拼法不同，也可能有相同的讀音。','本課把 al、au、aw 放在一起比較。','找出 au 組的例字。'],'sauce 的 au 與 walk 的 al 有相同的母音，是本課的拼讀重點。','Unit 4 Phonics／Sound It Out（課本 p.58）')
 add(13,4,'聽力：聽音選字','請聽單字，選出正確的拼字。','talk',[
 D('walk','音近字','母音和字尾相同，但字首不是 w'),D('chalk','音近字','忽略字首和 talk 不同'),D('fork','音近字','只聽相近母音與字尾，忽略字首及其他聲音')],['這些字很相近，先比較開頭。','別只靠相似的母音和最後的音判斷。','這個字表示說話。'],'念的是 talk；與 walk、chalk、fork 的開頭不同。','Unit 4 Phonics／Sound It Out（課本 p.58）',audio('talk',.8))
-P4={'passage':'Emma made a map for Amy. Her house is on Green Street. The tea shop is next to her house. Amy can buy tea there. The bookstore is across from her house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map.'}
+P4={'passage':'Emma made a map for Amy. Emma’s house is on Green Street. The tea shop is next to Emma’s house. Amy can buy tea there. The bookstore is across from Emma’s house. Amy can buy books there. The park is next to the bookstore. Emma and Amy like to play in the park. Emma put these places on her map.'}
 add(13,5,'閱讀：短文擷取','依短文，Emma 家的對面是哪個場所？','書店',[
-D('茶店','介系詞混淆','茶店在她家旁邊，不是對面'),D('公園','介系詞混淆','公園在書店旁邊，文中沒有說它正對 Emma 家'),D('科學博物館','文意推論過度','文中沒有提到科學博物館')],['先找出 across from 所在的句子。','不要把 next to 和 across from 混淆。','對面是可以買書的場所。'],'短文寫 The bookstore is across from her house.，所以對面是書店。','Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）',P4)
+D('茶店','介系詞混淆','茶店在 Emma 家旁邊，不是對面'),D('公園','介系詞混淆','公園在書店旁邊，文中沒有說它正對 Emma 家'),D('科學博物館','文意推論過度','文中沒有提到科學博物館')],['先找出 across from 所在的句子。','不要把 next to 和 across from 混淆。','對面是可以買書的場所。'],'短文寫 The bookstore is across from Emma’s house.，所以對面是書店。','Unit 4 Vocabulary、Sentence A（課本 pp.50–52）；Reading Skills：Mind Map（課本 p.5）',P4)
 add(13,6,'閱讀技巧：心智圖','依短文製作「Emma 家附近的場所與活動」心智圖，哪個分支配對正確？','書店 → 買書',[
 D('茶店 → 買書','心智圖分類錯置','把書店的活動放到茶店分支'),D('公園 → 買茶','心智圖分類錯置','把茶店的活動放到公園分支'),D('書店 → 遊玩','心智圖分類錯置','把文中公園的活動放到書店分支')],['先把場所分成三個分支。','每個分支要接回文中對應的活動。','找出 buy books 所屬的場所。'],'書店分支對應買書；茶店對應買茶，公園對應遊玩。心智圖要保留正確的分類關係。','Unit 4 Reading Skills：Mind Map（課本 p.5）；Reading／Mind Map（課本 pp.56–57）',P4)
 add(13,7,'閱讀：故事理解','依 Unit 4 Story，哪位孩子最後認出迷路長者，叫了他一聲 "Grandpa"？','Emma',[
@@ -240,7 +240,7 @@ D('Groundhog Day','文意線索誤讀','短文直接寫 Earth Day，沒有提土
 add(15,6,'節慶：短文閱讀','依短文，哪個說法最符合 Emma 最後一句話？','每天都能愛護地球',[
 D('只有四月才能愛護地球','文意線索誤讀','every day 表示每天，不限定四月'),D('只有在學校才能愛護地球','文意線索誤讀','她們也去公園打掃，不限於學校'),D('只有畫完海報才能愛護地球','文意推論過度','文中沒有先完成海報才可行動的限制')],['先找 Emma 說的最後一句。','注意 every day 的範圍。','她鼓勵把照顧地球變成每天都能做的事。'],'Emma 說可以每天幫助地球，與課本地球日鼓勵照顧地球的概念相符。','Culture & Festivals：April／Earth Day（課本 p.65）',PC)
 add(15,7,'聽力：聽句子選節慶','請聽英文，依課本介紹選出最符合的節慶。','Thanksgiving Day',[
-D('Saint Patrick’s Day','節慶特徵混淆','課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派'),D('Dragon Boat Festival','節慶特徵混淆','課本端午節談龍舟與粽子，不是火雞和南瓜派'),D('Boryeong Mud Festival','節慶特徵混淆','課本保寧泥漿節談泥漿遊戲，不是這兩種食物')],['先聽月份，再聽食物。','把月份和代表食物一起對照課本。','課本十一月的節慶介紹火雞和南瓜派。'],'原創聽力：In November, we have turkey and pumpkin pie on this day. 依課本 November 欄，這是 Thanksgiving Day。題目限定課本介紹，不將其他地區日期當成前提。','Culture & Festivals：November／Thanksgiving Day（課本 p.67）',audio('In November, we have turkey and pumpkin pie on this day.'))
+D('Saint Patrick’s Day','節慶特徵混淆','課本這個節慶談綠色衣帽與食物，不是火雞和南瓜派'),D('Dragon Boat Festival','節慶特徵混淆','課本端午節談龍舟與粽子，不是火雞和南瓜派'),D('Boryeong Mud Festival','節慶特徵混淆','課本保寧泥漿節談泥漿遊戲，不是這兩種食物')],['先聽月份，再聽食物。','把月份和代表食物一起對照課本。','課本十一月的節慶介紹火雞和南瓜派。'],'原創聽力：In the United States, we have turkey and pumpkin pie on this day in November. 依課本 November 欄，這是美國的 Thanksgiving Day（加拿大的感恩節在十月）。','Culture & Festivals：November／Thanksgiving Day（課本 p.67）',audio('In the United States, we have turkey and pumpkin pie on this day in November.'))
 
 assert len(Q)==105
 for tag,levels in [('U1',range(1,4)),('U2',range(4,8)),('U3',range(8,11)),('U4',range(11,15)),('CF',[15])]:
