@@ -1,7 +1,7 @@
 // 離線重跑交件檢查：只寫入 drafts/en6/，不修改教材、工具或正式資料。
-import { readFileSync, writeFileSync } from 'node:fs';
+// 2026-11-23：拿掉 11/9 交件當時的 git 狀態和國語報告比對，也不再改寫當時的 英語自檢報告.md（那是交件紀錄）。
+import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import { loadBook } from '../../tools/lib.mjs';
 const dir = 'drafts/en6/';
 const files = ['U1','U2','U3','U4','CF'].map(x=>`${dir}en6-questions-${x}.json`);
@@ -83,76 +83,8 @@ assert(ties.length/all.length<=.3,'正解最長（含並列）比例超過 30%')
 const listenTotal=rows.reduce((n,r)=>n+r[1],0);
 assert(listenTotal/all.length>=.35&&listenTotal/all.length<=.40,'聽力比例不在 35–40%');
 assert(JSON.stringify(all.find(q=>q.id==='L15-Q5').attachment)===JSON.stringify(all.find(q=>q.id==='L15-Q6').attachment),'節慶短文不一致');
-const baselineHash=readFileSync(dir+'work/existing-file-sha256.txt','utf8').trim();
-assert(createHash('sha256').update(readFileSync('國語全冊-抽測報告.md')).digest('hex')===baselineHash,'既有國語報告內容變動');
-const git=()=>execFileSync('git',['-c','core.quotepath=false','status','--short','--untracked-files=all'],{encoding:'utf8'}).trimEnd();
-const checkStatus=status=>{
- const outside=status.split(/\r?\n/).filter(s=>s&&!s.slice(3).replace(/^"|"$/g,'').startsWith(dir));
- assert(JSON.stringify(outside)===JSON.stringify(['?? 國語全冊-抽測報告.md']),'本次狀態出現未授權目錄變更：'+outside.join('；'));
-};
-checkStatus(git());
 if(issues.length){console.error(issues.join('\n'));process.exit(1);}
 const lengthResult=`長度超標：${tooLong.length} 題（無超標題號）。\n正解嚴格最長：${longest.length}/105（${(longest.length/105*100).toFixed(2)}%）。\n正解最長含並列：${ties.length}/105（${(ties.length/105*100).toFixed(2)}%），低於 30%。\n嚴格最長題號：${longest.join('、')}。`;
-const pageRanges=rows.map(([tag])=>{
- const pages=new Set();
- for(const q of all.filter(q=>q.id.startsWith(tag+'-'))){
-  for(const match of q.verify.basis.matchAll(/課本 p{1,2}\.([^）]+)/g)){
-   for(const span of match[1].matchAll(/(\d+)(?:[–-](\d+))?/g)){
-    for(let p=Number(span[1]);p<=Number(span[2]??span[1]);p++)pages.add(p);
-   }
-  }
- }
- const sorted=[...pages].sort((a,b)=>a-b),groups=[];
- for(let i=0;i<sorted.length;i++){
-  const start=sorted[i];let end=start;
-  while(sorted[i+1]===end+1)end=sorted[++i];
-  groups.push(start===end?String(start):`${start}–${end}`);
- }
- return groups.join('、');
-});
-const report=[
- '# 英語題庫自檢報告','', '交件日期：2026-11-09（Asia/Taipei）。題庫版本：康軒六上 Wonder World 9。',
- '', '## 交付範圍','',
- '五份 JSON 共 105 題，15 關各 7 題；en6.js 僅由 tools/assemble.mjs 填入 q。保留 draft:true，供 Claude Code 審核。zones、關卡及書目其他欄位與原骨架逐欄比較完全相同。',
- '工作目錄為 C:\\AI\\web-test，使用既有 workspace-write 權限。本次只寫入 drafts/en6/，沒有上網、上傳教材、安裝套件、commit 或 push。教材以本機既有 PDF 工具讀取，抽取文字及頁面預覽已清除，沒有放入交付題庫。',
- '', '## ① 指定三個指令及實際輸出','',
- ...results.flatMap(r=>['```text',r.command,r.stdout,'```','']),
- '## ② 選項長度掃描','',lengthResult,'',
- '計算方式：Unicode 字元數扣除空白；純英文正解與最長干擾項相差不得超過 5 字元，含中文正解不得超過 4 字元。此處也採較保守的上限解讀，實際差距全部小於 4。',
- '掃描及完整檢查程式：drafts/en6/check-delivery.mjs；以 node drafts/en6/check-delivery.mjs 可重跑三個工具與自檢並更新本報告。',
- '', '## ③ 各關聽力題數與比例','',
- '| 關卡 | listen 題數 | 課本頁碼範圍（本關引用） |','|---|---:|---|',
- ...rows.map((r,i)=>`| ${r[0]} | ${r[1]} | ${pageRanges[i]} |`),'',
- `全書 listen 題 ${listenTotal}/105，比例 ${(listenTotal/105*100).toFixed(2)}%。另有 4 題 speakOptions 選項點播，不重複計入 listen 題。`,
- '依第 2 節逐題配置：字彙關各 5 題、文法關各 1 題、發音閱讀關各 2 題、複習關各 2 題、節慶關 2 題。規劃書「每關 2～3 題」視為概括說明，優先遵循明確題位表；總比例符合 35～40%。',
- '', '## ④ 教材核對與內容檢查','',
- '上表列出各關實際引用頁碼，各題 verify.basis 與回頭讀另列欄名及頁碼。核對來源為 source/康軒六上英語ww9/ 的 01 Reading skills、02 U1、03 U2、04 Review 1、05 U3、05 U4、07 Review 2、08 Culture and Festivals 教學篇；未以習作或教師補充作為答案前提。',
- '本機視覺核對 U1、U3、U4 Phonics 頁、U4 Story 最後一頁及節慶各月正文，區分學生正文與教師補充。More Words 採課本 p.15、27、43、55；Reminder 採 p.23、51。',
- '四篇原創單元短文均為 50～90 字，Q5、Q6 附件逐字相同：'+passages.join('；')+'。節慶短文也為原創，兩題附件相同。',
- '38 段 listen 全部不超過 60 字，僅有英文字母、空白與標點；時間使用英文；語速均為 0.8 或 0.9。題幹未出現完整聽力或正解，提示未直接寫出完整聽力內容。四題選項點播均為英文單字。',
- '所有題目均有 3 個干擾項、對應 trap／misconception、3 段提示及正確概念／破誤／回頭讀三段詳解。自動字串檢查輔以逐題內容覆核；文法題的錯誤形式為指定考點，聽力干擾項採音近、漏聽字尾或資訊錯置。',
- 'L12-Q5、Q7 共享原創街道位置表，L14-Q4 使用另一張同側並排表。表格明列街道兩側、左中右格，避免把斜對面當成正對面。',
- '聽力對話及五篇短文均自行撰寫，未搬用課本 Story 整段或 Listen and Number 腳本。故事題只依正文細節設問；唯一直接引用的 Story 單字為 L13-Q7 的 Grandpa，未超過 12 字。',
- '', '## ⑤ 沒把握的題目與待人工抽驗事項','',
- '未發現尚未解決的正解或教材頁碼疑義。以下是需在下一階段用實際瀏覽器聲音確認的項目，不宣稱已做聽覺驗收：',
- '- L03-Q1～Q4、L07-Q5：課本 -ed 三組的書面分類已核對；瀏覽器聲音能否清楚呈現字尾仍須試播。',
- '- L10-Q2、Q3、L14-Q5：依規劃書與課本採字尾 y 的 [ɪ] 標示；不同語音引擎可能念出較接近長母音的字尾，須配合課本教學說明。',
- '- L11-Q3：MRT station 的字母縮寫是否逐字母自然朗讀，須試播。L11-Q2 的 museum／museums 字尾差異也須確認。',
- '- L13-Q1～Q4、L14-Q5：al／au／aw 依課本例字分類；方言可能有母音差異。沒有要求只靠相同母音判別 al、au、aw 拼法。',
- '- L15-Q7：十一月感恩節限定課本 p.67 介紹，不延伸成全球各地日期都相同的說法。',
- '本次範圍是題庫草稿與自檢；聽力播放畫面、瀏覽器實聽與正式上線依分工留給 Claude Code。',
- '', '## ⑥ Git 狀態與寫入邊界','',
- '開工前已存在的非本次變更：','```text','?? 國語全冊-抽測報告.md','```',
- `該檔開工前／交件後 SHA-256 相同：${baselineHash}。`,
- '因此無法聲稱整個工作區「只有 en6 有變動」；正確結論為：扣除上述既有未追蹤檔案，本次新增或修改全部在 drafts/en6/。檢查會對任何其他路徑的新變動報錯。',
- '', '交件時 git -c core.quotepath=false status --short --untracked-files=all 輸出：','```text','__GIT_STATUS__','```','',
- '完整自檢結果：沒有問題。',''
-].join('\n');
-// 先建立報告，再擷取狀態，確保狀態也列出本報告本身。
-writeFileSync(dir+'英語自檢報告.md',report);
-const status=git();checkStatus(status);
-if(issues.length)throw new Error(issues.join('\n'));
-writeFileSync(dir+'英語自檢報告.md',report.replace('__GIT_STATUS__',status));
 console.log(lengthResult);
 console.log(`聽力：${listenTotal}/105（${(listenTotal/105*100).toFixed(2)}%）`);
-console.log('完整自檢：沒有問題；已寫入 drafts/en6/英語自檢報告.md');
+console.log('完整自檢：沒有問題');

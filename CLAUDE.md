@@ -17,7 +17,7 @@
 
 ## 題庫流程（不要手改 `data/*.js` 的題目）
 - 英語：改 `drafts/en6/build-questions.py` → `python -I drafts/en6/build-questions.py` 產生五份 JSON → `node tools/assemble.mjs data/en6.js EN6 <五份 JSON>` → `node tools/check-data.mjs data/en6.js EN6 <五份 JSON>`。
-  `node drafts/en6/check-delivery.mjs` 會順便更新 `drafts/en6/en6.js` 和抽驗清單（最後找不到 `work/en6-skeleton.js` 而報錯是舊問題，前面的輸出仍有效）。
+  `node drafts/en6/check-delivery.mjs` 會順便更新 `drafts/en6/en6.js` 和抽驗清單，最後印「完整自檢：沒有問題」（2026-11-23 拿掉了 11/9 交件時的 git 狀態比對，不再報錯）。
 - 五上數學（mn5）：題目寫在 `drafts/mn5/mn5-questions-U*.json`（一個單元一個檔）→ `node tools/verify-answers.mjs <檔>` → `node tools/assemble.mjs data/mn5.js MN5 <全部的檔>` → `node tools/check-data.mjs data/mn5.js MN5 <全部的檔>`。統計圖和幾何圖改 `tools/make-figures-mn5.mjs` 再跑一次。
   五年級可以改作 JDPS-SS（底稿在 `private/jdps/`，不上傳）：改作的題目在題目檔加 `source` 欄位；課本沒教的內容不出（以 `source/` 的教師專用課本為準）。
 - 其他書的作法見 `README.md`。
