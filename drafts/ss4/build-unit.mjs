@@ -14,7 +14,7 @@ export function buildUnit(unit) {
         id, level, type, stem, attachment: options.attachment ?? null, answer, distractors, hints,
         explanation: [
           '正確概念：' + concept,
-          '破誤：' + distractors.map(({ text, misconception }) => `「${text}」：${misconception}`).join('；') + '。',
+          '破誤：' + distractors.map(({ text, misconception }) => (/[「」]/.test(text) ? `『${text}』` : `「${text}」`) + '：' + misconception).join('；') + '。',
           `證據提示：回課本第 ${page} 頁「${name}」。`,
         ].join('\n'),
         verify: { kind: 'judge', basis: `課本 p.${page}「${name}」：${options.basis ?? concept}` },
