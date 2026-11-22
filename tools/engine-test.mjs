@@ -175,4 +175,15 @@ function play(state, level, plan) {
   console.log('8 ok  重練時題目順序會洗牌');
 }
 assert.equal(E.masterNeed(7), 5);
+{
+  const L = (n) => { const r = E.levelOf(n); return [r.lv, r.into, r.need]; };
+  assert.deepEqual(L(0), [1, 0, 50]);
+  assert.deepEqual(L(49), [1, 49, 50]);
+  assert.deepEqual(L(50), [2, 0, 70]);
+  assert.deepEqual(L(119), [2, 69, 70]);
+  assert.deepEqual(L(120), [3, 0, 90]);
+  assert.deepEqual(L(320), [5, 0, 130]);
+  assert.deepEqual(L(1430), [11, 30, 250]);
+  console.log('9 ok  等級：50、120、210、320… 升級');
+}
 console.log('規則測試全部通過');

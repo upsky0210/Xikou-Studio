@@ -209,6 +209,14 @@
     document.title = book ? book.subj + book.sem + '・' + book.pub + '｜溪口練功王國' : '溪口練功王國';
   }
 
+  /* ---------- 等級（全部的書 EXP 加起來，規則在 engine.js 的 levelOf） ---------- */
+  const totalExp = () => Object.values(state.books).reduce((a, b) => a + (b.exp || 0), 0);
+  function levelHTML(total, cls = '') {
+    const { lv, into, need } = Engine.levelOf(total);
+    return `<span class="lvl ${cls}" title="全部的書加起來 ${total} EXP，再 ${need - into} EXP 升到 Lv.${lv + 1}">
+      <b>Lv.${lv}</b><span class="lvbar"><i style="width:${Math.round(into / need * 100)}%"></i></span><small>${into}／${need}</small></span>`;
+  }
+
   /* ---------- 共用 ---------- */
   const unitLabel = (zi) => (zi.final ? '最終關' : '單元' + (CN[zi.no - 1] || zi.no));
   const zoneName = (book, z) => Engine.zoneInfo(book, z).name;
@@ -345,7 +353,7 @@
           <span class="kicker">${ICON.crown} 溪口國小</span>
           <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
           <p class="tagline">選一本課本，展開你的冒險</p>
-          <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b></span><em>${ICON.hero} 換角色</em></button>
+          <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b>${levelHTML(totalExp())}</span><em>${ICON.hero} 換角色</em></button>
           ${Save.user ? '' : `<button class="login-chip" id="homeLogin" type="button">${G_ICON}<span><b>登入學校帳號</b><small>現在沒登入，進度只存在這台裝置</small></span></button>`}
         </div>
         <div>
@@ -724,8 +732,10 @@
   }
 
   function finishRun(book) {
+    const before = totalExp() - (run.expGained || 0);   // EXP 是每答對一題就加，所以扣回這次拿的
     const res = Engine.finish(state, run, book);
     Save.save(state, { now: true }); updateTop(book);
+    res.lvBefore = Engine.levelOf(before).lv;
     lastResult = { run, res };
     if (res.badge !== null) celebrate = { book: book.id, z: res.badge };
     renderResult(book);
@@ -753,6 +763,8 @@
           </div>
           ${res.star ? (res.newlyStar ? `<p class="banner">${ICON.trophy}<span>第一次就答對 ${res.firstNow} 題，這一關精熟了！</span></p>` : '')
             : `<p class="banner">${ICON.bulb}<span>這次第一次就答對 ${res.firstNow} 題。再練一次，第一次就答對 <b>${res.need} 題以上</b>就是精熟；這一區每一關都精熟，才拿得到徽章。</span></p>`}
+          <div class="lvrow">${levelHTML(totalExp(), 'big')}</div>
+          ${Engine.levelOf(totalExp()).lv > (res.lvBefore || 0) && res.lvBefore ? `<p class="banner lvup">${ICON.star}<span>升級了！${esc(heroName())}升到 <b>Lv.${Engine.levelOf(totalExp()).lv}</b>！</span></p>` : ''}
           ${r.review ? `<p class="banner">${ICON.jewel}<span>複習模式：EXP 以第一次闖關為準。</span></p>` : ''}
           ${res.badge !== null ? `<div class="badge-get">${medalHTML(book, Engine.zoneInfo(book, res.badge), 'big')}
             <p>恭喜！你拿到了<b>「${esc(zoneName(book, res.badge))}」的徽章</b>回到地圖，看看旗子升起來！</p></div>` : ''}

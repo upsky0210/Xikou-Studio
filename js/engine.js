@@ -12,6 +12,9 @@
    - 徽章：一個區域（＝一個單元）「資料裡有題目的關」全部精熟就頒發；已經拿到的徽章不會收回。
      （目前質數礦坑只有 2 關資料；之後補關卡，這裡自然就變成整區的判定，不用改程式。）
      程式裡的變數還叫 island／badges，是 P1 留下的名字，意思就是「區域」和「徽章」。
+   - 等級（2026-11-22）：全部的書 EXP 加起來算一個等級，跟著角色走。從 Lv.1 開始，
+     升到 Lv.2 要 50 EXP，之後每一級多要 20（50、70、90…），累計是 50、120、210、320、450…。
+     等級只是顯示，不影響答題規則；EXP 沒有扣，所以等級不會掉。
 
    題目位置陣列：[題幹, 正解, [干擾項×3], [提示×3], 詳解, 附件?] */
 (function () {
@@ -233,9 +236,18 @@
     };
   }
 
+  /* 等級：total＝全部的書 EXP 加起來。回傳 { lv, into, need }：
+     into＝這一級已經累積多少、need＝這一級總共要多少（升到下一級） */
+  const LV_BASE = 50, LV_STEP = 20;
+  function levelOf(total) {
+    let lv = 1, left = Math.max(0, total | 0), need = LV_BASE;
+    while (left >= need) { left -= need; lv++; need += LV_STEP; }
+    return { lv, into: left, need };
+  }
+
   window.Engine = {
     EXP_PER_Q, HINTS_PER_Q, LOCK_MS,
     shuffle, view, playable, startRun, enterQuestion, answer, needHint, position, masterNeed, revealHint, next, finish,
-    zoneInfo, regularZones, islandLevels, islandComplete, syncBadges, levelSummary, recalcExp,
+    zoneInfo, regularZones, islandLevels, islandComplete, syncBadges, levelSummary, recalcExp, levelOf,
   };
 })();
