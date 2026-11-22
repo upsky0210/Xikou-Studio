@@ -639,7 +639,7 @@
   "type": "閱讀：想像（Visualize）",
   "stem": "依上面的短文，Lily 每天吃幾種水果？",
   "attachment": {
-   "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
+   "passage": "For this activity, the goal is three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Each fruit on these plates is about one serving. Close your eyes. Can you see their fruit plates?"
   },
   "answer": "三種",
   "distractors": [
@@ -676,7 +676,7 @@
   "type": "閱讀：想像（Visualize）",
   "stem": "依上面的短文和課本說的（一天要吃三份、要吃不同種類），誰吃水果吃得最聰明（a smart eater）？",
   "attachment": {
-   "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
+   "passage": "For this activity, the goal is three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Each fruit on these plates is about one serving. Close your eyes. Can you see their fruit plates?"
   },
   "answer": "Lily",
   "distractors": [
@@ -701,7 +701,7 @@
    "除了份量夠，課本還說要吃不同的什麼？",
    "想像三個人的盤子，誰的盤子份量夠、顏色也不一樣？"
   ],
-  "explanation": "正確概念：課本說一天要吃三份水果，而且要吃不同種類。短文說一個香蕉、芭樂或柳橙就是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。\n破誤：「Ray」：Ray 每天只吃兩個蘋果，只有兩份，也只有一種；「Sam」：Sam 吃了三份，但都是香蕉，沒有吃不同種類；「三個人都一樣」：只看到三個人都有吃水果，沒有比份量和種類。\n回頭讀：Unit 2 Reading（課本 p.41）。",
+  "explanation": "正確概念：課本說一天要吃三份水果，而且要吃不同種類。短文說盤子上的每個水果大約是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。\n破誤：「Ray」：Ray 每天只吃兩個蘋果，只有兩份，也只有一種；「Sam」：Sam 吃了三份，但都是香蕉，沒有吃不同種類；「三個人都一樣」：只看到三個人都有吃水果，沒有比份量和種類。\n回頭讀：Unit 2 Reading（課本 p.41）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 2 Reading（課本 p.41）；聽力對話與閱讀短文為自行編寫"

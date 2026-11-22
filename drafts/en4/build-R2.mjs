@@ -16,13 +16,13 @@ q('L14-Q1', '字彙：分辨星期和科目',
     ref: 'Unit 3 Vocabulary（課本 p.53）、Unit 4 Vocabulary（課本 pp.66–67）' });
 
 q('L14-Q2', '聽力：聽短文選意思',
-  '請聽英文，選出意思正確的中文。', listen('Today is Wednesday. Lily has PE class. She is swimming.', 0.9),
+  '請聽英文，選出意思正確的中文。', listen('Today is Wednesday. Lily is swimming in PE class.', 0.9),
   '今天是星期三，Lily 在體育課游泳。',
   [['今天是星期四，Lily 在體育課游泳。', '音近字', '沒聽清楚 Today is 後面的星期'],
    ['今天是星期三，Lily 在音樂課唱歌。', '中文意思混淆', '星期聽對了，但課和動作都聽錯了'],
    ['今天是星期三，Lily 在體育課畫畫。', '中文意思混淆', '課聽對了，但沒聽清楚她在做什麼']],
   ['先聽今天是星期幾，開頭是 W。', '再聽 Lily 上的是哪一堂課。', '最後聽 She is 後面的動作。'],
-  { concept: 'Today is Wednesday. Lily has PE class. She is swimming.：今天是星期三，Lily 在體育課游泳。',
+  { concept: 'Today is Wednesday. Lily is swimming in PE class.：今天是星期三，Lily 在體育課游泳。',
     ref: 'Unit 3 Sentence A（課本 p.54）、Review 2 Listen and Number（課本 p.77）' });
 
 q('L14-Q3', '句型：選出正確的問答',

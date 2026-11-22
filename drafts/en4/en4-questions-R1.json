@@ -115,7 +115,7 @@
   "attachment": {
    "passage": "Ella goes to a fruit store. First, she asks for papayas, but the store doesn't have papayas. Next, the clerk shows her some guavas. Ella needs four guavas. Then she sees lemonade. She likes lemonade, so she buys one bottle. Finally, she says thank you and goes home."
   },
-  "answer": "問店裡有沒有木瓜。",
+  "answer": "向店員要木瓜。",
   "distractors": [
    {
     "text": "買四個芭樂。",
@@ -136,9 +136,9 @@
   "hints": [
    "找出短文裡的 First、Next、Then、Finally。",
    "First 標示的是第一件事。",
-   "讀 First 後面那一句，她問的是哪一種水果？"
+   "讀 First 後面那一句，她要的是哪一種水果？"
   ],
-  "explanation": "正確概念：First, she asks for papayas：Ella 第一件事是問有沒有木瓜，可是店裡沒有。\n破誤：「買四個芭樂。」：芭樂是店員後來才拿給她看的；「買一瓶檸檬水。」：買檸檬水是 Then 之後的事；「說謝謝然後回家。」：這是 Finally 後面的最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
+  "explanation": "正確概念：First, she asks for papayas：Ella 第一件事是向店員要木瓜，可是店裡沒有。\n破誤：「買四個芭樂。」：芭樂是店員後來才拿給她看的；「買一瓶檸檬水。」：買檸檬水是 Then 之後的事；「說謝謝然後回家。」：這是 Finally 後面的最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
   "verify": {
    "kind": "judge",
    "basis": "Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence；聽力對話與閱讀短文為自行編寫"

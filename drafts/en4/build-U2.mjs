@@ -182,7 +182,7 @@ q('L06-Q3', '發音：長音 i',
     ref: 'Unit 2 Phonics Sound It Out（課本 p.42）、Listen and Circle（課本 p.43）' });
 
 const fruitKids = passage(
-  "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
+  "For this activity, the goal is three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Each fruit on these plates is about one serving. Close your eyes. Can you see their fruit plates?"
 );
 
 q('L06-Q4', '閱讀：想像（Visualize）',
@@ -202,7 +202,7 @@ q('L06-Q5', '閱讀：想像（Visualize）',
    ['Sam', '文意推論不足', 'Sam 吃了三份，但都是香蕉，沒有吃不同種類'],
    ['三個人都一樣', '文意推論不足', '只看到三個人都有吃水果，沒有比份量和種類']],
   ['回想課本：一天要吃幾份水果？', '除了份量夠，課本還說要吃不同的什麼？', '想像三個人的盤子，誰的盤子份量夠、顏色也不一樣？'],
-  { concept: '課本說一天要吃三份水果，而且要吃不同種類。短文說一個香蕉、芭樂或柳橙就是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。',
+  { concept: '課本說一天要吃三份水果，而且要吃不同種類。短文說盤子上的每個水果大約是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。',
     ref: 'Unit 2 Reading（課本 p.41）' });
 
 q('L06-Q6', '閱讀：一份水果有多大',

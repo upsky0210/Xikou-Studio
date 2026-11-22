@@ -40,7 +40,7 @@
   "type": "聽力：聽短文選意思",
   "stem": "請聽英文，選出意思正確的中文。",
   "attachment": {
-   "listen": "Today is Wednesday. Lily has PE class. She is swimming.",
+   "listen": "Today is Wednesday. Lily is swimming in PE class.",
    "rate": 0.9
   },
   "answer": "今天是星期三，Lily 在體育課游泳。",
@@ -66,7 +66,7 @@
    "再聽 Lily 上的是哪一堂課。",
    "最後聽 She is 後面的動作。"
   ],
-  "explanation": "正確概念：Today is Wednesday. Lily has PE class. She is swimming.：今天是星期三，Lily 在體育課游泳。\n破誤：「今天是星期四，Lily 在體育課游泳。」：沒聽清楚 Today is 後面的星期；「今天是星期三，Lily 在音樂課唱歌。」：星期聽對了，但課和動作都聽錯了；「今天是星期三，Lily 在體育課畫畫。」：課聽對了，但沒聽清楚她在做什麼。\n回頭讀：Unit 3 Sentence A（課本 p.54）、Review 2 Listen and Number（課本 p.77）。",
+  "explanation": "正確概念：Today is Wednesday. Lily is swimming in PE class.：今天是星期三，Lily 在體育課游泳。\n破誤：「今天是星期四，Lily 在體育課游泳。」：沒聽清楚 Today is 後面的星期；「今天是星期三，Lily 在音樂課唱歌。」：星期聽對了，但課和動作都聽錯了；「今天是星期三，Lily 在體育課畫畫。」：課聽對了，但沒聽清楚她在做什麼。\n回頭讀：Unit 3 Sentence A（課本 p.54）、Review 2 Listen and Number（課本 p.77）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 3 Sentence A（課本 p.54）、Review 2 Listen and Number（課本 p.77）；聽力對話與閱讀短文為自行編寫"

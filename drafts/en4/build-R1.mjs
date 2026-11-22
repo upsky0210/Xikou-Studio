@@ -42,12 +42,12 @@ const shop = passage(
 
 q('L07-Q4', '閱讀：排序（Sequence）',
   '依上面的短文，Ella 到水果店做的第一件事是什麼？', shop,
-  '問店裡有沒有木瓜。',
+  '向店員要木瓜。',
   [['買四個芭樂。', '順序錯置', '芭樂是店員後來才拿給她看的'],
    ['買一瓶檸檬水。', '順序錯置', '買檸檬水是 Then 之後的事'],
    ['說謝謝然後回家。', '順序錯置', '這是 Finally 後面的最後一件事']],
-  ['找出短文裡的 First、Next、Then、Finally。', 'First 標示的是第一件事。', '讀 First 後面那一句，她問的是哪一種水果？'],
-  { concept: 'First, she asks for papayas：Ella 第一件事是問有沒有木瓜，可是店裡沒有。',
+  ['找出短文裡的 First、Next、Then、Finally。', 'First 標示的是第一件事。', '讀 First 後面那一句，她要的是哪一種水果？'],
+  { concept: 'First, she asks for papayas：Ella 第一件事是向店員要木瓜，可是店裡沒有。',
     ref: 'Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence' });
 
 q('L07-Q5', '閱讀：排序（Sequence）',

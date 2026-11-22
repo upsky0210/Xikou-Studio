@@ -172,7 +172,7 @@ q('L13-Q2', '發音：選出母音念法不同的字',
     ref: 'Unit 4 Phonics Sound It Out（課本 p.74）、Listen and Circle（課本 p.75）' });
 
 q('L13-Q3', '發音：u_e 的兩種念法',
-  'u_e 有兩種念法。哪一個字的 u_e 念法和 cute 一樣（母音前面先有 y 的音）？可以按喇叭聽每個字。', SAY,
+  '哪一個字和 cute 一樣，在長母音前面聽得到像 yes 開頭的聲音？可以按喇叭聽每個字。', SAY,
   'mule',
   [['Luke', '發音規則混淆', 'Luke 也是 u_e，但它的母音前面沒有 y 的音'],
    ['flute', '發音規則混淆', 'flute 也是 u_e，但念法和 Luke 一樣'],

@@ -401,7 +401,7 @@ const EN4 = {
      }
     ],
     [
-     "課本教我們看飲料的營養標示，算出一整瓶有多少糖。第一步要先找什麼？",
+     "課本教我們看飲料的營養標示，算出一整瓶有多少糖。依課本營養標示圖旁的編號，第 1 步要找什麼？",
      "一瓶有幾份（servings）",
      [
       "一份有多少糖（sugars）",
@@ -781,7 +781,7 @@ const EN4 = {
      ],
      "正確概念：Lily 每天吃一根香蕉、一個芭樂、一個柳橙，一共三種水果。\n破誤：「一種」：看到每樣水果都是 one，就以為只有一種；「兩種」：把 Ray 吃的 two apples 當成 Lily 的；「四種」：把 Ray 的蘋果也算進 Lily 的盤子。\n回頭讀：Unit 2 Reading（課本 pp.40–41）、Reading Skills：Visualize。",
      {
-      "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
+      "passage": "For this activity, the goal is three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Each fruit on these plates is about one serving. Close your eyes. Can you see their fruit plates?"
      }
     ],
     [
@@ -797,9 +797,9 @@ const EN4 = {
       "除了份量夠，課本還說要吃不同的什麼？",
       "想像三個人的盤子，誰的盤子份量夠、顏色也不一樣？"
      ],
-     "正確概念：課本說一天要吃三份水果，而且要吃不同種類。短文說一個香蕉、芭樂或柳橙就是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。\n破誤：「Ray」：Ray 每天只吃兩個蘋果，只有兩份，也只有一種；「Sam」：Sam 吃了三份，但都是香蕉，沒有吃不同種類；「三個人都一樣」：只看到三個人都有吃水果，沒有比份量和種類。\n回頭讀：Unit 2 Reading（課本 p.41）。",
+     "正確概念：課本說一天要吃三份水果，而且要吃不同種類。短文說盤子上的每個水果大約是一份：Lily 吃了三份、三種不同的水果，所以她吃得最聰明。\n破誤：「Ray」：Ray 每天只吃兩個蘋果，只有兩份，也只有一種；「Sam」：Sam 吃了三份，但都是香蕉，沒有吃不同種類；「三個人都一樣」：只看到三個人都有吃水果，沒有比份量和種類。\n回頭讀：Unit 2 Reading（課本 p.41）。",
      {
-      "passage": "We need three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. One apple, one banana, one guava, or one orange is one serving. Close your eyes. Can you see their fruit plates?"
+      "passage": "For this activity, the goal is three servings of fruit every day. Ray eats two apples every day. Sam eats three bananas every day. Lily eats one banana, one guava, and one orange every day. Each fruit on these plates is about one serving. Close your eyes. Can you see their fruit plates?"
      }
     ],
     [
@@ -897,7 +897,7 @@ const EN4 = {
     ],
     [
      "依上面的短文，Ella 到水果店做的第一件事是什麼？",
-     "問店裡有沒有木瓜。",
+     "向店員要木瓜。",
      [
       "買四個芭樂。",
       "買一瓶檸檬水。",
@@ -906,9 +906,9 @@ const EN4 = {
      [
       "找出短文裡的 First、Next、Then、Finally。",
       "First 標示的是第一件事。",
-      "讀 First 後面那一句，她問的是哪一種水果？"
+      "讀 First 後面那一句，她要的是哪一種水果？"
      ],
-     "正確概念：First, she asks for papayas：Ella 第一件事是問有沒有木瓜，可是店裡沒有。\n破誤：「買四個芭樂。」：芭樂是店員後來才拿給她看的；「買一瓶檸檬水。」：買檸檬水是 Then 之後的事；「說謝謝然後回家。」：這是 Finally 後面的最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
+     "正確概念：First, she asks for papayas：Ella 第一件事是向店員要木瓜，可是店裡沒有。\n破誤：「買四個芭樂。」：芭樂是店員後來才拿給她看的；「買一瓶檸檬水。」：買檸檬水是 Then 之後的事；「說謝謝然後回家。」：這是 Finally 後面的最後一件事。\n回頭讀：Review 1 Read and Number（課本 pp.46–47）、Reading Skills：Sequence。",
      {
       "passage": "Ella goes to a fruit store. First, she asks for papayas, but the store doesn't have papayas. Next, the clerk shows her some guavas. Ella needs four guavas. Then she sees lemonade. She likes lemonade, so she buys one bottle. Finally, she says thank you and goes home."
      }
@@ -1662,7 +1662,7 @@ const EN4 = {
      }
     ],
     [
-     "u_e 有兩種念法。哪一個字的 u_e 念法和 cute 一樣（母音前面先有 y 的音）？可以按喇叭聽每個字。",
+     "哪一個字和 cute 一樣，在長母音前面聽得到像 yes 開頭的聲音？可以按喇叭聽每個字。",
      "mule",
      [
       "Luke",
@@ -1787,9 +1787,9 @@ const EN4 = {
       "再聽 Lily 上的是哪一堂課。",
       "最後聽 She is 後面的動作。"
      ],
-     "正確概念：Today is Wednesday. Lily has PE class. She is swimming.：今天是星期三，Lily 在體育課游泳。\n破誤：「今天是星期四，Lily 在體育課游泳。」：沒聽清楚 Today is 後面的星期；「今天是星期三，Lily 在音樂課唱歌。」：星期聽對了，但課和動作都聽錯了；「今天是星期三，Lily 在體育課畫畫。」：課聽對了，但沒聽清楚她在做什麼。\n回頭讀：Unit 3 Sentence A（課本 p.54）、Review 2 Listen and Number（課本 p.77）。",
+     "正確概念：Today is Wednesday. Lily is swimming in PE class.：今天是星期三，Lily 在體育課游泳。\n破誤：「今天是星期四，Lily 在體育課游泳。」：沒聽清楚 Today is 後面的星期；「今天是星期三，Lily 在音樂課唱歌。」：星期聽對了，但課和動作都聽錯了；「今天是星期三，Lily 在體育課畫畫。」：課聽對了，但沒聽清楚她在做什麼。\n回頭讀：Unit 3 Sentence A（課本 p.54）、Review 2 Listen and Number（課本 p.77）。",
      {
-      "listen": "Today is Wednesday. Lily has PE class. She is swimming.",
+      "listen": "Today is Wednesday. Lily is swimming in PE class.",
       "rate": 0.9
      }
     ],
