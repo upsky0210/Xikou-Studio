@@ -11,28 +11,34 @@ const SS4 = {
  "note": "依翰林四上社會課本編寫。部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0）。",
  "zones": [
   {
-   "name": "家鄉的地圖與運用",
-   "unit": "家鄉的地圖與運用"
+   "name": "地圖街角",
+   "unit": "家鄉的地圖與運用",
+   "terrain": "street"
   },
   {
-   "name": "家鄉的地形與氣候",
-   "unit": "家鄉的地形與氣候"
+   "name": "氣候觀測站",
+   "unit": "家鄉的地形與氣候",
+   "terrain": "weather"
   },
   {
-   "name": "家鄉的人口與生活",
-   "unit": "家鄉的人口與生活"
+   "name": "城鄉發展谷",
+   "unit": "家鄉的人口與生活",
+   "terrain": "eco"
   },
   {
-   "name": "家鄉的多元文化",
-   "unit": "家鄉的多元文化"
+   "name": "多元美食街",
+   "unit": "家鄉的多元文化",
+   "terrain": "nightmarket"
   },
   {
-   "name": "家鄉的節慶與禮俗",
-   "unit": "家鄉的節慶與禮俗"
+   "name": "廟埕節慶街",
+   "unit": "家鄉的節慶與禮俗",
+   "terrain": "temple"
   },
   {
-   "name": "家鄉故事導覽員",
-   "unit": "家鄉故事導覽員"
+   "name": "時光鐘塔",
+   "unit": "家鄉故事導覽員",
+   "terrain": "clocktower"
   }
  ],
  "levels": [

@@ -5,10 +5,10 @@
    字型分片、題庫資料檔和題目的圖，在第一次用到時才放進快取。
    登入和雲端存檔用的 Firebase（從 gstatic 載入）也是第一次用到時放進快取，而且先用快取：
    沒網路時開站也認得上次登入的人，網路一回來就能把進度補存上去。 */
-const VERSION = 'v12';
+const VERSION = 'v13';
 const CACHE = 'xk-practice-' + VERSION;
 const FIREBASE = 'https://www.gstatic.com/firebasejs/';   // 網址帶版本號，內容不會變（版本寫在 js/save.js）
-const ZONES = ['arena', 'castle', 'citygate', 'civic', 'clinic', 'clocktower', 'eco', 'fest', 'forest', 'forge', 'fort', 'gallery', 'garden', 'generic', 'industry', 'isle', 'lane', 'magnet', 'maze', 'mill', 'mine', 'mountain', 'nightmarket', 'oasis', 'palace', 'school', 'street', 'volcano', 'weather'];   // img/zone/ 裡的全部地形小圖（新增地形要加進來）
+const ZONES = ['arena', 'castle', 'citygate', 'civic', 'clinic', 'clocktower', 'eco', 'fest', 'forest', 'forge', 'fort', 'gallery', 'garden', 'generic', 'industry', 'isle', 'lane', 'magnet', 'maze', 'mill', 'mine', 'mountain', 'nightmarket', 'oasis', 'palace', 'school', 'street', 'temple', 'volcano', 'weather'];   // img/zone/ 裡的全部地形小圖（新增地形要加進來）
 const CORE = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css',
   'js/books.js', 'js/loader.js', 'js/save.js', 'js/engine.js', 'js/terrain.js', 'js/ui.js', 'js/main.js',
