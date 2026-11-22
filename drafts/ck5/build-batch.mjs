@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs';
 
 export const d = (text, misconception) => ({ text, misconception });
 
-export function question(type, stem, answer, distractors, hints, concept, basis, read) {
+export function question(type, stem, answer, distractors, hints, concept, basis, read, att = null) {
   const corrections = distractors.map(({ text, misconception }) => `「${text}」：${misconception}`).join(' ');
   return {
     type,
@@ -12,6 +12,7 @@ export function question(type, stem, answer, distractors, hints, concept, basis,
     hints,
     explanation: `正確概念：${concept}\n破誤：${corrections}\n回頭讀：${read}`,
     verify: { kind: 'judge', basis },
+    ...(att ? { att } : {}),
   };
 }
 
@@ -26,8 +27,8 @@ export function writeBatch(batch, lessons) {
     console.log(`${id} 短文 ${length} 字（含標點）`);
     for (const [index, item] of items.entries()) {
       const number = index + 1;
-      const { type, stem, ...details } = item;
-      const attachment = number === 5 || number === 7 ? { passage } : null;
+      const { type, stem, att, ...details } = item;
+      const attachment = number === 5 || number === 7 ? { passage } : (att ?? null);
       questions.push({ id: `${id}-Q${number}`, level, type, stem, attachment, ...details });
     }
   }

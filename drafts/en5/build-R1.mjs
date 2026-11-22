@@ -20,10 +20,10 @@ q('L07-Q2', '字彙：症狀情境',
   { concept: 'head 指頭，headache 是頭痛。', ref: 'Unit 2 Vocabulary（課本 pp.32–33）、Review 1（課本 p.43）' });
 
 q('L07-Q3', '句型：問答配對',
-  'Megan 想知道眼前的同學來自哪裡。她可以怎麼問？', null, 'Where are you from?',
+  'Megan 希望眼前的同學直接說出自己來自哪裡。她可以怎麼問？', null, 'Where are you from?',
   [['Where is she from?', '人稱代名詞混淆', '用 she 問另一位女生，沒有用 you 問眼前的人'],
    ['Where am I from?', '人稱代名詞混淆', '用了 I，變成在問自己來自哪裡'],
-   ['Are you from India?', '疑問詞混淆', '直接猜一個國家，只能確認是不是來自印度']],
+   ['Are you from India?', '疑問詞混淆', '直接猜一個國家，對方只要回答是或不是，不會直接說出來自哪裡']],
   ['先分清楚 Megan 在問誰。', '對眼前的人說話，要用表示「你」的人稱。', '她想讓對方說出一個地方，要用問地點的疑問詞。'],
   { concept: '直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?', ref: 'Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）' });
 

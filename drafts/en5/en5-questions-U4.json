@@ -650,7 +650,7 @@
   "distractors": [
    {
     "text": "shout",
-    "misconception": "開頭和母音相同，但沒有留意結尾的音",
+    "misconception": "開頭和母音相同，但沒有聽出後面還有一個短而輕的音節",
     "trap": "音近字"
    },
    {
@@ -667,9 +667,9 @@
   "hints": [
    "先聽開頭有沒有像 sh 的聲音。",
    "再聽母音和 clown 的 ow 一不一樣。",
-   "比一比開頭相同的字，重聽結尾是 t 的音，還是像 her 的 er 音。"
+   "shower 有兩個音節：第一個音節和 shout 的開頭、母音相同，第二個音節短而輕。"
   ],
-  "explanation": "正確概念：念的是 shower，開頭是 sh，結尾是像 her 的 er 音。shout 有相同的開頭和母音，但結尾是 t 的音。\n破誤：「shout」：開頭和母音相同，但沒有留意結尾的音；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
+  "explanation": "正確概念：念的是 shower，有兩個音節：第一個音節和 shout 有相同的開頭及母音，第二個音節短而輕；shout 只有一個音節，結尾是 t 的音。\n破誤：「shout」：開頭和母音相同，但沒有聽出後面還有一個短而輕的音節；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 4 Phonics Sound It Out（課本 p.72）；聽力對話與閱讀短文為自行編寫"

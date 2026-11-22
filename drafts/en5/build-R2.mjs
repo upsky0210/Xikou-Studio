@@ -32,7 +32,7 @@ const friday = passage(
 );
 
 q('L14-Q4', '句型與閱讀：依序找作息',
-  '依上面的短文，哪一句正確說出 Adele 寫功課前的上一項作息和時間？英文也要寫對。', friday, 'She has dinner at six fifteen.',
+  '依上面的短文，哪一句正確說出 Adele 寫功課前，上一項有標明時間的作息和時間？英文也要寫對。', friday, 'She has dinner at six fifteen.',
   [['She have dinner at six fifteen.', '第三人稱混淆', '找對作息和時間，卻忘了 she 後面的 have 要改成 has'],
    ['She has dinner at seven ten.', '時間錯置', '找對上一項作息，卻把寫功課的時間配給晚餐'],
    ['She goes to bed at nine o\'clock.', '順序錯置', '上床時間讀對了，但那是寫完功課以後的作息']],

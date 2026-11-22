@@ -150,11 +150,11 @@ q('L13-Q3', '發音：拼讀規則',
 
 q('L13-Q4', '聽力：聽音選字',
   '請聽英文，選出你聽到的單字。', listen('shower', 0.8), 'shower',
-  [['shout', '音近字', '開頭和母音相同，但沒有留意結尾的音'],
+  [['shout', '音近字', '開頭和母音相同，但沒有聽出後面還有一個短而輕的音節'],
    ['house', '音近字', '只聽到相同的母音，沒比對開頭和結尾'],
    ['clown', '音近字', '抓到相同的母音，就選了另一個帶 ow 的字']],
-  ['先聽開頭有沒有像 sh 的聲音。', '再聽母音和 clown 的 ow 一不一樣。', '比一比開頭相同的字，重聽結尾是 t 的音，還是像 her 的 er 音。'],
-  { concept: '念的是 shower，開頭是 sh，結尾是像 her 的 er 音。shout 有相同的開頭和母音，但結尾是 t 的音。', ref: 'Unit 4 Phonics Sound It Out（課本 p.72）' });
+  ['先聽開頭有沒有像 sh 的聲音。', '再聽母音和 clown 的 ow 一不一樣。', 'shower 有兩個音節：第一個音節和 shout 的開頭、母音相同，第二個音節短而輕。'],
+  { concept: '念的是 shower，有兩個音節：第一個音節和 shout 有相同的開頭及母音，第二個音節短而輕；shout 只有一個音節，結尾是 t 的音。', ref: 'Unit 4 Phonics Sound It Out（課本 p.72）' });
 
 const eveningPlan = passage(
   'Lydia goes to bed late. She wants to go to bed at nine thirty. She plays with her toys after dinner, so she starts her homework late. Now she does her homework before dinner. After dinner, she puts her books in her bag and gets ready for bed. Her new plan helps her go to bed on time.'

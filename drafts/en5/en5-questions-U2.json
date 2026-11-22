@@ -452,7 +452,7 @@
    },
    {
     "text": "I has a sore throat.",
-    "misconception": "知道要用 I 回答，卻用了一個人名後才會用的 has",
+    "misconception": "知道要用 I 回答，卻用了 he、she、it 或單數人名後才會用的 has",
     "trap": "第三人稱混淆"
    },
    {
@@ -466,7 +466,7 @@
    "分辨對方是問有沒有指定的症狀，還是請人自己說哪裡不舒服。",
    "被問到的人回答自己的症狀時，要用 I 搭配正確的動詞。"
   ],
-  "explanation": "正確概念：What's wrong, Mike? 是直接問 Mike 哪裡不舒服。Mike 可以用 I have 加上一種症狀回答。\n破誤：「He has a sore throat.」：聽見 Mike 的名字，就用第三人稱說他，沒注意是直接問 Mike；「I has a sore throat.」：知道要用 I 回答，卻用了一個人名後才會用的 has；「No, I don't have a sore throat.」：把請對方說明症狀的問句，聽成問他有沒有喉嚨痛。\n回頭讀：Unit 2 Sentence A（課本 p.34）、Grammar Tips（課本 p.36）。",
+  "explanation": "正確概念：What's wrong, Mike? 是直接問 Mike 哪裡不舒服。Mike 可以用 I have 加上一種症狀回答：I 後用 have，he、she、it 或單數人名後才用 has。\n破誤：「He has a sore throat.」：聽見 Mike 的名字，就用第三人稱說他，沒注意是直接問 Mike；「I has a sore throat.」：知道要用 I 回答，卻用了 he、she、it 或單數人名後才會用的 has；「No, I don't have a sore throat.」：把請對方說明症狀的問句，聽成問他有沒有喉嚨痛。\n回頭讀：Unit 2 Sentence A（課本 p.34）、Grammar Tips（課本 p.36）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 2 Sentence A（課本 p.34）、Grammar Tips（課本 p.36）；聽力對話與閱讀短文為自行編寫"

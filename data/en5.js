@@ -324,10 +324,10 @@ const EN5 = {
      ],
      [
       "先聽這個字的母音是長音 e，還是捲舌的音。",
-      "這個字的母音是捲舌的音，和 girl、nurse 的母音一樣。",
+      "在本課的例字中，her、girl、nurse 的重讀母音屬於同一組。",
       "這個字和 he 只差在後面多了一個字母。"
      ],
-     "正確概念：念的是 her，母音是 er 的念法，和 girl 的 ir、nurse 的 ur 念法一樣；he 才是長音 e。\n破誤：「ee」：把聽到的字聽成 he，以為是 ee 的長音；「ea」：把聽到的字聽成長音 e，以為是 ea 的拼法；「ar」：聽到捲舌的 r 音，就以為是 ar。\n回頭讀：Unit 1 Phonics（課本 pp.26–27）。",
+     "正確概念：念的是 her。在本課的例字中，her 的 er、girl 的 ir、nurse 的 ur 念法一樣；he 才是長音 e。\n破誤：「ee」：把聽到的字聽成 he，以為是 ee 的長音；「ea」：把聽到的字聽成長音 e，以為是 ea 的拼法；「ar」：聽到捲舌的 r 音，就以為是 ar。\n回頭讀：Unit 1 Phonics（課本 pp.26–27）。",
      {
       "listen": "her",
       "rate": 0.8
@@ -343,7 +343,7 @@ const EN5 = {
      ],
      [
       "先聽每個字的母音，不要只看拼法。",
-      "er、ir、ur 這三組字母的念法是一樣的。",
+      "在本課的例字中，bird、nurse、her 的重讀母音屬於同一組。",
       "找一找哪一個字沒有 er、ir 或 ur。"
      ],
      "正確概念：bird 的 ir、nurse 的 ur、her 的 er 念法都一樣；fist 只有 i，念短音 i，和其他三個不同。\n破誤：「bird」：看到 ir 和 ur、er 的字母不同，就以為念法也不同；「nurse」：看到 ur 和 ir、er 的字母不同，就以為念法也不同；「her」：看到 er 和 ir、ur 的字母不同，就以為念法也不同。\n回頭讀：Unit 1 Phonics Sound It Out、Listen, Point, and Say（課本 pp.26–27）。",
@@ -361,8 +361,8 @@ const EN5 = {
      ],
      [
       "girl 的 ir 是母音後面接 r。",
-      "er、ir、ur 這三組的念法一樣，找一找哪一個字有其中一組。",
-      "只看母音後面有沒有接 r。"
+      "在本課的例字中，her、girl、nurse 的重讀母音屬於同一組。先聽一聽，再找有這組字母的字。",
+      "fist、blue、he 都沒有 er、ir 或 ur。"
      ],
      "正確概念：purple 的 ur 和 girl 的 ir 念法一樣；fist、blue、he 的母音後面都沒有 r，念法不同。\n破誤：「fist」：看到 i 就以為和 girl 一樣；fist 只有 i，後面沒有 r，念短音 i；「blue」：看到 u 就以為是 ur；blue 的 u 後面沒有 r；「he」：看到 e 就以為是 er；he 的 e 後面沒有 r，念長音 e。\n回頭讀：Unit 1 Phonics Sound It Out、Listen and Chant（課本 p.26）。"
     ],
@@ -667,7 +667,7 @@ const EN5 = {
       "分辨對方是問有沒有指定的症狀，還是請人自己說哪裡不舒服。",
       "被問到的人回答自己的症狀時，要用 I 搭配正確的動詞。"
      ],
-     "正確概念：What's wrong, Mike? 是直接問 Mike 哪裡不舒服。Mike 可以用 I have 加上一種症狀回答。\n破誤：「He has a sore throat.」：聽見 Mike 的名字，就用第三人稱說他，沒注意是直接問 Mike；「I has a sore throat.」：知道要用 I 回答，卻用了一個人名後才會用的 has；「No, I don't have a sore throat.」：把請對方說明症狀的問句，聽成問他有沒有喉嚨痛。\n回頭讀：Unit 2 Sentence A（課本 p.34）、Grammar Tips（課本 p.36）。",
+     "正確概念：What's wrong, Mike? 是直接問 Mike 哪裡不舒服。Mike 可以用 I have 加上一種症狀回答：I 後用 have，he、she、it 或單數人名後才用 has。\n破誤：「He has a sore throat.」：聽見 Mike 的名字，就用第三人稱說他，沒注意是直接問 Mike；「I has a sore throat.」：知道要用 I 回答，卻用了 he、she、it 或單數人名後才會用的 has；「No, I don't have a sore throat.」：把請對方說明症狀的問句，聽成問他有沒有喉嚨痛。\n回頭讀：Unit 2 Sentence A（課本 p.34）、Grammar Tips（課本 p.36）。",
      {
       "listen": "What's wrong, Mike?",
       "rate": 0.9
@@ -880,7 +880,7 @@ const EN5 = {
      "正確概念：head 指頭，headache 是頭痛。\n破誤：「a stomachache」：認出字尾表示痛，卻選了肚子痛；「a toothache」：把頭痛和牙齒痛記混了；「a sore throat」：看到是在說痛就選了，沒有對照疼痛的位置。\n回頭讀：Unit 2 Vocabulary（課本 pp.32–33）、Review 1（課本 p.43）。"
     ],
     [
-     "Megan 想知道眼前的同學來自哪裡。她可以怎麼問？",
+     "Megan 希望眼前的同學直接說出自己來自哪裡。她可以怎麼問？",
      "Where are you from?",
      [
       "Where is she from?",
@@ -892,7 +892,7 @@ const EN5 = {
       "對眼前的人說話，要用表示「你」的人稱。",
       "她想讓對方說出一個地方，要用問地點的疑問詞。"
      ],
-     "正確概念：直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?\n破誤：「Where is she from?」：用 she 問另一位女生，沒有用 you 問眼前的人；「Where am I from?」：用了 I，變成在問自己來自哪裡；「Are you from India?」：直接猜一個國家，只能確認是不是來自印度。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。"
+     "正確概念：直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?\n破誤：「Where is she from?」：用 she 問另一位女生，沒有用 you 問眼前的人；「Where am I from?」：用了 I，變成在問自己來自哪裡；「Are you from India?」：直接猜一個國家，對方只要回答是或不是，不會直接說出來自哪裡。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。"
     ],
     [
      "依上面的短文，有人問：「Does Eric have a fever?」哪個回答正確？",
@@ -1713,9 +1713,9 @@ const EN5 = {
      [
       "先聽開頭有沒有像 sh 的聲音。",
       "再聽母音和 clown 的 ow 一不一樣。",
-      "比一比開頭相同的字，重聽結尾是 t 的音，還是像 her 的 er 音。"
+      "shower 有兩個音節：第一個音節和 shout 的開頭、母音相同，第二個音節短而輕。"
      ],
-     "正確概念：念的是 shower，開頭是 sh，結尾是像 her 的 er 音。shout 有相同的開頭和母音，但結尾是 t 的音。\n破誤：「shout」：開頭和母音相同，但沒有留意結尾的音；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
+     "正確概念：念的是 shower，有兩個音節：第一個音節和 shout 有相同的開頭及母音，第二個音節短而輕；shout 只有一個音節，結尾是 t 的音。\n破誤：「shout」：開頭和母音相同，但沒有聽出後面還有一個短而輕的音節；「house」：只聽到相同的母音，沒比對開頭和結尾；「clown」：抓到相同的母音，就選了另一個帶 ow 的字。\n回頭讀：Unit 4 Phonics Sound It Out（課本 p.72）。",
      {
       "listen": "shower",
       "rate": 0.8
@@ -1827,7 +1827,7 @@ const EN5 = {
      "正確概念：What would you like to eat? 可以讓客人自己說想吃什麼。用 Would you like some noodles? 則是詢問要不要吃指定的食物。\n破誤：「Would you like some noodles?」：特別問要不要吃麵條，沒有讓客人說出想點的餐點；「What time do you have dinner?」：問的是幾點吃晚餐，沒有問要吃什麼；「What would you like to drink?」：問的是想喝什麼，沒有問要點什麼食物。\n回頭讀：Unit 3 Sentence A／B（課本 pp.52–53）、Review 2（課本 p.75）。"
     ],
     [
-     "依上面的短文，哪一句正確說出 Adele 寫功課前的上一項作息和時間？英文也要寫對。",
+     "依上面的短文，哪一句正確說出 Adele 寫功課前，上一項有標明時間的作息和時間？英文也要寫對。",
      "She has dinner at six fifteen.",
      [
       "She have dinner at six fifteen.",

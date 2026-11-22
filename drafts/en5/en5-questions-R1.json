@@ -73,7 +73,7 @@
   "id": "L07-Q3",
   "level": "L07",
   "type": "句型：問答配對",
-  "stem": "Megan 想知道眼前的同學來自哪裡。她可以怎麼問？",
+  "stem": "Megan 希望眼前的同學直接說出自己來自哪裡。她可以怎麼問？",
   "attachment": null,
   "answer": "Where are you from?",
   "distractors": [
@@ -89,7 +89,7 @@
    },
    {
     "text": "Are you from India?",
-    "misconception": "直接猜一個國家，只能確認是不是來自印度",
+    "misconception": "直接猜一個國家，對方只要回答是或不是，不會直接說出來自哪裡",
     "trap": "疑問詞混淆"
    }
   ],
@@ -98,7 +98,7 @@
    "對眼前的人說話，要用表示「你」的人稱。",
    "她想讓對方說出一個地方，要用問地點的疑問詞。"
   ],
-  "explanation": "正確概念：直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?\n破誤：「Where is she from?」：用 she 問另一位女生，沒有用 you 問眼前的人；「Where am I from?」：用了 I，變成在問自己來自哪裡；「Are you from India?」：直接猜一個國家，只能確認是不是來自印度。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。",
+  "explanation": "正確概念：直接問對方來自哪裡時，用 Where 問地點，主詞用 you，所以是 Where are you from?\n破誤：「Where is she from?」：用 she 問另一位女生，沒有用 you 問眼前的人；「Where am I from?」：用了 I，變成在問自己來自哪裡；「Are you from India?」：直接猜一個國家，對方只要回答是或不是，不會直接說出來自哪裡。\n回頭讀：Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）。",
   "verify": {
    "kind": "judge",
    "basis": "Unit 1 Sentence A（課本 p.20）、Review 1（課本 p.43）；聽力對話與閱讀短文為自行編寫"
