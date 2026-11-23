@@ -28,7 +28,7 @@ LINE.uniforms = Object.assign({}, OUTLINE.uniforms, { uWidth: { value: 0.0016 } 
 
 /* ---------- Soft：拼平滑模型（保留圓滑的法線，不做成一面一面） ---------- */
 const _c = new THREE.Color();
-class Soft {
+export class Soft {
   constructor() { this.parts = []; this.shines = []; this.flat = []; }
   // o.p 位置、o.r 旋轉（先轉 y 再轉 x，方便「朝某個方向」）、o.s 縮放；o.line=false 不描邊；o.shine 不受光（眼睛亮點）
   add(geo, color, o = {}) {
@@ -70,13 +70,13 @@ class Soft {
 }
 
 // 橢球表面上，朝某個方向（yaw 往右、pitch 往上）的點；回傳 { p, r } 讓零件貼著表面、正面朝外
-function on(C, R3, yaw, pitch, out = 0) {
+export function on(C, R3, yaw, pitch, out = 0) {
   const cp = Math.cos(pitch);
   return { p: [C[0] + Math.sin(yaw) * cp * (R3[0] + out), C[1] + Math.sin(pitch) * (R3[1] + out), C[2] + Math.cos(yaw) * cp * (R3[2] + out)], r: [-pitch, yaw, 0] };
 }
 
 // 一個可以轉的小零件：pivot 是轉軸的位置，fill(s) 在轉軸座標裡拼形狀
-function joint(parent, pivot, fill, rot) {
+export function joint(parent, pivot, fill, rot) {
   const g = new THREE.Group();
   g.position.set(...pivot);
   if (rot) g.rotation.set(rot[0], rot[1], rot[2] || 0, 'YXZ');
@@ -278,7 +278,7 @@ function rabbit(body) {
 const GOLD_OF = () => '#ffc23a';
 
 // 眨眼：大約每 3.6 秒眨一下（0.14 秒）
-function blink(eyes, t) {
+export function blink(eyes, t) {
   const u = (t % 3.6) / 3.6, close = u > 0.96 ? Math.sin(((u - 0.96) / 0.04) * Math.PI) : 0;
   for (const e of eyes) e.scale.y = 1 - close * 0.9;
 }

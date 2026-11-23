@@ -1,9 +1,11 @@
 /* 畫面：首頁（選課本）→ 3D 冒險地圖（一個單元一區）→ 區域面板（關卡）→ 關卡說明 → 答題 → 結算
    網址用 #/ 分頁（PWA 全螢幕沒有上一頁按鈕，畫面上一律有「返回」）：
-     #/                 首頁
+     #/                 首頁（三款教材）
+     #/s/6a             六上教材：五本課本
      #/b/mn6            這本書的冒險地圖
      #/b/mn6/z/0        地圖上選了第 0 區（打開區域面板）
      #/p/mn6/mn6-01     這一關的說明 → 闖關
+     #/r/mn6            這本書的錯題複習
    3D 地圖在 js/3d/world.js（window.World）；裝置跑不動 3D 或在選單關掉時，改用平面地圖（mode-flat）。 */
 (function () {
   const $ = (sel, el = document) => el.querySelector(sel);
@@ -44,6 +46,7 @@
     book: svg('M5 3.5A2.5 2.5 0 0 1 7.5 1H20v17H7.5a1 1 0 0 0 0 2H20v2.6H7.5A2.5 2.5 0 0 1 5 20.1z'),
     gem: svg('M7 3h10l4.5 5.5L12 21.5 2.5 8.5zm1.1 2L5.7 8h3.6l1.2-3zm4.3 0l1.2 3h3.6l-2.4-3zM9.4 10H5.9l5 6.8zm5.2 0l-1.5 6.8 5-6.8zm-1 0h-3.2L12 17.2z'),
     speaker: svg('M3 9h4l5-4.5v15L7 15H3zm12.5-1.8a6 6 0 0 1 0 9.6l-1.4-1.5a4 4 0 0 0 0-6.6zm2.6-2.9a10 10 0 0 1 0 15.4l-1.4-1.5a8 8 0 0 0 0-12.4z'),
+    redo: svg('M12 3.2a8.8 8.8 0 1 1-8.5 11.1l3-.8A5.7 5.7 0 1 0 8 8.1l2.4 2.4H2.6V2.7l3.2 3.2A8.8 8.8 0 0 1 12 3.2z'),
     star: svg('M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.2l-6.2 3.7 1.6-7L2 9.2l7.1-.6z'),
   };
 
@@ -333,31 +336,75 @@
     };
   }
 
-  /* ---------- 首頁 ---------- */
+  /* ---------- 首頁（選教材）、教材頁（選課本） ---------- */
+  const SHELF_KEY = 'xk-shelf';       // 上次打開哪一款教材（記在這台裝置）
+  const SUBJ = ['國語', '數學', '英語', '自然', '社會'];
+  const SUBJ_ART = { 國語: 'gallery', 數學: 'arena', 英語: 'school', 自然: 'volcano', 社會: 'temple' };
+  const subjOf = (b) => b.title.slice(2);
+  const shelfBooks = (id) => window.BOOKS.filter((b) => b.shelf === id).sort((a, b) => SUBJ.indexOf(subjOf(a)) - SUBJ.indexOf(subjOf(b)));
+  const shelfOf = (bookId) => { const e = window.BOOKS.find((b) => b.id === bookId); return e && window.SHELVES.find((s) => s.id === e.shelf); };
+  function lastShelf() { try { return window.SHELVES.find((s) => s.id === localStorage.getItem(SHELF_KEY)) || null; } catch { return null; } }
+  function bookSum(id) {
+    const s = state.books[id];
+    return { done: s ? Object.values(s.levels).filter((l) => l.done).length : 0, exp: s ? s.exp || 0 : 0, due: Engine.reviewCount(state, id) };
+  }
+  const dueTag = (n, short) => (n ? `<span class="due">${ICON.redo} ${short ? '' : '今天可以'}複習 ${n} 題</span>` : '');
+  function titleWorld(bookId) {       // 首頁和教材頁後面的 3D 背景
+    if (!world) return;
+    Loader.loadBook(bookId).then((book) => {
+      if (!document.body.classList.contains('mode-title')) return;
+      world.setBook(worldVM(book));
+      world.title();
+    }).catch((e) => console.warn(e));
+  }
+
+  function renderShelf(shelf) {
+    setMode('title');
+    updateTop(null);
+    try { localStorage.setItem(SHELF_KEY, shelf.id); } catch { /* 私密模式：不記 */ }
+    const list = shelfBooks(shelf.id);
+    const books = list.map((b) => {
+      const { done, exp, due } = bookSum(b.id);
+      return `<a class="book" href="#/b/${b.id}" style="--c:${b.color};--c2:${mix(b.color, '#000000', 0.35)}">
+        <span class="pages"></span>
+        <span class="cover"><small>${esc(b.pub)}</small><b>${esc(subjOf(b))}</b>
+          <img class="art" src="img/zone/${SUBJ_ART[subjOf(b)] || 'generic'}.webp" alt="">
+          <span class="prog">${dueTag(due, true)}<em>已過關 ${done} 關 · ${exp} EXP</em></span></span></a>`;
+    }).join('');
+    app.innerHTML = `
+      <section class="title-screen shelf-page">
+        <div class="shelf-head"><a class="pill" href="#/">${ICON.back}<b>換教材</b></a>
+          <h1>${esc(shelf.title)}</h1><p class="tagline">選一本課本，展開你的冒險</p></div>
+        <div class="shelf">${books}</div>
+        <p class="title-foot">${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
+      </section>`;
+    titleWorld(list[0].id);
+  }
+
   function renderHome() {
     setMode('title');
     updateTop(null);
-    const books = window.BOOKS.map((b, i) => {
-      const s = state.books[b.id];
-      const done = s ? Object.values(s.levels).filter((l) => l.done).length : 0;
-      const exp = s ? s.exp : 0;
-      return `<a class="book" href="#/b/${b.id}" style="--c:${b.color};--c2:${mix(b.color, '#000000', 0.35)}">
+    const last = lastShelf();
+    const shelves = window.SHELVES.map((sh) => {
+      const sum = shelfBooks(sh.id).map((b) => bookSum(b.id));
+      const total = (k) => sum.reduce((a, x) => a + x[k], 0);
+      return `<a class="book set" href="#/s/${sh.id}" style="--c:${sh.color};--c2:${mix(sh.color, '#000000', 0.35)}">
         <span class="pages"></span>
-        <span class="cover"><small>${esc(b.pub)}</small><b>${pairs(b.title)}</b>
-          ${i === 0 ? '<img class="art" src="img/zone/castle.webp" alt="">' : ''}
-          <span class="prog"><span class="bar"><i style="width:${Math.min(100, done * 6)}%"></i></span><em>已過關 ${done} 關 · ${exp} EXP</em></span></span></a>`;
+        <span class="cover"><small>${last === sh ? '上次打開' : sum.length + ' 本課本'}</small><b>${pairs(sh.title)}</b>
+          <img class="art" src="img/zone/${sh.art}.webp" alt="">
+          <span class="prog">${dueTag(total('due'))}<em>${SUBJ.join('、')}</em><em>已過關 ${total('done')} 關 · ${total('exp')} EXP</em></span></span></a>`;
     }).join('');
     app.innerHTML = `
       <section class="title-screen">
         <div class="logo">
           <span class="kicker">${ICON.crown} 溪口國小</span>
           <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
-          <p class="tagline">選一本課本，展開你的冒險</p>
+          <p class="tagline">選你的教材，展開你的冒險</p>
           <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b>${levelHTML(totalExp())}</span><em>${ICON.hero} 換角色</em></button>
           ${Save.user ? '' : `<button class="login-chip" id="homeLogin" type="button">${G_ICON}<span><b>登入學校帳號</b><small>現在沒登入，進度只存在這台裝置</small></span></button>`}
         </div>
         <div>
-          <div class="shelf">${books}<div class="book soon"><span class="pages"></span><span class="cover"><small>準備中</small><b>${pairs('更多課本')}</b><span class="prog"><em>敬請期待</em></span></span></div></div>
+          <div class="shelf">${shelves}</div>
           <p class="title-foot">題目為自編；部分題目改作自 JDPS-SS（陳煥文，CC BY-NC-SA 4.0） · ${Save.user ? `進度存在雲端（${esc(Save.user.name)}）` : '進度只存在這台裝置'}</p>
         </div>
         <button class="credits-chip" id="creditsBtn" type="button" aria-label="製作資訊">${ICON.star}<b>CREDITS</b></button>
@@ -370,19 +417,15 @@
     let asked = false;
     try { asked = sessionStorage.getItem('xk-hero-asked') === '1'; sessionStorage.setItem('xk-hero-asked', '1'); } catch { asked = true; }
     if (!asked) openHeroPick(true, () => { if (!Save.user) openLogin(true); });
-    if (world) {
-      Loader.loadBook(window.BOOKS[0].id).then((book) => {
-        if (!document.body.classList.contains('mode-title')) return;
-        world.setBook(worldVM(book));
-        world.title();
-      }).catch((e) => console.warn(e));
-    }
+    titleWorld((last ? shelfBooks(last.id)[0] : window.BOOKS[0]).id);
   }
 
   /* ---------- 冒險地圖 ---------- */
   function mapChrome(book, z) {
-    return `<div class="mapbar"><a class="pill" href="#/">${ICON.back}<b>首頁</b></a>
-        <span class="pill"><b>${esc(book.subj + book.sem)}</b><small>${esc(book.pub)}版</small></span></div>
+    const sh = shelfOf(book.id), due = Engine.reviewCount(state, book.id);
+    return `<div class="mapbar"><a class="pill" href="#/${sh ? 's/' + sh.id : ''}">${ICON.back}<b>${sh ? esc(sh.title) : '首頁'}</b></a>
+        <span class="pill"><b>${esc(book.subj + book.sem)}</b><small>${esc(book.pub)}版</small></span>
+        <a class="pill redo${due ? ' on' : ''}" href="#/r/${book.id}" aria-label="錯題複習${due ? `，今天可以練 ${due} 題` : ''}">${ICON.redo}<b>錯題複習</b>${due ? `<em>${due}</em>` : ''}</a></div>
       ${world ? `<div class="maptools"><button class="round" id="ovBtn" type="button" aria-label="看整張地圖">${ICON.expand}<span>整張地圖</span></button>
         <button class="round" id="heroBtn" type="button" aria-label="找到小勇者">${ICON.hero}<span>小勇者在哪</span></button></div>` : ''}
       ${z === null && world ? '<p class="maptip">點一個地方，看看裡面的關卡</p>' : ''}`;
@@ -583,7 +626,9 @@
 
   function renderQuestion(book, feedback, picked) {
     setMode('play');
-    const q = run.current, i = run.index, level = run.level;
+    const q = run.current, i = run.index;
+    const it = run.fix && run.fix[i];              // 錯題複習：這一題原本在哪一關、第幾題
+    const level = it ? it.level : run.level, qi = it ? it.i : i;
     const zi = Engine.zoneInfo(book, level.z), t = terrainOf(zi);
     const solved = run.ok[i];
     const wrong = run.wrongPicks[i];
@@ -602,6 +647,7 @@
     let fb = '';
     if (feedback && feedback.ok) {
       fb = `<div class="fb ok"><b>答對了！</b>${feedback.gained ? `<span class="gain">${ICON.jewel} +${feedback.gained} EXP</span>`
+        : it ? `<span class="sub">${fixNote(run, i)}</span>`
         : run.review ? '<span class="sub">複習模式不加 EXP</span>' : '<span class="sub">重試答對不加 EXP，但你學會了！</span>'}</div>`;
     } else if (mustHint) {
       fb = `<div class="fb no"><b>先看提示，再選一次。</b><span class="sub">這一題已經答錯 ${wrong.length} 次了。按下面的「看提示」，讀完再想想。</span></div>`;
@@ -615,13 +661,13 @@
       <div class="play" style="${accVars(t.color)}">
         <div class="qbar">
           <button class="btn" id="quit" type="button">${ICON.back} 離開</button>
-          <div class="qtitle"><img src="${t.img}" alt=""><span><small>${esc(zi.name)} · 第 ${no} 關${run.review ? ' · 複習' : ''}</small><b>${esc(level.name)}</b></span></div>
-          ${gemsHTML(book, level, i, run.order)}
+          <div class="qtitle"><img src="${t.img}" alt=""><span><small>${esc(zi.name)} · 第 ${no} 關${it ? ' · 錯題複習' : run.review ? ' · 複習' : ''}</small><b>${esc(level.name)}</b></span></div>
+          ${it ? fixDots(i) : gemsHTML(book, level, i, run.order)}
           <span class="pill exp" id="qExpPill" title="這本書的 EXP"><i class="ico gold" aria-hidden="true">${ICON.jewel}</i><b id="qExp">${bookExp}</b><small>EXP</small></span>
         </div>
         <section class="win qcard">
           <div class="ribbon">第 ${Engine.position(run)} 題</div>
-          <div class="qhd">${qTagOf(book, i) ? `<span class="tag lit">${esc(qTagOf(book, i))}</span>` : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
+          <div class="qhd">${qTagOf(book, qi) ? `<span class="tag lit">${esc(qTagOf(book, qi))}</span>` : ''}${level.draft ? '<span class="tag draft">草稿・待抽驗</span>' : ''}<span class="qcount">${run.ok.filter(Boolean).length}／${run.ok.length} 題答對</span></div>
           ${isListen(q.attach) ? listenHTML(q.attach, q, solved, (run.plays || {})[i] || 0, !!(run.scriptShown || {})[i]) : attachHTML(q.attach)}
           <p class="stem">${rich(q.stem)}</p>
           <div class="opts${short ? ' two' : ''}">${opts}</div>
@@ -693,7 +739,95 @@
       if (Engine.next(run)) { Engine.enterQuestion(run); renderQuestion(book); window.scrollTo(0, 0); }
       else finishRun(book);
     };
-    $('#quit').onclick = () => { Say.stop(); run = null; location.hash = '#/b/' + book.id + '/z/' + level.z; };
+    $('#quit').onclick = () => {
+      Say.stop();
+      const back = run.fix && !run.practice ? '#/r/' + book.id : '#/b/' + book.id + '/z/' + level.z;
+      run = null;
+      if (location.hash === back) route(); else location.hash = back;
+    };
+  }
+
+  /* ---------- 錯題複習 ---------- */
+  // 答題畫面上方的進度點：亮＝一選就對、暗＝答錯過、空＝還沒做
+  function fixDots(now) {
+    return `<span class="gems" role="img" aria-label="錯題複習，第 ${now + 1} 題，共 ${run.ok.length} 題">${run.ok.map((ok, k) =>
+      `<i class="${ok ? (run.tries[k] ? 'bright' : 'dim') : ''}${k === now ? ' now' : ''}"></i>`).join('')}</span>`;
+  }
+  // 複習時答對一題，告訴學生接下來什麼時候再練
+  function fixNote(r, i) {
+    if (r.practice) return '訂正完成，這一題之後會出現在錯題複習';
+    if (!r.tries[i]) return '明天再練一次';
+    return r.fix[i].learnedNow ? '一選就對，這一題學會了！' : `一選就對！${Engine.REVIEW_DAYS[r.fix[i].n + 1]} 天後再練一次就學會了`;
+  }
+  function startFix(book, items, practice) {
+    run = Engine.startReview(book.id, items, practice);
+    Engine.enterQuestion(run);
+    if (world) world.play(run.level.z);
+    renderQuestion(book);
+    window.scrollTo(0, 0);
+  }
+  function renderReview(book) {
+    updateTop(book);
+    const { due, later, learned } = Engine.reviewList(state, book);
+    const D = Engine.REVIEW_DAYS, n = Math.min(due.length, Engine.REVIEW_MAX);
+    const byLevel = new Map();
+    for (const x of due) byLevel.set(x.level, (byLevel.get(x.level) || 0) + 1);
+    const byWait = new Map();
+    for (const x of later) byWait.set(x.wait, (byWait.get(x.wait) || 0) + 1);
+    setMode(world ? 'map' : 'flat');
+    app.innerHTML = (world ? mapChrome(book, null) : '') + `
+      <div class="modal"><section class="win brief fixbook">
+        <div class="ribbon">${ICON.redo} 錯題複習</div>
+        <h2>${esc(book.subj + book.sem)}</h2>
+        <div class="stats three">
+          <div class="hot"><small>今天可以練</small><b>${due.length}</b><span>題</span></div>
+          <div><small>還沒到時間</small><b>${later.length}</b><span>題</span></div>
+          <div><small>學會了</small><b>${learned.length}</b><span>題</span></div>
+        </div>
+        ${due.length ? `<ul class="fixlist">${[...byLevel].slice(0, 4).map(([l, k]) => `<li><span>第 ${book.levels.indexOf(l) + 1} 關　${esc(l.name)}</span><b>${k} 題</b></li>`).join('')}${byLevel.size > 4 ? `<li><span>還有其他 ${byLevel.size - 4} 關</span></li>` : ''}</ul>`
+          : `<p class="banner">${ICON.check}<span>${later.length ? '今天的錯題都練完了！' : learned.length ? '目前沒有要複習的題目，都學會了！' : '目前沒有要複習的題目。闖關時答錯的題目，隔天會出現在這裡。'}</span></p>`}
+        ${later.length ? `<p class="fixwait">${[...byWait].sort((a, b) => a[0] - b[0]).map(([w, k]) => `${w === 1 ? '明天' : w + ' 天後'}可以練 <b>${k}</b> 題`).join('、')}</p>` : ''}
+        <ul class="rules">
+          <li><span class="ico shield">${ICON.redo}</span>第一次答錯的題目，隔 ${D[0]} 天可以練；${D.length > 1 ? `一選就對，再過 ${D.slice(1).join('、')} 天練下一次。` : ''}</li>
+          <li><span class="ico gold">${ICON.check}</span>${D.length > 1 ? `${D.length} 次都一選就對` : '一選就對'}就是學會了；答錯就從隔天重新開始。</li>
+          <li><span class="ico jade">${ICON.bulb}</span>一樣有提示；不加 EXP，也不影響精熟和徽章。</li>
+        </ul>
+        <div class="row"><a class="btn" href="#/b/${book.id}">${ICON.back} 回到地圖</a>
+          ${due.length ? `<button class="btn gold big" id="startFix" type="button">${ICON.sword} 開始複習 ${n} 題</button>` : ''}</div>
+      </section></div>`;
+    if (world) {
+      world.setBook(worldVM(book));
+      world.map({ z: null, focus: bookSeen[book.id] ? 'keep' : 'overview', insets: { l: 0, r: 0, t: topInset(), b: 0 } });
+      bookSeen[book.id] = true;
+    }
+    $('.modal').addEventListener('click', (e) => { if (e.target.classList.contains('modal')) location.hash = '#/b/' + book.id; });
+    const sb = $('#startFix');
+    if (sb) { sb.onclick = () => startFix(book, due, false); sb.focus({ preventScroll: true }); }
+  }
+  function renderFixResult(book) {
+    setMode('play');
+    const r = run, right = r.tries.filter((x) => x === true).length, total = r.ok.length;
+    const learned = r.fix.filter((x) => x.learnedNow).length, miss = Engine.missed(r), left = Engine.reviewCount(state, book.id);
+    app.innerHTML = `
+      <div class="play"><section class="win result">
+        <div class="ribbon${miss.length ? '' : ' gold'}">${ICON.redo} ${r.practice ? '訂正完成！' : '複習完成！'}</div>
+        <div class="hero-wrap">${miss.length ? '' : '<div class="rays" aria-hidden="true"></div>'}<img class="hero-img" src="${heroImg()}" alt=""></div>
+        <h2>${r.practice ? '剛才答錯的題目' : '錯題複習'}</h2>
+        <div class="stats ${r.practice ? 'two' : 'three'}">
+          <div class="hot"><small>一選就對</small><b>${right}／${total}</b><span>題</span></div>
+          ${r.practice ? '' : `<div><small>這次學會</small><b>${learned}</b><span>題</span></div>`}
+          <div><small>提示使用</small><b>${r.hintsUsed}</b><span>次</span></div>
+        </div>
+        <p class="banner">${ICON.bulb}<span>${r.practice ? '這是馬上訂正，不算進複習次數。明天打開「錯題複習」，再練一次才記得牢。'
+          : miss.length ? `答錯的 ${miss.length} 題，明天會再出現。` : '這次每一題都一選就對！'}</span></p>
+        <div class="row"><a class="btn${left && !r.practice ? '' : ' gold big'}" href="#/b/${book.id}">${ICON.back} 回到地圖</a>
+          ${left && !r.practice ? `<button class="btn gold big" id="moreFix" type="button">${ICON.sword} 再練 ${Math.min(left, Engine.REVIEW_MAX)} 題</button>` : ''}</div>
+      </section></div>`;
+    run = null;
+    window.scrollTo(0, 0);
+    const mb = $('#moreFix');
+    if (mb) mb.onclick = () => startFix(book, Engine.reviewList(state, book).due, false);
+    if (!miss.length) confetti(60);
   }
 
   // 第一次就答對：+EXP 從按鈕飛到右上角
@@ -732,6 +866,7 @@
   }
 
   function finishRun(book) {
+    if (run.fix) { Save.save(state, { now: true }); return renderFixResult(book); }
     const before = totalExp() - (run.expGained || 0);   // EXP 是每答對一題就加，所以扣回這次拿的
     const res = Engine.finish(state, run, book);
     Save.save(state, { now: true }); updateTop(book);
@@ -748,6 +883,7 @@
     const sum = Engine.levelSummary(state, book.id, r.level);
     const bstate = state.books[book.id];
     const zi = Engine.zoneInfo(book, r.level.z), t = terrainOf(zi);
+    const miss = Engine.missed(r);
     app.innerHTML = `
       <div class="play" style="${accVars(t.color)}">
         <section class="win result">
@@ -768,6 +904,7 @@
           ${r.review ? `<p class="banner">${ICON.jewel}<span>複習模式：EXP 以第一次闖關為準。</span></p>` : ''}
           ${res.badge !== null ? `<div class="badge-get">${medalHTML(book, Engine.zoneInfo(book, res.badge), 'big')}
             <p>恭喜！你拿到了<b>「${esc(zoneName(book, res.badge))}」的徽章</b>回到地圖，看看旗子升起來！</p></div>` : ''}
+          ${miss.length ? `<p class="banner redo">${ICON.redo}<span>這次答錯過 ${miss.length} 題。${r.review ? '' : '明天會出現在「錯題複習」。'}</span><button class="btn" id="redoNow" type="button">只練剛才錯的</button></p>` : ''}
           <div class="row">
             <a class="btn${res.star ? ' gold big' : ''}" href="#/b/${book.id}/z/${r.level.z}">${ICON.back} 回到${esc(zi.name)}</a>
             <a class="btn${res.star ? '' : ' gold big'}" id="again" href="#/p/${book.id}/${encodeURIComponent(r.level.id)}">${res.star ? '再練一次' : `${ICON.sword} 再練一次拿精熟`}</a>
@@ -775,6 +912,7 @@
         </section>
       </div>`;
     $('#again').onclick = (e) => { e.preventDefault(); renderIntro(book, r.level); };
+    if ($('#redoNow')) $('#redoNow').onclick = () => startFix(book, miss, true);
     run = null;
     window.scrollTo(0, 0);
     if (res.star) confetti(res.badge !== null ? 140 : 80);      // 彩帶留給精熟
@@ -830,6 +968,15 @@
     $('#menu').hidden = true;
     try {
       if (!parts.length) return renderHome();
+      if (parts[0] === 's') {
+        const sh = window.SHELVES.find((x) => x.id === parts[1]);
+        if (sh) return renderShelf(sh);
+      }
+      if (parts[0] === 'r' && parts[1]) {
+        const book = await Loader.loadBook(parts[1]);
+        if (seq !== routeSeq) return;
+        return renderReview(book);
+      }
       if (parts[0] === 'b' && parts[1]) {
         const book = await Loader.loadBook(parts[1]);
         if (seq !== routeSeq) return;
@@ -1072,7 +1219,7 @@
     // 正在闖關或看結算就不打斷（下次換畫面就會看到）；在首頁或地圖就重畫。
     Save.onChange = (s) => {
       state = s;
-      if (run || location.hash.startsWith('#/p/')) return;
+      if (run || /^#\/[pr]\//.test(location.hash)) return;
       toast('已經把你在其他裝置的進度合併進來了');
       route();
     };

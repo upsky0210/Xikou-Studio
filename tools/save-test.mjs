@@ -422,4 +422,23 @@ const inCloud = (t) => JSON.parse(t.cloud.doc.json);
   assert.equal(none.Save.guestLeft, null);
   console.log('17 ok 訪客進度不是我的：留在這台，不進帳號');
 }
+// 18. 錯題複習的紀錄（fix）：時間新的算數，和順序無關
+{
+  const mk = (fix) => st({ mn6: { 'mn6-01': { done: false, doneAt: 0, q: [Object.assign({ first: false, ok: true, hints: 1 }, fix ? { fix } : {})] } } });
+  const got = async (a, b) => {
+    const t = setup({ cloud: { doc: { email: 'kid@st.skps.tp.edu.tw', name: '小明', json: JSON.stringify(a), at: 1, updatedAt: 'TS' } },
+      store: { 'xk-user': JSON.stringify({ uid: 'u1', email: 'kid@st.skps.tp.edu.tw', name: '小明' }), 'xk-cloud-u1': JSON.stringify({ at: 2, s: b }) } });
+    await t.Save.init();
+    const s = await t.Save.load();
+    await tick();
+    return plain(s).books.mn6.levels['mn6-01'].q[0].fix;
+  };
+  const A = { n: 1, at: 2000 }, B = { n: 0, at: 3000 }, C = { n: 2, at: 3000 };
+  for (const [x, y, want] of [[A, B, B], [B, C, B], [null, A, A]]) {
+    assert.deepEqual(await got(mk(x), mk(y)), want);
+    assert.deepEqual(await got(mk(y), mk(x)), want);
+  }
+  assert.equal(await got(mk(null), mk(null)), undefined);
+  console.log('18 ok 錯題複習的紀錄會合併');
+}
 console.log('存檔測試全部通過');

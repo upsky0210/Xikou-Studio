@@ -16,7 +16,7 @@
   --safe-l: env(safe-area-inset-left, 0px); --safe-r: env(safe-area-inset-right, 0px);
 }
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; min-height: 100%; }   /* min-height：首頁的 body 是 fixed，html 沒有高度的話背景畫不出來 */
 body {
   margin: 0; min-height: 100vh; color: var(--ink); background: linear-gradient(#bfe2ff, #e8f5ff 60%, #f6f1e4);
   font-family: var(--font); font-weight: 500; font-size: 18px; line-height: 1.6;
@@ -40,6 +40,7 @@ body.mode-flat #world { display: none; }
   background: radial-gradient(120% 90% at 50% 0%, rgba(255, 253, 248, .5), rgba(246, 240, 227, .88) 70%); }
 body.mode-play #veil { opacity: 1; }
 body.mode-flat { background: linear-gradient(#8fd0ff 0, #cdeaff 260px, #b7e08a 260px, #9fd36b 100%); }
+body.mode-title { background: linear-gradient(#8fd0ff 0, #cdeaff 45%, #b7e08a 45%, #9fd36b 100%); }   /* 3D 關掉時首頁的背景 */
 body.mode-flat #veil { display: none; }
 
 #labels { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
@@ -172,6 +173,30 @@ body.mode-title #app > *, body.mode-map #app > * { pointer-events: auto; }
 .book em { display: block; font-style: normal; font-size: 13px; font-weight: 700; margin-top: 4px; }
 a.book:hover, a.book:focus-visible { transform: translateY(-8px) rotate(-1deg); }
 a.book:active { transform: translateY(-2px) scale(.98); }
+/* 首頁的三款教材（大本）、教材頁 */
+.book.set { width: 250px; height: 300px; }
+.book.set .art { width: 138px; right: 8px; bottom: 96px; }
+.shelf-page .book .art { bottom: 64px; }
+.book .due { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 2px; padding: 2px 10px; border-radius: 99px; background: #fff3c4; color: #6b3f00; border: 2px solid var(--frame); font-size: 13px; font-weight: 900; white-space: nowrap; }
+.book .due svg { width: 14px; height: 14px; }
+.shelf-page { justify-content: flex-start; gap: 10px; padding-top: calc(var(--hud-h) + 14px + var(--safe-t)); }
+.shelf-page .title-foot { margin-top: auto; }
+.shelf-head { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.shelf-head .pill { padding: 0 18px 0 12px; color: var(--ink); text-decoration: none; }
+.shelf-head h1 { margin: 0; font-size: clamp(38px, 7vw, 64px); font-weight: 900; line-height: 1.1; color: var(--frame-2); text-shadow: 0 3px 0 #fff, 0 0 18px #fff; }
+/* 錯題複習 */
+.mapbar .pill.redo em { display: grid; place-items: center; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 99px; background: #e0392b; color: #fff; font-style: normal; font-size: 14px; font-weight: 900; }
+.mapbar .pill.redo.on { background: linear-gradient(#fff3c4, #ffe08a); }
+.stats.three { grid-template-columns: repeat(3, 1fr); }
+.stats.two { grid-template-columns: repeat(2, 1fr); }
+.fixbook .stats { text-align: center; }
+.fixlist { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 6px; }
+.fixlist li { display: flex; justify-content: space-between; gap: 12px; padding: 6px 12px; border: 2px solid var(--line); border-radius: 12px; background: #fff; font-weight: 700; font-size: 16px; }
+.fixlist b { flex: none; color: var(--royal-3); }
+.fixwait { margin: 0 0 12px; font-size: 15px; font-weight: 700; color: var(--ink-2); }
+.banner.redo { align-items: center; flex-wrap: wrap; text-align: left; }
+.banner.redo span { flex: 1 1 200px; }
+.banner.redo svg { flex: none; }
 .book.soon .cover { background: repeating-linear-gradient(135deg, #e8e2d4 0 14px, #ded6c5 14px 28px); color: var(--ink-3); box-shadow: inset 18px 0 0 rgba(0, 0, 0, .08), 0 10px 0 rgba(26, 34, 70, .2); }
 .book.soon b { font-size: 26px; text-shadow: none; }
 .title-foot { position: relative; margin: 8px 0 0; font-size: 12px; font-weight: 700; color: var(--frame); text-align: center; background: rgba(255, 255, 255, .7); padding: 2px 12px; border-radius: 999px; }
@@ -523,6 +548,12 @@ body.mode-flat .zpanel { position: fixed; }
   .book b { font-size: 25px; }
   .book .art { width: 80px; bottom: 50px; }
   .book em { font-size: 12px; }
+  .book.set { width: min(300px, calc(100vw - 48px)); height: 176px; transform: none; }
+  .book.set .art { width: 112px; bottom: 44px; }
+  .shelf-page .book .art { width: 84px; bottom: 56px; }
+  .book .due { font-size: 12px; padding: 1px 7px; }
+  .book.set b { font-size: 30px; }
+  .stats.three { grid-template-columns: repeat(3, 1fr); }
   .logo { margin-top: 2vh; }
   .opts.two { grid-template-columns: 1fr; }
   .stem, .attach p.passage { font-size: 20px; }
@@ -547,6 +578,10 @@ body.mode-flat .zpanel { position: fixed; }
   .brand { padding: 3px; }
   .brand .name { display: none; }
   .mapbar .pill small { display: none; }
+  .mapbar { flex-wrap: wrap; right: 14px; gap: 6px; }
+  .flat { padding-top: calc(var(--hud-h) + 114px + var(--safe-t)); }
+  .mapbar .pill { padding: 0 11px; }
+  .mapbar .pill b { font-size: 15px; }
   .qbar .btn { padding: 6px 10px; }
   .qbar .pill small { display: none; }
 }

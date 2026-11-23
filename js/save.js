@@ -28,7 +28,7 @@
            "mn6-01": {
              done: true, doneAt: 1731000000000,    // 7 題都答對過
              star: true, starAt: 1731000000000,    // 精熟（一次闖關裡第一次就答對 5 題以上；沒有就沒這兩欄，規則見 engine.js）
-             q: [ { first: true, ok: true, hints: 2 }, ... ]   // 每題：first＝第一次作答是否答對（null＝還沒答）、ok＝答對過、hints＝看提示次數
+             q: [ { first: true, ok: true, hints: 2 }, ... ]   // 每題：first＝第一次作答是否答對（null＝還沒答）、ok＝答對過、hints＝看提示次數；第一次答錯的另外有 fix: { n, at }（錯題複習，規則見 engine.js）
            }
          }
        }
@@ -66,6 +66,7 @@
 
   /* 兩份進度合在一起（哪一份放前面結果都一樣，合幾次也一樣）：
      - 每一題：答對過（ok）有一邊是就是；第一次就答對（first）有一邊是 true 就算 true；提示次數取多的。
+       錯題複習（fix）：時間比較新的那一次算數；時間一樣就取練對次數少的。
      - 每一關：有一邊過關就是過關，過關時間取早的；精熟（star）也一樣。徽章：有一邊拿到就有，時間取早的。
      - EXP 由合併後的 first 重新算（規則同 engine.js 的 recalcExp）。
      - 清除進度：reset 比較新的那一份整份算數，另一份（清除之前的舊進度）丟掉。
@@ -74,10 +75,14 @@
   const clone = (x) => JSON.parse(JSON.stringify(x));
   const keys = (a, b) => [...new Set([...Object.keys(a || {}), ...Object.keys(b || {})])];
   const early = (a, b) => (a && b ? Math.min(a, b) : a || b || 0);
+  const mergeFix = (x, y) => (!x ? y : !y ? x : x.at !== y.at ? (x.at > y.at ? x : y) : x.n <= y.n ? x : y);
   function mergeQ(x, y) {
     if (!x || !y) return clone(x || y);
     const first = x.first === true || y.first === true ? true : x.first === false || y.first === false ? false : null;
-    return { ...y, ...x, first, ok: !!(x.ok || y.ok), hints: Math.max(x.hints || 0, y.hints || 0) };
+    const out = { ...y, ...x, first, ok: !!(x.ok || y.ok), hints: Math.max(x.hints || 0, y.hints || 0) };
+    const f = mergeFix(x.fix, y.fix);
+    if (f) out.fix = clone(f);
+    return out;
   }
   function mergeLevel(x, y) {
     if (!x || !y) return clone(x || y);

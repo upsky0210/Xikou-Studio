@@ -5,21 +5,28 @@
      title   書架上顯示的名稱
      file    資料檔路徑（相對於 index.html）
      global  資料檔裡宣告的物件名稱（例如 const MN6 = {...}）
-     color   書卡左邊的色條 */
+     color   書卡左邊的色條
+     shelf   放在哪一款教材（SHELVES 的 id） */
+/* 首頁的教材（一個年級一學期一款），照這裡的順序排；下學期做好再加 6b、5b、4b。art 是封面用的小圖（img/zone/） */
+window.SHELVES = [
+  { id: '6a', title: '六上教材', color: '#2f55d4', art: 'castle' },
+  { id: '5a', title: '五上教材', color: '#0f8a6c', art: 'fort' },
+  { id: '4a', title: '四上教材', color: '#c2410c', art: 'clocktower' },
+];
 window.BOOKS = [
-  { id: 'mn6', title: '六上數學', pub: '南一版', file: 'data/mn6.js', global: 'MN6', color: '#1d4ed8' },
-  { id: 'ns6', title: '六上自然', pub: '南一版', file: 'data/ns6.js', global: 'NS6', color: '#16a34a' },
-  { id: 'ck6', title: '六上國語', pub: '康軒版', file: 'data/ck6.js', global: 'CK6', color: '#dc2626' },
-  { id: 'sk6', title: '六上社會', pub: '康軒版', file: 'data/sk6.js', global: 'SK6', color: '#d97706' },
-  { id: 'en6', title: '六上英語', pub: '康軒版', file: 'data/en6.js', global: 'EN6', color: '#7c3aed' },
-  { id: 'mn5', title: '五上數學', pub: '南一版', file: 'data/mn5.js', global: 'MN5', color: '#0e7490' },
-  { id: 'ck5', title: '五上國語', pub: '康軒版', file: 'data/ck5.js', global: 'CK5', color: '#be185d' },
-  { id: 'ns5', title: '五上自然', pub: '南一版', file: 'data/ns5.js', global: 'NS5', color: '#15803d' },
-  { id: 'ss5', title: '五上社會', pub: '南一版', file: 'data/ss5.js', global: 'SS5', color: '#b45309' },
-  { id: 'en5', title: '五上英語', pub: '康軒版', file: 'data/en5.js', global: 'EN5', color: '#6d28d9' },
-  { id: 'en4', title: '四上英語', pub: '康軒版', file: 'data/en4.js', global: 'EN4', color: '#4f46e5' },
-  { id: 'mk4', title: '四上數學', pub: '康軒版', file: 'data/mk4.js', global: 'MK4', color: '#0369a1' },
-  { id: 'ns4', title: '四上自然', pub: '南一版', file: 'data/ns4.js', global: 'NS4', color: '#65a30d' },
-  { id: 'cn4', title: '四上國語', pub: '南一版', file: 'data/cn4.js', global: 'CN4', color: '#e11d48' },
-  { id: 'ss4', title: '四上社會', pub: '翰林版', file: 'data/ss4.js', global: 'SS4', color: '#c2410c' },
+  { id: 'mn6', shelf: '6a', title: '六上數學', pub: '南一版', file: 'data/mn6.js', global: 'MN6', color: '#1d4ed8' },
+  { id: 'ns6', shelf: '6a', title: '六上自然', pub: '南一版', file: 'data/ns6.js', global: 'NS6', color: '#16a34a' },
+  { id: 'ck6', shelf: '6a', title: '六上國語', pub: '康軒版', file: 'data/ck6.js', global: 'CK6', color: '#dc2626' },
+  { id: 'sk6', shelf: '6a', title: '六上社會', pub: '康軒版', file: 'data/sk6.js', global: 'SK6', color: '#d97706' },
+  { id: 'en6', shelf: '6a', title: '六上英語', pub: '康軒版', file: 'data/en6.js', global: 'EN6', color: '#7c3aed' },
+  { id: 'mn5', shelf: '5a', title: '五上數學', pub: '南一版', file: 'data/mn5.js', global: 'MN5', color: '#0e7490' },
+  { id: 'ck5', shelf: '5a', title: '五上國語', pub: '康軒版', file: 'data/ck5.js', global: 'CK5', color: '#be185d' },
+  { id: 'ns5', shelf: '5a', title: '五上自然', pub: '南一版', file: 'data/ns5.js', global: 'NS5', color: '#15803d' },
+  { id: 'ss5', shelf: '5a', title: '五上社會', pub: '南一版', file: 'data/ss5.js', global: 'SS5', color: '#b45309' },
+  { id: 'en5', shelf: '5a', title: '五上英語', pub: '康軒版', file: 'data/en5.js', global: 'EN5', color: '#6d28d9' },
+  { id: 'en4', shelf: '4a', title: '四上英語', pub: '康軒版', file: 'data/en4.js', global: 'EN4', color: '#4f46e5' },
+  { id: 'mk4', shelf: '4a', title: '四上數學', pub: '康軒版', file: 'data/mk4.js', global: 'MK4', color: '#0369a1' },
+  { id: 'ns4', shelf: '4a', title: '四上自然', pub: '南一版', file: 'data/ns4.js', global: 'NS4', color: '#65a30d' },
+  { id: 'cn4', shelf: '4a', title: '四上國語', pub: '南一版', file: 'data/cn4.js', global: 'CN4', color: '#e11d48' },
+  { id: 'ss4', shelf: '4a', title: '四上社會', pub: '翰林版', file: 'data/ss4.js', global: 'SS4', color: '#c2410c' },
 ];

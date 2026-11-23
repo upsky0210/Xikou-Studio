@@ -186,4 +186,65 @@ assert.equal(E.masterNeed(7), 5);
   assert.deepEqual(L(1430), [11, 30, 250]);
   console.log('9 ok  等級：50、120、210、320… 升級');
 }
+// 10. 錯題複習：隔天 → 再過 3 天 → 學會；答錯重來；不動 EXP、first、精熟
+{
+  const DAY = 86400000, L1 = book.levels[0], L2 = book.levels[1];
+  clock.t = Math.floor(clock.t / DAY) * DAY + 2 * 3600000;               // 台灣時間上午 10 點
+  assert.deepEqual([...E.REVIEW_DAYS], [1, 3]);
+  const s = fresh();
+  play(s, L1, [1, 0, 2, 0, 0, 0, 0]);                                    // 第 1、3 題第一次答錯
+  play(s, L2, [0, 0, 0, 0, 0, 0, 1]);
+  const ids = (a) => [...a].map((x) => x.level.id + '-' + x.i).join();
+  const list = () => E.reviewList(s, book);
+  assert.equal(E.reviewCount(s, 'tt'), 0);
+  assert.equal(ids(list().later), 'L1-0,L1-2,L2-6');
+  assert.equal(list().later[0].wait, 1);
+  clock.t += 13 * 3600000;
+  assert.equal(E.reviewCount(s, 'tt'), 0);                               // 同一天晚上 11 點：還不行
+  clock.t += 2 * 3600000;
+  assert.equal(E.reviewCount(s, 'tt'), 3);                               // 過了半夜：可以
+  const rec = () => JSON.stringify(s.books.tt.levels.L1.q.map((q) => [q.first, q.ok, q.hints]));
+  const exp = s.books.tt.exp, before = rec();
+  const go = (items, plan, practice) => {
+    const run = E.startReview('tt', items, practice);
+    E.enterQuestion(run);
+    for (;;) {
+      const it = run.fix[run.index], times = plan[it.level.id + '-' + it.i] || 0;
+      for (let k = 0; k < times; k++) {
+        while (E.needHint(run)) E.revealHint(s, run);
+        E.answer(s, run, '錯' + (k + 1));
+        assert.equal(E.answer(s, run, '對').blocked, true);              // 複習也一樣鎖 2 秒
+        wait();
+      }
+      while (E.needHint(run)) E.revealHint(s, run);
+      assert.equal(E.answer(s, run, '對').gained, 0);
+      if (!E.next(run)) return run;
+      E.enterQuestion(run);
+    }
+  };
+  go(list().due, {}, true);                                              // 只練剛才錯的：不算進紀錄
+  assert.equal(E.reviewCount(s, 'tt'), 3);
+  const r1 = go(list().due, { 'L1-2': 2 });                              // L1-2 複習時又錯
+  assert.equal(ids(E.missed(r1)), 'L1-2');
+  assert.equal(E.reviewCount(s, 'tt'), 0);
+  assert.equal(list().later.find((x) => x.i === 0).wait, 3);
+  assert.equal(list().later.find((x) => x.i === 2).wait, 1);
+  clock.t += DAY;
+  assert.equal(ids(list().due), 'L1-2');
+  clock.t += 2 * DAY;
+  assert.equal(E.reviewCount(s, 'tt'), 3);
+  const r2 = go(list().due, {});
+  assert.equal([...r2.fix].filter((x) => x.learnedNow).length, 2);
+  assert.equal(ids(list().learned), 'L1-0,L2-6');
+  assert.equal(list().later[0].n, 1);
+  assert.equal(s.books.tt.exp, exp);
+  assert.equal(rec(), before);
+  assert.ok(!('' in s.books.tt.levels));                                 // 複習不會在存檔裡多出一關
+  // 加規則以前的錯題（沒有 fix）直接可以練；還沒答對過的不算；一次最多 5 題
+  for (const q of s.books.tt.levels.L2.q) { q.first = false; delete q.fix; }
+  s.books.tt.levels.L2.q[0].ok = false;
+  assert.equal(E.reviewCount(s, 'tt'), 6);
+  assert.equal(E.startReview('tt', list().due).level.q.length, E.REVIEW_MAX);
+  console.log('10 ok  錯題複習：隔天、再過 3 天、學會；不動 EXP 和精熟');
+}
 console.log('規則測試全部通過');

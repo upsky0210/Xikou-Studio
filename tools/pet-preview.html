@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>寵物造型預覽</title>
+<link href="../fonts/noto-sans-tc.css" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 18px 16px 40px; background: #fdf6e3; color: #1a2246; font-family: 'Noto Sans TC', sans-serif; }
+  main { max-width: 1060px; margin: 0 auto; }
+  h1 { margin: 0 0 4px; font-size: 26px; font-weight: 900; }
+  p { margin: 0 0 14px; font-size: 15px; }
+  section { margin: 0 0 18px; padding: 14px 16px; background: #fff; border: 3px solid #1a2246; border-radius: 18px; }
+  h2 { margin: 0 0 8px; font-size: 20px; font-weight: 900; } h2 small { margin-left: 8px; font-size: 14px; font-weight: 700; color: #5a6182; }
+  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; }
+  figure { margin: 0; text-align: center; } canvas { width: 100%; max-width: 190px; aspect-ratio: 1; display: block; margin: 0 auto; border-radius: 14px; background: #e6f3ff; }
+  figcaption { margin-top: 4px; font-size: 14px; font-weight: 700; }
+  canvas.tiny { width: 40px; height: 40px; border-radius: 50%; margin: 0 4px; display: inline-block; } .tinys { padding: 34px 0; white-space: nowrap; }
+</style></head>
+<body><main>
+<!-- 開發用：看寵物造型（還沒放進遊戲）。會動的版本；?still=1 停住、方便截圖 -->
+<h1>寵物造型預覽・第一批</h1>
+<p>還沒放進遊戲，先給老師看造型。每隻有：蛋、寶寶、少年、成年、側面、縮小到 40 像素。</p>
+<div id="out"></div>
+</main>
+<script type="module">
+import { THREE } from '../js/3d/kit.js';
+import { PETS, buildPet, buildEgg } from '../js/3d/pets.js';
+const still = new URLSearchParams(location.search).get('still') === '1';
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(380, 380, false);
+const views = [];
+function view(canvas, make, yaw, px = 380) {
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight('#eaf5ff', '#9a8562', 1.35), new THREE.AmbientLight('#ffffff', 0.4));
+  const sun = new THREE.DirectionalLight('#fff3dc', 1.8); sun.position.set(-14, 30, 26); scene.add(sun);
+  const pet = make(); pet.group.rotation.y = yaw; scene.add(pet.group);
+  const cam = new THREE.PerspectiveCamera(26, 1, 0.1, 50);
+  cam.position.set(0, 1.15, 4.5); cam.lookAt(0, 0.74, 0);
+  canvas.width = canvas.height = px;
+  views.push({ ctx: canvas.getContext('2d'), scene, cam, pet, px });
+}
+for (const p of PETS) {
+  const sec = document.createElement('section');
+  sec.innerHTML = `<h2>${p.name}<small>最好認的特徵：${p.sign}</small></h2><div class="row"></div>`;
+  const row = sec.lastElementChild;
+  const add = (cap, make, yaw) => { const f = document.createElement('figure'); f.innerHTML = `<canvas></canvas><figcaption>${cap}</figcaption>`; row.append(f); view(f.firstChild, make, yaw); };
+  add('蛋', () => buildEgg(p.id), 0);
+  ['寶寶', '少年', '成年'].forEach((c, i) => add(c, () => buildPet(p.id, i), 0.22));
+  add('側面', () => buildPet(p.id, 1), 1.35);
+  add('背面', () => buildPet(p.id, 1), Math.PI - 0.4);
+  const f = document.createElement('figure');
+  f.innerHTML = `<div class="tinys">${[0, 1, 2].map(() => '<canvas class="tiny"></canvas>').join('')}</div><figcaption>40 像素</figcaption>`;
+  row.append(f);
+  [...f.querySelectorAll('canvas')].forEach((c, i) => view(c, () => buildPet(p.id, i), 0.15, 80));
+  document.getElementById('out').append(sec);
+}
+let t = 0.4;
+function draw() {
+  for (const v of views) {
+    v.pet.animate(t);
+    renderer.render(v.scene, v.cam);
+    v.ctx.clearRect(0, 0, v.px, v.px);
+    v.ctx.imageSmoothingQuality = 'high';
+    v.ctx.drawImage(renderer.domElement, 0, 0, v.px, v.px);
+  }
+}
+draw();
+document.title = '寵物造型預覽 ready';
+if (!still) renderer.setAnimationLoop((ms) => { if (ms / 1000 - t < 1 / 24) return; t = ms / 1000; draw(); });
+</script>
+</body></html>

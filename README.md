@@ -141,6 +141,12 @@ node tools/review-sheet.mjs drafts/抽驗清單-L07-L08.md drafts/questions-L07-
 - 兩台裝置各過了同一區的不同關時，合併後打開地圖會補發那一區的徽章（`Engine.syncBadges`）。
 - 改了 `js/save.js` 要跑 `node tools/save-test.mjs`（不連網路，用假的 Firebase 跑 17 種情境）。
 
+## 首頁書架和錯題複習（2026-11-23）
+
+- 首頁是三款教材（`js/books.js` 的 `SHELVES`），網址 `#/s/6a` 是六上教材的五本課本。每本書用 `shelf` 指定放在哪一款。
+- 錯題複習：網址 `#/r/mn6`，地圖上方的「錯題複習」按鈕。規則在 `js/engine.js` 開頭，間隔和次數是 `REVIEW_DAYS`（預設 `[1, 3]`），一次幾題是 `REVIEW_MAX`。
+- 寵物（還沒放進遊戲）：`js/3d/pets.js`，造型預覽 `tools/pet-preview.html`（加 `?still=1` 停住）。
+
 ## 3D 地圖
 
 - 用 three.js r160（`vendor/three/`，ES module）。不能跑 3D 的瀏覽器、直接雙擊開 `index.html`（file://）時，會自動改成平面地圖，其他功能一樣。

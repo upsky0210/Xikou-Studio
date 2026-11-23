@@ -15,6 +15,10 @@
    - 等級（2026-11-22）：全部的書 EXP 加起來算一個等級，跟著角色走。從 Lv.1 開始，
      升到 Lv.2 要 50 EXP，之後每一級多要 20（50、70、90…），累計是 50、120、210、320、450…。
      等級只是顯示，不影響答題規則；EXP 沒有扣，所以等級不會掉。
+   - 錯題複習（2026-11-23）：第一次答錯、後來答對的題目，隔天可以複習；一選就對，再過 3 天複習第二次；
+     兩次都一選就對＝學會了。複習時答錯，從「隔天」重新開始。天數和次數只改下面的 REVIEW_DAYS。
+     複習不加 EXP、不改 first，所以不影響精熟和徽章。每題的紀錄在存檔的 q[i].fix＝{ n：練對幾次, at：上次的時間 }；
+     加這條規則以前的錯題沒有 fix，直接算可以複習。
 
    題目位置陣列：[題幹, 正解, [干擾項×3], [提示×3], 詳解, 附件?] */
 (function () {
@@ -22,6 +26,9 @@
   const HINTS_PER_Q = 3;
   const LOCK_MS = 2000;             // 答錯後多久不能再選
   const MASTER_OF_7 = 5;            // 7 題裡第一次就答對幾題算精熟
+  // 錯題複習的間隔（天）。[1, 3]＝答錯後隔 1 天練第一次，練對後再隔 3 天練第二次；有幾個數字就要練對幾次。
+  const REVIEW_DAYS = [1, 3];
+  const REVIEW_MAX = 5;             // 一次最多複習幾題
 
   // 這一關要第一次就答對幾題才算精熟
   const masterNeed = (total) => Math.max(1, Math.ceil(total * MASTER_OF_7 / 7));
@@ -117,16 +124,22 @@
   // 作答：回傳 { ok, gained }；還在鎖定、或要先看提示時回傳 { blocked: true }，不算作答
   function answer(state, run, text) {
     if (Date.now() < run.lockUntil || needHint(run)) return { ok: false, gained: 0, blocked: true };
-    const qState = levelState(state, run.bookId, run.level).q[run.index];
     const ok = text === run.current.answer;
-    if (run.tries[run.index] === null) run.tries[run.index] = ok;
+    const firstTry = run.tries[run.index] === null;
+    if (firstTry) run.tries[run.index] = ok;
     let gained = 0;
-    if (qState.first === null) {
-      qState.first = ok;
-      if (ok) gained = EXP_PER_Q;
+    if (run.fix) {
+      if (firstTry && !run.practice) markFix(state, run, ok);
+    } else {
+      const qState = levelState(state, run.bookId, run.level).q[run.index];
+      if (qState.first === null) {
+        qState.first = ok;
+        if (ok) gained = EXP_PER_Q;
+        else qState.fix = { n: 0, at: Date.now() };      // 進錯題複習，隔天可以練
+      }
+      if (ok) qState.ok = true;
     }
     if (ok) {
-      qState.ok = true;
       run.ok[run.index] = true;
     } else {
       if (!run.wrongPicks[run.index].includes(text)) run.wrongPicks[run.index].push(text);
@@ -134,7 +147,7 @@
       run.lockUntil = Date.now() + LOCK_MS;
     }
     run.expGained += gained;
-    recalcExp(state, run.bookId);
+    if (!run.fix) recalcExp(state, run.bookId);
     return { ok, gained };
   }
 
@@ -144,7 +157,7 @@
     if (run.shown[i] >= HINTS_PER_Q) return run.shown[i];
     run.shown[i]++;
     run.hintsUsed++;
-    levelState(state, run.bookId, run.level).q[i].hints++;
+    if (!run.fix) levelState(state, run.bookId, run.level).q[i].hints++;   // 複習時看提示不記進原本的紀錄
     return run.shown[i];
   }
 
@@ -236,6 +249,60 @@
     };
   }
 
+  /* ---------- 錯題複習 ---------- */
+  const dayOf = (ms) => Math.floor((ms + 8 * 3600000) / 86400000);      // 台灣時間的第幾天：過了半夜就算隔天
+  /* 這一題的複習狀況：null＝不是錯題；否則 { n, learned, wait }，wait＝還要等幾天（0＝今天可以練） */
+  function fixOf(q) {
+    if (!q || q.first !== false || !q.ok) return null;
+    const n = q.fix ? q.fix.n : 0;
+    if (n >= REVIEW_DAYS.length) return { n, learned: true, wait: 0 };
+    const wait = q.fix ? Math.max(0, dayOf(q.fix.at) + REVIEW_DAYS[n] - dayOf(Date.now())) : 0;
+    return { n, learned: false, wait };
+  }
+  // 這本書今天可以複習幾題（只看存檔，不用載入題目）
+  function reviewCount(state, bookId) {
+    const b = state.books[bookId];
+    let due = 0;
+    for (const l of Object.values((b && b.levels) || {})) {
+      for (const q of l.q || []) { const f = fixOf(q); if (f && !f.learned && !f.wait) due++; }
+    }
+    return due;
+  }
+  // 這本書的錯題：{ due 今天可以練, later 還沒到時間, learned 學會了 }，每個是 [{ level, i, n, wait }]
+  function reviewList(state, book) {
+    const b = state.books[book.id], out = { due: [], later: [], learned: [] };
+    for (const level of book.levels) {
+      const l = b && b.levels[level.id];
+      if (!l || !playable(level)) continue;
+      l.q.forEach((q, i) => {
+        const f = level.q[i] && fixOf(q);
+        if (f) out[f.learned ? 'learned' : f.wait ? 'later' : 'due'].push({ level, i, n: f.n, wait: f.wait });
+      });
+    }
+    return out;
+  }
+  /* 開始複習：items＝要練的題目（{ level, i }）。practice＝true 是「只練剛才錯的」，不記進複習紀錄。 */
+  function startReview(bookId, items, practice) {
+    const pick = (practice ? items : shuffle(items).slice(0, REVIEW_MAX)).map((x) => ({ level: x.level, i: x.i, n: x.n || 0 }));
+    const q = pick.map((x) => x.level.q[x.i]), idx = q.map((_, k) => k);
+    return {
+      bookId, level: { id: '', name: '錯題複習', z: pick[0].level.z, q }, fix: pick, practice: !!practice, review: true,
+      ok: idx.map(() => false), order: idx, index: 0,
+      shown: idx.map(() => 0), wrongPicks: idx.map(() => []), shownAtWrong: idx.map(() => 0), tries: idx.map(() => null),
+      lockUntil: 0, expGained: 0, hintsUsed: 0, current: null,
+    };
+  }
+  // 複習時每題的第一次作答：對了 n 加 1，錯了回到 0；都記下時間
+  function markFix(state, run, ok) {
+    const it = run.fix[run.index], q = levelState(state, run.bookId, it.level).q[it.i];
+    q.fix = { n: ok ? (q.fix ? q.fix.n : 0) + 1 : 0, at: Date.now() };
+    it.learnedNow = q.fix.n >= REVIEW_DAYS.length;
+  }
+  // 這次答錯過的題目（給「只練剛才錯的」）
+  function missed(run) {
+    return run.tries.map((t, i) => t !== false ? null : run.fix ? run.fix[i] : { level: run.level, i }).filter(Boolean);
+  }
+
   /* 等級：total＝全部的書 EXP 加起來。回傳 { lv, into, need }：
      into＝這一級已經累積多少、need＝這一級總共要多少（升到下一級） */
   const LV_BASE = 50, LV_STEP = 20;
@@ -246,7 +313,8 @@
   }
 
   window.Engine = {
-    EXP_PER_Q, HINTS_PER_Q, LOCK_MS,
+    EXP_PER_Q, HINTS_PER_Q, LOCK_MS, REVIEW_DAYS, REVIEW_MAX,
+    reviewCount, reviewList, startReview, missed,
     shuffle, view, playable, startRun, enterQuestion, answer, needHint, position, masterNeed, revealHint, next, finish,
     zoneInfo, regularZones, islandLevels, islandComplete, syncBadges, levelSummary, recalcExp, levelOf,
   };
