@@ -6,7 +6,7 @@
    眼睛只有圓點加一個亮點；不穿衣服、不拿東西；一隻只有一個最好認的特徵；一隻最多三種主色。
    stage：0 寶寶、1 少年、2 成年（只有體型和特徵變大）。正面朝 +z，腳底在 y=0。 */
 import { THREE, blobShadow } from './kit.js';
-import { Soft, joint, on, blink } from './hero.js';
+import { Soft, joint, on, blink } from './soft.js';
 
 export const PETS = [
   { id: 'bear', name: '小黑熊', sign: '胸前 V 字白紋' },

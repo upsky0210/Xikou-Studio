@@ -999,8 +999,8 @@
   /* ---------- 選角色：貓劍士或兔探險家（記在這台裝置上；3D 地圖、結算畫面都用它） ---------- */
   const HERO_KEY = 'xk-hero';
   const HEROES = [
-    { id: 'cat', name: '貓劍士', desc: '灰白虎斑貓，戴小圓帽、背木劍' },
-    { id: 'rabbit', name: '兔探險家', desc: '米白兔子，圍圍巾、拿著地圖' },
+    { id: 'cat', name: '貓劍士', desc: '灰白虎斑貓，圍藍領巾、背小木劍' },
+    { id: 'rabbit', name: '兔探險家', desc: '米白兔子，圍橘圍巾、背綠背包' },
   ];
   function heroId() { try { return localStorage.getItem(HERO_KEY) === 'rabbit' ? 'rabbit' : 'cat'; } catch { return 'cat'; } }
   const heroImg = () => `img/hero-${heroId()}.webp`;

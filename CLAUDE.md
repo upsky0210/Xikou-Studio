@@ -41,8 +41,8 @@
   - RPG（戰鬥、寵物）在同一個專案做，網址加 `?rpg=1` 才看得到，不開支線、不複製專案。**不要音效**（英語聽力的發音保留）。
   - 錯題複習（2026-11-23 已上線）：第一次答錯的題目隔天可練，一選就對再過 3 天練第二次，兩次都對＝學會；一次最多 5 題、不加 EXP。**間隔和次數只改 `js/engine.js` 的 `REVIEW_DAYS = [1, 3]`**（老師還在和同事討論），改了 `tools/engine-test.mjs` 第 10 項也要跟著改。每題紀錄是存檔的 `q[i].fix`；紀錄跟著「第幾關第幾題」，整題換掉時舊的錯題紀錄會對到新題。
   - 首頁書架（2026-11-23 已上線，老師說先試試看）：三款教材（六上、五上、四上），點進去才是五本課本。教材清單是 `js/books.js` 的 `SHELVES`，每本書用 `shelf` 指定；下學期加 6b、5b、4b。
-  - 寵物：台灣原生動物，造型不要奇怪（學生說現在的貓和兔不可愛：臉頰外凸、眼睛太複雜）。第一批三隻（小黑熊、藍鵲寶寶、小穿山甲）畫在 `js/3d/pets.js`，**還沒放進遊戲**，給老師看的頁面是 `tools/pet-preview.html`。老師之後會放參考圖到 `private/寵物參考/`。
-  - 主角重畫（2026-11-23）：新版貓劍士、兔探險家在 `js/3d/hero2.js`（`buildHero2`），新舊對照 `tools/hero2-preview.html`。**老師同意才換進遊戲**：換的時候改 `hero.js` 的 `buildHero`，再跑 `node tools/render-sprites.mjs` 更新 `img/hero-*.webp`，`ui.js` 的 `HEROES` 說明文字（帽子、地圖）也要改。
+  - 寵物：台灣原生動物，造型不要奇怪（學生說舊版的貓和兔不可愛：臉頰外凸、眼睛太複雜）。第一批三隻（小黑熊、藍鵲寶寶、小穿山甲）畫在 `js/3d/pets.js`，**還沒放進遊戲**，給老師看的頁面是 `tools/pet-preview.html`。老師之後會放參考圖到 `private/寵物參考/`。
+  - 主角重畫（2026-11-23 老師同意，已換進遊戲）：新版貓劍士、兔探險家在 `js/3d/hero.js`，共用的建模工具搬到 `js/3d/soft.js`（寵物也用）。改了造型要跑 `node tools/render-sprites.mjs` 更新 `img/hero*.webp`（地標和 App 圖示沒改就用 git 還原，不要一起提交）。舊版在 git 紀錄 0731a6e 的 `js/3d/hero.js`。
   - 老師看進度參考 3D 校園的 `teacher.html`（連 Classroom）；Firebase／管理控制台由老師在學校設定。
   - 三年級老師還在考慮，先不做。
 - P2 雲端存檔：Firebase Auth＋Firestore，只換 `js/save.js` 的內部。學生用 `@st.skps.tp.edu.tw` 登入，每人只能讀寫自己那份；老師用 `@skps.tp.edu.tw`。
