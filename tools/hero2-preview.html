@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>主角新舊對照</title>
+<link href="../fonts/noto-sans-tc.css" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 18px 16px 40px; background: #fdf6e3; color: #1a2246; font-family: 'Noto Sans TC', sans-serif; }
+  main { max-width: 1060px; margin: 0 auto; }
+  h1 { margin: 0 0 4px; font-size: 26px; font-weight: 900; } p { margin: 0 0 14px; font-size: 15px; }
+  section { margin: 0 0 18px; padding: 14px 16px; background: #fff; border: 3px solid #1a2246; border-radius: 18px; }
+  h2 { margin: 0 0 8px; font-size: 20px; font-weight: 900; }
+  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  figure { margin: 0; text-align: center; } canvas { width: 100%; max-width: 200px; aspect-ratio: 1; display: block; margin: 0 auto; border-radius: 14px; background: #e6f3ff; }
+  .old canvas { background: #eceae4; } figcaption { margin-top: 4px; font-size: 14px; font-weight: 700; }
+  canvas.tiny { width: 54px; height: 54px; border-radius: 50%; margin: 0 4px; display: inline-block; } .tinys { padding: 34px 0; white-space: nowrap; }
+</style></head>
+<body><main>
+<!-- 開發用：主角新版（hero2.js）和遊戲現在用的舊版（hero.js）對照。?still=1 停住、方便截圖 -->
+<h1>主角新舊對照</h1>
+<p>新版還沒換進遊戲，先給老師看。灰底是舊版。最右邊兩個小圓是首頁「你的夥伴」的大小（左新、右舊）。</p>
+<div id="out"></div>
+</main>
+<script type="module">
+import { THREE } from '../js/3d/kit.js';
+import { buildHero } from '../js/3d/hero.js';
+import { buildHero2 } from '../js/3d/hero2.js';
+const still = new URLSearchParams(location.search).get('still') === '1';
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(420, 420, false);
+const views = [];
+function view(canvas, make, yaw, walk = false, px = 420) {
+  const scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight('#eaf5ff', '#9a8562', 1.35), new THREE.AmbientLight('#ffffff', 0.4));
+  const sun = new THREE.DirectionalLight('#fff3dc', 1.8); sun.position.set(-14, 30, 26); scene.add(sun);
+  const h = make(); h.group.rotation.y = yaw; scene.add(h.group);
+  const cam = new THREE.PerspectiveCamera(26, 1, 0.1, 50);
+  cam.position.set(0, 2.1, 8.2); cam.lookAt(0, 1.62, 0);
+  canvas.width = canvas.height = px;
+  views.push({ ctx: canvas.getContext('2d'), scene, cam, h, px, walk });
+}
+for (const [id, name, keep] of [['cat', '貓劍士', '藍色領巾和披風、背上的小木劍'], ['rabbit', '兔探險家', '橘色圍巾、綠色小背包']]) {
+  const sec = document.createElement('section');
+  sec.innerHTML = `<h2>${name}</h2><p>保留：${keep}</p><div class="row"></div>`;
+  const row = sec.lastElementChild;
+  const add = (cap, make, yaw, walk, cls = '') => { const f = document.createElement('figure'); f.className = cls; f.innerHTML = `<canvas></canvas><figcaption>${cap}</figcaption>`; row.append(f); view(f.firstChild, make, yaw, walk); };
+  add('舊版', () => buildHero(id), 0.22, false, 'old');
+  add('新版', () => buildHero2(id), 0.22);
+  add('走路', () => buildHero2(id), 0.7, true);
+  add('側面', () => buildHero2(id), 1.4);
+  add('背面', () => buildHero2(id), Math.PI - 0.4);
+  const f = document.createElement('figure');
+  f.innerHTML = '<div class="tinys"><canvas class="tiny"></canvas><canvas class="tiny"></canvas></div><figcaption>首頁大小</figcaption>';
+  row.append(f);
+  const [a, b] = f.querySelectorAll('canvas');
+  view(a, () => buildHero2(id), 0.2, false, 108); view(b, () => buildHero(id), 0.2, false, 108);
+  document.getElementById('out').append(sec);
+}
+let t = 0.4;
+function draw() {
+  for (const v of views) {
+    v.h.animate(t, t * 9, v.walk);
+    renderer.render(v.scene, v.cam);
+    v.ctx.clearRect(0, 0, v.px, v.px);
+    v.ctx.imageSmoothingQuality = 'high';
+    v.ctx.drawImage(renderer.domElement, 0, 0, v.px, v.px);
+  }
+}
+draw();
+if (!still) renderer.setAnimationLoop((ms) => { if (ms / 1000 - t < 1 / 24) return; t = ms / 1000; draw(); });
+</script>
+</body></html>
