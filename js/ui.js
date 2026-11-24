@@ -401,7 +401,8 @@
           <h1 class="logotype" data-text="溪口練功王國">溪口練功王國</h1>
           <p class="tagline">選你的教材，展開你的冒險</p>
           <button class="hero-chip" id="heroChip" type="button"><img src="${heroImg()}" alt=""><span><small>你的夥伴</small><b>${esc(heroName())}</b>${levelHTML(totalExp())}</span><em>${ICON.hero} 換角色</em></button>
-          ${Save.user ? '' : `<button class="login-chip" id="homeLogin" type="button">${G_ICON}<span><b>登入學校帳號</b><small>現在沒登入，進度只存在這台裝置</small></span></button>`}
+          ${Save.user ? '' : `<button class="login-chip" id="homeLogin" type="button">${G_ICON}<span><b>登入學校帳號</b><small>現在沒登入，進度只存在這台裝置</small></span></button>
+          <button class="home-guest" id="homeGuest" type="button">${ICON.hero}<span>訪客（免帳號）直接玩</span></button>`}
         </div>
         <div>
           <div class="shelf">${shelves}</div>
@@ -413,6 +414,12 @@
     $('#creditsBtn').onclick = openCredits;
     // 沒登入的人：首頁就看得到登入的入口，不用去選單找
     if ($('#homeLogin')) $('#homeLogin').onclick = () => openLogin();
+    // 訪客（免帳號）：記下選擇，叫學生直接點下面的教材
+    if ($('#homeGuest')) $('#homeGuest').onclick = () => {
+      Save.useGuest();
+      toast(`${ICON.hero} 訪客模式：直接點下面的教材開始，進度只存在這台裝置`);
+      $('.shelf').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
     // 一進站先選角色（共用的 iPad：每次打開網站，下一位同學都可以重選），選好了再問要不要登入
     let asked = false;
     try { asked = sessionStorage.getItem('xk-hero-asked') === '1'; sessionStorage.setItem('xk-hero-asked', '1'); } catch { asked = true; }
